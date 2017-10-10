@@ -22,10 +22,13 @@ export class GuiFgc implements IGui {
         this.type = type;
     }
 
-    addGui(): void {
+    addGui(extraMore?: boolean = false): void {
         this.guiContainer = this.game.add.group();
         this.addPlayBtn();
-        this.addMoreBtn();
+        if (!extraMore)
+            this.addMoreBtn();
+        else
+            this.addExtraMore();
         this.addLogoBtn();
         this.addMusicBtns();
     }
@@ -40,6 +43,9 @@ export class GuiFgc implements IGui {
                     Assets.Atlases.AtlasesGuiFgc.Frames.StartFgc,
                     Assets.Atlases.AtlasesGuiFgc.Frames.StartFgc],
                 true, false, true, this.nextState, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+    }
+    private addExtraMore(): void {
+        // TODO Implemetnt Extra More Logic, Later through XML ot Json file template
     }
 
     private addMoreBtn(): void {
