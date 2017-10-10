@@ -1,21 +1,37 @@
 import * as Utils from '../utils/utils';
 import * as Assets from '../assets';
+import {BootUtils} from '../utils/bootUtils';
+import {GameConfig, Sites} from '../config/gameConfig';
 
 export default class Boot extends Phaser.State {
+
+    public init(...args: any[]): void {
+        GameConfig.GAME = this.game;
+    }
+
     public preload(): void {
         // Load any assets you need for your preloader state here.
-        this.game.load.atlasJSONArray(Assets.Atlases.AtlasesPreloadSpritesArray.getName(), Assets.Atlases.AtlasesPreloadSpritesArray.getPNG(), Assets.Atlases.AtlasesPreloadSpritesArray.getJSONArray());
-        // this.game.load.atlasJSONHash(Assets.Atlases.AtlasesPreloadSpritesHash.getName(), Assets.Atlases.AtlasesPreloadSpritesHash.getPNG(), Assets.Atlases.AtlasesPreloadSpritesHash.getJSONHash());
-        // this.game.load.atlasXML(Assets.Atlases.AtlasesPreloadSpritesXml.getName(), Assets.Atlases.AtlasesPreloadSpritesXml.getPNG(), Assets.Atlases.AtlasesPreloadSpritesXml.getXML());
+
+        if (GameConfig.SITE === Sites.MY_CUTE_GAMES)
+            BootUtils.preloadMcg();
+        else if (GameConfig.SITE === Sites.DRESSUP_MIX)
+            BootUtils.preloadDu();
+        else if (GameConfig.SITE === Sites.FREE_GAMES_CASUAL)
+            BootUtils.preloadFgc();
     }
 
     public create(): void {
         // Do anything here that you need to be setup immediately, before the game actually starts doing anything.
 
+        // Enable background activity
+        this.stage.disableVisibilityChange = true;
+
         // Uncomment the following to disable multitouch
-        // this.input.maxPointers = 1;
+        this.input.maxPointers = 1;
 
         this.game.scale.scaleMode = Phaser.ScaleManager[SCALE_MODE];
+        // A little Matrixing the time flow
+        this.game.time.desiredFps = 60;
 
         if (SCALE_MODE === 'USER_SCALE') {
             let screenMetrics: Utils.ScreenMetrics = Utils.ScreenUtils.screenMetrics;
@@ -58,6 +74,6 @@ export default class Boot extends Phaser.State {
            \nSOUND_EXTENSIONS_PREFERENCE. ${SOUND_EXTENSIONS_PREFERENCE}`
         );
 
-        this.game.state.start('preloader');
+        this.game.state.start('Preloader');
     }
 }

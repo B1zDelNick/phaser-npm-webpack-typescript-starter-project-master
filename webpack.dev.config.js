@@ -16,6 +16,7 @@ module.exports = {
             pixi: path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
             phaser: path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js'),
             p2: path.join(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
+            // spriter: path.join(__dirname, 'vendor/spriter/spriter.min.js'),
             assets: path.join(__dirname, 'assets/')
         }
     },
@@ -45,7 +46,7 @@ module.exports = {
             path.join(__dirname, 'dist')
         ]),
         new HtmlWebpackPlugin({
-            title: 'DEV MODE: Phaser NPM Webpack TypeScript Starter Project!',
+            title: 'Cinderellas Bridal Fashion Collection',
             template: path.join(__dirname, 'templates/index.ejs')
         })
     ],
@@ -67,6 +68,7 @@ module.exports = {
             { test: /pixi\.js$/, loader: 'expose-loader?PIXI' },
             { test: /phaser-split\.js$/, loader: 'expose-loader?Phaser' },
             { test: /p2\.js$/, loader: 'expose-loader?p2' },
+            //{ test: /spriter\.js$/, loader: 'expose-loader?Spriter' },
             { test: /\.ts$/, loader: 'ts-loader', exclude: '/node_modules/' }
         ]
     },

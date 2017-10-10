@@ -190,6 +190,16 @@ export class Loader {
         this.loadShaders();
     }
 
+    public static loadSelectedAssets(game: Phaser.Game, toCall: Function, onComplete?: Function, onCompleteContext?: any) {
+        this.game = game;
+
+        if (onComplete) {
+            this.game.load.onLoadComplete.addOnce(onComplete, onCompleteContext);
+        }
+
+        toCall.call(null);
+    }
+
     public static waitForSoundDecoding(onComplete: Function, onCompleteContext?: any) {
         if (this.soundKeys.length > 0) {
             this.game.sound.setDecodedCallback(this.soundKeys, onComplete, onCompleteContext);

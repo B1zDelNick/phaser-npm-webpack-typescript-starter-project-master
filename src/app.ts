@@ -6,19 +6,26 @@ import * as WebFontLoader from 'webfontloader';
 
 import Boot from './states/boot';
 import Preloader from './states/preloader';
-import Title from './states/title';
 import * as Utils from './utils/utils';
 import * as Assets from './assets';
+import {AssetMode, GameConfig, PublishMode, Sites} from './config/gameConfig';
+import Start from './states/start';
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
         super (config);
 
-        this.state.add('boot', Boot);
-        this.state.add('preloader', Preloader);
-        this.state.add('title', Title);
+        GameConfig.init(
+            Sites.FREE_GAMES_CASUAL,
+            PublishMode.NORMAL,
+            AssetMode.LOAD_BACKGROUND,
+            'Cinderellas Bridal Fashion Collection');
 
-        this.state.start('boot');
+        this.state.add('Boot', Boot);
+        this.state.add('Preloader', Preloader);
+        this.state.add('Start', Start);
+
+        this.state.start('Boot');
     }
 }
 
@@ -38,8 +45,9 @@ function startApp(): void {
         width: gameWidth,
         height: gameHeight,
         renderer: Phaser.AUTO,
-        parent: '',
-        resolution: 1
+        parent: 'game-container',
+        resolution: 1,
+        transparent: false
     };
 
     let app = new App(gameConfig);

@@ -6,10 +6,83 @@
 
     <style>
         body {
-            margin: 0px;/*This removes the border around the canvas that Phaser adds, making the game actually take up all the available space*/
+            padding: 0;
+            margin: 0 auto;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: hidden;
+        }
+
+        #mainContainer {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #content, #adContainer
+        {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        #contentElement {
+            overflow: hidden;
         }
     </style>
 </head>
 <body>
+    <div id="mainContainer">
+
+        <div id="content" style="display: none">
+            <video id="contentElement">
+            </video>
+        </div>
+        <div id="game-container"></div>
+        <div id="adContainer" style="display: none"></div>
+
+    </div>
+
+    <!-- Google Analytics -->
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-3795986-7', 'auto');
+    </script>
+    <!-- End Google Analytics -->
+
+    <script type="text/javascript">
+
+        window.addEventListener('resize', resize, false);
+        window.addEventListener('orientationchange', resize, false);
+        resize();
+
+        function resize()
+        {
+            var canvas = document.getElementById('game-container');
+            var mainFrame = document.getElementById('mainContainer');
+            var canvasRatio = canvas.clientHeight / canvas.clientWidth;
+            var windowRatio = window.innerHeight / window.innerWidth;
+            var width;
+            var height;
+            height = window.innerHeight;
+            width = height / windowRatio;
+            canvas.style.height = height + 'px';
+            canvas.style.width = width + 'px';
+        }
+
+    </script>
+
+    <script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+
 </body>
 </html>

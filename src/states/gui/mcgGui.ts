@@ -1,0 +1,86 @@
+import * as Assets from '../../assets';
+import {IGui, StateType} from './i.gui';
+import {GameConfig} from '../../config/gameConfig';
+import {GuiUtils} from '../../utils/guiUtils';
+
+export class GuiMcg implements IGui {
+
+    game: Phaser.Game;
+    state: Phaser.State;
+    type: StateType;
+
+    private guiContainer: Phaser.Group = null;
+    private playButton: Phaser.Button = null;
+    private musonButton: Phaser.Button = null;
+    private musoffButton: Phaser.Button = null;
+    private logoButton: Phaser.Button = null;
+    private moreButton: Phaser.Button = null;
+
+    constructor(state: Phaser.State, type: StateType) {
+        this.game = GameConfig.GAME;
+        this.state = state;
+        this.type = type;
+    }
+
+    addGui(): void {
+        this.guiContainer = this.game.add.group();
+        this.addPlayBtn();
+        this.addMoreBtn();
+        this.addLogoBtn();
+        this.addMusicBtns();
+    }
+
+    private addPlayBtn(): void {
+        this.playButton =
+            GuiUtils.makeButton(
+                this.state, this.guiContainer,
+                -15, 590, 1,
+                '', Assets.Spritesheets.SpritesheetsPlayMcg1651322.getName(), [0, 1, 0],
+                true, false, true, this.nextState, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+    }
+
+    private addMoreBtn(): void {
+        this.moreButton =
+            GuiUtils.makeButton(
+                this.state, this.guiContainer,
+                810, 590, 1,
+                '', Assets.Spritesheets.SpritesheetsMoreMcg1651322.getName(), [0, 1, 0],
+                true, false, true, GuiUtils.goLinkMainMoreGames, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+    }
+
+    private addLogoBtn(): void {
+        this.logoButton =
+            GuiUtils.makeButton(
+                this.state, this.guiContainer,
+                -10, -10, 1,
+                '', Assets.Atlases.AtlasesGuiMcg.getName(),
+                [Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg, Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg, Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg],
+                true, false, true, GuiUtils.goLinkMainLogo, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+    }
+
+    private addMusicBtns(): void {
+        this.musonButton =
+            GuiUtils.makeButton(
+                this.state, this.guiContainer,
+                845, 0, .75,
+                '', Assets.Spritesheets.SpritesheetsMusicMcg1651322.getName(), [0, 1, 0],
+                true, false, true, null, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+
+        this.musoffButton =
+            GuiUtils.makeButton(
+                this.state, this.guiContainer,
+                845, 0, .75,
+                '', Assets.Spritesheets.SpritesheetsMusicOffMcg1651322.getName(), [0, 1, 0],
+                true, false, false, null, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+    }
+
+    private nextState(): void {
+        this.game.camera.onFadeComplete.addOnce(() => {
+            // this.game.state.start('Start');
+        }, this);
+        this.game.camera.fade(0x000000, 500, true, .85);
+    }
+
+    dispose(): void {
+    }
+}

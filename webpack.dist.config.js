@@ -46,11 +46,22 @@ module.exports = {
             path.join(__dirname, 'dist')
         ]),
         new Uglify({
+            uglifyOptions: {
+                compress: {
+                    warnings: false,
+                },
+                output: {
+                    comments: false
+                },
+            },
+            //sourceMap: true,
+        }),
+        /*new Uglify({
             compress: {
                 warnings: false
             },
             screw_ie8: true
-        }),
+        }),*/
         new HtmlWebpackPlugin({
             title: 'Phaser NPM Webpack TypeScript Starter Project!',
             template: path.join(__dirname, 'templates/index.ejs')
