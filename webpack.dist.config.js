@@ -3,6 +3,7 @@ var path = require('path');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var CleanWebpackPlugin = require('clean-webpack-plugin');
 var WebpackShellPlugin = require('webpack-shell-plugin');
+var ImageminPlugin = require('imagemin-webpack-plugin').default;
 const Uglify = require("uglifyjs-webpack-plugin");
 
 module.exports = {

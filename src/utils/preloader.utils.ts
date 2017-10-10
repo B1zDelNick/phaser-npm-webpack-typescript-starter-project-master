@@ -1,5 +1,5 @@
 import * as Assets from '../assets';
-import {GameConfig} from '../config/gameConfig';
+import {GameConfig} from '../config/game.config';
 
 export class PreloaderUtils {
     public static preloadStartState(): void {

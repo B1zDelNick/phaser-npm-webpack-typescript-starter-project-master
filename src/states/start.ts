@@ -1,9 +1,9 @@
 import * as Assets from '../assets';
 import {IGui, StateType} from './gui/i.gui';
-import {GameConfig, Sites} from '../config/gameConfig';
-import {GuiMcg} from './gui/mcgGui';
-import {GuiDu} from './gui/duGui';
-import {GuiFgc} from './gui/fgcGui';
+import {GameConfig, Sites} from '../config/game.config';
+import {GuiMcg} from './gui/mcg.gui';
+import {GuiDu} from './gui/du.gui';
+import {GuiFgc} from './gui/fgc.gui';
 
 export default class Start extends Phaser.State {
 
@@ -43,6 +43,7 @@ export default class Start extends Phaser.State {
     }
 
     public shutdown(): void {
+        this.gui.dispose();
     }
 }
 

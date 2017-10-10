@@ -6,6 +6,6 @@ export interface IPreloader {
     preload(): void;
     create(): void;
     update(): void;
-    shutdown(): void;
+    dispose(): void;
     enableButton(): void;
 }

@@ -1,7 +1,7 @@
 import * as Assets from '../../assets';
 import {IGui, StateType} from './i.gui';
-import {GameConfig} from '../../config/gameConfig';
-import {GuiUtils} from '../../utils/guiUtils';
+import {GameConfig} from '../../config/game.config';
+import {GuiUtils} from '../../utils/gui.utils';
 
 export class GuiMcg implements IGui {
 

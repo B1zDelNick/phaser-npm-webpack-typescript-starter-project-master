@@ -1,7 +1,7 @@
 import * as Assets from '../../assets';
 import {IGui, StateType} from './i.gui';
-import {GameConfig} from '../../config/gameConfig';
-import {GuiUtils} from '../../utils/guiUtils';
+import {GameConfig} from '../../config/game.config';
+import {GuiUtils} from '../../utils/gui.utils';
 
 export class GuiFgc implements IGui {
 
@@ -22,7 +22,7 @@ export class GuiFgc implements IGui {
         this.type = type;
     }
 
-    addGui(extraMore?: boolean = false): void {
+    addGui(extraMore: boolean = false): void {
         this.guiContainer = this.game.add.group();
         this.addPlayBtn();
         if (!extraMore)

@@ -1,7 +1,7 @@
 import * as Assets from '../../assets';
 import {IPreloader} from './i.preloader';
-import {GameConfig} from '../../config/gameConfig';
-import {GuiUtils} from '../../utils/guiUtils';
+import {GameConfig} from '../../config/game.config';
+import {GuiUtils} from '../../utils/gui.utils';
 
 export class DressupMixPreloader implements IPreloader {
 
@@ -196,7 +196,7 @@ export class DressupMixPreloader implements IPreloader {
         }
     }
 
-    public shutdown(): void {
+    public dispose(): void {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
         this.glowEmitter.destroy(true);

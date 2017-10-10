@@ -1,7 +1,7 @@
 import * as Assets from '../../assets';
 import {IPreloader} from './i.preloader';
-import {GameConfig, PublishMode} from '../../config/gameConfig';
-import {GuiUtils} from '../../utils/guiUtils';
+import {GameConfig, PublishMode} from '../../config/game.config';
+import {GuiUtils} from '../../utils/gui.utils';
 
 export class MyCuteGamesPreloader implements IPreloader {
 
@@ -187,7 +187,7 @@ export class MyCuteGamesPreloader implements IPreloader {
         }
     }
 
-    public shutdown(): void {
+    public dispose(): void {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
         this.spriterGroup.onEvent.removeAll();

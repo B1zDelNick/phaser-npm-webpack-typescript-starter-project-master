@@ -8,8 +8,8 @@ import Boot from './states/boot';
 import Preloader from './states/preloader';
 import * as Utils from './utils/utils';
 import * as Assets from './assets';
-import {AssetMode, GameConfig, PublishMode, Sites} from './config/gameConfig';
 import Start from './states/start';
+import {AssetMode, GameConfig, PublishMode, Sites} from './config/game.config';
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {

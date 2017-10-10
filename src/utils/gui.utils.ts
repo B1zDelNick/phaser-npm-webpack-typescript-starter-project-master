@@ -1,5 +1,5 @@
-import {FilterUtils} from './filterUtils';
-import {GameConfig} from '../config/gameConfig';
+import {FilterUtils} from './filter.utils';
+import {GameConfig} from '../config/game.config';
 
 export class GuiUtils {
     public static makeButton(

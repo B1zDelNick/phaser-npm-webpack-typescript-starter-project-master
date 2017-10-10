@@ -1,7 +1,6 @@
 import * as Utils from '../utils/utils';
-import * as Assets from '../assets';
-import {BootUtils} from '../utils/bootUtils';
-import {GameConfig, Sites} from '../config/gameConfig';
+import {GameConfig, Sites} from '../config/game.config';
+import {BootUtils} from '../utils/boot.utils';
 
 export default class Boot extends Phaser.State {
 

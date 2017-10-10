@@ -1,10 +1,10 @@
-import * as AssetUtils from '../utils/assetUtils';
-import {AssetMode, GameConfig, Sites} from '../config/gameConfig';
+import * as AssetUtils from '../utils/asset.utils';
 import {IPreloader} from './preload/i.preloader';
-import {PreloaderUtils} from '../utils/preloaderUtils';
-import {DressupMixPreloader} from './preload/du';
-import {MyCuteGamesPreloader} from './preload/mcg';
-import {FreeGamesCasualPreloader} from './preload/fgc';
+import {AssetMode, GameConfig, Sites} from '../config/game.config';
+import {MyCuteGamesPreloader} from './preload/mcg.preloader';
+import {DressupMixPreloader} from './preload/du.preloader';
+import {FreeGamesCasualPreloader} from './preload/fgc.preloader';
+import {PreloaderUtils} from '../utils/preloader.utils';
 
 export default class Preloader extends Phaser.State {
 
@@ -48,7 +48,7 @@ export default class Preloader extends Phaser.State {
     }
 
     public shutdown(): void {
-        this.preloader.shutdown();
+        this.preloader.dispose();
     }
 
     private waitForSoundDecoding(): void {
