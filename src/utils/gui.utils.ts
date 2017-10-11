@@ -1,7 +1,32 @@
 import {FilterUtils} from './filter.utils';
 import {GameConfig} from '../config/game.config';
+import {ISaver} from '../states/saver/i.saver';
+import {DefaultSaver} from '../states/saver/default.saver';
+import {SaverTemplates} from '../states/saver/enum.saver';
+import {VerticalSaver} from '../states/saver/vertical.saver';
 
 export class GuiUtils {
+    public static getSaver(): ISaver {
+        let saver;
+
+        switch (GameConfig.SAVER_MODE) {
+            case SaverTemplates.V_FADE_SLIDER_TEMPLATE: {
+                saver = new VerticalSaver();
+                break;
+            }
+            case SaverTemplates.CUSTOM: {
+                saver = new DefaultSaver();
+                break;
+            }
+            case SaverTemplates.NONE: {
+                saver = null;
+                break;
+            }
+        }
+
+        return saver;
+    }
+
     public static makeButton(
         parent: Phaser.State, container: Phaser.Group,
         x: number, y: number, scale: number = 1,

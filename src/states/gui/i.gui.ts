@@ -1,10 +1,13 @@
+import {ISaver} from '../saver/i.saver';
 export interface IGui {
     game: Phaser.Game;
     state: Phaser.State;
     type: StateType;
 
     addGui(): void;
+    addSaver(saver: ISaver): void;
     dispose(): void;
+    waitForLoading(): void;
 }
 
 export enum StateType {

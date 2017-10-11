@@ -179,7 +179,7 @@ export class FreeGamesCasualPreloader implements IPreloader {
 
     private nextState(): void {
         this.game.camera.onFadeComplete.addOnce(() => {
-            this.game.state.start('Start');
+            this.game.state.start('Start'); // , true, false, 'Comix');
         }, this);
         this.game.camera.fade(0x000000, 500, true, .85);
     }

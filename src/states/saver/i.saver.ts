@@ -1,10 +1,6 @@
 export interface ISaver {
-    game: Phaser.Game;
-    state: Phaser.State;
-    vs: Phaser.Button;
-    part1: Phaser.Sprite;
-    part2: Phaser.Sprite;
-
+    init(state: Phaser.State): void;
     fadeIn(): void;
-    fadeOut(): void;
+    fadeOut(callback: Function): void;
+    dispose(callback: Function): void;
 }

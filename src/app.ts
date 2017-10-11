@@ -10,20 +10,24 @@ import * as Utils from './utils/utils';
 import * as Assets from './assets';
 import Start from './states/start';
 import {AssetMode, GameConfig, PublishMode, Sites} from './config/game.config';
+import {SaverTemplates} from './states/saver/enum.saver';
+import Comix from './states/comix';
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
         super (config);
 
         GameConfig.init(
-            Sites.FREE_GAMES_CASUAL,
+            Sites.DRESSUP_MIX,
             PublishMode.NORMAL,
             AssetMode.LOAD_BACKGROUND,
+            SaverTemplates.V_FADE_SLIDER_TEMPLATE,
             'Cinderellas Bridal Fashion Collection');
 
         this.state.add('Boot', Boot);
         this.state.add('Preloader', Preloader);
         this.state.add('Start', Start);
+        this.state.add('Comix', Comix);
 
         this.state.start('Boot');
     }
@@ -47,7 +51,7 @@ function startApp(): void {
         renderer: Phaser.AUTO,
         parent: 'game-container',
         resolution: 1,
-        transparent: false
+        transparent: true
     };
 
     let app = new App(gameConfig);

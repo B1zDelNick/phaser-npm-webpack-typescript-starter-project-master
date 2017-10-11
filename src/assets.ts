@@ -6,6 +6,21 @@ export namespace Images {
 
         static getJPG(): string { return require('assets/images/bg.jpg'); }
     }
+    export class ImagesBg3 {
+        static getName(): string { return 'bg3'; }
+
+        static getJPG(): string { return require('assets/images/bg3.jpg'); }
+    }
+    export class ImagesPart1 {
+        static getName(): string { return 'part1'; }
+
+        static getPNG(): string { return require('assets/images/part1.png'); }
+    }
+    export class ImagesPart2 {
+        static getName(): string { return 'part2'; }
+
+        static getPNG(): string { return require('assets/images/part2.png'); }
+    }
     export class ImagesPrerollDu {
         static getName(): string { return 'preroll_du'; }
 
@@ -25,6 +40,11 @@ export namespace Images {
         static getName(): string { return 'preroll2_mcg'; }
 
         static getPNG(): string { return require('assets/images/preroll2_mcg.png'); }
+    }
+    export class ImagesVs {
+        static getName(): string { return 'vs'; }
+
+        static getPNG(): string { return require('assets/images/vs.png'); }
     }
 }
 
@@ -132,6 +152,69 @@ export namespace Spritesheets {
 }
 
 export namespace Atlases {
+    enum AtlasesComixStateFrames {
+        BYes1 = <any>'b_yes_1.png',
+        BYes10 = <any>'b_yes_10.png',
+        BYes11 = <any>'b_yes_11.png',
+        BYes12 = <any>'b_yes_12.png',
+        BYes13 = <any>'b_yes_13.png',
+        BYes14 = <any>'b_yes_14.png',
+        BYes15 = <any>'b_yes_15.png',
+        BYes16 = <any>'b_yes_16.png',
+        BYes2 = <any>'b_yes_2.png',
+        BYes3 = <any>'b_yes_3.png',
+        BYes4 = <any>'b_yes_4.png',
+        BYes5 = <any>'b_yes_5.png',
+        BYes6 = <any>'b_yes_6.png',
+        BYes7 = <any>'b_yes_7.png',
+        BYes8 = <any>'b_yes_8.png',
+        BYes9 = <any>'b_yes_9.png',
+        Bask2 = <any>'bask2.png',
+        Bask2B = <any>'bask2_b.png',
+        Check1 = <any>'check_1.png',
+        Check2 = <any>'check_2.png',
+        Chest = <any>'chest.png',
+        Lb = <any>'lb.png',
+        List = <any>'list.png',
+        Mmmm = <any>'mmmm.png',
+        No1 = <any>'no_1.png',
+        No10 = <any>'no_10.png',
+        No2 = <any>'no_2.png',
+        No3 = <any>'no_3.png',
+        No4 = <any>'no_4.png',
+        No5 = <any>'no_5.png',
+        No6 = <any>'no_6.png',
+        No7 = <any>'no_7.png',
+        No8 = <any>'no_8.png',
+        No9 = <any>'no_9.png',
+        Rb = <any>'rb.png',
+        Shelf = <any>'shelf.png',
+        Yes1 = <any>'yes_1.png',
+        Yes10 = <any>'yes_10.png',
+        Yes11 = <any>'yes_11.png',
+        Yes12 = <any>'yes_12.png',
+        Yes13 = <any>'yes_13.png',
+        Yes14 = <any>'yes_14.png',
+        Yes15 = <any>'yes_15.png',
+        Yes16 = <any>'yes_16.png',
+        Yes2 = <any>'yes_2.png',
+        Yes3 = <any>'yes_3.png',
+        Yes4 = <any>'yes_4.png',
+        Yes5 = <any>'yes_5.png',
+        Yes6 = <any>'yes_6.png',
+        Yes7 = <any>'yes_7.png',
+        Yes8 = <any>'yes_8.png',
+        Yes9 = <any>'yes_9.png',
+    }
+    export class AtlasesComixState {
+        static getName(): string { return 'comix_state'; }
+
+        static getJSONArray(): string { return require('assets/atlases/comix_state.json'); }
+
+        static getPNG(): string { return require('assets/atlases/comix_state.png'); }
+
+        static Frames = AtlasesComixStateFrames;
+    }
     enum AtlasesGuiDuFrames {
         Dummy = <any>'dummy.png',
         LeftDu = <any>'left_du.png',
@@ -283,7 +366,7 @@ export namespace Audiosprites {
 }
 
 export namespace GoogleWebFonts {
-    export const Barrio: string = 'Barrio';
+    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
 }
 
 export namespace CustomWebFonts {
@@ -291,7 +374,12 @@ export namespace CustomWebFonts {
 }
 
 export namespace BitmapFonts {
-    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
+    export class FontsFontFnt {
+        static getName(): string { return 'font_fnt'; }
+
+        static getFNT(): string { return require('assets/fonts/font_fnt.fnt'); }
+        static getPNG(): string { return require('assets/fonts/font_fnt.png'); }
+    }
 }
 
 export namespace JSON {

@@ -1,9 +1,11 @@
+import {SaverTemplates} from '../states/saver/enum.saver';
 export class GameConfig {
 
     public static GAME: Phaser.Game = null;
     public static SITE: Sites = null;
     public static ASSET_MODE: AssetMode = null;
     public static PUB_MODE: PublishMode = null;
+    public static SAVER_MODE: SaverTemplates = null;
 
     private static _inited: boolean = false;
 
@@ -13,13 +15,14 @@ export class GameConfig {
 
     private static _props = {};
 
-    public static init(site: Sites, pmode: PublishMode, amode: AssetMode, gameTitle: string) {
+    public static init(site: Sites, pmode: PublishMode, amode: AssetMode, smode: SaverTemplates, gameTitle: string) {
         if (this._inited) return;
 
         this._inited = true;
         this.SITE = site;
         this.ASSET_MODE = amode;
         this.PUB_MODE = pmode;
+        this.SAVER_MODE = smode;
 
         const url = (window.location !== window.parent.location)
             ? document.referrer

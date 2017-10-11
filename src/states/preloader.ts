@@ -34,8 +34,8 @@ export default class Preloader extends Phaser.State {
         this.preloader.preload();
         if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
             AssetUtils.Loader.loadAllAssets(this.game, this.waitForSoundDecoding, this);
-        else
-            AssetUtils.Loader.loadSelectedAssets(this.game, PreloaderUtils.preloadStartState, this.waitForSoundDecoding, this);
+        else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND)
+            AssetUtils.Loader.loadSelectedAssets(this.game, PreloaderUtils.preloadStartState, false, this.waitForSoundDecoding, this);
     }
 
     public create(): void {

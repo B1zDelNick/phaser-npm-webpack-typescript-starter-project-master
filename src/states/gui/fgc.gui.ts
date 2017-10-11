@@ -2,12 +2,17 @@ import * as Assets from '../../assets';
 import {IGui, StateType} from './i.gui';
 import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
+import {ISaver} from '../saver/i.saver';
 
 export class GuiFgc implements IGui {
 
     game: Phaser.Game;
     state: Phaser.State;
     type: StateType;
+
+    private nextPrepared = false;
+
+    private saver: ISaver = null;
 
     private guiContainer: Phaser.Group = null;
     private playButton: Phaser.Button = null;
@@ -31,6 +36,14 @@ export class GuiFgc implements IGui {
             this.addExtraMore();
         this.addLogoBtn();
         this.addMusicBtns();
+    }
+
+    addSaver(saver: ISaver): void {
+        this.saver = saver;
+    }
+
+    public waitForLoading(): void {
+        this.nextPrepared = true;
     }
 
     private addPlayBtn(): void {
@@ -95,10 +108,20 @@ export class GuiFgc implements IGui {
     }
 
     private nextState(): void {
-        this.game.camera.onFadeComplete.addOnce(() => {
-            // this.game.state.start('Start');
-        }, this);
-        this.game.camera.fade(0x000000, 500, true, .85);
+        if (this.saver) {
+            this.saver.fadeOut(() => {
+                this.game.state.start('Comix');
+            });
+        } else {
+            this.game.camera.onFadeComplete.addOnce(() => {
+                this.game.state.start('Comix');
+            }, this);
+            this.game.camera.fade(0x000000, 500, true, .85);
+            const blocker = this.game.add.graphics(0, 0);
+            blocker.beginFill(0, .5);
+            blocker.drawRect(0, 0, 960, 720);
+            blocker.inputEnabled = true;
+        }
     }
 
     dispose(): void {
