@@ -1,26 +1,6 @@
 /* AUTO GENERATED FILE. DO NOT MODIFY. YOU WILL LOSE YOUR CHANGES ON BUILD. */
 
 export namespace Images {
-    export class ImagesBg {
-        static getName(): string { return 'bg'; }
-
-        static getJPG(): string { return require('assets/images/bg.jpg'); }
-    }
-    export class ImagesBg3 {
-        static getName(): string { return 'bg3'; }
-
-        static getJPG(): string { return require('assets/images/bg3.jpg'); }
-    }
-    export class ImagesPart1 {
-        static getName(): string { return 'part1'; }
-
-        static getPNG(): string { return require('assets/images/part1.png'); }
-    }
-    export class ImagesPart2 {
-        static getName(): string { return 'part2'; }
-
-        static getPNG(): string { return require('assets/images/part2.png'); }
-    }
     export class ImagesPrerollDu {
         static getName(): string { return 'preroll_du'; }
 
@@ -40,11 +20,6 @@ export namespace Images {
         static getName(): string { return 'preroll2_mcg'; }
 
         static getPNG(): string { return require('assets/images/preroll2_mcg.png'); }
-    }
-    export class ImagesVs {
-        static getName(): string { return 'vs'; }
-
-        static getPNG(): string { return require('assets/images/vs.png'); }
     }
 }
 
@@ -149,62 +124,26 @@ export namespace Spritesheets {
         static getMargin(): number { return 0; }
         static getSpacing(): number { return 0; }
     }
+    export class SpritesheetsSign238469 {
+        static getName(): string { return 'sign.[238,46,9,0,0]'; }
+
+        static getPNG(): string { return require('assets/spritesheets/sign.[238,46,9,0,0].png'); }
+        static getFrameWidth(): number { return 238; }
+        static getFrameHeight(): number { return 46; }
+        static getFrameMax(): number { return 9; }
+        static getMargin(): number { return 0; }
+        static getSpacing(): number { return 0; }
+    }
 }
 
 export namespace Atlases {
     enum AtlasesComixStateFrames {
-        BYes1 = <any>'b_yes_1.png',
-        BYes10 = <any>'b_yes_10.png',
-        BYes11 = <any>'b_yes_11.png',
-        BYes12 = <any>'b_yes_12.png',
-        BYes13 = <any>'b_yes_13.png',
-        BYes14 = <any>'b_yes_14.png',
-        BYes15 = <any>'b_yes_15.png',
-        BYes16 = <any>'b_yes_16.png',
-        BYes2 = <any>'b_yes_2.png',
-        BYes3 = <any>'b_yes_3.png',
-        BYes4 = <any>'b_yes_4.png',
-        BYes5 = <any>'b_yes_5.png',
-        BYes6 = <any>'b_yes_6.png',
-        BYes7 = <any>'b_yes_7.png',
-        BYes8 = <any>'b_yes_8.png',
-        BYes9 = <any>'b_yes_9.png',
-        Bask2 = <any>'bask2.png',
-        Bask2B = <any>'bask2_b.png',
-        Check1 = <any>'check_1.png',
-        Check2 = <any>'check_2.png',
-        Chest = <any>'chest.png',
-        Lb = <any>'lb.png',
-        List = <any>'list.png',
-        Mmmm = <any>'mmmm.png',
-        No1 = <any>'no_1.png',
-        No10 = <any>'no_10.png',
-        No2 = <any>'no_2.png',
-        No3 = <any>'no_3.png',
-        No4 = <any>'no_4.png',
-        No5 = <any>'no_5.png',
-        No6 = <any>'no_6.png',
-        No7 = <any>'no_7.png',
-        No8 = <any>'no_8.png',
-        No9 = <any>'no_9.png',
-        Rb = <any>'rb.png',
-        Shelf = <any>'shelf.png',
-        Yes1 = <any>'yes_1.png',
-        Yes10 = <any>'yes_10.png',
-        Yes11 = <any>'yes_11.png',
-        Yes12 = <any>'yes_12.png',
-        Yes13 = <any>'yes_13.png',
-        Yes14 = <any>'yes_14.png',
-        Yes15 = <any>'yes_15.png',
-        Yes16 = <any>'yes_16.png',
-        Yes2 = <any>'yes_2.png',
-        Yes3 = <any>'yes_3.png',
-        Yes4 = <any>'yes_4.png',
-        Yes5 = <any>'yes_5.png',
-        Yes6 = <any>'yes_6.png',
-        Yes7 = <any>'yes_7.png',
-        Yes8 = <any>'yes_8.png',
-        Yes9 = <any>'yes_9.png',
+        Cl1 = <any>'cl_1.png',
+        Cl2 = <any>'cl_2.png',
+        Gr4 = <any>'gr_4.png',
+        Gr5 = <any>'gr_5.png',
+        Gr6 = <any>'gr_6.png',
+        Skip = <any>'skip.png',
     }
     export class AtlasesComixState {
         static getName(): string { return 'comix_state'; }
@@ -214,6 +153,311 @@ export namespace Atlases {
         static getPNG(): string { return require('assets/atlases/comix_state.png'); }
 
         static Frames = AtlasesComixStateFrames;
+    }
+    enum AtlasesDollAnnaFrames {
+        B1 = <any>'b_1.png',
+        B2 = <any>'b_2.png',
+        B3 = <any>'b_3.png',
+        B4 = <any>'b_4.png',
+        B5 = <any>'b_5.png',
+        B6 = <any>'b_6.png',
+        Bb1 = <any>'bb_1.png',
+        Bb2 = <any>'bb_2.png',
+        Bb3 = <any>'bb_3.png',
+        Bb4 = <any>'bb_4.png',
+        Bb5 = <any>'bb_5.png',
+        Bb6 = <any>'bb_6.png',
+        Bb7 = <any>'bb_7.png',
+        Bb8 = <any>'bb_8.png',
+        Body = <any>'body.png',
+        D1 = <any>'d_1.png',
+        D2 = <any>'d_2.png',
+        D3 = <any>'d_3.png',
+        D4 = <any>'d_4.png',
+        D5 = <any>'d_5.png',
+        D6 = <any>'d_6.png',
+        D7 = <any>'d_7.png',
+        H = <any>'h_0.png',
+        H1 = <any>'h_1.png',
+        H2 = <any>'h_2.png',
+        H3 = <any>'h_3.png',
+        H4 = <any>'h_4.png',
+        H5 = <any>'h_5.png',
+        H6 = <any>'h_6.png',
+        HB = <any>'h_b_0.png',
+        HB1 = <any>'h_b_1.png',
+        HB2 = <any>'h_b_2.png',
+        HB3 = <any>'h_b_3.png',
+        HB4 = <any>'h_b_4.png',
+        HB5 = <any>'h_b_5.png',
+        HB6 = <any>'h_b_6.png',
+        J1 = <any>'j_1.png',
+        J2 = <any>'j_2.png',
+        J3 = <any>'j_3.png',
+        J4 = <any>'j_4.png',
+        J5 = <any>'j_5.png',
+        J6 = <any>'j_6.png',
+        S = <any>'s_0.png',
+        S1 = <any>'s_1.png',
+        S2 = <any>'s_2.png',
+        S3 = <any>'s_3.png',
+        S4 = <any>'s_4.png',
+        S5 = <any>'s_5.png',
+        S6 = <any>'s_6.png',
+        S7 = <any>'s_7.png',
+        S8 = <any>'s_8.png',
+        T1 = <any>'t_1.png',
+        T2 = <any>'t_2.png',
+        T3 = <any>'t_3.png',
+        T4 = <any>'t_4.png',
+        T5 = <any>'t_5.png',
+        T6 = <any>'t_6.png',
+    }
+    export class AtlasesDollAnna {
+        static getName(): string { return 'doll_anna'; }
+
+        static getJSONArray(): string { return require('assets/atlases/doll_anna.json'); }
+
+        static getPNG(): string { return require('assets/atlases/doll_anna.png'); }
+
+        static Frames = AtlasesDollAnnaFrames;
+    }
+    enum AtlasesDollElzaFrames {
+        B1 = <any>'b_1.png',
+        B2 = <any>'b_2.png',
+        B3 = <any>'b_3.png',
+        B4 = <any>'b_4.png',
+        B5 = <any>'b_5.png',
+        B6 = <any>'b_6.png',
+        Bb1 = <any>'bb_1.png',
+        Bb2 = <any>'bb_2.png',
+        Bb3 = <any>'bb_3.png',
+        Bb4 = <any>'bb_4.png',
+        Bb5 = <any>'bb_5.png',
+        Bb6 = <any>'bb_6.png',
+        Bb7 = <any>'bb_7.png',
+        Bb8 = <any>'bb_8.png',
+        Body = <any>'body.png',
+        D1 = <any>'d_1.png',
+        D2 = <any>'d_2.png',
+        D3 = <any>'d_3.png',
+        D4 = <any>'d_4.png',
+        D5 = <any>'d_5.png',
+        D6 = <any>'d_6.png',
+        D7 = <any>'d_7.png',
+        H = <any>'h_0.png',
+        H1 = <any>'h_1.png',
+        H2 = <any>'h_2.png',
+        H3 = <any>'h_3.png',
+        H4 = <any>'h_4.png',
+        H5 = <any>'h_5.png',
+        H6 = <any>'h_6.png',
+        HB = <any>'h_b_0.png',
+        HB1 = <any>'h_b_1.png',
+        HB2 = <any>'h_b_2.png',
+        HB3 = <any>'h_b_3.png',
+        HB4 = <any>'h_b_4.png',
+        HB5 = <any>'h_b_5.png',
+        HB6 = <any>'h_b_6.png',
+        Head = <any>'head.png',
+        J1 = <any>'j_1.png',
+        J2 = <any>'j_2.png',
+        J3 = <any>'j_3.png',
+        J4 = <any>'j_4.png',
+        J5 = <any>'j_5.png',
+        J6 = <any>'j_6.png',
+        S = <any>'s_0.png',
+        S1 = <any>'s_1.png',
+        S2 = <any>'s_2.png',
+        S3 = <any>'s_3.png',
+        S4 = <any>'s_4.png',
+        S5 = <any>'s_5.png',
+        S6 = <any>'s_6.png',
+        S7 = <any>'s_7.png',
+        S8 = <any>'s_8.png',
+        T1 = <any>'t_1.png',
+        T2 = <any>'t_2.png',
+        T3 = <any>'t_3.png',
+        T4 = <any>'t_4.png',
+        T5 = <any>'t_5.png',
+        T6 = <any>'t_6.png',
+    }
+    export class AtlasesDollElza {
+        static getName(): string { return 'doll_elza'; }
+
+        static getJSONArray(): string { return require('assets/atlases/doll_elza.json'); }
+
+        static getPNG(): string { return require('assets/atlases/doll_elza.png'); }
+
+        static Frames = AtlasesDollElzaFrames;
+    }
+    enum AtlasesDress1StateFrames {
+        AnBot1 = <any>'an_bot_1.png',
+        AnBot2 = <any>'an_bot_2.png',
+        AnBot3 = <any>'an_bot_3.png',
+        AnBot4 = <any>'an_bot_4.png',
+        AnBot5 = <any>'an_bot_5.png',
+        AnBot6 = <any>'an_bot_6.png',
+        AnDress1 = <any>'an_dress_1.png',
+        AnDress2 = <any>'an_dress_2.png',
+        AnDress3 = <any>'an_dress_3.png',
+        AnDress4 = <any>'an_dress_4.png',
+        AnDress5 = <any>'an_dress_5.png',
+        AnDress6 = <any>'an_dress_6.png',
+        AnDress7 = <any>'an_dress_7.png',
+        AnTop1 = <any>'an_top_1.png',
+        AnTop2 = <any>'an_top_2.png',
+        AnTop3 = <any>'an_top_3.png',
+        AnTop4 = <any>'an_top_4.png',
+        AnTop5 = <any>'an_top_5.png',
+        AnTop6 = <any>'an_top_6.png',
+        Bg2 = <any>'bg2.jpg',
+        Chest = <any>'chest.png',
+        Cl3 = <any>'cl_3.png',
+        DressMore = <any>'dress_more.png',
+        ElBot1 = <any>'el_bot_1.png',
+        ElBot2 = <any>'el_bot_2.png',
+        ElBot3 = <any>'el_bot_3.png',
+        ElBot4 = <any>'el_bot_4.png',
+        ElBot5 = <any>'el_bot_5.png',
+        ElBot6 = <any>'el_bot_6.png',
+        ElDress1 = <any>'el_dress_1.png',
+        ElDress2 = <any>'el_dress_2.png',
+        ElDress3 = <any>'el_dress_3.png',
+        ElDress4 = <any>'el_dress_4.png',
+        ElDress5 = <any>'el_dress_5.png',
+        ElDress6 = <any>'el_dress_6.png',
+        ElDress7 = <any>'el_dress_7.png',
+        ElTop1 = <any>'el_top_1.png',
+        ElTop2 = <any>'el_top_2.png',
+        ElTop3 = <any>'el_top_3.png',
+        ElTop4 = <any>'el_top_4.png',
+        ElTop5 = <any>'el_top_5.png',
+        ElTop6 = <any>'el_top_6.png',
+        Lb = <any>'lb.png',
+        Rb = <any>'rb.png',
+        Shelf1 = <any>'shelf_1.png',
+        Shelf2 = <any>'shelf_2.png',
+    }
+    export class AtlasesDress1State {
+        static getName(): string { return 'dress_1_state'; }
+
+        static getJSONArray(): string { return require('assets/atlases/dress_1_state.json'); }
+
+        static getPNG(): string { return require('assets/atlases/dress_1_state.png'); }
+
+        static Frames = AtlasesDress1StateFrames;
+    }
+    enum AtlasesDress2StateFrames {
+        AnBag1 = <any>'an_bag_1.png',
+        AnBag2 = <any>'an_bag_2.png',
+        AnBag3 = <any>'an_bag_3.png',
+        AnBag4 = <any>'an_bag_4.png',
+        AnBag5 = <any>'an_bag_5.png',
+        AnBag6 = <any>'an_bag_6.png',
+        AnBag7 = <any>'an_bag_7.png',
+        AnBag8 = <any>'an_bag_8.png',
+        AnShoe1 = <any>'an_shoe_1.png',
+        AnShoe2 = <any>'an_shoe_2.png',
+        AnShoe3 = <any>'an_shoe_3.png',
+        AnShoe4 = <any>'an_shoe_4.png',
+        AnShoe5 = <any>'an_shoe_5.png',
+        AnShoe6 = <any>'an_shoe_6.png',
+        AnShoe7 = <any>'an_shoe_7.png',
+        AnShoe8 = <any>'an_shoe_8.png',
+        Chest2 = <any>'chest_2.png',
+        Cl4 = <any>'cl_4.png',
+        ElBag1 = <any>'el_bag_1.png',
+        ElBag2 = <any>'el_bag_2.png',
+        ElBag3 = <any>'el_bag_3.png',
+        ElBag4 = <any>'el_bag_4.png',
+        ElBag5 = <any>'el_bag_5.png',
+        ElBag6 = <any>'el_bag_6.png',
+        ElBag7 = <any>'el_bag_7.png',
+        ElBag8 = <any>'el_bag_8.png',
+        ElShoe1 = <any>'el_shoe_1.png',
+        ElShoe2 = <any>'el_shoe_2.png',
+        ElShoe3 = <any>'el_shoe_3.png',
+        ElShoe4 = <any>'el_shoe_4.png',
+        ElShoe5 = <any>'el_shoe_5.png',
+        ElShoe6 = <any>'el_shoe_6.png',
+        ElShoe7 = <any>'el_shoe_7.png',
+        ElShoe8 = <any>'el_shoe_8.png',
+        Mmmm = <any>'mmmm.png',
+    }
+    export class AtlasesDress2State {
+        static getName(): string { return 'dress_2_state'; }
+
+        static getJSONArray(): string { return require('assets/atlases/dress_2_state.json'); }
+
+        static getPNG(): string { return require('assets/atlases/dress_2_state.png'); }
+
+        static Frames = AtlasesDress2StateFrames;
+    }
+    enum AtlasesDress3StateFrames {
+        AnHair1 = <any>'an_hair_1.png',
+        AnHair2 = <any>'an_hair_2.png',
+        AnHair3 = <any>'an_hair_3.png',
+        AnHair4 = <any>'an_hair_4.png',
+        AnHair5 = <any>'an_hair_5.png',
+        AnHair6 = <any>'an_hair_6.png',
+        AnJew1 = <any>'an_jew_1.png',
+        AnJew2 = <any>'an_jew_2.png',
+        AnJew3 = <any>'an_jew_3.png',
+        AnJew4 = <any>'an_jew_4.png',
+        AnJew5 = <any>'an_jew_5.png',
+        AnJew6 = <any>'an_jew_6.png',
+        Cl5 = <any>'cl_5.png',
+        ElHair1 = <any>'el_hair_1.png',
+        ElHair2 = <any>'el_hair_2.png',
+        ElHair3 = <any>'el_hair_3.png',
+        ElHair4 = <any>'el_hair_4.png',
+        ElHair5 = <any>'el_hair_5.png',
+        ElHair6 = <any>'el_hair_6.png',
+        ElJew1 = <any>'el_jew_1.png',
+        ElJew2 = <any>'el_jew_2.png',
+        ElJew3 = <any>'el_jew_3.png',
+        ElJew4 = <any>'el_jew_4.png',
+        ElJew5 = <any>'el_jew_5.png',
+        ElJew6 = <any>'el_jew_6.png',
+    }
+    export class AtlasesDress3State {
+        static getName(): string { return 'dress_3_state'; }
+
+        static getJSONArray(): string { return require('assets/atlases/dress_3_state.json'); }
+
+        static getPNG(): string { return require('assets/atlases/dress_3_state.png'); }
+
+        static Frames = AtlasesDress3StateFrames;
+    }
+    enum AtlasesEffectsFrames {
+        Light = <any>'light.png',
+    }
+    export class AtlasesEffects {
+        static getName(): string { return 'effects'; }
+
+        static getJSONArray(): string { return require('assets/atlases/effects.json'); }
+
+        static getPNG(): string { return require('assets/atlases/effects.png'); }
+
+        static Frames = AtlasesEffectsFrames;
+    }
+    enum AtlasesFinalStateFrames {
+        Another = <any>'another.png',
+        Ban1 = <any>'ban1.png',
+        Ban2 = <any>'ban2.png',
+        Cl6 = <any>'cl_6.png',
+        Gr7 = <any>'gr_7.png',
+        Panel = <any>'panel.png',
+    }
+    export class AtlasesFinalState {
+        static getName(): string { return 'final_state'; }
+
+        static getJSONArray(): string { return require('assets/atlases/final_state.json'); }
+
+        static getPNG(): string { return require('assets/atlases/final_state.png'); }
+
+        static Frames = AtlasesFinalStateFrames;
     }
     enum AtlasesGuiDuFrames {
         Dummy = <any>'dummy.png',
@@ -355,10 +599,50 @@ export namespace Atlases {
 
         static Frames = AtlasesPreloaderAtlasMcgFrames;
     }
+    enum AtlasesStartStateFrames {
+        Bg = <any>'bg.jpg',
+        EMore = <any>'e_more.png',
+        Gr1 = <any>'gr_1.png',
+        Gr2 = <any>'gr_2.png',
+        Gr3 = <any>'gr_3.png',
+    }
+    export class AtlasesStartState {
+        static getName(): string { return 'start_state'; }
+
+        static getJSONArray(): string { return require('assets/atlases/start_state.json'); }
+
+        static getPNG(): string { return require('assets/atlases/start_state.png'); }
+
+        static Frames = AtlasesStartStateFrames;
+    }
+    enum AtlasesTitleFrames {
+        Title001 = <any>'title_0001.png',
+        Title002 = <any>'title_0002.png',
+        Title003 = <any>'title_0003.png',
+        Title004 = <any>'title_0004.png',
+        Title005 = <any>'title_0005.png',
+        Title006 = <any>'title_0006.png',
+        Title007 = <any>'title_0007.png',
+        Title008 = <any>'title_0008.png',
+        Title009 = <any>'title_0009.png',
+    }
+    export class AtlasesTitle {
+        static getName(): string { return 'title'; }
+
+        static getJSONArray(): string { return require('assets/atlases/title.json'); }
+
+        static getPNG(): string { return require('assets/atlases/title.png'); }
+
+        static Frames = AtlasesTitleFrames;
+    }
 }
 
 export namespace Audio {
-    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
+    export class AudioMainTheme {
+        static getName(): string { return 'main_theme'; }
+
+        static getMP3(): string { return require('assets/audio/main_theme.mp3'); }
+    }
 }
 
 export namespace Audiosprites {
@@ -374,12 +658,7 @@ export namespace CustomWebFonts {
 }
 
 export namespace BitmapFonts {
-    export class FontsFontFnt {
-        static getName(): string { return 'font_fnt'; }
-
-        static getFNT(): string { return require('assets/fonts/font_fnt.fnt'); }
-        static getPNG(): string { return require('assets/fonts/font_fnt.png'); }
-    }
+    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
 }
 
 export namespace JSON {

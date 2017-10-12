@@ -190,13 +190,11 @@ export class Loader {
         this.loadShaders();
     }
 
-    public static loadSelectedAssets(game: Phaser.Game, toCall: Function, force: boolean = false, onComplete?: Function, onCompleteContext?: any) {
+    public static loadSelectedAssets(game: Phaser.Game, force: boolean = false, onComplete?: Function, onCompleteContext?: any) {
         this.game = game;
 
         if (onComplete)
             this.game.load.onLoadComplete.addOnce(onComplete, onCompleteContext);
-
-        toCall.call(null);
 
         if (force)
             this.game.load.start();

@@ -2,6 +2,7 @@ import * as Assets from '../../assets';
 import {IPreloader} from './i.preloader';
 import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
+import {SoundUtils} from '../../utils/sound/sound.utils';
 
 export class FreeGamesCasualPreloader implements IPreloader {
 
@@ -159,8 +160,6 @@ export class FreeGamesCasualPreloader implements IPreloader {
     }
 
     public dispose(): void {
-        this.game.time.events.removeAll();
-        this.game.tweens.removeAll();
         this.glowEmitter.destroy(true);
         this.btn1.destroy(true);
         this.btn2.destroy(true);
@@ -179,8 +178,11 @@ export class FreeGamesCasualPreloader implements IPreloader {
 
     private nextState(): void {
         this.game.camera.onFadeComplete.addOnce(() => {
-            this.game.state.start('Start'); // , true, false, 'Comix');
+            SoundUtils.init();
+            this.game.time.events.removeAll();
+            this.game.tweens.removeAll();
+            this.game.state.start('Start');
         }, this);
-        this.game.camera.fade(0x000000, 500, true, .85);
+        this.game.camera.fade(0x000000, 400, true, .75);
     }
 }

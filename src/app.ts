@@ -18,10 +18,10 @@ class App extends Phaser.Game {
         super (config);
 
         GameConfig.init(
-            Sites.DRESSUP_MIX,
+            Sites.FREE_GAMES_CASUAL,
             PublishMode.NORMAL,
             AssetMode.LOAD_BACKGROUND,
-            SaverTemplates.V_FADE_SLIDER_TEMPLATE,
+            SaverTemplates.NONE,
             'Cinderellas Bridal Fashion Collection');
 
         this.state.add('Boot', Boot);

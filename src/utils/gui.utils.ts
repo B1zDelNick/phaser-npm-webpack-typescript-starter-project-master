@@ -28,7 +28,7 @@ export class GuiUtils {
     }
 
     public static makeButton(
-        parent: Phaser.State, container: Phaser.Group,
+        parent: any, container: Phaser.Group,
         x: number, y: number, scale: number = 1,
         name: string = '', res: string = '', states: Array<any> = [0, 0, 0],
         enabled: boolean = true, perfect: boolean = false, visible: boolean = true,

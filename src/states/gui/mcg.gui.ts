@@ -6,13 +6,9 @@ import {ISaver} from '../saver/i.saver';
 
 export class GuiMcg implements IGui {
 
-    game: Phaser.Game;
-    state: Phaser.State;
-    type: StateType;
-
-    private nextPrepared = false;
-
-    private saver: ISaver = null;
+    private game: Phaser.Game;
+    private state: Phaser.State;
+    private type: StateType;
 
     private guiContainer: Phaser.Group = null;
     private playButton: Phaser.Button = null;
@@ -21,86 +17,106 @@ export class GuiMcg implements IGui {
     private logoButton: Phaser.Button = null;
     private moreButton: Phaser.Button = null;
 
+    private extras: Array<Phaser.Button> = [];
+
     constructor(state: Phaser.State, type: StateType) {
         this.game = GameConfig.GAME;
         this.state = state;
+        this.type = type;
     }
 
-    addGui(): void {
+    addGui(defaultGui: boolean = true): void {
         this.guiContainer = this.game.add.group();
-        this.addPlayBtn();
-        this.addMoreBtn();
+
+        if (defaultGui)
+            this.addMoreBtn();
+
         this.addLogoBtn();
         this.addMusicBtns();
     }
 
-    addSaver(saver: ISaver): void {
-        this.saver = saver;
-    }
+    addPlayBtn(callback?: Function): Phaser.Button {
+        let asset: string;
 
-    public waitForLoading(): void {
-        this.nextPrepared = true;
-    }
+        if (this.type === StateType.START_STATE) {
+            asset = Assets.Spritesheets.SpritesheetsPlayMcg1651322.getName();
+        }
+        else if (this.type === StateType.FINAL_STATE) {
+            asset = Assets.Spritesheets.SpritesheetsReplayMcg1651322.getName();
+        }
+        else {
+            asset = Assets.Spritesheets.SpritesheetsDoneMcg1651322.getName();
+        }
 
-    private addPlayBtn(): void {
         this.playButton =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 -15, 590, 1,
-                '', Assets.Spritesheets.SpritesheetsPlayMcg1651322.getName(), [0, 1, 0],
-                true, false, true, this.nextState, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+                '', asset, [0, 1, 0],
+                true, false, true, callback, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+
+        return this.playButton;
     }
 
-    private addMoreBtn(): void {
+    addExtraMore(callback?: Function): Phaser.Button {
+        // TODO Implemetnt Extra More Logic, Later through XML ot Json file template
+        return null;
+    }
+
+    addMoreBtn(): Phaser.Button {
         this.moreButton =
             GuiUtils.makeButton(
-                this.state, this.guiContainer,
+                this, this.guiContainer,
                 810, 590, 1,
                 '', Assets.Spritesheets.SpritesheetsMoreMcg1651322.getName(), [0, 1, 0],
                 true, false, true, GuiUtils.goLinkMainMoreGames, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+
+        return this.moreButton;
     }
 
-    private addLogoBtn(): void {
+    addLogoBtn(): Phaser.Button {
         this.logoButton =
             GuiUtils.makeButton(
-                this.state, this.guiContainer,
+                this, this.guiContainer,
                 -10, -10, 1,
                 '', Assets.Atlases.AtlasesGuiMcg.getName(),
                 [Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg, Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg, Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg],
                 true, false, true, GuiUtils.goLinkMainLogo, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+
+        return this.logoButton;
     }
 
-    private addMusicBtns(): void {
+    addMusicBtns(): Array<Phaser.Button> {
         this.musonButton =
             GuiUtils.makeButton(
-                this.state, this.guiContainer,
+                this, this.guiContainer,
                 845, 0, .75,
                 '', Assets.Spritesheets.SpritesheetsMusicMcg1651322.getName(), [0, 1, 0],
                 true, false, true, null, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
         this.musoffButton =
             GuiUtils.makeButton(
-                this.state, this.guiContainer,
+                this, this.guiContainer,
                 845, 0, .75,
                 '', Assets.Spritesheets.SpritesheetsMusicOffMcg1651322.getName(), [0, 1, 0],
                 true, false, false, null, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+
+        return [this.musonButton, this.musoffButton];
     }
 
-    private nextState(): void {
-        if (this.saver) {
-            this.saver.fadeOut(() => {
-                this.game.state.start('Comix');
-            });
-        } else {
-            this.game.camera.onFadeComplete.addOnce(() => {
-                this.game.state.start('Comix');
-            }, this);
-            this.game.camera.fade(0x000000, 500, true, .85);
-            const blocker = this.game.add.graphics(0, 0);
-            blocker.beginFill(0, .5);
-            blocker.drawRect(0, 0, 960, 720);
-            blocker.inputEnabled = true;
-        }
+    addExtraBtn(x: number, y: number, asset: string, frames?: any, callback?: Function): Phaser.Button {
+        if (frames == null) frames = [0, 0, 0];
+        const btn =
+            GuiUtils.makeButton(
+                this.state, this.guiContainer,
+                x, y, 1,
+                '', asset, frames,
+                true, false, true, callback, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+
+        this.guiContainer.add(btn);
+        this.extras.push(btn);
+
+        return btn;
     }
 
     dispose(): void {

@@ -1,0 +1,16 @@
+{
+"frames": [
+	{
+		"filename": "light.png",
+		"frame": {"x":0, "y":0, "w":169, "h":745},
+		"spriteSourceSize": {"x":0,"y":0,"w":169,"h":745},
+		"sourceSize": {"w":169,"h":745}
+	}
+
+],
+"meta": {
+	"image": "effects.png",
+	"size": {"w": 1024, "h": 1024},
+	"scale": "1"
+}
+}

@@ -1,13 +1,12 @@
-import {ISaver} from '../saver/i.saver';
 export interface IGui {
-    game: Phaser.Game;
-    state: Phaser.State;
-    type: StateType;
-
     addGui(): void;
-    addSaver(saver: ISaver): void;
+    addPlayBtn(callback?: Function): Phaser.Button;
+    addMoreBtn(): Phaser.Button;
+    addExtraMore(callback?: Function): Phaser.Button;
+    addLogoBtn(): Phaser.Button;
+    addMusicBtns(): Array<Phaser.Button>;
     dispose(): void;
-    waitForLoading(): void;
+    addExtraBtn(x: number, y: number, asset: string, frames?: any, callback?: Function): Phaser.Button;
 }
 
 export enum StateType {
