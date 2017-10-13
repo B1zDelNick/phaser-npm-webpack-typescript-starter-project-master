@@ -12,6 +12,7 @@ import {ILaser} from './spec-effects/laser/i.laser';
 import {EffectUtils} from '../utils/effect.utils';
 import {LaserType} from './spec-effects/laser/enum.laser';
 import {Animation} from '../utils/animation/anim';
+import {TweenUtils} from '../utils/tween.utils';
 
 export default class Comix extends Phaser.State {
 
@@ -27,6 +28,7 @@ export default class Comix extends Phaser.State {
     private girl3: Phaser.Sprite = null;
     private cloud1: Phaser.Sprite = null;
     private cloud2: Phaser.Sprite = null;
+    private spinner: Phaser.Sprite = null;
 
     public init(...args: any[]): void {
         switch (GameConfig.SITE) {
@@ -80,9 +82,21 @@ export default class Comix extends Phaser.State {
         this.cloud2.alpha = 0;
 
         // GUI Buttons
-        this.gui.addGui();
+        this.gui.addGui(false);
         const playBtn = this.gui.addPlayBtn(this.nextState);
-        this.gui.addExtraBtn(115, 593, Assets.Atlases.AtlasesComixState.getName(), Assets.Atlases.AtlasesComixState.Frames.Skip, this.nextState);
+        const moreBtn = this.gui.addExtraMore(
+            960 - 189, 720 - 182,
+            Assets.Atlases.AtlasesStartState.getName(),
+            Assets.Atlases.AtlasesStartState.Frames.EMore.toString(),
+            GuiUtils.addOverScaleHandler,
+            GuiUtils.addOutScaleHandler
+        );
+        moreBtn.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
+        this.gui.addExtraBtn(115, 593,
+            Assets.Atlases.AtlasesComixState.getName(),
+            Assets.Atlases.AtlasesComixState.Frames.Skip.toString(),
+            this.nextState
+        );
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
 
@@ -130,6 +144,7 @@ export default class Comix extends Phaser.State {
         this.girl3.destroy(true);
         this.cloud1.destroy(true);
         this.cloud2.destroy(true);
+        this.spinner.destroy(true);
 
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();
@@ -169,14 +184,10 @@ export default class Comix extends Phaser.State {
             this.game.state.start(this.NEXT);
         } else {
             if (addLoader) {
-                const preloadFrameSprite = this.game.add.sprite(0, 595,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Progressbar1Fgc);
-                const preloadBarSprite = this.game.add.sprite(0, 595,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Progressbar2Fgc);
-                preloadBarSprite.x = preloadFrameSprite.x = this.game.world.centerX - preloadFrameSprite.width / 2;
-                this.game.load.setPreloadSprite(preloadBarSprite);
+                this.spinner = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesSpin.getName());
+                this.spinner.anchor.setTo(.5, .5);
+                // this.spinner.scale.setTo(.5);
+                TweenUtils.rotate(this.spinner, 360, Phaser.Timer.SECOND * 1, 0, -1);
             }
             this.game.time.events.add(Phaser.Timer.SECOND *  .25, this.reallyGoNextState, this);
         }

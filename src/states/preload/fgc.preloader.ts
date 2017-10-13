@@ -3,12 +3,14 @@ import {IPreloader} from './i.preloader';
 import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
 import {SoundUtils} from '../../utils/sound/sound.utils';
+import {TweenUtils} from '../../utils/tween.utils';
 
 export class FreeGamesCasualPreloader implements IPreloader {
 
     game: Phaser.Game;
     state: Phaser.State;
 
+    private spinner: Phaser.Sprite = null;
     private preloadBarSprite: Phaser.Sprite = null;
     private preloadFrameSprite: Phaser.Sprite = null;
     private playButton: Phaser.Button = null;
@@ -148,7 +150,6 @@ export class FreeGamesCasualPreloader implements IPreloader {
     }
 
     public create(): void {
-        this.preloadBarSprite.visible = this.preloadFrameSprite.visible = false;
     }
 
     public update(): void {
@@ -160,6 +161,9 @@ export class FreeGamesCasualPreloader implements IPreloader {
     }
 
     public dispose(): void {
+        this.game.time.events.removeAll();
+        this.game.tweens.removeAll();
+
         this.glowEmitter.destroy(true);
         this.btn1.destroy(true);
         this.btn2.destroy(true);
@@ -167,13 +171,20 @@ export class FreeGamesCasualPreloader implements IPreloader {
         this.btn4.destroy(true);
         this.logo.destroy(true);
         this.playButton.destroy(true);
-        this.preloadBarSprite.destroy(true);
-        this.preloadFrameSprite.destroy(true);
+        if (this.spinner) this.spinner.destroy(true);
+        if (this.preloadBarSprite) this.preloadBarSprite.destroy(true);
+        if (this.preloadFrameSprite) this.preloadFrameSprite.destroy(true);
         this.guiContainer.destroy(true);
     }
 
     public enableButton(): void {
+        // this.preloadBarSprite.visible = this.preloadFrameSprite.visible = false;
+        this.preloadFrameSprite.visible = false;
+        TweenUtils.fadeOut(this.preloadBarSprite);
         this.playButton.visible = true;
+        this.playButton.alpha = 0;
+        this.playButton.scale.setTo(0);
+        TweenUtils.fadeAndScaleIn(this.playButton, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * .75);
     }
 
     private nextState(): void {

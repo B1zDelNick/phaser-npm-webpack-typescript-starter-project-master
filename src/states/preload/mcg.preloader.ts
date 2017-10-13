@@ -2,6 +2,7 @@ import * as Assets from '../../assets';
 import {IPreloader} from './i.preloader';
 import {GameConfig, PublishMode} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
+import {SoundUtils} from '../../utils/sound/sound.utils';
 
 export class MyCuteGamesPreloader implements IPreloader {
 
@@ -190,9 +191,11 @@ export class MyCuteGamesPreloader implements IPreloader {
     public dispose(): void {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
+
         this.spriterGroup.onEvent.removeAll();
         this.spriterGroup.onLoop.removeAll();
         this.spriterGroup.destroy(true);
+
         this.crownEmitter.destroy(true);
         this.glowEmitter.destroy(true);
         this.btn1.destroy(true);
@@ -228,8 +231,11 @@ export class MyCuteGamesPreloader implements IPreloader {
 
     private nextState(): void {
         this.game.camera.onFadeComplete.addOnce(() => {
+            SoundUtils.init();
+            this.game.time.events.removeAll();
+            this.game.tweens.removeAll();
             this.game.state.start('Start');
         }, this);
-        this.game.camera.fade(0x000000, 500, true, .85);
+        this.game.camera.fade(0x000000, 400, true, .75);
     }
 }

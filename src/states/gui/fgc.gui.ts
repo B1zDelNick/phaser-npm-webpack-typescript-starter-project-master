@@ -64,9 +64,26 @@ export class GuiFgc implements IGui {
         return this.playButton;
     }
 
-    addExtraMore(callback?: Function): Phaser.Button {
-        // TODO Implemetnt Extra More Logic, Later through XML ot Json file template
-        return null;
+    addExtraMore(x: number, y: number, asset: string, frames?: string|any[],
+                 overHandler: Function = GuiUtils.addOverHandler,
+                 outHandler: Function = GuiUtils.addOutHandler,
+                 callback: Function = GuiUtils.goLinkMainMoreGames): Phaser.Button {
+
+        if (frames == null) {
+            frames = [0, 0, 0];
+        }
+        else if (isString(frames)) {
+            frames = [frames, frames, frames];
+        }
+
+        this.moreButton =
+            GuiUtils.makeButton(
+                this.state, this.guiContainer,
+                x, y, 1,
+                '', asset, frames,
+                true, false, true, callback, overHandler, outHandler);
+
+        return this.moreButton;
     }
 
     addMoreBtn(): Phaser.Button {
@@ -126,7 +143,11 @@ export class GuiFgc implements IGui {
         return [this.musonButton, this.musoffButton];
     }
 
-    addExtraBtn(x: number, y: number, asset: string, frames?: any, callback?: Function): Phaser.Button {
+    addExtraBtn(x: number, y: number, asset: string, frames?: string|any[],
+                callback?: Function,
+                overHandler: Function = GuiUtils.addOverHandler,
+                outHandler: Function = GuiUtils.addOutHandler): Phaser.Button {
+
         if (frames == null) {
             frames = [0, 0, 0];
         }
@@ -139,9 +160,8 @@ export class GuiFgc implements IGui {
                 this.state, this.guiContainer,
                 x, y, 1,
                 '', asset, frames,
-                true, false, true, callback, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+                true, false, true, callback, overHandler, outHandler);
 
-        this.guiContainer.add(btn);
         this.extras.push(btn);
 
         return btn;

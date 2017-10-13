@@ -81,9 +81,9 @@ export class BootUtils {
             Assets.Spritesheets.SpritesheetsReplayMcg1651322.getPNG(),
             Assets.Spritesheets.SpritesheetsReplayMcg1651322.getFrameWidth(),
             Assets.Spritesheets.SpritesheetsReplayMcg1651322.getFrameHeight());
-        game.load.script(
+        /*game.load.script(
             Assets.Scripts.ScriptsGlowFilter.getName(),
-            Assets.Scripts.ScriptsGlowFilter.getJS());
+            Assets.Scripts.ScriptsGlowFilter.getJS());*/
         game.load.script(
             Assets.Scripts.ScriptsSpriter.getName(),
             Assets.Scripts.ScriptsSpriter.getJS());
@@ -104,9 +104,9 @@ export class BootUtils {
             Assets.Atlases.AtlasesGuiDu.getName(),
             Assets.Atlases.AtlasesGuiDu.getPNG(),
             Assets.Atlases.AtlasesGuiDu.getJSONArray());
-        game.load.script(
+        /*game.load.script(
             Assets.Scripts.ScriptsGlowFilter.getName(),
-            Assets.Scripts.ScriptsGlowFilter.getJS());
+            Assets.Scripts.ScriptsGlowFilter.getJS());*/
         this.additionalLoads();
     }
 
@@ -124,14 +124,17 @@ export class BootUtils {
             Assets.Atlases.AtlasesGuiFgc.getName(),
             Assets.Atlases.AtlasesGuiFgc.getPNG(),
             Assets.Atlases.AtlasesGuiFgc.getJSONArray());
-        game.load.script(
+        /*game.load.script(
             Assets.Scripts.ScriptsGlowFilter.getName(),
-            Assets.Scripts.ScriptsGlowFilter.getJS());
+            Assets.Scripts.ScriptsGlowFilter.getJS());*/
         this.additionalLoads();
     }
 
     private static additionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
+        game.load.image(
+            Assets.Images.ImagesSpin.getName(),
+            Assets.Images.ImagesSpin.getPNG());
     }
 }

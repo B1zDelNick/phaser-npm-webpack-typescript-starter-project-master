@@ -11,6 +11,7 @@
     "./src/globals.d.ts",
     "./src/app.ts",
     "./node_modules/phaser-ce/typescript/phaser.comments.d.ts",
+    // "./node_modules/phaser-ce/typescript/pixi.comments.d.ts",
     "./vendor/spriter/spriter.d.ts"
   ]
 }

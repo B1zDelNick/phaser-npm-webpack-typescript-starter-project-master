@@ -8,9 +8,9 @@
 	},
 	{
 		"filename": "e_more.png",
-		"frame": {"x":0, "y":1772, "w":180, "h":175},
-		"spriteSourceSize": {"x":0,"y":0,"w":180,"h":175},
-		"sourceSize": {"w":180,"h":175}
+		"frame": {"x":0, "y":1772, "w":198, "h":193},
+		"spriteSourceSize": {"x":0,"y":0,"w":198,"h":193},
+		"sourceSize": {"w":198,"h":193}
 	},
 	{
 		"filename": "gr_1.png",

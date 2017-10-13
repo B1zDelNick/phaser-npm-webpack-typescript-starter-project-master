@@ -12,6 +12,7 @@ import {ILaser} from './spec-effects/laser/i.laser';
 import {EffectUtils} from '../utils/effect.utils';
 import {LaserType} from './spec-effects/laser/enum.laser';
 import {Animation} from '../utils/animation/anim';
+import {Atlases} from '../assets';
 
 export default class Start extends Phaser.State {
 
@@ -89,8 +90,16 @@ export default class Start extends Phaser.State {
         this.title.animations.play('neon', 10, true);
 
         // GUI Buttons
-        this.gui.addGui();
+        this.gui.addGui(false);
         const playBtn = this.gui.addPlayBtn(this.nextState);
+        const moreBtn = this.gui.addExtraMore(
+            960 - 189, 720 - 182,
+            Assets.Atlases.AtlasesStartState.getName(),
+            Assets.Atlases.AtlasesStartState.Frames.EMore.toString(),
+            GuiUtils.addOverScaleHandler,
+            GuiUtils.addOutScaleHandler
+        );
+        moreBtn.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
         playBtn.position.setTo(playBtn.x - 250, playBtn.y + 250);
 
         // Try to retrieve Saver OR else fade effect will apply
@@ -166,10 +175,10 @@ export default class Start extends Phaser.State {
             this.game.state.start(this.NEXT);
         } else {
             if (addLoader) {
-                const preloadFrameSprite = this.game.add.sprite(0, 595,
+                const preloadFrameSprite = this.game.add.sprite(0, this.gui == null ? this.game.world.centerY : 595,
                     Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
                     Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Progressbar1Fgc);
-                const preloadBarSprite = this.game.add.sprite(0, 595,
+                const preloadBarSprite = this.game.add.sprite(0, this.gui == null ? this.game.world.centerY : 595,
                     Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
                     Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Progressbar2Fgc);
                 preloadBarSprite.x = preloadFrameSprite.x = this.game.world.centerX - preloadFrameSprite.width / 2;

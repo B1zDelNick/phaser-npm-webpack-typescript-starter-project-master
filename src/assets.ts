@@ -21,6 +21,11 @@ export namespace Images {
 
         static getPNG(): string { return require('assets/images/preroll2_mcg.png'); }
     }
+    export class ImagesSpin {
+        static getName(): string { return 'spin'; }
+
+        static getPNG(): string { return require('assets/images/spin.png'); }
+    }
 }
 
 export namespace Spritesheets {
@@ -687,11 +692,6 @@ export namespace Scripts {
         static getName(): string { return 'BlurY'; }
 
         static getJS(): string { return require('assets/scripts/BlurY.js'); }
-    }
-    export class ScriptsGlowFilter {
-        static getName(): string { return 'GlowFilter'; }
-
-        static getJS(): string { return require('assets/scripts/GlowFilter.js'); }
     }
     export class ScriptsSpriter {
         static getName(): string { return 'spriter'; }

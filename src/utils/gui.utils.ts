@@ -73,10 +73,11 @@ export class GuiUtils {
     }
 
     public static addOverHandlerMcg(sprite) {
-        sprite.filters = [FilterUtils.makeFilter(GameConfig.GAME)];
-        const _tween1 = GameConfig.GAME.add.tween(sprite).to({ angle: 10 }, 400, Phaser.Easing.Linear.None, true);
-        const _tween2 = GameConfig.GAME.add.tween(sprite).to({ angle: -10 }, 800, Phaser.Easing.Linear.None, false);
-        const _tween3 = GameConfig.GAME.add.tween(sprite).to({ angle: 0 }, 400, Phaser.Easing.Linear.None, false);
+        const game = GameConfig.GAME;
+        sprite.filters = [FilterUtils.makeFilter()];
+        const _tween1 = game.add.tween(sprite).to({ angle: 10 }, 400, Phaser.Easing.Linear.None, true);
+        const _tween2 = game.add.tween(sprite).to({ angle: -10 }, 800, Phaser.Easing.Linear.None, false);
+        const _tween3 = game.add.tween(sprite).to({ angle: 0 }, 400, Phaser.Easing.Linear.None, false);
         _tween1.chain(_tween2);
         _tween2.chain(_tween3);
         _tween3.chain(_tween1);
@@ -89,7 +90,7 @@ export class GuiUtils {
     }
 
     public static addOverHandler(sprite) {
-        sprite.filters = [FilterUtils.makeFilter(GameConfig.GAME)];
+        sprite.filters = [FilterUtils.makeFilter()];
         GameConfig.GAME.tweens.removeFrom(sprite.scale);
         GameConfig.GAME.add.tween(sprite.scale).to({ x: 1.03, y: 1.03 }, 250, Phaser.Easing.Linear.None, true);
     }
@@ -100,8 +101,18 @@ export class GuiUtils {
         GameConfig.GAME.add.tween(sprite.scale).to({ x: 1, y: 1 }, 250, Phaser.Easing.Linear.None, true);
     }
 
+    public static addOverScaleHandler(sprite) {
+        GameConfig.GAME.tweens.removeFrom(sprite.scale);
+        GameConfig.GAME.add.tween(sprite.scale).to({ x: 1.03, y: 1.03 }, 250, Phaser.Easing.Linear.None, true);
+    }
+
+    public static addOutScaleHandler(sprite) {
+        GameConfig.GAME.tweens.removeFrom(sprite.scale);
+        GameConfig.GAME.add.tween(sprite.scale).to({ x: 1, y: 1 }, 250, Phaser.Easing.Linear.None, true);
+    }
+
     public static addOverHandlerFgc(sprite) {
-        sprite.filters = [FilterUtils.makeFilter(GameConfig.GAME)];
+        sprite.filters = [FilterUtils.makeFilter()];
         GameConfig.GAME.tweens.removeFrom(sprite.scale);
         GameConfig.GAME.add.tween(sprite.scale).to({ x: .82, y: .82 }, 250, Phaser.Easing.Linear.None, true);
     }
