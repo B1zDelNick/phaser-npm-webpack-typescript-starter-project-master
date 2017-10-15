@@ -4,6 +4,7 @@ import {ISaver} from '../states/saver/i.saver';
 import {DefaultSaver} from '../states/saver/default.saver';
 import {SaverTemplates} from '../states/saver/enum.saver';
 import {VerticalSaver} from '../states/saver/vertical.saver';
+import {isString} from 'util';
 
 export class GuiUtils {
     public static getSaver(): ISaver {
@@ -30,9 +31,16 @@ export class GuiUtils {
     public static makeButton(
         parent: any, container: Phaser.Group,
         x: number, y: number, scale: number = 1,
-        name: string = '', res: string = '', states: Array<any> = [0, 0, 0],
+        name: string = '', res: string = '', states: any|any[] = [0, 0, 0],
         enabled: boolean = true, perfect: boolean = false, visible: boolean = true,
         clickHandler: Function = null, overHandler: Function = null, outHandler: Function = null, downHandler: Function = null, upHandler: Function = null): Phaser.Button {
+
+        if (states == null) {
+            states = [0, 0, 0];
+        }
+        else if (isString(states)) {
+            states = [states, states, states];
+        }
 
         let tempItem = parent.game.add.button(0, 0, res, null, parent, states[0], states[1], states[2]);
 
@@ -101,6 +109,22 @@ export class GuiUtils {
         GameConfig.GAME.add.tween(sprite.scale).to({ x: 1, y: 1 }, 250, Phaser.Easing.Linear.None, true);
     }
 
+    public static addCustomOverHandler(color: number = 0xffffff, scaleX: number = 1.03, scaleY?: number): Function {
+        return (sprite) => {
+            sprite.filters = [FilterUtils.makeFilter(color)];
+            GameConfig.GAME.tweens.removeFrom(sprite.scale);
+            GameConfig.GAME.add.tween(sprite.scale).to({ x: scaleX, y: scaleY == null ? scaleX : scaleY }, 250, Phaser.Easing.Linear.None, true);
+        };
+    }
+
+    public static addCustomOutHandler(scaleX: number = 1, scaleY?: number): Function {
+        return (sprite) => {
+            sprite.filters = null;
+            GameConfig.GAME.tweens.removeFrom(sprite.scale);
+            GameConfig.GAME.add.tween(sprite.scale).to({ x: scaleX, y: scaleY == null ? scaleX : scaleY }, 250, Phaser.Easing.Linear.None, true);
+        };
+    }
+
     public static addOverScaleHandler(sprite) {
         GameConfig.GAME.tweens.removeFrom(sprite.scale);
         GameConfig.GAME.add.tween(sprite.scale).to({ x: 1.03, y: 1.03 }, 250, Phaser.Easing.Linear.None, true);
@@ -109,6 +133,34 @@ export class GuiUtils {
     public static addOutScaleHandler(sprite) {
         GameConfig.GAME.tweens.removeFrom(sprite.scale);
         GameConfig.GAME.add.tween(sprite.scale).to({ x: 1, y: 1 }, 250, Phaser.Easing.Linear.None, true);
+    }
+
+    public static addCustomOverScaleHandler(scaleX: number = 1.03, scaleY?: number): Function {
+        return (sprite) => {
+            GameConfig.GAME.tweens.removeFrom(sprite.scale);
+            GameConfig.GAME.add.tween(sprite.scale).to({ x: scaleX, y: scaleY == null ? scaleX : scaleY }, 250, Phaser.Easing.Linear.None, true);
+        };
+    }
+
+    public static addCustomOutScaleHandler(scaleX: number = 1, scaleY?: number): Function {
+        return (sprite) => {
+            GameConfig.GAME.tweens.removeFrom(sprite.scale);
+            GameConfig.GAME.add.tween(sprite.scale).to({ x: scaleX, y: scaleY == null ? scaleX : scaleY }, 250, Phaser.Easing.Linear.None, true);
+        };
+    }
+
+    public static addOverGlowHandler(sprite) {
+        sprite.filters = [FilterUtils.makeFilter()];
+    }
+
+    public static addOutGlowHandler(sprite) {
+        sprite.filters = null;
+    }
+
+    public static addCustomOverGlowHandler(color: number = 0xffffff): Function {
+        return (sprite) => {
+            sprite.filters = [FilterUtils.makeFilter(color)];
+        };
     }
 
     public static addOverHandlerFgc(sprite) {
@@ -141,5 +193,11 @@ export class GuiUtils {
 
     public static goLinkMainMoreGames() {
         window.open(GameConfig.mainMoreGamesUrl());
+    }
+
+    public static goCross(game: string): Function {
+        return () => {
+            window.open(GameConfig.crossUrl(game));
+        };
     }
 }

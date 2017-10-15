@@ -29,6 +29,7 @@ export default class Comix extends Phaser.State {
     private cloud1: Phaser.Sprite = null;
     private cloud2: Phaser.Sprite = null;
     private spinner: Phaser.Sprite = null;
+    private blocker: Phaser.Graphics = null;
 
     public init(...args: any[]): void {
         switch (GameConfig.SITE) {
@@ -117,9 +118,9 @@ export default class Comix extends Phaser.State {
             .add(this.girl2, { x: 368 }, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 3.5, Phaser.Easing.Circular.Out)
             .add(this.girl3, { x: 578 }, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 4, Phaser.Easing.Circular.Out)
             .add(this.cloud2, { alpha: 1 }, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 5)
-            .add(playBtn, { alpha: 1 }, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 5.5)
-            .add(playBtn.scale, { x: 1, y: 1 }, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 5.5, Phaser.Easing.Elastic.Out)
-            .animate();
+            .animate(() => {
+                TweenUtils.fadeAndScaleIn(playBtn);
+            }, this);
 
         // Assets Managment starts here
         if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
@@ -144,7 +145,9 @@ export default class Comix extends Phaser.State {
         this.girl3.destroy(true);
         this.cloud1.destroy(true);
         this.cloud2.destroy(true);
-        this.spinner.destroy(true);
+
+        if (this.spinner) this.spinner.destroy(true);
+        this.blocker.destroy(true);
 
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();
@@ -155,6 +158,7 @@ export default class Comix extends Phaser.State {
     }
 
     private nextState(): void {
+        this.gui.disable();
         if (this.saver) {
             this.saver.setOnOutCallback(() => {
                 this.game.time.events.removeAll();
@@ -163,16 +167,16 @@ export default class Comix extends Phaser.State {
             });
             this.saver.fadeOut();
         } else {
-            const blocker = this.game.add.graphics(0, 0);
-            blocker.beginFill(0);
-            blocker.drawRect(0, 0, 960, 720);
-            blocker.inputEnabled = true;
-            blocker.alpha = 0;
+            this.blocker = this.game.add.graphics(0, 0);
+            this.blocker.beginFill(0);
+            this.blocker.drawRect(0, 0, 960, 720);
+            this.blocker.inputEnabled = true;
+            this.blocker.alpha = 0;
             this.game.camera.onFadeComplete.addOnce(() => {
                 this.game.time.events.removeAll();
                 this.game.tweens.removeAll();
                 this.game.camera.fade(0x000000, 1, true, 0);
-                blocker.alpha = .85;
+                this.blocker.alpha = .85;
                 this.reallyGoNextState(true);
             }, this);
             this.game.camera.fade(0x000000, 500, true, .85);

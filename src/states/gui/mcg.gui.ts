@@ -59,7 +59,7 @@ export class GuiMcg implements IGui {
         return this.playButton;
     }
 
-    addExtraMore(x: number, y: number, asset: string, frames?: string|any[],
+    addExtraMore(x: number, y: number, asset: string, frames?: any|any[],
                  overHandler: Function = GuiUtils.addOverHandler,
                  outHandler: Function = GuiUtils.addOutHandler,
                  callback: Function = GuiUtils.goLinkMainMoreGames): Phaser.Button {
@@ -122,7 +122,7 @@ export class GuiMcg implements IGui {
         return [this.musonButton, this.musoffButton];
     }
 
-    addExtraBtn(x: number, y: number, asset: string, frames?: string|any[],
+    addExtraBtn(x: number, y: number, asset: string, frames?: any|any[],
                 callback?: Function,
                 overHandler: Function = GuiUtils.addOverHandler,
                 outHandler: Function = GuiUtils.addOutHandler): Phaser.Button {
@@ -145,6 +145,9 @@ export class GuiMcg implements IGui {
         this.extras.push(btn);
 
         return btn;
+    }
+
+    disable(): void {
     }
 
     dispose(): void {

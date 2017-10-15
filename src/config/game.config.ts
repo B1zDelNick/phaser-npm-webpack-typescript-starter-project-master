@@ -83,6 +83,10 @@ export class GameConfig {
     public static mainMoreGamesUrl(): string {
         return `${this._site}/?utm_source=${this._publisher}&utm_campaign=${this._gameId}&utm_medium=referral&utm_content=main_more_games`;
     }
+
+    public static crossUrl(game: string): string {
+        return `${game}?utm_source=${this._publisher}&utm_campaign=${this._gameId}&utm_medium=referral&utm_content=crosspromo`;
+    }
 }
 
 export enum Sites {

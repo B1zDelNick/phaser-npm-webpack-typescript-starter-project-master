@@ -36,7 +36,7 @@ export class GuiFgc implements IGui {
         this.addMusicBtns();
     }
 
-    addPlayBtn(callback?: Function): Phaser.Button {
+    addPlayBtn(callback?: Function, x: number = -1, y: number = -1): Phaser.Button {
         let frame: string;
         let X: number = -5;
         let Y: number = 593;
@@ -53,6 +53,13 @@ export class GuiFgc implements IGui {
             frame = Assets.Atlases.AtlasesGuiFgc.Frames.DoneFgc.toString();
         }
 
+        if (x !== -1) {
+            X = x;
+        }
+        if (y !== -1) {
+            Y = y;
+        }
+
         this.playButton =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
@@ -64,7 +71,7 @@ export class GuiFgc implements IGui {
         return this.playButton;
     }
 
-    addExtraMore(x: number, y: number, asset: string, frames?: string|any[],
+    addExtraMore(x: number, y: number, asset: string, frames?: any|any[],
                  overHandler: Function = GuiUtils.addOverHandler,
                  outHandler: Function = GuiUtils.addOutHandler,
                  callback: Function = GuiUtils.goLinkMainMoreGames): Phaser.Button {
@@ -143,7 +150,7 @@ export class GuiFgc implements IGui {
         return [this.musonButton, this.musoffButton];
     }
 
-    addExtraBtn(x: number, y: number, asset: string, frames?: string|any[],
+    addExtraBtn(x: number, y: number, asset: string, frames?: any|any[],
                 callback?: Function,
                 overHandler: Function = GuiUtils.addOverHandler,
                 outHandler: Function = GuiUtils.addOutHandler): Phaser.Button {
@@ -165,6 +172,19 @@ export class GuiFgc implements IGui {
         this.extras.push(btn);
 
         return btn;
+    }
+
+    disable(): void {
+        for (let btn of this.extras) {
+            btn.inputEnabled = false;
+            btn.filters = null;
+        }
+        this.playButton.inputEnabled = false;
+        this.playButton.filters = null;
+        this.musonButton.inputEnabled = false;
+        this.musonButton.filters = null;
+        this.musoffButton.inputEnabled = false;
+        this.musoffButton.filters = null;
     }
 
     dispose(): void {

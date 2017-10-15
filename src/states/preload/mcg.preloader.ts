@@ -22,10 +22,12 @@ export class MyCuteGamesPreloader implements IPreloader {
     private glowEmitter: Phaser.Particles.Arcade.Emitter = null;
     private spriterGroup: Spriter.SpriterGroup = null;
     private isHover: boolean = false;
+    private NEXT: string;
 
-    constructor(state: Phaser.State) {
+    constructor(state: Phaser.State, next: string = 'Start') {
         this.game = GameConfig.GAME;
         this.state = state;
+        this.NEXT = next;
     }
 
     public preload(): void {
@@ -155,7 +157,7 @@ export class MyCuteGamesPreloader implements IPreloader {
 
         this.playButton =
             GuiUtils.makeButton(
-                this.state, this.guiContainer,
+                this, this.guiContainer,
                 308, 558, 1,
                 '', Assets.Spritesheets.SpritesheetsPlayMcg1651322.getName(), [0, 1, 0],
                 true, false, false, this.nextState, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
@@ -230,11 +232,12 @@ export class MyCuteGamesPreloader implements IPreloader {
     }
 
     private nextState(): void {
+        this.playButton.inputEnabled = false;
         this.game.camera.onFadeComplete.addOnce(() => {
             SoundUtils.init();
             this.game.time.events.removeAll();
             this.game.tweens.removeAll();
-            this.game.state.start('Start');
+            this.game.state.start(this.NEXT);
         }, this);
         this.game.camera.fade(0x000000, 400, true, .75);
     }

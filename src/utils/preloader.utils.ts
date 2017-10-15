@@ -81,6 +81,16 @@ export class PreloaderUtils {
             Assets.Atlases.AtlasesDress1State.getName(),
             Assets.Atlases.AtlasesDress1State.getPNG(),
             Assets.Atlases.AtlasesDress1State.getJSONArray());
+        // this.dressStateAdditionalLoads();
+    }
+
+    public static preloadDress2State(): void {
+        const game = GameConfig.GAME;
+        // Load any assets you need for your preloader state here.
+        game.load.atlasJSONArray(
+            Assets.Atlases.AtlasesDress2State.getName(),
+            Assets.Atlases.AtlasesDress2State.getPNG(),
+            Assets.Atlases.AtlasesDress2State.getJSONArray());
     }
 
     /** ------------------------------------------------------------------------
@@ -99,5 +109,22 @@ export class PreloaderUtils {
             Assets.Atlases.AtlasesTitle.getName(),
             Assets.Atlases.AtlasesTitle.getPNG(),
             Assets.Atlases.AtlasesTitle.getJSONArray());
+    }
+
+    private static dressStateAdditionalLoads(): void {
+        const game = GameConfig.GAME;
+        // Additional loading HERE, exp: BlurX script etc
+        game.load.atlasJSONArray(
+            Assets.Atlases.AtlasesDollAnna.getName(),
+            Assets.Atlases.AtlasesDollAnna.getPNG(),
+            Assets.Atlases.AtlasesDollAnna.getJSONArray());
+        game.load.atlasJSONArray(
+            Assets.Atlases.AtlasesDollElza.getName(),
+            Assets.Atlases.AtlasesDollElza.getPNG(),
+            Assets.Atlases.AtlasesDollElza.getJSONArray());
+        game.load.atlasJSONArray(
+            Assets.Atlases.AtlasesDollElza2.getName(),
+            Assets.Atlases.AtlasesDollElza2.getPNG(),
+            Assets.Atlases.AtlasesDollElza2.getJSONArray());
     }
 }

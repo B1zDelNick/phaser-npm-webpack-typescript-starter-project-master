@@ -227,6 +227,19 @@ export namespace Atlases {
 
         static Frames = AtlasesDollAnnaFrames;
     }
+    enum AtlasesDollElza2Frames {
+        Body = <any>'body.png',
+        Head = <any>'head.png',
+    }
+    export class AtlasesDollElza2 {
+        static getName(): string { return 'doll_elza_2'; }
+
+        static getJSONArray(): string { return require('assets/atlases/doll_elza_2.json'); }
+
+        static getPNG(): string { return require('assets/atlases/doll_elza_2.png'); }
+
+        static Frames = AtlasesDollElza2Frames;
+    }
     enum AtlasesDollElzaFrames {
         B1 = <any>'b_1.png',
         B2 = <any>'b_2.png',
@@ -242,7 +255,6 @@ export namespace Atlases {
         Bb6 = <any>'bb_6.png',
         Bb7 = <any>'bb_7.png',
         Bb8 = <any>'bb_8.png',
-        Body = <any>'body.png',
         D1 = <any>'d_1.png',
         D2 = <any>'d_2.png',
         D3 = <any>'d_3.png',
@@ -264,7 +276,6 @@ export namespace Atlases {
         HB4 = <any>'h_b_4.png',
         HB5 = <any>'h_b_5.png',
         HB6 = <any>'h_b_6.png',
-        Head = <any>'head.png',
         J1 = <any>'j_1.png',
         J2 = <any>'j_2.png',
         J3 = <any>'j_3.png',

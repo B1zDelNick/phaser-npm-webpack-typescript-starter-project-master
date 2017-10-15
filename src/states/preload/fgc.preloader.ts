@@ -23,10 +23,12 @@ export class FreeGamesCasualPreloader implements IPreloader {
     private guiContainer: Phaser.Group = null;
     private glowEmitter: Phaser.Particles.Arcade.Emitter = null;
     private isHover: boolean = false;
+    private NEXT: string;
 
-    constructor(state: Phaser.State) {
+    constructor(state: Phaser.State, next: string = 'Start') {
         this.game = GameConfig.GAME;
         this.state = state;
+        this.NEXT = next;
     }
 
     public preload(): void {
@@ -125,7 +127,7 @@ export class FreeGamesCasualPreloader implements IPreloader {
 
         this.playButton =
             GuiUtils.makeButton(
-                this.state, this.guiContainer,
+                this, this.guiContainer,
                 350, 558, 1,
                 '', Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
                 [Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.PlayNormalFgc,
@@ -188,11 +190,12 @@ export class FreeGamesCasualPreloader implements IPreloader {
     }
 
     private nextState(): void {
+        this.playButton.inputEnabled = false;
         this.game.camera.onFadeComplete.addOnce(() => {
             SoundUtils.init();
             this.game.time.events.removeAll();
             this.game.tweens.removeAll();
-            this.game.state.start('Start');
+            this.game.state.start(this.NEXT);
         }, this);
         this.game.camera.fade(0x000000, 400, true, .75);
     }

@@ -24,7 +24,7 @@ export default class Preloader extends Phaser.State {
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.preloader = new FreeGamesCasualPreloader(this);
+                this.preloader = new FreeGamesCasualPreloader(this, 'Dress1');
                 break;
             }
         }

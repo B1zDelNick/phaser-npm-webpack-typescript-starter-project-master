@@ -1,4 +1,5 @@
 import {GameConfig} from '../../config/game.config';
+import {isArray} from 'util';
 
 export class Animation {
 
@@ -16,13 +17,14 @@ export class Animation {
         delay?: number,
         easing?: Function,
         onCompleteAnimation?: Animation,
-        onCompleteCallback?: Function): Animation {
+        onCompleteCallback?: Function,
+        onCompleteCallbackContext?: any): Animation {
 
-        if (duration === null)
+        if (duration == null)
             duration = Phaser.Timer.SECOND * 1;
-        if (delay === null)
+        if (delay == null)
             delay = 0;
-        if (easing === null)
+        if (easing == null)
             easing = Phaser.Easing.Linear.None;
 
         this._list.push({
@@ -32,12 +34,13 @@ export class Animation {
             delay: delay,
             easing: easing,
             onCompleteAnimation: onCompleteAnimation,
-            onCompleteCallback: onCompleteCallback
+            onCompleteCallback: onCompleteCallback,
+            onCompleteCallbackContext: onCompleteCallbackContext
         });
         return this._anim;
     }
 
-    public animate(callback?: Function): number {
+    public animate(callback?: Function|Function[], context?: any): number {
         const game = GameConfig.GAME;
         let tw: Phaser.Tween;
         let totalDuration: number = 0;
@@ -56,14 +59,23 @@ export class Animation {
                 if (step.onCompleteCallback != null) {
                     step.onCompleteCallback.call(null);
                 }
-            });
+            }, step.onCompleteCallbackContext);
             /*if (totalDuration < (step.duration + step.delay + additionalDuration))
                 totalDuration = step.duration + step.delay + additionalDuration;*/
             if (totalDuration < (step.duration + step.delay))
                 totalDuration = step.duration + step.delay;
         }
-        if (callback)
-            game.time.events.add(totalDuration, callback, this);
+
+        if (callback) {
+            if (isArray(callback)) {
+                for (let call of callback) {
+                    game.time.events.add(totalDuration, call, context);
+                }
+            } else {
+                game.time.events.add(totalDuration, callback, context);
+            }
+        }
+
         // tw.onComplete.addOnce(callback);
         // console.log(`Parent total duration: ${totalDuration}`);
         return totalDuration;
@@ -89,4 +101,5 @@ interface IAnimationStep {
     easing: Function;
     onCompleteAnimation: Animation;
     onCompleteCallback: Function;
+    onCompleteCallbackContext: any;
 }

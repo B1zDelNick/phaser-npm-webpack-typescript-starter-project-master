@@ -1,12 +1,13 @@
 export interface IGui {
     addGui(defaultGui?: boolean): void;
-    addPlayBtn(callback?: Function): Phaser.Button;
+    addPlayBtn(callback?: Function, x?: number, y?: number): Phaser.Button;
     addMoreBtn(): Phaser.Button;
-    addExtraMore(x: number, y: number, asset: string, frames?: string|any[], overHandler?: Function, outHandler?: Function, callback?: Function): Phaser.Button;
+    addExtraMore(x: number, y: number, asset: string, frames?: any|any[], overHandler?: Function, outHandler?: Function, callback?: Function): Phaser.Button;
     addLogoBtn(): Phaser.Button;
     addMusicBtns(): Array<Phaser.Button>;
+    disable(): void;
     dispose(): void;
-    addExtraBtn(x: number, y: number, asset: string, frames?: string|any[], callback?: Function, overHandler?: Function, outHandler?: Function): Phaser.Button;
+    addExtraBtn(x: number, y: number, asset: string, frames?: any|any[], callback?: Function, overHandler?: Function, outHandler?: Function): Phaser.Button;
 }
 
 export enum StateType {
