@@ -16,6 +16,7 @@ module.exports = {
             pixi: path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
             phaser: path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js'),
             p2: path.join(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
+            ima3: path.join(__dirname, 'vendor/ima/ima3.js'),
             // spriter: path.join(__dirname, 'vendor/spriter/spriter.min.js'),
             assets: path.join(__dirname, 'assets/')
         }
@@ -46,7 +47,7 @@ module.exports = {
             path.join(__dirname, 'dist')
         ]),
         new HtmlWebpackPlugin({
-            title: 'Cinderellas Bridal Fashion Collection',
+            title: 'Spotlight on Princess - Sister\'s Fashion Tips',
             template: path.join(__dirname, 'templates/index.ejs')
         })
     ],

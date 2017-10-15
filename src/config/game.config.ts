@@ -52,6 +52,10 @@ export class GameConfig {
         this._gameId = this.makeLinkId(gameTitle);
     }
 
+    public static getTitle(): string {
+        return this._gameId;
+    }
+
     private static getLocation(href: string): string {
         const l = document.createElement('a');
         l.href = href;

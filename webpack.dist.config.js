@@ -81,7 +81,7 @@ module.exports = {
             screw_ie8: true
         }),*/
         new HtmlWebpackPlugin({
-            title: 'Phaser NPM Webpack TypeScript Starter Project!',
+            title: 'Spotlight on Princess - Sister\'s Fashion Tips',
             template: path.join(__dirname, 'templates/index.ejs')
         })
     ],
