@@ -126,7 +126,7 @@ export default class Start extends Phaser.State {
             .animate();
 
         // Assets Managment starts here
-        if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
+        if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             PreloaderUtils.preloadComixState();

@@ -24,7 +24,7 @@ export default class Preloader extends Phaser.State {
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.preloader = new FreeGamesCasualPreloader(this, 'Dress1');
+                this.preloader = new FreeGamesCasualPreloader(this, 'Start');
                 break;
             }
         }
@@ -57,6 +57,8 @@ export default class Preloader extends Phaser.State {
     }
 
     private waitForSoundDecoding(): void {
+        if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
+            GameConfig.IS_ASSETS_LOADED = true;
         AssetUtils.Loader.waitForSoundDecoding(() => {
             // enable sound or else
             this.preloader.enableButton();

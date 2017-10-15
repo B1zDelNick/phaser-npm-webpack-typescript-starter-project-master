@@ -24,7 +24,7 @@ class App extends Phaser.Game {
         GameConfig.init(
             Sites.FREE_GAMES_CASUAL,
             PublishMode.NORMAL,
-            AssetMode.LOAD_ALL,
+            AssetMode.LOAD_BACKGROUND,
             SaverTemplates.NONE,
             'Cinderellas Bridal Fashion Collection');
 

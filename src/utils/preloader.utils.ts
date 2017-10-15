@@ -81,7 +81,7 @@ export class PreloaderUtils {
             Assets.Atlases.AtlasesDress1State.getName(),
             Assets.Atlases.AtlasesDress1State.getPNG(),
             Assets.Atlases.AtlasesDress1State.getJSONArray());
-        // this.dressStateAdditionalLoads();
+        this.dressStateAdditionalLoads();
     }
 
     public static preloadDress2State(): void {
@@ -91,6 +91,29 @@ export class PreloaderUtils {
             Assets.Atlases.AtlasesDress2State.getName(),
             Assets.Atlases.AtlasesDress2State.getPNG(),
             Assets.Atlases.AtlasesDress2State.getJSONArray());
+    }
+
+    public static preloadDress3State(): void {
+        const game = GameConfig.GAME;
+        // Load any assets you need for your preloader state here.
+        game.load.atlasJSONArray(
+            Assets.Atlases.AtlasesDress3State.getName(),
+            Assets.Atlases.AtlasesDress3State.getPNG(),
+            Assets.Atlases.AtlasesDress3State.getJSONArray());
+    }
+
+    public static preloadFinalState(): void {
+        const game = GameConfig.GAME;
+        // Load any assets you need for your preloader state here.
+        game.load.atlasJSONArray(
+            Assets.Atlases.AtlasesFinalState.getName(),
+            Assets.Atlases.AtlasesFinalState.getPNG(),
+            Assets.Atlases.AtlasesFinalState.getJSONArray());
+        game.load.spritesheet(
+            Assets.Spritesheets.SpritesheetsSign238469.getName(),
+            Assets.Spritesheets.SpritesheetsSign238469.getPNG(),
+            Assets.Spritesheets.SpritesheetsSign238469.getFrameWidth(),
+            Assets.Spritesheets.SpritesheetsSign238469.getFrameHeight());
     }
 
     /** ------------------------------------------------------------------------

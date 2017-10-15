@@ -32,6 +32,9 @@ export default class Final extends Phaser.State {
     private cross: CrossBlock = null;
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
+    private another: Phaser.Button = null;
+
+    private restart: boolean = true;
 
     public init(...args: any[]): void {
         switch (GameConfig.SITE) {
@@ -52,8 +55,15 @@ export default class Final extends Phaser.State {
             }
         }
 
+        this.anna = null;
+        this.elza = null;
+        this.cross = null;
+
         this.anna = args[0] as Doll;
         this.elza = args[1] as Doll;
+
+        this.NEXT = 'Start';
+        this.restart = true;
     }
 
     public preload(): void {
@@ -120,15 +130,15 @@ export default class Final extends Phaser.State {
             GuiUtils.addOutScaleHandler
         );
         moreBtn.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
-        const another = this.gui.addExtraBtn(2, 541,
+        this.another = this.gui.addExtraBtn(2, 541,
             Assets.Atlases.AtlasesFinalState.getName(),
             Assets.Atlases.AtlasesFinalState.Frames.Another,
             this.nextState
         );
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
-        another.scale.setTo(0);
-        another.alpha = 0;
+        this.another.scale.setTo(0);
+        this.another.alpha = 0;
 
         // Try to retrieve Saver OR else fade effect will apply
         this.saver = GuiUtils.getSaver();
@@ -141,21 +151,16 @@ export default class Final extends Phaser.State {
         }
 
         // Animations goes here
-        TweenUtils.fadeIn(this.cloud, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1,
-            () => {
-                TweenUtils.fadeAndScaleIn(another, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * .5, () => {
-                    TweenUtils.slideIn(
-                        this.cross.getContainer(), 0,
-                        Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 0,
-                        () => {
-                            TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * .5);
-                        });
-                }, this);
-            }, this);
+        TweenUtils.fadeIn(this.cloud, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeAndScaleIn(this.another, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 2);
+        TweenUtils.slideIn(this.cross.getContainer(), 0, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2.75);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 4.25);
 
         // Assets Managment starts here
         // Nothing to Load Here, just enjoy :)
         this.nextPrepared = true;
+        if (!GameConfig.IS_ASSETS_LOADED)
+            GameConfig.IS_ASSETS_LOADED = true;
     }
 
     public update(): void {
@@ -177,15 +182,28 @@ export default class Final extends Phaser.State {
         if (this.saver !== null) this.saver.dispose();
 
         this.cross.dispose();
-        this.anna.dispose();
-        this.elza.dispose();
+
+        if (!this.restart) {
+            this.anna.extract();
+            this.elza.extract();
+        }
+        else {
+            this.anna.dispose();
+            this.elza.dispose();
+            this.anna = null;
+            this.elza = null;
+        }
     }
 
     private waitForLoading(): void {
         this.nextPrepared = true;
     }
 
-    private nextState(): void {
+    private nextState(sprite: Phaser.Button): void {
+        this.restart = sprite !== this.another;
+        if (!this.restart) {
+            this.NEXT = 'Dress1';
+        }
         this.gui.disable();
         if (this.saver) {
             this.saver.setOnOutCallback(() => {
@@ -213,7 +231,8 @@ export default class Final extends Phaser.State {
 
     private reallyGoNextState(addLoader: boolean = false): void {
         if (this.nextPrepared) {
-            this.game.state.start(this.NEXT);
+            if (this.restart) this.game.state.start(this.NEXT, true, false, null, null);
+            else this.game.state.start(this.NEXT, true, false, this.anna, this.elza);
         } else {
             if (addLoader) {
                 this.spinner = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesSpin.getName());

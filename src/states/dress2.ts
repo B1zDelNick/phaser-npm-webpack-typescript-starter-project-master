@@ -62,8 +62,15 @@ export default class Dress2 extends Phaser.State {
             }
         }
 
+        this.anna = null;
+        this.elza = null;
+
         this.anna = args[0] as Doll;
         this.elza = args[1] as Doll;
+
+        this.changing = false;
+        this.annaDressed = false;
+        this.elzaDressed = false;
     }
 
     public preload(): void {
@@ -319,10 +326,10 @@ export default class Dress2 extends Phaser.State {
             }, this);
 
         // Assets Managment starts here
-        if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
+        if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
-            PreloaderUtils.preloadDress2State();
+            PreloaderUtils.preloadDress3State();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }

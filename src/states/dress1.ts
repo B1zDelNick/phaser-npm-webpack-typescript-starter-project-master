@@ -13,10 +13,11 @@ import {Animation} from '../utils/animation/anim';
 import {TweenUtils} from '../utils/tween.utils';
 import {Chest} from './template/dress/chest';
 import {Doll} from './template/dress/doll';
+import {isNull, isUndefined} from 'util';
 
 export default class Dress1 extends Phaser.State {
 
-    private NEXT = 'Final';
+    private NEXT = 'Dress2';
     private nextPrepared = false;
     private changing = false;
 
@@ -59,6 +60,18 @@ export default class Dress1 extends Phaser.State {
                 break;
             }
         }
+
+        this.anna = null;
+        this.elza = null;
+
+        if (!isNull(args[0]) && !isUndefined(args[0])) {
+            this.anna = args[0] as Doll;
+            this.elza = args[1] as Doll;
+        }
+
+        this.changing = false;
+        this.annaDressed = false;
+        this.elzaDressed = false;
     }
 
     public preload(): void {
@@ -295,91 +308,100 @@ export default class Dress1 extends Phaser.State {
             .build();
 
         // Dolls
-        this.anna = new Doll(this, 528, 16)
-            .layer(70, 6, 'hair_b',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                'HB', 'HB')
-            .layer(0, 7, 'body',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                null, 'Body')
-            .layer(81, 564, 'shoe',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                'S', 'S')
-            .layer(47, 221, 'bot',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                'B', null)
-            .layer(34, 105, 'top',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                'T', null)
-            .layer(-7, 109, 'dress',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                'D', null)
-            .layer(118, 68, 'jew',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                'J', null, true)
-            .layer(72, -12, 'hair',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                'H', 'H')
-            .layer(179, 68, 'bag',
-                Assets.Atlases.AtlasesDollAnna.getName(),
-                Assets.Atlases.AtlasesDollAnna.Frames,
-                'Bb', null, true);
+        if (isNull(this.anna)) {
+            this.anna = new Doll(this, 528, 16)
+                .layer(70, 6, 'hair_b',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    'HB', 'HB')
+                .layer(0, 7, 'body',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    null, 'Body')
+                .layer(81, 564, 'shoe',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    'S', 'S')
+                .layer(47, 221, 'bot',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    'B', null)
+                .layer(34, 105, 'top',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    'T', null)
+                .layer(-7, 109, 'dress',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    'D', null)
+                .layer(118, 68, 'jew',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    'J', null, true)
+                .layer(72, -12, 'hair',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    'H', 'H')
+                .layer(179, 68, 'bag',
+                    Assets.Atlases.AtlasesDollAnna.getName(),
+                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    'Bb', null, true);
 
-        this.elza = new Doll(this, 499, 17)
-            .layer(34, -10, 'hair_b',
-                Assets.Atlases.AtlasesDollElza.getName(),
-                Assets.Atlases.AtlasesDollElza.Frames,
-                'HB', 'HB')
-            .layer(0, 78, 'body',
-                Assets.Atlases.AtlasesDollElza2.getName(),
-                Assets.Atlases.AtlasesDollElza2.Frames,
-                null, 'Body')
-            .layer(44, 579, 'shoe',
-                Assets.Atlases.AtlasesDollElza.getName(),
-                Assets.Atlases.AtlasesDollElza.Frames,
-                'S', 'S')
-            .layer(63, 228, 'bot',
-                Assets.Atlases.AtlasesDollElza.getName(),
-                Assets.Atlases.AtlasesDollElza.Frames,
-                'B', null)
-            .layer(66, 102, 'top',
-                Assets.Atlases.AtlasesDollElza.getName(),
-                Assets.Atlases.AtlasesDollElza.Frames,
-                'T', null)
-            .layer(36, 109, 'dress',
-                Assets.Atlases.AtlasesDollElza.getName(),
-                Assets.Atlases.AtlasesDollElza.Frames,
-                'D', null)
-            .layer(178, 316, 'bag',
-                Assets.Atlases.AtlasesDollElza.getName(),
-                Assets.Atlases.AtlasesDollElza.Frames,
-                'Bb', null, true)
-            .layer(124, 12, 'head',
-                Assets.Atlases.AtlasesDollElza2.getName(),
-                Assets.Atlases.AtlasesDollElza2.Frames,
-                null, 'Head')
-            .layer(121, 77, 'jew',
-                Assets.Atlases.AtlasesDollElza.getName(),
-                Assets.Atlases.AtlasesDollElza.Frames,
-                'J', null, true)
-            .layer(67, -19, 'hair',
-                Assets.Atlases.AtlasesDollElza.getName(),
-                Assets.Atlases.AtlasesDollElza.Frames,
-                'H', 'H');
+            this.elza = new Doll(this, 499, 17)
+                .layer(34, -10, 'hair_b',
+                    Assets.Atlases.AtlasesDollElza.getName(),
+                    Assets.Atlases.AtlasesDollElza.Frames,
+                    'HB', 'HB')
+                .layer(0, 78, 'body',
+                    Assets.Atlases.AtlasesDollElza2.getName(),
+                    Assets.Atlases.AtlasesDollElza2.Frames,
+                    null, 'Body')
+                .layer(44, 579, 'shoe',
+                    Assets.Atlases.AtlasesDollElza.getName(),
+                    Assets.Atlases.AtlasesDollElza.Frames,
+                    'S', 'S')
+                .layer(63, 228, 'bot',
+                    Assets.Atlases.AtlasesDollElza.getName(),
+                    Assets.Atlases.AtlasesDollElza.Frames,
+                    'B', null)
+                .layer(66, 102, 'top',
+                    Assets.Atlases.AtlasesDollElza.getName(),
+                    Assets.Atlases.AtlasesDollElza.Frames,
+                    'T', null)
+                .layer(36, 109, 'dress',
+                    Assets.Atlases.AtlasesDollElza.getName(),
+                    Assets.Atlases.AtlasesDollElza.Frames,
+                    'D', null)
+                .layer(178, 316, 'bag',
+                    Assets.Atlases.AtlasesDollElza.getName(),
+                    Assets.Atlases.AtlasesDollElza.Frames,
+                    'Bb', null, true)
+                .layer(124, 12, 'head',
+                    Assets.Atlases.AtlasesDollElza2.getName(),
+                    Assets.Atlases.AtlasesDollElza2.Frames,
+                    null, 'Head')
+                .layer(121, 77, 'jew',
+                    Assets.Atlases.AtlasesDollElza.getName(),
+                    Assets.Atlases.AtlasesDollElza.Frames,
+                    'J', null, true)
+                .layer(67, -19, 'hair',
+                    Assets.Atlases.AtlasesDollElza.getName(),
+                    Assets.Atlases.AtlasesDollElza.Frames,
+                    'H', 'H');
+        }
+        else {
+            this.anna.insert();
+            this.elza.insert();
+            this.elza.setPosition(499, 17);
+            this.anna.setPosition(528, 16);
+        }
 
         this.cloud = this.game.add.sprite(450, 180,
             Assets.Atlases.AtlasesDress1State.getName(),
             Assets.Atlases.AtlasesDress1State.Frames.Cl3);
 
         this.cloud.alpha = 0;
+        this.anna.show(true);
         this.elza.hide(true);
 
         // GUI Buttons
@@ -457,7 +479,7 @@ export default class Dress1 extends Phaser.State {
             }, this);
 
         // Assets Managment starts here
-        if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
+        if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             PreloaderUtils.preloadDress2State();

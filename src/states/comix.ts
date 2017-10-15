@@ -93,13 +93,15 @@ export default class Comix extends Phaser.State {
             GuiUtils.addOutScaleHandler
         );
         moreBtn.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
-        this.gui.addExtraBtn(115, 593,
+        const skip = this.gui.addExtraBtn(115, 593,
             Assets.Atlases.AtlasesComixState.getName(),
             Assets.Atlases.AtlasesComixState.Frames.Skip.toString(),
             this.nextState
         );
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
+        skip.scale.setTo(0);
+        skip.alpha = 0;
 
         // Try to retrieve Saver OR else fade effect will apply
         this.saver = GuiUtils.getSaver();
@@ -112,6 +114,7 @@ export default class Comix extends Phaser.State {
         }
 
         // Animations goes here
+        TweenUtils.fadeAndScaleIn(skip, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * .5);
         new Animation()
             .add(this.girl1, { x: 94 }, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1, Phaser.Easing.Circular.Out)
             .add(this.cloud1, { alpha: 1 }, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2)
@@ -120,6 +123,7 @@ export default class Comix extends Phaser.State {
             .add(this.cloud2, { alpha: 1 }, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 5)
             .animate(() => {
                 TweenUtils.fadeAndScaleIn(playBtn);
+                TweenUtils.fadeAndScaleOut(skip);
             }, this);
 
         // Assets Managment starts here
