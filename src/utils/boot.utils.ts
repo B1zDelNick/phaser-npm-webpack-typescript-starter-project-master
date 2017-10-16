@@ -1,5 +1,6 @@
 import * as Assets from '../assets';
 import {GameConfig, PublishMode} from '../config/game.config';
+import {ImageUtils} from './images/image.utils';
 
 export class BootUtils {
 

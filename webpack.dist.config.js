@@ -23,7 +23,7 @@ module.exports = {
     },
     plugins: [
         new WebpackShellPlugin({
-            onBuildStart: ['npm run assets']
+            onBuildStart: ['npm run assets:dev']
         }),
         new webpack.DefinePlugin({
             'DEBUG': false,
@@ -43,7 +43,7 @@ module.exports = {
                 'webm', 'ogg', 'm4a', 'mp3', 'aac', 'ac3', 'caf', 'flac', 'mp4', 'wav'
             ])
         }),
-        new ImageminPlugin({
+        /*new ImageminPlugin({
             test: /\.(jpe?g|png|gif|svg)$/i,
             disable: process.env.NODE_ENV !== 'production', // Disable during development
             pngquant: {
@@ -58,11 +58,10 @@ module.exports = {
             svgo: {
 
             }
-        }),
+        }),*/
         new CleanWebpackPlugin([
             path.join(__dirname, 'dist')
         ]),
-
         new Uglify({
             uglifyOptions: {
                 compress: {
@@ -71,6 +70,7 @@ module.exports = {
                 output: {
                     comments: false
                 },
+                screw_ie8: true
             },
             //sourceMap: true,
         }),
