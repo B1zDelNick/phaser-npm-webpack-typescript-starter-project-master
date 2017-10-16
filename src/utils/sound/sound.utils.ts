@@ -1,5 +1,6 @@
 import * as Assets from '../../assets';
 import {GameConfig} from '../../config/game.config';
+import {isNull, isUndefined} from 'util';
 
 export class SoundUtils {
 
@@ -14,28 +15,25 @@ export class SoundUtils {
             mainTheme = Assets.Audio['AudioMainTheme'].getName();
         }
         this.currentTheme = mainTheme;
-        this.audios[mainTheme] = (GameConfig.GAME.sound.play(mainTheme, 0.5, true));
         this.onSwitchAudio = new Phaser.Signal();
+
+        if (isNull(this.currentTheme) || isUndefined(this.currentTheme)) return;
+
+        this.audios[mainTheme] = (GameConfig.GAME.sound.play(mainTheme, 0.5, true));
     }
 
     public static mainThemeSwitch(): void {
         if (SoundUtils.globalSoundEnabled) {
             SoundUtils.globalSoundEnabled = false;
-            SoundUtils.audios[SoundUtils.currentTheme].pause();
 
-            /*musOff.visible = true;
-            musOff.input.enabled = true;
-            musOn.visible = false;
-            musOn.input.enabled = false;*/
+            if (!isNull(SoundUtils.currentTheme) && !isUndefined(SoundUtils.currentTheme))
+                SoundUtils.audios[SoundUtils.currentTheme].pause();
         }
         else {
             SoundUtils.globalSoundEnabled = true;
-            SoundUtils.audios[SoundUtils.currentTheme].resume();
 
-            /*musOff.visible = false;
-            musOff.input.enabled = false;
-            musOn.visible = true;
-            musOn.input.enabled = true;*/
+            if (!isNull(SoundUtils.currentTheme) && !isUndefined(SoundUtils.currentTheme))
+                SoundUtils.audios[SoundUtils.currentTheme].resume();
         }
         SoundUtils.onSwitchAudio.dispatch();
     }

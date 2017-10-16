@@ -1,15 +1,16 @@
 import * as Assets from '../assets';
 import {GameConfig} from '../config/game.config';
+import {ImageUtils} from './images/image.utils';
 
 export class PreloaderUtils {
 
     public static preloadMainTheme(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
-        if (Assets.Audio['AudioMainTheme'] != null) {
+        if (ImageUtils.getAtlasClass('AudioMainTheme') != null) {
             game.load.audio(
-                Assets.Audio['AudioMainTheme'].getName(),
-                Assets.Audio['AudioMainTheme'].getMP3(),
+                ImageUtils.getAtlasClass('AudioMainTheme').getName(),
+                ImageUtils.getAtlasClass('AudioMainTheme').getMP3(),
                 true);
         } else {
             if (DEBUG)
@@ -20,11 +21,11 @@ export class PreloaderUtils {
     public static preloadSaver(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
-        if (Assets.Atlases['AtlasesSaver' + GameConfig.ASSET_SIZE] != null) {
+        if (ImageUtils.getAtlasClass('AtlasesSaver') != null) {
             game.load.atlasJSONArray(
-                Assets.Atlases['AtlasesSaver' + GameConfig.ASSET_SIZE].getName(),
-                Assets.Atlases['AtlasesSaver' + GameConfig.ASSET_SIZE].getPNG(),
-                Assets.Atlases['AtlasesSaver' + GameConfig.ASSET_SIZE].getJSONArray());
+                ImageUtils.getAtlasClass('AtlasesSaver').getName(),
+                ImageUtils.getAtlasClass('AtlasesSaver').getPNG(),
+                ImageUtils.getAtlasClass('AtlasesSaver').getJSONArray());
         } else {
             if (DEBUG)
                 console.log(`\nNo default Saver graphics was found.`);
@@ -34,11 +35,11 @@ export class PreloaderUtils {
     public static preloadEffects(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
-        if (Assets.Atlases['AtlasesEffects' + GameConfig.ASSET_SIZE] != null) {
+        if (ImageUtils.getAtlasClass('AtlasesEffects') != null) {
             game.load.atlasJSONArray(
-                Assets.Atlases['AtlasesEffects' + GameConfig.ASSET_SIZE].getName(),
-                Assets.Atlases['AtlasesEffects' + GameConfig.ASSET_SIZE].getPNG(),
-                Assets.Atlases['AtlasesEffects' + GameConfig.ASSET_SIZE].getJSONArray());
+                ImageUtils.getAtlasClass('AtlasesEffects').getName(),
+                ImageUtils.getAtlasClass('AtlasesEffects').getPNG(),
+                ImageUtils.getAtlasClass('AtlasesEffects').getJSONArray());
         } else {
             if (DEBUG)
                 console.log(`\nNo default Effects graphics was found.`);
@@ -48,11 +49,11 @@ export class PreloaderUtils {
     public static preloadStartState(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
-        if (Assets.Atlases['AtlasesStartState' + GameConfig.ASSET_SIZE] != null) {
+        if (ImageUtils.getAtlasClass('AtlasesStartState') != null) {
             game.load.atlasJSONArray(
-                Assets.Atlases['AtlasesStartState' + GameConfig.ASSET_SIZE].getName(),
-                Assets.Atlases['AtlasesStartState' + GameConfig.ASSET_SIZE].getPNG(),
-                Assets.Atlases['AtlasesStartState' + GameConfig.ASSET_SIZE].getJSONArray());
+                ImageUtils.getAtlasClass('AtlasesStartState').getName(),
+                ImageUtils.getAtlasClass('AtlasesStartState').getPNG(),
+                ImageUtils.getAtlasClass('AtlasesStartState').getJSONArray());
         } else {
             if (DEBUG)
                 console.log(`\nNo default StartState graphics was found.`);
@@ -63,57 +64,25 @@ export class PreloaderUtils {
     public static preloadComixState(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
-        if (Assets.Atlases['AtlasesComixState' + GameConfig.ASSET_SIZE] != null) {
+        if (ImageUtils.getAtlasClass('AtlasesComixState') != null) {
             game.load.atlasJSONArray(
-                Assets.Atlases['AtlasesComixState' + GameConfig.ASSET_SIZE].getName(),
-                Assets.Atlases['AtlasesComixState' + GameConfig.ASSET_SIZE].getPNG(),
-                Assets.Atlases['AtlasesComixState' + GameConfig.ASSET_SIZE].getJSONArray());
+                ImageUtils.getAtlasClass('AtlasesComixState').getName(),
+                ImageUtils.getAtlasClass('AtlasesComixState').getPNG(),
+                ImageUtils.getAtlasClass('AtlasesComixState').getJSONArray());
         } else {
             if (DEBUG)
                 console.log(`\nNo default Comix State graphics was found.`);
         }
     }
 
-    public static preloadDress1State(): void {
+    public static preloadDressState(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
         game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesDress1State' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesDress1State' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesDress1State' + GameConfig.ASSET_SIZE].getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesDressState').getName(),
+            ImageUtils.getAtlasClass('AtlasesDressState').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDressState').getJSONArray());
         this.dressStateAdditionalLoads();
-    }
-
-    public static preloadDress2State(): void {
-        const game = GameConfig.GAME;
-        // Load any assets you need for your preloader state here.
-        game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesDress2State' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesDress2State' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesDress2State' + GameConfig.ASSET_SIZE].getJSONArray());
-    }
-
-    public static preloadDress3State(): void {
-        const game = GameConfig.GAME;
-        // Load any assets you need for your preloader state here.
-        game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesDress3State' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesDress3State' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesDress3State' + GameConfig.ASSET_SIZE].getJSONArray());
-    }
-
-    public static preloadFinalState(): void {
-        const game = GameConfig.GAME;
-        // Load any assets you need for your preloader state here.
-        game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesFinalState' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesFinalState' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesFinalState' + GameConfig.ASSET_SIZE].getJSONArray());
-        game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsSign238469' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsSign238469' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsSign238469' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsSign238469' + GameConfig.ASSET_SIZE].getFrameHeight());
     }
 
     /** ------------------------------------------------------------------------
@@ -123,26 +92,10 @@ export class PreloaderUtils {
     private static startStateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesTitle' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesTitle' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesTitle' + GameConfig.ASSET_SIZE].getJSONArray());
     }
 
     private static dressStateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesDollAnna' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesDollAnna' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesDollAnna' + GameConfig.ASSET_SIZE].getJSONArray());
-        game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesDollElza' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesDollElza' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesDollElza' + GameConfig.ASSET_SIZE].getJSONArray());
-        game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesDollElza2' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesDollElza2' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesDollElza2' + GameConfig.ASSET_SIZE].getJSONArray());
     }
 }

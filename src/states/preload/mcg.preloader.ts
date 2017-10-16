@@ -35,8 +35,8 @@ export class MyCuteGamesPreloader implements IPreloader {
         /** BG */
         this.game.add.sprite(0, 0,
             GameConfig.PUB_MODE === PublishMode.GAME_DISTRIBUTIONS ?
-                ImageUtils.getImageClass('ImagesPreroll2Mcg') :
-                ImageUtils.getImageClass('ImagesPrerollMcg'));
+                ImageUtils.getImageClass('ImagesPrerollMcg').getName() :
+                ImageUtils.getImageClass('ImagesPreroll2Mcg').getName());
 
         /**
          * Crown Particle Emmiter

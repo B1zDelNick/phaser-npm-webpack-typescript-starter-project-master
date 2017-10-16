@@ -50,7 +50,7 @@ module.exports = {
         ]),
         new HtmlWebpackPlugin({
             title: 'Spotlight on Princess - Sister\'s Fashion Tips',
-            imaScript: `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
+            imaScript: '', // `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
             template: path.join(__dirname, 'templates/index.ejs')
         })
     ],
