@@ -1,11 +1,11 @@
 import * as Utils from '../utils/utils';
 import {GameConfig, Sites} from '../config/game.config';
 import {BootUtils} from '../utils/boot.utils';
+import {AdUtils} from '../utils/ad/ad.utils';
 
 export default class Boot extends Phaser.State {
 
     public init(...args: any[]): void {
-        GameConfig.GAME = this.game;
     }
 
     public preload(): void {
@@ -72,6 +72,8 @@ export default class Boot extends Phaser.State {
            \nGOOGLE_WEB_FONTS............ ${GOOGLE_WEB_FONTS}
            \nSOUND_EXTENSIONS_PREFERENCE. ${SOUND_EXTENSIONS_PREFERENCE}`
         );
+
+        AdUtils.init();
 
         this.game.state.start('Preloader');
     }

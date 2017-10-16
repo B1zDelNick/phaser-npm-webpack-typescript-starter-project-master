@@ -1,6 +1,8 @@
-import 'p2';
-import 'pixi';
-import 'phaser';
+// import 'p2';
+// import 'pixi';
+// import 'phaser';
+// import 'ads';
+// import 'spriter';
 
 import * as WebFontLoader from 'webfontloader';
 
@@ -23,15 +25,6 @@ import {AdUtils} from './utils/ad/ad.utils';
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
         super (config);
-
-        GameConfig.init(
-            Sites.FREE_GAMES_CASUAL,
-            PublishMode.NORMAL,
-            AssetMode.LOAD_BACKGROUND,
-            SaverTemplates.NONE,
-            'Cinderellas Bridal Fashion Collection');
-
-        AdUtils.init('https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=9868315183&ad_type=video_image&description_url=http%3A%2F%2Fdressupmix.com%2FFree-Dressup-Games%2FPrincess%2FWho-wore-it-better--fashion-battle-play.html&videoad_start_delay=15000');
 
         this.state.add('Boot', Boot);
         this.state.add('Preloader', Preloader);
@@ -68,6 +61,15 @@ function startApp(): void {
     };
 
     let app = new App(gameConfig);
+
+    GameConfig.init(
+        Sites.FREE_GAMES_CASUAL,
+        PublishMode.NORMAL,
+        AssetMode.LOAD_BACKGROUND,
+        SaverTemplates.NONE,
+        'Cinderellas Bridal Fashion Collection');
+
+    GameConfig.GAME = app;
 }
 
 window.onload = () => {

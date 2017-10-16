@@ -704,6 +704,11 @@ export namespace Scripts {
 
         static getJS(): string { return require('assets/scripts/BlurY.js'); }
     }
+    export class ScriptsPhaserAds {
+        static getName(): string { return 'phaser-ads'; }
+
+        static getJS(): string { return require('assets/scripts/phaser-ads.js'); }
+    }
     export class ScriptsSpriter {
         static getName(): string { return 'spriter'; }
 

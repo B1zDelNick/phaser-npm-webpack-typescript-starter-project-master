@@ -1,238 +1,134 @@
+import {GameConfig, PublishMode} from '../../config/game.config';
+import {isNull, isUndefined} from 'util';
+
 export class AdUtils {
 
-    private static adsManager: any = null;
-    private static adsLoader: any = null;
-    private static adDisplayContainer: any = null;
-    private static adContainer: any = null;
-    private static intervalTimer;
-    private static videoContent: any = null;
-    private static adUrl: string = '';
+    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=8433275181&ad_type=video_image&description_url=http%3A%2F%2Ffreegamescasual.com%2FFree-Online-Games%2FPrincesses%2FSpotlight-on-Princess-Sisters-Fashion-Tips-play.html&videoad_start_delay=15000';
+    private static gdGame = 'b44cb531fcbd473d9ccdd2669cf49d9f';
+    private static gdUser = '4ED9EE15-CD3B-42DA-AFF4-A2CB65F233D3-s1';
 
-    public static init(url: string) {
-        if (!this.areAdsEnabled()) return;
-
-        this.adUrl = url;
-
-        this.videoContent = document.getElementById('contentElement');
-        this.adContainer = document.getElementById('adContainer');
-
-        this.setUpIMA();
+    public static init() {
+        const game = GameConfig.GAME;
+        Phaser.Device.whenReady(function () {
+            if (GameConfig.PUB_MODE === PublishMode.NORMAL ||
+                GameConfig.PUB_MODE === PublishMode.NO_BUTTONS ||
+                GameConfig.PUB_MODE === PublishMode.NO_BUTTONS_ONE_AD) {
+                game.plugins.add(PhaserAds.AdManager);
+            }
+            else if (GameConfig.PUB_MODE === PublishMode.GAME_DISTRIBUTIONS) {
+                game.plugins.add(PhaserAds.AdManager);
+                // Set the ad provider, we use google Ima3 (ima 3 sdk)
+                (game as any).ads.setAdProvider(new PhaserAds.AdProvider.GameDistributionAds(
+                    game,
+                    AdUtils.gdGame, // Your game id goes here
+                    AdUtils.gdUser // Your user id goes here
+                ));
+            }
+            else if (GameConfig.PUB_MODE === PublishMode.NO_AD) {
+                // Nothing
+            }
+        });
     }
 
-    private static setUpIMA() {
-        // Create the ad display container.
-        this.createAdDisplayContainer();
-        // Create ads loader.
-        this.adsLoader = new google.ima.AdsLoader(this.adDisplayContainer);
-        // Listen and respond to ads loaded and error events.
-        this.adsLoader.addEventListener(
-            google.ima.AdsManagerLoadedEvent.Type.ADS_MANAGER_LOADED,
-            this.onAdsManagerLoaded,
-            false);
-        this.adsLoader.addEventListener(
-            google.ima.AdErrorEvent.Type.AD_ERROR,
-            this.onAdError,
-            false);
+    public static setProvider() {
 
-        // Request video ads.
-        const adsRequest: any = new google.ima.AdsRequest();
-        adsRequest.adTagUrl = this.adUrl;
+        const game = GameConfig.GAME;
+        Phaser.Device.whenReady(function () {
+            // Set the ad provider, we use google Ima3 (ima 3 sdk)
+            (game as any).ads.setAdProvider(new PhaserAds.AdProvider.Ima3(
+                game, AdUtils.adTag
+            ));
 
-        // Specify the linear and nonlinear slot sizes. This helps the SDK to
-        // select the correct creative if multiple are returned.
-        adsRequest.linearAdSlotWidth = 640;
-        adsRequest.linearAdSlotHeight = 400;
-
-        adsRequest.nonLinearAdSlotWidth = 640;
-        adsRequest.nonLinearAdSlotHeight = 150;
-
-        this.adsLoader.requestAds(adsRequest);
+            // Content paused event is fired when the content (game) should be paused, and the ad will be played
+            (game as any).ads.onContentPaused.addO(function () {
+                console.error('Started playing ad.');
+            }, this);
+            // This is fired when the ad is finished playing and the content (game) should be resumed
+            (game as any).ads.onContentResumed.add(function () {
+                console.error('Finished playing ad.');
+                // (game as any).ads.unMuteAfterAd();
+            }, this);
+            // This is fired when the ad was clicked by the user
+            (game as any).ads.onAdClicked.add(function () {
+                console.error('Clicked the ad!');
+            }, this);
+            // This gives us details about how far the users is viewing the add
+            (game as any).ads.onAdProgression.add(function (progression) {
+                console.error(progression);
+            }, this);
+            // This is fired when the ad was clicked by the user
+            (game as any).ads.onAdsDisabled.add(function () {
+                console.error('Ads are being blocked.');
+            }, this);
+        });
     }
 
-    private static playAds() {
-        // Request video ads.
-        const adsRequest = new google.ima.AdsRequest();
-        adsRequest.adTagUrl = this.adUrl;
-        // Specify the linear and nonlinear slot sizes. This helps the SDK to
-        // select the correct creative if multiple are returned.
-        adsRequest.linearAdSlotWidth = 640;
-        adsRequest.linearAdSlotHeight = 400;
-        adsRequest.nonLinearAdSlotWidth = 640;
-        adsRequest.nonLinearAdSlotHeight = 150;
-        this.adsLoader.requestAds(adsRequest);
-
-        // Initialize the container. Must be done via a user action on mobile devices.
-        this.adContainer.style.display = 'none';
-        this.videoContent.style.display = 'none';
-        this.videoContent.load();
-        this.adDisplayContainer.initialize();
-
-        try {
-            if (DEBUG) console.log('Try to send Ad request.');
-
-            const width = window.innerWidth - 5;
-            const height = window.innerHeight - 5;
-            // Initialize the ads manager. Ad rules playlist will start at this time.
-            this.adsManager.init(width, height, google.ima.ViewMode.NORMAL);
-            // Call play to start showing the ad. Single video and overlay ads will
-            // start at this time; the call will be ignored for ad rules.
-            this.adsManager.start();
+    public static playAds() {
+        const game = GameConfig.GAME;
+        // Set the ad provider, we use google Ima3 (ima 3 sdk)
+        (game as any).ads.setAdProvider(new PhaserAds.AdProvider.Ima3(
+            game, AdUtils.adTag
+        ));
+        // Content paused event is fired when the content (game) should be paused, and the ad will be played
+        (game as any).ads.onContentPaused.addOnce(function () {
+            console.error('Started playing ad.');
+        }, this);
+        // This is fired when the ad is finished playing and the content (game) should be resumed
+        (game as any).ads.onContentResumed.addOnce(function () {
+            console.error('Finished playing ad.');
+            // (game as any).ads.unMuteAfterAd();
+            AdUtils.removeAdContainer();
+        }, this);
+        // This is fired when the ad was clicked by the user
+        (game as any).ads.onAdClicked.addOnce(function () {
+            console.error('Clicked the ad!');
+        }, this);
+        // This gives us details about how far the users is viewing the add
+        (game as any).ads.onAdProgression.addOnce(function (progression) {
+            console.error(progression);
+        }, this);
+        // This is fired when the ad was clicked by the user
+        (game as any).ads.onAdsDisabled.addOnce(function () {
+            console.error('Ads are being blocked.');
+            AdUtils.removeAdContainer();
+        }, this);
+        //// ***********
+        /*if (typeof google !== 'undefined') {
+            google.ima.settings.setLocale('nl');
+        }*/
+        //// ***********
+        let adsEnabled = (game as any).ads.provider.adsEnabled;
+        if (adsEnabled) {
+            if (game.device.desktop) {
+                // This is how we request an ad for desktop
+                (game as any).ads.showAd({
+                    deployment: 'devsite',
+                    sample_ct: 'skippablelinear'
+                });
+            } else {
+                // In mobile we need to activate it by user input
+                (game as any).ads.showAd({
+                    deployment: 'devsite',
+                    sample_ct: (game.device.iPhone) ? 'linear' : 'skippablelinear' // Iphone doesn't support skippable videos
+                });
+            }
         }
-        catch (adError) {
-            // An error may be thrown if there was a problem with the VAST response.
-            this.videoContent.play();
-        }
-    }
-
-    private static createAdDisplayContainer() {
-        // We assume the adContainer is the DOM id of the element that will house the ads.
-        this.adDisplayContainer = new google.ima.AdDisplayContainer(this.adContainer, this.videoContent);
-    }
-
-    private static onAdsManagerLoaded(adsManagerLoadedEvent) {
-        // Get the ads manager.
-        const adsRenderingSettings = new google.ima.AdsRenderingSettings();
-        adsRenderingSettings.restoreCustomPlaybackStateOnAdBreakComplete = true;
-        // videoContent should be set to the content video element.
-        this.adsManager = adsManagerLoadedEvent.getAdsManager(this.videoContent, adsRenderingSettings);
-
-        // Add listeners to the required events.
-        this.adsManager.addEventListener(
-            google.ima.AdErrorEvent.Type.AD_ERROR,
-            this.onAdError);
-        this.adsManager.addEventListener(
-            google.ima.AdEvent.Type.CONTENT_PAUSE_REQUESTED,
-            this.onContentPauseRequested);
-        this.adsManager.addEventListener(
-            google.ima.AdEvent.Type.CONTENT_RESUME_REQUESTED,
-            this.onContentResumeRequested);
-        this.adsManager.addEventListener(
-            google.ima.AdEvent.Type.ALL_ADS_COMPLETED,
-            this.onAdEvent);
-
-        // Listen to any additional events, if necessary.
-        this.adsManager.addEventListener(
-            google.ima.AdEvent.Type.LOADED,
-            this.onAdEvent);
-        this.adsManager.addEventListener(
-            google.ima.AdEvent.Type.STARTED,
-            this.onAdEvent);
-        this.adsManager.addEventListener(
-            google.ima.AdEvent.Type.COMPLETE,
-            this.onAdEvent);
-        this.adsManager.addEventListener(
-            google.ima.AdEvent.Type.SKIPPED,
-            this.onAdEvent);
-        this.adsManager.addEventListener(
-            google.ima.AdEvent.Type.USER_CLOSE,
-            this.onAdEvent);
-    }
-
-    private static onAdEvent(adEvent) {
-        // Retrieve the ad from the event. Some events (e.g. ALL_ADS_COMPLETED) don't have ad object associated.
-        let ad = adEvent.getAd();
-        if (DEBUG) console.log(adEvent.type, adEvent);
-
-        switch (adEvent.type) {
-            case google.ima.AdEvent.Type.LOADED:
-                // This is the first event sent for an ad - it is possible to
-                // determine whether the ad is a video ad or an overlay.
-                if (!ad.isLinear()) {
-                    // Position AdDisplayContainer correctly for overlay.
-                    // Use ad.width and ad.height.
-                    this.adContainer.style.display = 'block';
-                    this.videoContent.style.display = 'block';
-                    this.videoContent.play();
-                    /*if (musicOn) {
-                     music.pause();
-                     }*/
-                }
-                break;
-            case google.ima.AdEvent.Type.STARTED:
-                // This event indicates the ad has started - the video player
-                // can adjust the UI, for example display a pause button and
-                // remaining time.
-                if (ad.isLinear()) {
-                    // For a linear ad, a timer can be started to poll for
-                    // the remaining time.
-                    this.intervalTimer = setInterval(
-                        function()
-                        {
-                            let remainingTime = this.adsManager.getRemainingTime();
-                        },
-                        300); // every 300ms
-                }
-                this.adContainer.style.display = 'block';
-                this.videoContent.style.display = 'block';
-                /*if (musicOn) {
-                    music.pause();
-                }*/
-                break;
-            case google.ima.AdEvent.Type.COMPLETE:
-                // This event indicates the ad has finished - the video player
-                // can perform appropriate UI actions, such as removing the timer for
-                // remaining time detection.
-                if (ad.isLinear()) {
-                    clearInterval(this.intervalTimer);
-                }
-                this.adContainer.style.display = 'none';
-                this.videoContent.style.display = 'none';
-                /*if (musicOn) {
-                    music.resume();
-                }*/
-                break;
-            case google.ima.AdEvent.Type.SKIPPED:
-                this.adContainer.style.display = 'none';
-                this.videoContent.style.display = 'none';
-                /*if (musicOn) {
-                    music.resume();
-                }*/
-                if (DEBUG) console.log('Skip AD.');
-                break;
-            case google.ima.AdEvent.Type.USER_CLOSE:
-                this.adContainer.style.display = 'none';
-                this.videoContent.style.display = 'none';
-                /*if (musicOn) {
-                    music.resume();
-                }*/
-                if (DEBUG) console.log('AD closed.');
-                break;
+        else {
+            // the actual game content, behind the ad
+            /*let text = game.add.text(game.width / 2, game.height / 2 + 60, 'Ads are being blocked.', {
+                font: '25px Arial',
+                fill: '#cc0000'
+            });
+            text.anchor.set(0.5);*/
+            console.error('Ad blocked.');
         }
     }
 
-    private static onAdError(adErrorEvent) {
-        // Handle the error logging.
-        if (DEBUG) console.log(adErrorEvent.getError());
-        this.adsManager.destroy();
-        this.adContainer.style.display = 'none';
-        this.videoContent.style.display = 'none';
-        /*if (musicOn) {
-            music.resume();
-        }*/
-    }
-
-    private static onContentPauseRequested() {
-        this.videoContent.pause();
-        // This function is where you should setup UI for showing ads (e.g.
-        // display ad timer countdown, disable seeking etc.)
-        // setupUIForAds();
-        this.adContainer.style.display = 'block';
-        this.videoContent.style.display = 'block';
-        /*if (musicOn) {
-            music.pause();
-        }*/
-    }
-
-    private static onContentResumeRequested() {
-        this.videoContent.play();
-        // This function is where you should ensure that your UI is ready
-        // to play content. It is the responsibility of the Publisher to
-        // implement this function when necessary.
-        this.adContainer.style.display = 'none';
-        this.videoContent.style.display = 'none';
-        /*if (musicOn) {
-            music.resume();
-        }*/
+    private static removeAdContainer() {
+        const ad = document.getElementById('phaser-ad-container');
+        if (!isNull(ad) && !isUndefined(ad)) {
+            ad.parentNode.removeChild(ad);
+        }
     }
 
     public static areAdsEnabled(): boolean {

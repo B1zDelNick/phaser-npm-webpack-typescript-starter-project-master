@@ -10,20 +10,20 @@ module.exports = {
     entry: path.join(__dirname, 'src/app.ts'),
     output: {
         path: path.join(__dirname, 'dist'),
-        filename: 'game.min.js'
+        filename: 'game.js'
     },
     resolve: {
         extensions: ['.ts', '.js'],
         alias: {
-            pixi: path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
-            phaser: path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js'),
-            p2: path.join(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
+            // pixi: path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
+            // phaser: path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js'),
+            // p2: path.join(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
             assets: path.join(__dirname, 'assets/')
         }
     },
     plugins: [
         new WebpackShellPlugin({
-            onBuildStart: ['npm run assets:dev']
+            onBuildStart: ['npm run assets']
         }),
         new webpack.DefinePlugin({
             'DEBUG': false,
@@ -82,6 +82,7 @@ module.exports = {
         }),*/
         new HtmlWebpackPlugin({
             title: 'Spotlight on Princess - Sister\'s Fashion Tips',
+            imaScript: `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
             template: path.join(__dirname, 'templates/index.ejs')
         })
     ],
@@ -100,9 +101,9 @@ module.exports = {
         rules: [
             { test: /\.ts$/, enforce: 'pre', loader: 'tslint-loader' },
             { test: /assets(\/|\\)/, loader: 'file-loader?name=assets/[hash].[ext]' },
-            { test: /pixi\.js$/, loader: 'expose-loader?PIXI' },
-            { test: /phaser-split\.js$/, loader: 'expose-loader?Phaser' },
-            { test: /p2\.js$/, loader: 'expose-loader?p2' },
+            // { test: /pixi\.js$/, loader: 'expose-loader?PIXI' },
+            // { test: /phaser-split\.js$/, loader: 'expose-loader?Phaser' },
+            // { test: /p2\.js$/, loader: 'expose-loader?p2' },
             { test: /\.ts$/, loader: 'ts-loader', exclude: '/node_modules/' }
         ]
     }

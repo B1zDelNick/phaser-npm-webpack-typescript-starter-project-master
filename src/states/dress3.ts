@@ -13,6 +13,8 @@ import {Animation} from '../utils/animation/anim';
 import {TweenUtils} from '../utils/tween.utils';
 import {Chest} from './template/dress/chest';
 import {Doll} from './template/dress/doll';
+import {AdUtils} from '../utils/ad/ad.utils';
+import {isNull} from 'util';
 
 export default class Dress3 extends Phaser.State {
 
@@ -300,6 +302,13 @@ export default class Dress3 extends Phaser.State {
             PreloaderUtils.preloadFinalState();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
+
+        // Ad Calls
+        if (GameConfig.PUB_MODE === PublishMode.NORMAL ||
+            GameConfig.PUB_MODE === PublishMode.NO_BUTTONS ||
+            GameConfig.PUB_MODE === PublishMode.NO_BUTTONS_ONE_AD) {
+            AdUtils.playAds();
+        }
     }
 
     private onItem(item: Phaser.Button): void {
@@ -372,8 +381,8 @@ export default class Dress3 extends Phaser.State {
         this.chestElza.disable();
 
         this.cloud.destroy(true);
-        this.mmmmContainer.destroy(true);
-        this.mmmm.destroy(true);
+        if (!isNull(this.mmmmContainer)) this.mmmmContainer.destroy(true);
+        if (!isNull(this.mmmm)) this.mmmm.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         this.blocker.destroy(true);

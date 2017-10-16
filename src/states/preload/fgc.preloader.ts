@@ -4,6 +4,7 @@ import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
 import {SoundUtils} from '../../utils/sound/sound.utils';
 import {TweenUtils} from '../../utils/tween.utils';
+import {AdUtils} from '../../utils/ad/ad.utils';
 
 export class FreeGamesCasualPreloader implements IPreloader {
 
@@ -190,6 +191,7 @@ export class FreeGamesCasualPreloader implements IPreloader {
     }
 
     private nextState(): void {
+        ga('send', GameConfig.gaData());
         this.playButton.inputEnabled = false;
         this.game.camera.onFadeComplete.addOnce(() => {
             SoundUtils.init();

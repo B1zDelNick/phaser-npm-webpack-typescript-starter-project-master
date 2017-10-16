@@ -5,6 +5,8 @@ import {MyCuteGamesPreloader} from './preload/mcg.preloader';
 import {DressupMixPreloader} from './preload/du.preloader';
 import {FreeGamesCasualPreloader} from './preload/fgc.preloader';
 import {PreloaderUtils} from '../utils/preloader.utils';
+import {AdUtils} from '../utils/ad/ad.utils';
+import {SoundUtils} from '../utils/sound/sound.utils';
 
 export default class Preloader extends Phaser.State {
 

@@ -1,7 +1,7 @@
 import * as Assets from '../assets';
 import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
-import {AssetMode, GameConfig, Sites} from '../config/game.config';
+import {AssetMode, GameConfig, PublishMode, Sites} from '../config/game.config';
 import {GuiMcg} from './gui/mcg.gui';
 import {GuiDu} from './gui/du.gui';
 import {GuiFgc} from './gui/fgc.gui';
@@ -14,6 +14,7 @@ import {TweenUtils} from '../utils/tween.utils';
 import {Chest} from './template/dress/chest';
 import {Doll} from './template/dress/doll';
 import {isNull, isUndefined} from 'util';
+import {AdUtils} from '../utils/ad/ad.utils';
 
 export default class Dress1 extends Phaser.State {
 
@@ -484,6 +485,11 @@ export default class Dress1 extends Phaser.State {
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             PreloaderUtils.preloadDress2State();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
+        }
+
+        // Ad Calls
+        if (GameConfig.PUB_MODE === PublishMode.NORMAL) {
+            AdUtils.playAds();
         }
     }
 

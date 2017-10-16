@@ -92,6 +92,15 @@ export class GameConfig {
     public static crossUrl(game: string): string {
         return `${game}?utm_source=${this._publisher}&utm_campaign=${this._gameId}&utm_medium=referral&utm_content=crosspromo`;
     }
+
+    public static gaData(): {} {
+        return {
+            hitType: 'event',
+            eventCategory: this._site,
+            eventAction: this._gameId,
+            eventLabel: this._publisher
+        };
+    }
 }
 
 export enum Sites {

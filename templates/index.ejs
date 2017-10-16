@@ -38,7 +38,7 @@
     </style>
 </head>
 <body>
-    <div id="mainContainer">
+    <!--<div id="mainContainer">
 
         <div id="content" style="display: none">
             <video id="contentElement">
@@ -47,6 +47,9 @@
         <div id="game-container"></div>
         <div id="adContainer" style="display: none"></div>
 
+    </div>-->
+    <div id="content-wrapper">
+        <div id="game-container"></div>
     </div>
 
     <!-- Google Analytics -->
@@ -69,7 +72,7 @@
         function resize()
         {
             var canvas = document.getElementById('game-container');
-            var mainFrame = document.getElementById('mainContainer');
+            var mainFrame = document.getElementById('content-wrapper'); //('mainContainer');
             var canvasRatio = canvas.clientHeight / canvas.clientWidth;
             var windowRatio = window.innerHeight / window.innerWidth;
             var width;
@@ -82,7 +85,8 @@
 
     </script>
 
-    <script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>
+    <%= htmlWebpackPlugin.options.imaScript %>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.0/phaser.min.js"></script>
 
 </body>
 </html>
