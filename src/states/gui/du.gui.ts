@@ -1,9 +1,8 @@
-import * as Assets from '../../assets';
 import {IGui, StateType} from './i.gui';
 import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
-import {ISaver} from '../saver/i.saver';
 import {isString} from 'util';
+import {ImageUtils} from '../../utils/images/image.utils';
 
 export class GuiDu implements IGui {
 
@@ -40,20 +39,20 @@ export class GuiDu implements IGui {
         let frame: string;
 
         if (this.type === StateType.START_STATE) {
-            frame = Assets.Atlases.AtlasesGuiDu.Frames.PlayDu.toString();
+            frame = ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.PlayDu.toString();
         }
         else if (this.type === StateType.FINAL_STATE) {
-            frame = Assets.Atlases.AtlasesGuiDu.Frames.ReplayDu.toString();
+            frame = ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.ReplayDu.toString();
         }
         else {
-            frame = Assets.Atlases.AtlasesGuiDu.Frames.NextDu.toString();
+            frame = ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.NextDu.toString();
         }
 
         this.playButton =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 4, 582, 1,
-                '', Assets.Atlases.AtlasesGuiDu.getName(),
+                '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
                 [frame, frame, frame],
                 true, false, true, callback, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
@@ -87,10 +86,8 @@ export class GuiDu implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 817, 582, 1,
-                '', Assets.Atlases.AtlasesGuiDu.getName(),
-                [Assets.Atlases.AtlasesGuiDu.Frames.MoreDu,
-                    Assets.Atlases.AtlasesGuiDu.Frames.MoreDu,
-                    Assets.Atlases.AtlasesGuiDu.Frames.MoreDu],
+                '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.MoreDu,
                 true, false, true, GuiUtils.goLinkMainMoreGames, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         return this.moreButton;
@@ -101,10 +98,8 @@ export class GuiDu implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 -13, -5, 1,
-                '', Assets.Atlases.AtlasesGuiDu.getName(),
-                [Assets.Atlases.AtlasesGuiDu.Frames.LogoDu,
-                    Assets.Atlases.AtlasesGuiDu.Frames.LogoDu,
-                    Assets.Atlases.AtlasesGuiDu.Frames.LogoDu],
+                '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.LogoDu,
                 true, false, true, GuiUtils.goLinkMainLogo, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         return this.logoButton;
@@ -115,20 +110,16 @@ export class GuiDu implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 852, -15, 1,
-                '', Assets.Atlases.AtlasesGuiDu.getName(),
-                [Assets.Atlases.AtlasesGuiDu.Frames.SoundOnDu,
-                    Assets.Atlases.AtlasesGuiDu.Frames.SoundOnDu,
-                    Assets.Atlases.AtlasesGuiDu.Frames.SoundOnDu],
+                '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.SoundOnDu,
                 true, false, true, null, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         this.musoffButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 852, -15, 1,
-                '', Assets.Atlases.AtlasesGuiDu.getName(),
-                [Assets.Atlases.AtlasesGuiDu.Frames.SoundOffDu,
-                    Assets.Atlases.AtlasesGuiDu.Frames.SoundOffDu,
-                    Assets.Atlases.AtlasesGuiDu.Frames.SoundOffDu],
+                '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.SoundOffDu,
                 true, false, true, null, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         return [this.musonButton, this.musoffButton];

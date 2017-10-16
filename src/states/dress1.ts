@@ -1,4 +1,3 @@
-import * as Assets from '../assets';
 import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
 import {AssetMode, GameConfig, PublishMode, Sites} from '../config/game.config';
@@ -15,6 +14,7 @@ import {Chest} from './template/dress/chest';
 import {Doll} from './template/dress/doll';
 import {isNull, isUndefined} from 'util';
 import {AdUtils} from '../utils/ad/ad.utils';
+import {ImageUtils} from '../utils/images/image.utils';
 
 export default class Dress1 extends Phaser.State {
 
@@ -80,229 +80,253 @@ export default class Dress1 extends Phaser.State {
 
     public create(): void {
         this.game.add.sprite(0, 0,
-            Assets.Atlases.AtlasesDress1State.getName(),
-            Assets.Atlases.AtlasesDress1State.Frames.Bg2);
+            ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+            ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Bg2);
 
         // Chests
         this.chestAnna = new Chest(this)
-            .background(-17, -5, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Chest)
+            .background(-17, -5,
+                ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Chest)
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf1)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf1)
                 .item(252, 101, 'dress3',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnDress3,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnDress3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(172, 91, 'dress2',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnDress2,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnDress2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(73, 86, 'dress1',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnDress1,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnDress1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf1)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf1)
                 .item(250, 100, 'dress6',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnDress6,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnDress6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(118, 92, 'dress5',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnDress5,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnDress5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(73, 85, 'dress4',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnDress4,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnDress4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf1)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf1)
                 .item(191, 97, 'mmmm',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.DressMore,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.DressMore,
                     GuiUtils.goLinkInMoreGames,
                     GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(80, 87, 'dress7',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnDress7,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnDress7,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf2)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf2)
                 .item(335, 293, 'top6',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnTop6,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnTop6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(200, 288, 'top5',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnTop5,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnTop5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(84, 285, 'top4',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnTop4,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnTop4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(266, 104, 'top3',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnTop3,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnTop3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(133, 91, 'top2',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnTop2,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnTop2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(64, 85, 'top1',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnTop1,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnTop1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf2)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf2)
                 .item(306, 296, 'bot6',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnBot6,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnBot6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(185, 293, 'bot5',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnBot5,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnBot5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(82, 292, 'bot4',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnBot4,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnBot4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(312, 103, 'bot3',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnBot3,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnBot3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(195, 99, 'bot2',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnBot2,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnBot2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(83, 87, 'bot1',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.AnBot1,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.AnBot1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .button(105, 549, 'lb',
-                Assets.Atlases.AtlasesDress1State.getName(),
-                Assets.Atlases.AtlasesDress1State.Frames.Lb,
+                ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Lb,
                 this.prevPage,
                 GuiUtils.addCustomOverHandler(0xffff66),
                 GuiUtils.addCustomOutHandler())
             .button(332, 526, 'rb',
-                Assets.Atlases.AtlasesDress1State.getName(),
-                Assets.Atlases.AtlasesDress1State.Frames.Rb,
+                ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Rb,
                 this.nextPage,
                 GuiUtils.addCustomOverHandler(0xffff66),
                 GuiUtils.addCustomOutHandler())
             .build();
 
         this.chestElza = new Chest(this)
-            .background(-17, -5, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Chest)
+            .background(-17, -5,
+                ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Chest)
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf1)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf1)
                 .item(306, 90, 'dress3',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElDress3,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElDress3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(175, 89, 'dress2',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElDress2,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElDress2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(74, 80, 'dress1',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElDress1,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElDress1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf1)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf1)
                 .item(256, 91, 'dress6',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElDress6,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElDress6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(186, 81, 'dress5',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElDress5,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElDress5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(72, 75, 'dress4',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElDress4,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElDress4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf1)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf1)
                 .item(191, 97, 'mmmm',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.DressMore,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.DressMore,
                     GuiUtils.goLinkInMoreGames,
                     GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(106, 84, 'dress7',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElDress7,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElDress7,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf2)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf2)
                 .item(325, 294, 'top6',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElTop6,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElTop6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(222, 288, 'top5',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElTop5,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElTop5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(85, 288, 'top4',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElTop4,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElTop4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(289, 99, 'top3',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElTop3,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElTop3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(185, 93, 'top2',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElTop2,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElTop2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(69, 84, 'top1',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElTop1,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElTop1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .page()
-                .pageShelf(66, 95, Assets.Atlases.AtlasesDress1State.getName(), Assets.Atlases.AtlasesDress1State.Frames.Shelf2)
+                .pageShelf(66, 95,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Shelf2)
                 .item(301, 297, 'bot6',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElBot6,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElBot6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(186, 291, 'bot5',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElBot5,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElBot5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(96, 282, 'bot4',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElBot4,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElBot4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(298, 102, 'bot3',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElBot3,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElBot3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(186, 97, 'bot2',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElBot2,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElBot2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(67, 87, 'bot1',
-                    Assets.Atlases.AtlasesDress1State.getName(),
-                    Assets.Atlases.AtlasesDress1State.Frames.ElBot1,
+                    ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress1State').Frames.ElBot1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .button(105, 549, 'lb',
-                Assets.Atlases.AtlasesDress1State.getName(),
-                Assets.Atlases.AtlasesDress1State.Frames.Lb,
+                ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Lb,
                 this.prevPage,
                 GuiUtils.addCustomOverHandler(0xffff66),
                 GuiUtils.addCustomOutHandler())
             .button(332, 526, 'rb',
-                Assets.Atlases.AtlasesDress1State.getName(),
-                Assets.Atlases.AtlasesDress1State.Frames.Rb,
+                ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Rb,
                 this.nextPage,
                 GuiUtils.addCustomOverHandler(0xffff66),
                 GuiUtils.addCustomOutHandler())
@@ -312,82 +336,82 @@ export default class Dress1 extends Phaser.State {
         if (isNull(this.anna)) {
             this.anna = new Doll(this, 528, 16)
                 .layer(70, 6, 'hair_b',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     'HB', 'HB')
                 .layer(0, 7, 'body',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     null, 'Body')
                 .layer(81, 564, 'shoe',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     'S', 'S')
                 .layer(47, 221, 'bot',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     'B', null)
                 .layer(34, 105, 'top',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     'T', null)
                 .layer(-7, 109, 'dress',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     'D', null)
                 .layer(118, 68, 'jew',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     'J', null, true)
                 .layer(72, -12, 'hair',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     'H', 'H')
                 .layer(179, 68, 'bag',
-                    Assets.Atlases.AtlasesDollAnna.getName(),
-                    Assets.Atlases.AtlasesDollAnna.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollAnna').Frames,
                     'Bb', null, true);
 
             this.elza = new Doll(this, 499, 17)
                 .layer(34, -10, 'hair_b',
-                    Assets.Atlases.AtlasesDollElza.getName(),
-                    Assets.Atlases.AtlasesDollElza.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza').Frames,
                     'HB', 'HB')
                 .layer(0, 78, 'body',
-                    Assets.Atlases.AtlasesDollElza2.getName(),
-                    Assets.Atlases.AtlasesDollElza2.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza2').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza2').Frames,
                     null, 'Body')
                 .layer(44, 579, 'shoe',
-                    Assets.Atlases.AtlasesDollElza.getName(),
-                    Assets.Atlases.AtlasesDollElza.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza').Frames,
                     'S', 'S')
                 .layer(63, 228, 'bot',
-                    Assets.Atlases.AtlasesDollElza.getName(),
-                    Assets.Atlases.AtlasesDollElza.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza').Frames,
                     'B', null)
                 .layer(66, 102, 'top',
-                    Assets.Atlases.AtlasesDollElza.getName(),
-                    Assets.Atlases.AtlasesDollElza.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza').Frames,
                     'T', null)
                 .layer(36, 109, 'dress',
-                    Assets.Atlases.AtlasesDollElza.getName(),
-                    Assets.Atlases.AtlasesDollElza.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza').Frames,
                     'D', null)
                 .layer(178, 316, 'bag',
-                    Assets.Atlases.AtlasesDollElza.getName(),
-                    Assets.Atlases.AtlasesDollElza.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza').Frames,
                     'Bb', null, true)
                 .layer(124, 12, 'head',
-                    Assets.Atlases.AtlasesDollElza2.getName(),
-                    Assets.Atlases.AtlasesDollElza2.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza2').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza2').Frames,
                     null, 'Head')
                 .layer(121, 77, 'jew',
-                    Assets.Atlases.AtlasesDollElza.getName(),
-                    Assets.Atlases.AtlasesDollElza.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza').Frames,
                     'J', null, true)
                 .layer(67, -19, 'hair',
-                    Assets.Atlases.AtlasesDollElza.getName(),
-                    Assets.Atlases.AtlasesDollElza.Frames,
+                    ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDollElza').Frames,
                     'H', 'H');
         }
         else {
@@ -398,8 +422,8 @@ export default class Dress1 extends Phaser.State {
         }
 
         this.cloud = this.game.add.sprite(450, 180,
-            Assets.Atlases.AtlasesDress1State.getName(),
-            Assets.Atlases.AtlasesDress1State.Frames.Cl3);
+            ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+            ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Cl3);
 
         this.cloud.alpha = 0;
         this.anna.show(true);
@@ -410,28 +434,28 @@ export default class Dress1 extends Phaser.State {
         this.playBtn = this.gui.addPlayBtn(this.nextState);
         const moreBtn = this.gui.addExtraMore(
             960 - 189, 720 - 182,
-            Assets.Atlases.AtlasesStartState.getName(),
-            Assets.Atlases.AtlasesStartState.Frames.EMore,
+            ImageUtils.getAtlasClass('AtlasesStartState').getName(),
+            ImageUtils.getAtlasClass('AtlasesStartState').Frames.EMore,
             GuiUtils.addOverScaleHandler,
             GuiUtils.addOutScaleHandler
         );
         this.lArrow = this.gui.addExtraBtn(460, 340,
-            Assets.Atlases.AtlasesGuiFgc.getName(),
-            Assets.Atlases.AtlasesGuiFgc.Frames.LArrFgc,
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.LArrFgc,
             this.changeDoll,
             GuiUtils.addCustomOverHandler(0xffff66, .79),
             GuiUtils.addCustomOutHandler(.75)
         );
         this.rArrow = this.gui.addExtraBtn(740, 340,
-            Assets.Atlases.AtlasesGuiFgc.getName(),
-            Assets.Atlases.AtlasesGuiFgc.Frames.RArrFgc,
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.RArrFgc,
             this.changeDoll,
             GuiUtils.addCustomOverHandler(0xffff66, .79),
             GuiUtils.addCustomOutHandler(.75)
         );
         this.beginBtn = this.gui.addExtraBtn(753, 434,
-            Assets.Atlases.AtlasesGuiFgc.getName(),
-            Assets.Atlases.AtlasesGuiFgc.Frames.DoneFgc,
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.DoneFgc,
             () => {
                 TweenUtils.fadeAndScaleOut(this.beginBtn, Phaser.Timer.SECOND * .5)[1]
                     .onComplete.addOnce(() => {
@@ -614,7 +638,10 @@ export default class Dress1 extends Phaser.State {
             this.game.state.start(this.NEXT, true, false, this.anna, this.elza);
         } else {
             if (addLoader) {
-                this.spinner = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesSpin.getName());
+                this.spinner = this.game.add.sprite(
+                    this.game.world.centerX,
+                    this.game.world.centerY,
+                    ImageUtils.getImageClass('ImagesSpin').getName());
                 this.spinner.anchor.setTo(.5, .5);
                 // this.spinner.scale.setTo(.5);
                 TweenUtils.rotate(this.spinner, 360, Phaser.Timer.SECOND * 1, 0, -1);

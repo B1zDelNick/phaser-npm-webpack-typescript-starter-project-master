@@ -1,9 +1,11 @@
 import {SaverTemplates} from '../states/saver/enum.saver';
+
 export class GameConfig {
 
     public static GAME: Phaser.Game = null;
     public static SITE: Sites = null;
     public static ASSET_MODE: AssetMode = null;
+    public static ASSET_SIZE: string = '';
     public static PUB_MODE: PublishMode = null;
     public static SAVER_MODE: SaverTemplates = null;
     public static IS_ASSETS_LOADED: boolean = false;

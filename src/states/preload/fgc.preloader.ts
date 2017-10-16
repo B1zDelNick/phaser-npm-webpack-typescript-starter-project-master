@@ -5,6 +5,7 @@ import {GuiUtils} from '../../utils/gui.utils';
 import {SoundUtils} from '../../utils/sound/sound.utils';
 import {TweenUtils} from '../../utils/tween.utils';
 import {AdUtils} from '../../utils/ad/ad.utils';
+import {ImageUtils} from '../../utils/images/image.utils';
 
 export class FreeGamesCasualPreloader implements IPreloader {
 
@@ -34,18 +35,18 @@ export class FreeGamesCasualPreloader implements IPreloader {
 
     public preload(): void {
         /** BG */
-        this.game.add.sprite(0, 0, Assets.Images.ImagesPrerollFgc.getName());
+        this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesPrerollFgc').getName());
 
         /**
          * Preloader Progress Bar
          */
 
         this.preloadFrameSprite = this.game.add.sprite(0, 595,
-            Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-            Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Progressbar1Fgc);
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.Progressbar1Fgc);
         this.preloadBarSprite = this.game.add.sprite(0, 595,
-            Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-            Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Progressbar2Fgc);
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.Progressbar2Fgc);
         this.preloadBarSprite.x = this.preloadFrameSprite.x = this.game.world.centerX - this.preloadFrameSprite.width / 2;
         this.game.load.setPreloadSprite(this.preloadBarSprite);
 
@@ -70,76 +71,64 @@ export class FreeGamesCasualPreloader implements IPreloader {
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 -200, 96, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon1Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon1Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon1Fgc],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.Icon1Fgc,
                 true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.btn2 =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 -200, 656, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon2Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon2Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon2Fgc],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.Icon2Fgc,
                 true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.btn3 =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 380, 756, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon3Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon3Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon3Fgc],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.Icon3Fgc,
                 true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.btn4 =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 960, 656, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon4Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon4Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon4Fgc],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.Icon4Fgc,
                 true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.btn5 =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 960, 96, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon5Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon5Fgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.Icon5Fgc],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.Icon5Fgc,
                 true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.logo =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 280, 114, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.LogoFgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.LogoFgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.LogoFgc],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.LogoFgc,
                 true, true, true, GuiUtils.goLinkPreloaderLogo, hoverHandler, unhoverHandler);
 
         this.playButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 350, 558, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.PlayNormalFgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.PlayOverFgc,
-                    Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.PlayNormalFgc],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+                [ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.PlayNormalFgc,
+                    ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.PlayOverFgc,
+                    ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.PlayNormalFgc],
                 true, false, false, this.nextState, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         this.glowEmitter = this.game.add.emitter(0, 0, 100);
         this.glowEmitter.makeParticles(
-            Assets.Atlases.AtlasesPreloaderAtlasFgc.getName(),
-            Assets.Atlases.AtlasesPreloaderAtlasFgc.Frames.ParticleGlowFgc);
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').Frames.ParticleGlowFgc);
         this.glowEmitter.setAlpha(1, 0.3, 3000);
         this.glowEmitter.gravity = new Phaser.Point(0, -10); // -10;
         this.glowEmitter.minParticleScale = 0.5;
@@ -191,7 +180,7 @@ export class FreeGamesCasualPreloader implements IPreloader {
     }
 
     private nextState(): void {
-        ga('send', GameConfig.gaData());
+        ga('send', 'event', GameConfig.gaData());
         this.playButton.inputEnabled = false;
         this.game.camera.onFadeComplete.addOnce(() => {
             SoundUtils.init();

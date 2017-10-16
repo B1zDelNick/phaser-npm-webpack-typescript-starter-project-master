@@ -1,4 +1,3 @@
-import * as Assets from '../assets';
 import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
 import {AssetMode, GameConfig, PublishMode, Sites} from '../config/game.config';
@@ -15,6 +14,7 @@ import {Chest} from './template/dress/chest';
 import {Doll} from './template/dress/doll';
 import {AdUtils} from '../utils/ad/ad.utils';
 import {isNull} from 'util';
+import {ImageUtils} from '../utils/images/image.utils';
 
 export default class Dress2 extends Phaser.State {
 
@@ -80,146 +80,150 @@ export default class Dress2 extends Phaser.State {
 
     public create(): void {
         this.game.add.sprite(0, 0,
-            Assets.Atlases.AtlasesDress1State.getName(),
-            Assets.Atlases.AtlasesDress1State.Frames.Bg2);
+            ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
+            ImageUtils.getAtlasClass('AtlasesDress1State').Frames.Bg2);
 
         // Chests
         this.chestAnna = new Chest(this)
-            .background(9, 19, Assets.Atlases.AtlasesDress2State.getName(), Assets.Atlases.AtlasesDress2State.Frames.Chest2)
+            .background(9, 19,
+                ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress2State').Frames.Chest2)
             .static()
                 .item(49, 139, 'bag1',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnBag1,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnBag1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(151, 142, 'bag2',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnBag2,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnBag2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(244, 137, 'bag3',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnBag3,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnBag3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(333, 131, 'bag4',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnBag4,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnBag4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(37, 274, 'bag5',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnBag5,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnBag5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(146, 269, 'bag6',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnBag6,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnBag6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(261, 272, 'bag7',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnBag7,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnBag7,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(355, 276, 'bag8',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnBag8,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnBag8,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(45, 421, 'shoe1',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnShoe1,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnShoe1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(138, 399, 'shoe2',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnShoe2,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnShoe2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(244, 409, 'shoe3',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnShoe3,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnShoe3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(354, 415, 'shoe4',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnShoe4,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnShoe4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(102, 569, 'shoe5',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnShoe5,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnShoe5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(198, 570, 'shoe6',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnShoe6,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnShoe6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(290, 566, 'shoe7',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnShoe7,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnShoe7,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(380, 564, 'shoe8',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.AnShoe8,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.AnShoe8,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .build();
 
         this.chestElza = new Chest(this)
-            .background(9, 19, Assets.Atlases.AtlasesDress2State.getName(), Assets.Atlases.AtlasesDress2State.Frames.Chest2)
+            .background(9, 19,
+                ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress2State').Frames.Chest2)
             .static()
                 .item(46, 123, 'bag1',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElBag1,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElBag1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(131, 134, 'bag2',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElBag2,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElBag2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(244, 138, 'bag3',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElBag3,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElBag3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(369, 106, 'bag4',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElBag4,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElBag4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(43, 274, 'bag5',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElBag5,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElBag5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(154, 270, 'bag6',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElBag6,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElBag6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(252, 268, 'bag7',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElBag7,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElBag7,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(378, 246, 'bag8',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElBag8,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElBag8,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(41, 424, 'shoe1',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElShoe1,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElShoe1,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(142, 457, 'shoe2',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElShoe2,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElShoe2,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(250, 419, 'shoe3',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElShoe3,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElShoe3,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(360, 415, 'shoe4',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElShoe4,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElShoe4,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(108, 581, 'shoe5',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElShoe5,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElShoe5,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(197, 573, 'shoe6',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElShoe6,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElShoe6,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(285, 600, 'shoe7',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElShoe7,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElShoe7,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .item(370, 606, 'shoe8',
-                    Assets.Atlases.AtlasesDress2State.getName(),
-                    Assets.Atlases.AtlasesDress2State.Frames.ElShoe8,
+                    ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                    ImageUtils.getAtlasClass('AtlasesDress2State').Frames.ElShoe8,
                     this.onItem, GuiUtils.addCustomOverGlowHandler(0xffff66))
                 .build()
             .build();
@@ -232,8 +236,8 @@ export default class Dress2 extends Phaser.State {
             this.mmmmContainer = this.game.add.group();
             this.mmmm = GuiUtils.makeButton(this, this.mmmmContainer,
                 831, 140, 1, '',
-                Assets.Atlases.AtlasesDress2State.getName(),
-                Assets.Atlases.AtlasesDress2State.Frames.Mmmm,
+                ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+                ImageUtils.getAtlasClass('AtlasesDress2State').Frames.Mmmm,
                 false, true, true,
                 GuiUtils.goLinkInMoreGames,
                 GuiUtils.addCustomOverHandler(0xffff66),
@@ -242,8 +246,8 @@ export default class Dress2 extends Phaser.State {
         }
 
         this.cloud = this.game.add.sprite(415 + 25, 142 + 20,
-            Assets.Atlases.AtlasesDress2State.getName(),
-            Assets.Atlases.AtlasesDress2State.Frames.Cl4);
+            ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
+            ImageUtils.getAtlasClass('AtlasesDress2State').Frames.Cl4);
 
         this.cloud.alpha = 0;
         this.anna.show(true);
@@ -254,28 +258,28 @@ export default class Dress2 extends Phaser.State {
         this.playBtn = this.gui.addPlayBtn(this.nextState);
         const moreBtn = this.gui.addExtraMore(
             960 - 189, 720 - 182,
-            Assets.Atlases.AtlasesStartState.getName(),
-            Assets.Atlases.AtlasesStartState.Frames.EMore,
+            ImageUtils.getAtlasClass('AtlasesStartState').getName(),
+            ImageUtils.getAtlasClass('AtlasesStartState').Frames.EMore,
             GuiUtils.addOverScaleHandler,
             GuiUtils.addOutScaleHandler
         );
         this.lArrow = this.gui.addExtraBtn(460, 340,
-            Assets.Atlases.AtlasesGuiFgc.getName(),
-            Assets.Atlases.AtlasesGuiFgc.Frames.LArrFgc,
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.LArrFgc,
             this.changeDoll,
             GuiUtils.addCustomOverHandler(0xffff66, .79),
             GuiUtils.addCustomOutHandler(.75)
         );
         this.rArrow = this.gui.addExtraBtn(740, 340,
-            Assets.Atlases.AtlasesGuiFgc.getName(),
-            Assets.Atlases.AtlasesGuiFgc.Frames.RArrFgc,
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.RArrFgc,
             this.changeDoll,
             GuiUtils.addCustomOverHandler(0xffff66, .79),
             GuiUtils.addCustomOutHandler(.75)
         );
         this.beginBtn = this.gui.addExtraBtn(735 + 25, 396 + 20,
-            Assets.Atlases.AtlasesGuiFgc.getName(),
-            Assets.Atlases.AtlasesGuiFgc.Frames.DoneFgc,
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.DoneFgc,
             () => {
                 TweenUtils.fadeAndScaleOut(this.beginBtn, Phaser.Timer.SECOND * .5)[1]
                     .onComplete.addOnce(() => {
@@ -460,7 +464,10 @@ export default class Dress2 extends Phaser.State {
             this.game.state.start(this.NEXT, true, false, this.anna, this.elza);
         } else {
             if (addLoader) {
-                this.spinner = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesSpin.getName());
+                this.spinner = this.game.add.sprite(
+                    this.game.world.centerX,
+                    this.game.world.centerY,
+                    ImageUtils.getImageClass('ImagesSpin').getName());
                 this.spinner.anchor.setTo(.5, .5);
                 // this.spinner.scale.setTo(.5);
                 TweenUtils.rotate(this.spinner, 360, Phaser.Timer.SECOND * 1, 0, -1);

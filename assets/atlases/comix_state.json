@@ -26,9 +26,9 @@
 	},
 	{
 		"filename": "gr_6.png",
-		"frame": {"x":310, "y":766, "w":268, "h":662},
-		"spriteSourceSize": {"x":0,"y":0,"w":268,"h":662},
-		"sourceSize": {"w":268,"h":662}
+		"frame": {"x":310, "y":766, "w":268, "h":673},
+		"spriteSourceSize": {"x":0,"y":0,"w":268,"h":673},
+		"sourceSize": {"w":268,"h":673}
 	},
 	{
 		"filename": "skip.png",

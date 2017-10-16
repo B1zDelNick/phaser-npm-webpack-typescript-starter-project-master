@@ -11,6 +11,14 @@ export default class Boot extends Phaser.State {
     public preload(): void {
         // Load any assets you need for your preloader state here.
 
+        if (!this.game.device.desktop) {
+            // Set image assets to be loaded in minified version
+            GameConfig.ASSET_SIZE = 'Min';
+        } else {
+            // normal assets
+            GameConfig.ASSET_SIZE = '';
+        }
+
         if (GameConfig.SITE === Sites.MY_CUTE_GAMES)
             BootUtils.preloadMcg();
         else if (GameConfig.SITE === Sites.DRESSUP_MIX)

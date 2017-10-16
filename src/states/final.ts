@@ -1,5 +1,4 @@
 import * as Assets from '../assets';
-import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
 import {AssetMode, GameConfig, Sites} from '../config/game.config';
 import {GuiMcg} from './gui/mcg.gui';
@@ -7,14 +6,13 @@ import {GuiDu} from './gui/du.gui';
 import {GuiFgc} from './gui/fgc.gui';
 import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
-import {PreloaderUtils} from '../utils/preloader.utils';
 import {ILaser} from './spec-effects/laser/i.laser';
 import {EffectUtils} from '../utils/effect.utils';
 import {LaserType} from './spec-effects/laser/enum.laser';
-import {Animation} from '../utils/animation/anim';
 import {TweenUtils} from '../utils/tween.utils';
 import {Doll} from './template/dress/doll';
 import {CrossBlock} from './template/final/cross.block';
+import {ImageUtils} from '../utils/images/image.utils';
 
 export default class Final extends Phaser.State {
 
@@ -71,16 +69,18 @@ export default class Final extends Phaser.State {
 
     public create(): void {
         this.game.add.sprite(0, 0,
-            Assets.Atlases.AtlasesStartState.getName(),
-            Assets.Atlases.AtlasesStartState.Frames.Bg);
+            ImageUtils.getAtlasClass('AtlasesStartState').getName(),
+            ImageUtils.getAtlasClass('AtlasesStartState').Frames.Bg);
 
         this.laser = EffectUtils.makeLaser(LaserType.DOUBLE_LASER);
-        this.laser.init(Assets.Atlases.AtlasesEffects.getName(), Assets.Atlases.AtlasesEffects.Frames.Light.toString());
+        this.laser.init(
+            ImageUtils.getAtlasClass('AtlasesEffects').getName(),
+            ImageUtils.getAtlasClass('AtlasesEffects').Frames.Light);
         this.laser.start();
 
         this.girl = this.game.add.sprite(13, -15,
-            Assets.Atlases.AtlasesFinalState.getName(),
-            Assets.Atlases.AtlasesFinalState.Frames.Gr7);
+            ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
+            ImageUtils.getAtlasClass('AtlasesFinalState').Frames.Gr7);
 
         this.anna.insert();
         this.elza.insert();
@@ -90,33 +90,33 @@ export default class Final extends Phaser.State {
         this.anna.show(true);
 
         this.cloud = this.game.add.sprite(-38, 159,
-            Assets.Atlases.AtlasesFinalState.getName(),
-            Assets.Atlases.AtlasesFinalState.Frames.Cl6);
+            ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
+            ImageUtils.getAtlasClass('AtlasesFinalState').Frames.Cl6);
         this.cloud.alpha = 0;
 
         this.cross = new CrossBlock(this, 700)
             .background(492, 124,
-                Assets.Atlases.AtlasesFinalState.getName(),
-                Assets.Atlases.AtlasesFinalState.Frames.Panel)
-            .animatedTitle(632, 151, Assets.Spritesheets.SpritesheetsSign238469.getName(), 11)
+                ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
+                ImageUtils.getAtlasClass('AtlasesFinalState').Frames.Panel)
+            .animatedTitle(632, 151, ImageUtils.getSpritesheetClass('SpritesheetsSign238469').getName(), 11)
             .page()
                 .banner(656, 215, 'cross1',
-                    Assets.Atlases.AtlasesFinalState.getName(),
-                    Assets.Atlases.AtlasesFinalState.Frames.Ban1,
+                    ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
+                    ImageUtils.getAtlasClass('AtlasesFinalState').Frames.Ban1,
                     GuiUtils.goCross('http://freegamescasual.com/Free-Online-Games/Princesses/Princesses-Paris-Shopping-Spree.html'))
                 .build()
             .page()
                 .banner(656, 215, 'cross2',
-                    Assets.Atlases.AtlasesFinalState.getName(),
-                    Assets.Atlases.AtlasesFinalState.Frames.Ban2,
+                    ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
+                    ImageUtils.getAtlasClass('AtlasesFinalState').Frames.Ban2,
                     GuiUtils.goCross('http://freegamescasual.com/Free-Online-Games/Princesses/Disney-Couple-Ice-Princess-Magic-Date.html'))
                 .build()
             .leftArrow(627, 402, .75,
-                Assets.Atlases.AtlasesGuiFgc.getName(),
-                Assets.Atlases.AtlasesGuiFgc.Frames.LArrFgc)
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.LArrFgc)
             .rightArrow(846, 402, .75,
-                Assets.Atlases.AtlasesGuiFgc.getName(),
-                Assets.Atlases.AtlasesGuiFgc.Frames.RArrFgc)
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.RArrFgc)
             .build();
 
         // GUI Buttons
@@ -124,15 +124,15 @@ export default class Final extends Phaser.State {
         const playBtn = this.gui.addPlayBtn(this.nextState, 670);
         const moreBtn = this.gui.addExtraMore(
             960 - 189, 720 - 182,
-            Assets.Atlases.AtlasesStartState.getName(),
-            Assets.Atlases.AtlasesStartState.Frames.EMore,
+            ImageUtils.getAtlasClass('AtlasesStartState').getName(),
+            ImageUtils.getAtlasClass('AtlasesStartState').Frames.EMore,
             GuiUtils.addOverScaleHandler,
             GuiUtils.addOutScaleHandler
         );
         moreBtn.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
         this.another = this.gui.addExtraBtn(2, 541,
-            Assets.Atlases.AtlasesFinalState.getName(),
-            Assets.Atlases.AtlasesFinalState.Frames.Another,
+            ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
+            ImageUtils.getAtlasClass('AtlasesFinalState').Frames.Another,
             this.nextState
         );
         playBtn.scale.setTo(0);
@@ -235,7 +235,10 @@ export default class Final extends Phaser.State {
             else this.game.state.start(this.NEXT, true, false, this.anna, this.elza);
         } else {
             if (addLoader) {
-                this.spinner = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesSpin.getName());
+                this.spinner = this.game.add.sprite(
+                    this.game.world.centerX,
+                    this.game.world.centerY,
+                    ImageUtils.getImageClass('ImagesSpin').getName());
                 this.spinner.anchor.setTo(.5, .5);
                 // this.spinner.scale.setTo(.5);
                 TweenUtils.rotate(this.spinner, 360, Phaser.Timer.SECOND * 1, 0, -1);

@@ -2,8 +2,9 @@ import * as Assets from '../../assets';
 import {IGui, StateType} from './i.gui';
 import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
-import {ISaver} from '../saver/i.saver';
+
 import {isString} from 'util';
+import {ImageUtils} from '../../utils/images/image.utils';
 
 export class GuiMcg implements IGui {
 
@@ -40,13 +41,13 @@ export class GuiMcg implements IGui {
         let asset: string;
 
         if (this.type === StateType.START_STATE) {
-            asset = Assets.Spritesheets.SpritesheetsPlayMcg1651322.getName();
+            asset = ImageUtils.getSpritesheetClass('SpritesheetsPlayMcg1651322').getName();
         }
         else if (this.type === StateType.FINAL_STATE) {
-            asset = Assets.Spritesheets.SpritesheetsReplayMcg1651322.getName();
+            asset = ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getName();
         }
         else {
-            asset = Assets.Spritesheets.SpritesheetsDoneMcg1651322.getName();
+            asset = ImageUtils.getSpritesheetClass('SpritesheetsDoneMcg1651322').getName();
         }
 
         this.playButton =
@@ -86,7 +87,7 @@ export class GuiMcg implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 810, 590, 1,
-                '', Assets.Spritesheets.SpritesheetsMoreMcg1651322.getName(), [0, 1, 0],
+                '', ImageUtils.getSpritesheetClass('SpritesheetsMoreMcg1651322').getName(), [0, 1, 0],
                 true, false, true, GuiUtils.goLinkMainMoreGames, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
         return this.moreButton;
@@ -97,8 +98,8 @@ export class GuiMcg implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 -10, -10, 1,
-                '', Assets.Atlases.AtlasesGuiMcg.getName(),
-                [Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg, Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg, Assets.Atlases.AtlasesGuiMcg.Frames.LogoMcg],
+                '', ImageUtils.getAtlasClass('AtlasesGuiMcg').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiMcg').Frames.LogoMcg,
                 true, false, true, GuiUtils.goLinkMainLogo, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
         return this.logoButton;
@@ -109,14 +110,14 @@ export class GuiMcg implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 845, 0, .75,
-                '', Assets.Spritesheets.SpritesheetsMusicMcg1651322.getName(), [0, 1, 0],
+                '', ImageUtils.getSpritesheetClass('SpritesheetsMusicMcg1651322').getName(), [0, 1, 0],
                 true, false, true, null, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
         this.musoffButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 845, 0, .75,
-                '', Assets.Spritesheets.SpritesheetsMusicOffMcg1651322.getName(), [0, 1, 0],
+                '', ImageUtils.getSpritesheetClass('SpritesheetsMusicOffMcg1651322').getName(), [0, 1, 0],
                 true, false, false, null, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
         return [this.musonButton, this.musoffButton];

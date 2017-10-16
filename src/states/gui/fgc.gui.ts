@@ -1,9 +1,9 @@
-import * as Assets from '../../assets';
 import {IGui, StateType} from './i.gui';
 import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
 import {isString} from 'util';
 import {SoundUtils} from '../../utils/sound/sound.utils';
+import {ImageUtils} from '../../utils/images/image.utils';
 
 export class GuiFgc implements IGui {
 
@@ -42,15 +42,15 @@ export class GuiFgc implements IGui {
         let Y: number = 593;
 
         if (this.type === StateType.START_STATE) {
-            frame = Assets.Atlases.AtlasesGuiFgc.Frames.StartFgc.toString();
+            frame = ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.StartFgc;
             X = 3;
             Y = 577;
         }
         else if (this.type === StateType.FINAL_STATE) {
-            frame = Assets.Atlases.AtlasesGuiFgc.Frames.ReplayFgc.toString();
+            frame = ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.ReplayFgc;
         }
         else {
-            frame = Assets.Atlases.AtlasesGuiFgc.Frames.DoneFgc.toString();
+            frame = ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.DoneFgc;
         }
 
         if (x !== -1) {
@@ -64,7 +64,7 @@ export class GuiFgc implements IGui {
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 X, Y, 1,
-                '', Assets.Atlases.AtlasesGuiFgc.getName(),
+                '', ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
                 [frame, frame, frame],
                 true, false, true, callback, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
@@ -98,10 +98,8 @@ export class GuiFgc implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 833, 593, 1,
-                '', Assets.Atlases.AtlasesGuiFgc.getName(),
-                [Assets.Atlases.AtlasesGuiFgc.Frames.MoreFgc,
-                    Assets.Atlases.AtlasesGuiFgc.Frames.MoreFgc,
-                    Assets.Atlases.AtlasesGuiFgc.Frames.MoreFgc],
+                '', ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.MoreFgc,
                 true, false, true, GuiUtils.goLinkMainMoreGames, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         return this.moreButton;
@@ -112,10 +110,8 @@ export class GuiFgc implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 710, 0, .8,
-                '', Assets.Atlases.AtlasesGuiFgc.getName(),
-                [Assets.Atlases.AtlasesGuiFgc.Frames.LogoFgc,
-                    Assets.Atlases.AtlasesGuiFgc.Frames.LogoFgc,
-                    Assets.Atlases.AtlasesGuiFgc.Frames.LogoFgc],
+                '', ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.LogoFgc,
                 true, false, true, GuiUtils.goLinkMainLogo, GuiUtils.addOverHandlerFgc, GuiUtils.addOutHandlerFgc);
 
         return this.logoButton;
@@ -126,20 +122,16 @@ export class GuiFgc implements IGui {
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 -6, -9, 1,
-                '', Assets.Atlases.AtlasesGuiFgc.getName(),
-                [Assets.Atlases.AtlasesGuiFgc.Frames.SoundOnFgc,
-                    Assets.Atlases.AtlasesGuiFgc.Frames.SoundOnFgc,
-                    Assets.Atlases.AtlasesGuiFgc.Frames.SoundOnFgc],
+                '', ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.SoundOnFgc,
                 true, false, SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         this.musoffButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 -6, -9, 1,
-                '', Assets.Atlases.AtlasesGuiFgc.getName(),
-                [Assets.Atlases.AtlasesGuiFgc.Frames.SoundOffFgc,
-                    Assets.Atlases.AtlasesGuiFgc.Frames.SoundOffFgc,
-                    Assets.Atlases.AtlasesGuiFgc.Frames.SoundOffFgc],
+                '', ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.SoundOffFgc,
                 true, false, !SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         SoundUtils.onSwitchAudio.add(() => {

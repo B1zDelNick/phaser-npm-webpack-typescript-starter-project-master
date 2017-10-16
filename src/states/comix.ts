@@ -1,4 +1,3 @@
-import * as Assets from '../assets';
 import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
 import {AssetMode, GameConfig, Sites} from '../config/game.config';
@@ -13,6 +12,7 @@ import {EffectUtils} from '../utils/effect.utils';
 import {LaserType} from './spec-effects/laser/enum.laser';
 import {Animation} from '../utils/animation/anim';
 import {TweenUtils} from '../utils/tween.utils';
+import {ImageUtils} from '../utils/images/image.utils';
 
 export default class Comix extends Phaser.State {
 
@@ -56,28 +56,30 @@ export default class Comix extends Phaser.State {
 
     public create(): void {
         this.game.add.sprite(0, 0,
-            Assets.Atlases.AtlasesStartState.getName(),
-            Assets.Atlases.AtlasesStartState.Frames.Bg);
+            ImageUtils.getAtlasClass('AtlasesStartState').getName(),
+            ImageUtils.getAtlasClass('AtlasesStartState').Frames.Bg);
 
         this.laser = EffectUtils.makeLaser(LaserType.DOUBLE_LASER);
-        this.laser.init(Assets.Atlases.AtlasesEffects.getName(), Assets.Atlases.AtlasesEffects.Frames.Light.toString());
+        this.laser.init(
+            ImageUtils.getAtlasClass('AtlasesEffects').getName(),
+            ImageUtils.getAtlasClass('AtlasesEffects').Frames.Light);
         this.laser.start();
 
         this.girl1 = this.game.add.sprite(94 - 700, 6,
-            Assets.Atlases.AtlasesComixState.getName(),
-            Assets.Atlases.AtlasesComixState.Frames.Gr4);
+            ImageUtils.getAtlasClass('AtlasesComixState').getName(),
+            ImageUtils.getAtlasClass('AtlasesComixState').Frames.Gr4);
         this.girl2 = this.game.add.sprite(368 + 700, 41,
-            Assets.Atlases.AtlasesComixState.getName(),
-            Assets.Atlases.AtlasesComixState.Frames.Gr5);
+            ImageUtils.getAtlasClass('AtlasesComixState').getName(),
+            ImageUtils.getAtlasClass('AtlasesComixState').Frames.Gr5);
         this.girl3 = this.game.add.sprite(578 + 700, 41,
-            Assets.Atlases.AtlasesComixState.getName(),
-            Assets.Atlases.AtlasesComixState.Frames.Gr6);
+            ImageUtils.getAtlasClass('AtlasesComixState').getName(),
+            ImageUtils.getAtlasClass('AtlasesComixState').Frames.Gr6);
         this.cloud1 = this.game.add.sprite(12, 161,
-            Assets.Atlases.AtlasesComixState.getName(),
-            Assets.Atlases.AtlasesComixState.Frames.Cl1);
+            ImageUtils.getAtlasClass('AtlasesComixState').getName(),
+            ImageUtils.getAtlasClass('AtlasesComixState').Frames.Cl1);
         this.cloud2 = this.game.add.sprite(451, 165,
-            Assets.Atlases.AtlasesComixState.getName(),
-            Assets.Atlases.AtlasesComixState.Frames.Cl2);
+            ImageUtils.getAtlasClass('AtlasesComixState').getName(),
+            ImageUtils.getAtlasClass('AtlasesComixState').Frames.Cl2);
 
         this.cloud1.alpha = 0;
         this.cloud2.alpha = 0;
@@ -87,15 +89,15 @@ export default class Comix extends Phaser.State {
         const playBtn = this.gui.addPlayBtn(this.nextState);
         const moreBtn = this.gui.addExtraMore(
             960 - 189, 720 - 182,
-            Assets.Atlases.AtlasesStartState.getName(),
-            Assets.Atlases.AtlasesStartState.Frames.EMore.toString(),
+            ImageUtils.getAtlasClass('AtlasesStartState').getName(),
+            ImageUtils.getAtlasClass('AtlasesStartState').Frames.EMore,
             GuiUtils.addOverScaleHandler,
             GuiUtils.addOutScaleHandler
         );
         moreBtn.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
         const skip = this.gui.addExtraBtn(115, 593,
-            Assets.Atlases.AtlasesComixState.getName(),
-            Assets.Atlases.AtlasesComixState.Frames.Skip.toString(),
+            ImageUtils.getAtlasClass('AtlasesComixState').getName(),
+            ImageUtils.getAtlasClass('AtlasesComixState').Frames.Skip,
             this.nextState
         );
         playBtn.scale.setTo(0);
@@ -192,7 +194,10 @@ export default class Comix extends Phaser.State {
             this.game.state.start(this.NEXT);
         } else {
             if (addLoader) {
-                this.spinner = this.game.add.sprite(this.game.world.centerX, this.game.world.centerY, Assets.Images.ImagesSpin.getName());
+                this.spinner = this.game.add.sprite(
+                    this.game.world.centerX,
+                    this.game.world.centerY,
+                    ImageUtils.getImageClass('ImagesSpin').getName());
                 this.spinner.anchor.setTo(.5, .5);
                 // this.spinner.scale.setTo(.5);
                 TweenUtils.rotate(this.spinner, 360, Phaser.Timer.SECOND * 1, 0, -1);

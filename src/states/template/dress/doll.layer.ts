@@ -1,6 +1,7 @@
 import * as Assets from '../../../assets';
 import {GameConfig, Sites} from '../../../config/game.config';
 import {isNull, isUndefined} from 'util';
+import {ImageUtils} from '../../../utils/images/image.utils';
 
 export class DollLayer {
 
@@ -24,18 +25,18 @@ export class DollLayer {
 
         switch (GameConfig.SITE) {
             case Sites.FREE_GAMES_CASUAL: {
-                this.guiAtlas = Assets.Atlases.AtlasesGuiFgc.getName();
-                this.dummyFrame = Assets.Atlases.AtlasesGuiFgc.Frames.Dummy;
+                this.guiAtlas = ImageUtils.getAtlasClass('AtlasesGuiFgc').getName();
+                this.dummyFrame = ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.Dummy;
                 break;
             }
             case Sites.MY_CUTE_GAMES: {
-                this.guiAtlas = Assets.Atlases.AtlasesGuiMcg.getName();
-                this.dummyFrame = Assets.Atlases.AtlasesGuiMcg.Frames.Dummy;
+                this.guiAtlas = ImageUtils.getAtlasClass('AtlasesGuiMcg').getName();
+                this.dummyFrame = ImageUtils.getAtlasClass('AtlasesGuiMcg').Frames.Dummy;
                 break;
             }
             case Sites.DRESSUP_MIX: {
-                this.guiAtlas = Assets.Atlases.AtlasesGuiDu.getName();
-                this.dummyFrame = Assets.Atlases.AtlasesGuiDu.Frames.Dummy;
+                this.guiAtlas = ImageUtils.getAtlasClass('AtlasesGuiDu').getName();
+                this.dummyFrame = ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.Dummy;
                 break;
             }
         }

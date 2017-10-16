@@ -3,6 +3,7 @@ import {IPreloader} from './i.preloader';
 import {GameConfig, PublishMode} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
 import {SoundUtils} from '../../utils/sound/sound.utils';
+import {ImageUtils} from '../../utils/images/image.utils';
 
 export class MyCuteGamesPreloader implements IPreloader {
 
@@ -34,8 +35,8 @@ export class MyCuteGamesPreloader implements IPreloader {
         /** BG */
         this.game.add.sprite(0, 0,
             GameConfig.PUB_MODE === PublishMode.GAME_DISTRIBUTIONS ?
-                Assets.Images.ImagesPreroll2Mcg :
-                Assets.Images.ImagesPrerollMcg);
+                ImageUtils.getImageClass('ImagesPreroll2Mcg') :
+                ImageUtils.getImageClass('ImagesPrerollMcg'));
 
         /**
          * Crown Particle Emmiter
@@ -43,8 +44,8 @@ export class MyCuteGamesPreloader implements IPreloader {
 
         this.crownEmitter = this.game.add.emitter(0, 0, 100);
         this.crownEmitter.makeParticles(
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.ParticleCrownMcg);
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.ParticleCrownMcg);
         this.crownEmitter.setRotation(-50, 50);
         this.crownEmitter.setAlpha(1, 0.3, 4000);
         this.crownEmitter.gravity = new Phaser.Point(0, -10); // -10;
@@ -61,7 +62,7 @@ export class MyCuteGamesPreloader implements IPreloader {
 
         this.spriterGroup = new Spriter.SpriterGroup(
             this.game, spriterData,
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
             'girl', 0, 10);
         this.spriterGroup.position.setTo(200, 720 - this.spriterGroup.height);
         this.game.add.existing(this.spriterGroup);
@@ -80,11 +81,11 @@ export class MyCuteGamesPreloader implements IPreloader {
          */
 
         this.preloadFrameSprite = this.game.add.sprite(0, 580,
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.Progressbar1Mcg);
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.Progressbar1Mcg);
         this.preloadBarSprite = this.game.add.sprite(0, 579.5,
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.Progressbar2Mcg);
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.Progressbar2Mcg);
         this.preloadBarSprite.x = this.preloadFrameSprite.x = this.game.world.centerX - this.preloadFrameSprite.width / 2;
         this.game.load.setPreloadSprite(this.preloadBarSprite);
 
@@ -109,21 +110,19 @@ export class MyCuteGamesPreloader implements IPreloader {
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 20, 30, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.DressupMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.DressupMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.DressupMcg],
-                true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.DressupMcg,
+                true, true, GameConfig.PUB_MODE !== PublishMode.GAME_DISTRIBUTIONS,
+                GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.btn2 =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 635, 25, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.PrincessMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.PrincessMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.PrincessMcg],
-                true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.PrincessMcg,
+                true, true, GameConfig.PUB_MODE !== PublishMode.GAME_DISTRIBUTIONS,
+                GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.btn3 =
             GuiUtils.makeButton(
@@ -133,39 +132,37 @@ export class MyCuteGamesPreloader implements IPreloader {
                 [Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg,
                     Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg,
                     Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg],
-                true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
+                true, true, GameConfig.PUB_MODE !== PublishMode.GAME_DISTRIBUTIONS,
+                GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.btn4 =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 15, 310, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.HairMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.HairMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.HairMcg],
-                true, true, true, GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.HairMcg,
+                true, true, GameConfig.PUB_MODE !== PublishMode.GAME_DISTRIBUTIONS,
+                GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 
         this.logo =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 480 - 208, 415 - 137, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.LogoGlowMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.LogoGlowMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.LogoGlowMcg],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.LogoGlowMcg,
                 true, true, true, GuiUtils.goLinkPreloaderLogo, hoverHandler, unhoverHandler);
 
         this.playButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 308, 558, 1,
-                '', Assets.Spritesheets.SpritesheetsPlayMcg1651322.getName(), [0, 1, 0],
+                '', ImageUtils.getSpritesheetClass('SpritesheetsPlayMcg1651322').getName(), [0, 1, 0],
                 true, false, false, this.nextState, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
         this.glowEmitter = this.game.add.emitter(0, 0, 100);
         this.glowEmitter.makeParticles(
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-            Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.ParticleGlowMcg);
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.ParticleGlowMcg);
         this.glowEmitter.setAlpha(1, 0.3, 3000);
         this.glowEmitter.gravity = new Phaser.Point(0, -10); // -10;
         this.glowEmitter.minParticleScale = 0.5;
