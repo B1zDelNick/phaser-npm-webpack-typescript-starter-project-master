@@ -6,13 +6,15 @@ export class ChestItem {
 
     private game: Phaser.Game = null;
     private state: Phaser.State = null;
-    private button: Phaser.Button = null;
+    public button: Phaser.Button = null;
+    public name: string = null;
 
     constructor(state: Phaser.State, container: Phaser.Group, x: number, y: number, name: string, asset: string, frames?: any|any[],
                 callback?: Function, overHandler?: Function, outHandler?: Function) {
 
         this.game = GameConfig.GAME;
         this.state = state;
+        this.name = name;
 
         if (frames == null) {
             frames = [0, 0, 0];

@@ -1,4 +1,5 @@
 import {SaverTemplates} from '../states/saver/enum.saver';
+import {Doll} from '../states/template/dress/doll';
 
 export class GameConfig {
 
@@ -9,6 +10,12 @@ export class GameConfig {
     public static PUB_MODE: PublishMode = null;
     public static SAVER_MODE: SaverTemplates = null;
     public static IS_ASSETS_LOADED: boolean = false;
+    public static CURRENT_STATE: number = 0;
+
+    public static DOLL_1: Doll = null;
+    public static DOLL_2: Doll = null;
+    public static DOLL_3: Doll = null;
+    public static DOLL_4: Doll = null;
 
     private static _inited: boolean = false;
 

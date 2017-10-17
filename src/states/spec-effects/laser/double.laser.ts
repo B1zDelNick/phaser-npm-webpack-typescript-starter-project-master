@@ -37,6 +37,11 @@ export class DoubleLaser implements ILaser {
     }
 
     dispose(): void {
+        this.game.tweens.removeFrom(this.laser1);
+        this.game.tweens.removeFrom(this.laser2);
+        this.laser1.destroy(true);
+        this.laser2.destroy(true);
+        this.container.destroy(true);
     }
 
 }

@@ -128,10 +128,8 @@ export class MyCuteGamesPreloader implements IPreloader {
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 660, 280, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.MakeupMcg,
                 true, true, GameConfig.PUB_MODE !== PublishMode.GAME_DISTRIBUTIONS,
                 GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 

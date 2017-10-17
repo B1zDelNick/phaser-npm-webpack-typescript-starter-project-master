@@ -80,6 +80,53 @@ export class GuiUtils {
         return tempItem;
     }
 
+    public static makeSpritesheetButton(
+        parent: any, container: Phaser.Group,
+        x: number, y: number, scale: number = 1,
+        name: string = '', sheet: string = '',
+        enabled: boolean = true, perfect: boolean = false, visible: boolean = true,
+        clickHandler: Function = null, overHandler: Function = null, outHandler: Function = null, downHandler: Function = null, upHandler: Function = null): Phaser.Sprite {
+
+        let tempItem: Phaser.Sprite = parent.game.add.sprite(0, 0, sheet);
+        tempItem.animations.add('butAnim');
+        tempItem.animations.play('butAnim', 10, true);
+
+        tempItem.name = name;
+        tempItem.anchor.set(0.5);
+        tempItem.inputEnabled = true;
+
+        if (perfect)
+            tempItem.input.pixelPerfectClick = tempItem.input.pixelPerfectOver = perfect;
+        if (perfect)
+            tempItem.input.pixelPerfectAlpha = 10;
+        if (perfect)
+            tempItem.input.useHandCursor = true;
+
+        tempItem.inputEnabled = enabled;
+
+        if (clickHandler != null)
+            tempItem.events.onInputUp.add(clickHandler, parent);
+        if (overHandler != null)
+            tempItem.events.onInputOver.add(overHandler, parent);
+        if (outHandler != null)
+            tempItem.events.onInputOut.add(outHandler, parent);
+        if (downHandler != null)
+            tempItem.events.onInputDown.add(downHandler, parent);
+        if (upHandler != null)
+            tempItem.events.onInputUp.add(upHandler, parent);
+
+        if (scale)
+            tempItem.scale.setTo(scale);
+
+        tempItem.visible = visible;
+        tempItem.x = x + tempItem.width / 2;
+        tempItem.y = y + tempItem.height / 2;
+
+        container.addChild(tempItem);
+
+        return tempItem;
+    }
+
     public static addOverHandlerMcg(sprite) {
         const game = GameConfig.GAME;
         sprite.filters = [FilterUtils.makeFilter()];

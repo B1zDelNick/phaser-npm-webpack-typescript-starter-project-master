@@ -47,7 +47,7 @@ export class DollLayer {
             container);
     }
 
-    operate(index: number) {
+    operate(index: number): boolean {
         // console.log(this.sprite.frameName, this.sprite.key, this.prefix + index);
         // console.log(this.sprite.frameName === this.frameClass[this.prefix + index], this.removable);
         if (this.sprite.frameName === this.frameClass[this.prefix + index] && this.removable || index === -1) {
@@ -55,7 +55,9 @@ export class DollLayer {
         }
         else {
             this.sprite.loadTexture(this.asset, this.frameClass[(this.prefix + index)]);
+            return !this.removable;
         }
+        return false;
     }
 
     dispose(): void {

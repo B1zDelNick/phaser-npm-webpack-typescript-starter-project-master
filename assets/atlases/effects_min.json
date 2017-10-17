@@ -1,16 +1,28 @@
-{
-"frames": [
-	{
-		"filename": "light.png",
-		"frame": {"x":0, "y":0, "w":169, "h":745},
-		"spriteSourceSize": {"x":0,"y":0,"w":169,"h":745},
-		"sourceSize": {"w":169,"h":745}
-	}
+{"frames": [
 
-],
+{
+	"filename": "light.png",
+	"frame": {"x":0,"y":0,"w":169,"h":745},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":169,"h":745},
+	"sourceSize": {"w":169,"h":745}
+},
+{
+	"filename": "light_2.png",
+	"frame": {"x":169,"y":0,"w":292,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":292,"h":665},
+	"sourceSize": {"w":292,"h":665}
+}],
 "meta": {
-	"image": "effects.png",
-	"size": {"w": 1024, "h": 1024},
-	"scale": "1"
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "effects_min.png",
+	"format": "RGBA8888",
+	"size": {"w":461,"h":745},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7440adbbe13fd2a7e4d5746fd0f189ab:2e1ffe9c791529a15d0fb93151da73b5:05d3c1256da5d10ff4f36ef2966c3322$"
 }
 }

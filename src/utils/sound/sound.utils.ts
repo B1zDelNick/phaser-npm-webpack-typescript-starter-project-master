@@ -11,7 +11,7 @@ export class SoundUtils {
     private static currentTheme: string;
 
     public static init(mainTheme?: string): void {
-        if (!mainTheme && Assets.Audio['AudioMainTheme']) {
+        if (!mainTheme && !isUndefined(Assets.Audio['AudioMainTheme'])) {
             mainTheme = Assets.Audio['AudioMainTheme'].getName();
         }
         this.currentTheme = mainTheme;
@@ -19,7 +19,10 @@ export class SoundUtils {
 
         if (isNull(this.currentTheme) || isUndefined(this.currentTheme)) return;
 
-        this.audios[mainTheme] = (GameConfig.GAME.sound.play(mainTheme, 0.5, true));
+        this.audios[mainTheme] = GameConfig.GAME.sound.play(mainTheme, 0.5, true);
+        this.audios[Assets.Audio.AudioSalsa.getName()] = GameConfig.GAME.sound.add(Assets.Audio.AudioSalsa.getName(), 0.5, true);
+        this.audios[Assets.Audio.AudioValz.getName()] = GameConfig.GAME.sound.add(Assets.Audio.AudioValz.getName(), 0.5, true);
+        this.audios[Assets.Audio.AudioHipHop.getName()] = GameConfig.GAME.sound.add(Assets.Audio.AudioHipHop.getName(), 0.5, true);
     }
 
     public static mainThemeSwitch(): void {
@@ -27,15 +30,23 @@ export class SoundUtils {
             SoundUtils.globalSoundEnabled = false;
 
             if (!isNull(SoundUtils.currentTheme) && !isUndefined(SoundUtils.currentTheme))
-                SoundUtils.audios[SoundUtils.currentTheme].pause();
+                SoundUtils.audios[SoundUtils.currentTheme].volume = 0; // .pause();
         }
         else {
             SoundUtils.globalSoundEnabled = true;
 
             if (!isNull(SoundUtils.currentTheme) && !isUndefined(SoundUtils.currentTheme))
-                SoundUtils.audios[SoundUtils.currentTheme].resume();
+                SoundUtils.audios[SoundUtils.currentTheme].volume = .5; // .resume();
         }
         SoundUtils.onSwitchAudio.dispatch();
+    }
+
+    public static play(name: string): void {
+        if (SoundUtils.currentTheme === name) return;
+        (SoundUtils.audios[SoundUtils.currentTheme] as Phaser.Sound).stop();
+        SoundUtils.currentTheme = name;
+        (SoundUtils.audios[SoundUtils.currentTheme] as Phaser.Sound).volume = SoundUtils.globalSoundEnabled ? .5 : 0;
+        (SoundUtils.audios[SoundUtils.currentTheme] as Phaser.Sound).play();
     }
 
     public static isSoundEnabled(): boolean {

@@ -31,15 +31,24 @@ export class Doll {
         return this;
     }
 
-    on(item: string, index: number, ...off: string[]) {
-        this.layers[item].operate(index);
+    on(item: string, index: number, ...off: string[]): boolean {
         for (let toOff of off) {
-            this.layers[toOff].operate(-1);
+            if (this.layers[toOff])
+                this.layers[toOff].operate(-1);
         }
+        return this.layers[item].operate(index);
     }
 
     setPosition(x: number, y: number): void {
         this.container.position.setTo(x, y);
+    }
+
+    setScale(val: number): void {
+        this.container.scale.setTo(val);
+    }
+
+    getBody(): Phaser.Group {
+        return this.container;
     }
 
     extract(): Doll {

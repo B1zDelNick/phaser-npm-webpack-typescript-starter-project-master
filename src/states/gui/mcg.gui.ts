@@ -3,8 +3,9 @@ import {IGui, StateType} from './i.gui';
 import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
 
-import {isString} from 'util';
+import {isNull, isString} from 'util';
 import {ImageUtils} from '../../utils/images/image.utils';
+import {SoundUtils} from '../../utils/sound/sound.utils';
 
 export class GuiMcg implements IGui {
 
@@ -18,6 +19,7 @@ export class GuiMcg implements IGui {
     private musoffButton: Phaser.Button = null;
     private logoButton: Phaser.Button = null;
     private moreButton: Phaser.Button = null;
+    private moreButton2: Phaser.Sprite = null;
 
     private extras: Array<Phaser.Button> = [];
 
@@ -45,6 +47,9 @@ export class GuiMcg implements IGui {
         }
         else if (this.type === StateType.FINAL_STATE) {
             asset = ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getName();
+        }
+        else if (this.type === StateType.RESULT_STATE) {
+            asset = ImageUtils.getSpritesheetClass('SpritesheetsRArrMcg1651322').getName();
         }
         else {
             asset = ImageUtils.getSpritesheetClass('SpritesheetsDoneMcg1651322').getName();
@@ -82,6 +87,21 @@ export class GuiMcg implements IGui {
         return this.moreButton;
     }
 
+    addExtraMoreAnimated(x: number, y: number, asset: string,
+                         overHandler: Function = GuiUtils.addOverHandler,
+                         outHandler: Function = GuiUtils.addOutHandler,
+                         callback: Function = GuiUtils.goLinkMainMoreGames): Phaser.Sprite {
+
+        this.moreButton2 =
+            GuiUtils.makeSpritesheetButton(
+                this.state, this.guiContainer,
+                x, y, 1,
+                '', asset,
+                true, true, true, callback, overHandler, outHandler);
+
+        return this.moreButton2;
+    }
+
     addMoreBtn(): Phaser.Button {
         this.moreButton =
             GuiUtils.makeButton(
@@ -111,14 +131,19 @@ export class GuiMcg implements IGui {
                 this, this.guiContainer,
                 845, 0, .75,
                 '', ImageUtils.getSpritesheetClass('SpritesheetsMusicMcg1651322').getName(), [0, 1, 0],
-                true, false, true, null, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+                true, false, SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
         this.musoffButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
                 845, 0, .75,
                 '', ImageUtils.getSpritesheetClass('SpritesheetsMusicOffMcg1651322').getName(), [0, 1, 0],
-                true, false, false, null, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+                true, false, !SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+
+        SoundUtils.onSwitchAudio.add(() => {
+            this.musonButton.visible = !this.musonButton.visible;
+            this.musoffButton.visible = !this.musoffButton.visible;
+        }, this);
 
         return [this.musonButton, this.musoffButton];
     }
@@ -149,8 +174,28 @@ export class GuiMcg implements IGui {
     }
 
     disable(): void {
+        for (let btn of this.extras) {
+            btn.inputEnabled = false;
+            btn.filters = null;
+        }
+        if (!isNull(this.playButton)) this.playButton.inputEnabled = false;
+        if (!isNull(this.playButton)) this.playButton.filters = null;
+        this.musonButton.inputEnabled = false;
+        this.musonButton.filters = null;
+        this.musoffButton.inputEnabled = false;
+        this.musoffButton.filters = null;
     }
 
     dispose(): void {
+        SoundUtils.onSwitchAudio.removeAll(this);
+        if (!isNull(this.playButton)) this.playButton.destroy(true);
+        this.musonButton.destroy(true);
+        this.musoffButton.destroy(true);
+        if (!isNull(this.moreButton)) this.moreButton.destroy(true);
+        if (!isNull(this.moreButton2)) this.moreButton2.destroy(true);
+        for (let btn of this.extras) {
+            btn.destroy(true);
+        }
+        this.guiContainer.destroy(true);
     }
 }

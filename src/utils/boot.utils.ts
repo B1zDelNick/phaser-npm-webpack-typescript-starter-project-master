@@ -137,6 +137,11 @@ export class BootUtils {
         game.load.image(
             ImageUtils.getImageClass('ImagesSpin').getName(),
             ImageUtils.getImageClass('ImagesSpin').getPNG());
+        game.load.spritesheet(
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE11919931').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE11919931').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE11919931').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE11919931').getFrameHeight());
         if (GameConfig.PUB_MODE !== PublishMode.NO_AD) {
             game.load.script(
                 Assets.Scripts.ScriptsPhaserAds.getName(),
