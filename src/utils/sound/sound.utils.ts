@@ -20,9 +20,6 @@ export class SoundUtils {
         if (isNull(this.currentTheme) || isUndefined(this.currentTheme)) return;
 
         this.audios[mainTheme] = GameConfig.GAME.sound.play(mainTheme, 0.5, true);
-        this.audios[Assets.Audio.AudioSalsa.getName()] = GameConfig.GAME.sound.add(Assets.Audio.AudioSalsa.getName(), 0.5, true);
-        this.audios[Assets.Audio.AudioValz.getName()] = GameConfig.GAME.sound.add(Assets.Audio.AudioValz.getName(), 0.5, true);
-        this.audios[Assets.Audio.AudioHipHop.getName()] = GameConfig.GAME.sound.add(Assets.Audio.AudioHipHop.getName(), 0.5, true);
     }
 
     public static mainThemeSwitch(): void {

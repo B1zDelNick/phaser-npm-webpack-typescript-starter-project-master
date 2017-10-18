@@ -90,43 +90,32 @@ export class PreloaderUtils {
         }
     }
 
-    public static preloadDress1State(): void {
+    public static preloadDressState(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDress1State').getName(),
-            ImageUtils.getAtlasClass('AtlasesDress1State').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDress1State').getJSONArray());
-        this.dress1StateAdditionalLoads();
-    }
-
-    public static preloadDress2State(): void {
-        const game = GameConfig.GAME;
-        // Load any assets you need for your preloader state here.
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
-            ImageUtils.getAtlasClass('AtlasesDress2State').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDress2State').getJSONArray());
-        this.dress2StateAdditionalLoads();
-    }
-
-    public static preloadDress3State(): void {
-        const game = GameConfig.GAME;
-        // Load any assets you need for your preloader state here.
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDress3State').getName(),
-            ImageUtils.getAtlasClass('AtlasesDress3State').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDress3State').getJSONArray());
-        this.dress3StateAdditionalLoads();
+        if (ImageUtils.getAtlasClass('AtlasesDressState') != null) {
+            game.load.atlasJSONArray(
+                ImageUtils.getAtlasClass('AtlasesDressState').getName(),
+                ImageUtils.getAtlasClass('AtlasesDressState').getPNG(),
+                ImageUtils.getAtlasClass('AtlasesDressState').getJSONArray());
+        } else {
+            if (DEBUG)
+                console.log(`\nNo default Dress State graphics was found.`);
+        }
     }
 
     public static preloadFinalState(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
-            ImageUtils.getAtlasClass('AtlasesFinalState').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesFinalState').getJSONArray());
+        if (ImageUtils.getAtlasClass('AtlasesFinalState') != null) {
+            game.load.atlasJSONArray(
+                ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
+                ImageUtils.getAtlasClass('AtlasesFinalState').getPNG(),
+                ImageUtils.getAtlasClass('AtlasesFinalState').getJSONArray());
+        } else {
+            if (DEBUG)
+                console.log(`\nNo default Final State graphics was found.`);
+        }
     }
 
     /** ------------------------------------------------------------------------
@@ -141,44 +130,10 @@ export class PreloaderUtils {
     private static soundAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        game.load.audio(
-            Assets.Audio['AudioSalsa'].getName(),
-            Assets.Audio['AudioSalsa'].getMP3(),
-            true);
-        game.load.audio(
-            Assets.Audio['AudioValz'].getName(),
-            Assets.Audio['AudioValz'].getMP3(),
-            true);
-        game.load.audio(
-            Assets.Audio['AudioHipHop'].getName(),
-            Assets.Audio['AudioHipHop'].getMP3(),
-            true);
     }
 
-    private static dress1StateAdditionalLoads(): void {
+    private static dressStateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getJSONArray());
-    }
-
-    private static dress2StateAdditionalLoads(): void {
-        const game = GameConfig.GAME;
-        // Additional loading HERE, exp: BlurX script etc
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollCindy').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollCindy').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollCindy').getJSONArray());
-    }
-
-    private static dress3StateAdditionalLoads(): void {
-        const game = GameConfig.GAME;
-        // Additional loading HERE, exp: BlurX script etc
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollAvrora').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollAvrora').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollAvrora').getJSONArray());
     }
 }
