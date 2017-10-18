@@ -63,7 +63,7 @@ export default class Dress2 extends Phaser.State {
 
         // Chests
         this.chest = new Chest(this)
-            .configure({})
+	        .configure({hideSelected: true})
             .background(32, 27,
                 ImageUtils.getAtlasClass('AtlasesDress2State').getName(),
                 ImageUtils.getAtlasClass('AtlasesDress2State').Frames.Chest)

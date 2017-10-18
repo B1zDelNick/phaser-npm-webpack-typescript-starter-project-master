@@ -35,6 +35,7 @@ export class Chest {
     }
 
     onEquiped(item: string, ...toOn: string[]) {
+        if (this.config.hideSelected !== true) return;
         for (let cat of toOn) {
             if (this.staticPage)
                 this.staticPage.tryToSetLikeVisibility(cat);

@@ -60,8 +60,8 @@ export default class Final extends Phaser.State {
             ImageUtils.getAtlasClass('AtlasesFinalState').getName(),
             ImageUtils.getAtlasClass('AtlasesFinalState').Frames.Bg6);
 
-        this.cross1 = new CrossDollButton(this, 'http://mycutegames.com/Games/Princess/Freshman-Party-at-Princess-College.html');
-        this.cross2 = new CrossDollButton(this, 'http://mycutegames.com/Games/Princess/Freshman-Party-at-Princess-College.html');
+        this.cross1 = new CrossDollButton(this, 'http://mycutegames.com/Games/Princess/Princess-Urban-Fashion-Statement.html');
+        this.cross2 = new CrossDollButton(this, 'http://mycutegames.com/Games/Princess/Princess-Style-Guide-Sporty-Chic.html');
         this.cross3 = new CrossDollButton(this, 'http://mycutegames.com/Games/Princess/Freshman-Party-at-Princess-College.html');
 
         this.cross1.getBody().x -= 700;
