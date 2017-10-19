@@ -54,7 +54,7 @@ function startApp(): void {
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princess Boho Wedding Rivals');
+        'Princess Black Friday Rush');
 
     GameConfig.GAME = app;
 }
