@@ -15,7 +15,7 @@ import {SoundUtils} from '../utils/sound/sound.utils';
 import {LaserType} from './spec-effects/laser/enum.laser';
 import {ILaser} from './spec-effects/laser/i.laser';
 
-export default class Result extends Phaser.State {
+export default class Kjhyyiidjhdhdhd extends Phaser.State {
 
     private NEXT = 'Final';
     private nextPrepared = false;

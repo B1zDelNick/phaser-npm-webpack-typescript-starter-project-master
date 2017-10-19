@@ -10,7 +10,7 @@ import {ImageUtils} from '../utils/images/image.utils';
 import {IParticle} from './spec-effects/particle/i.particle';
 import {LepestokParticles} from './spec-effects/particle/lepestok.particle';
 
-export default class Final extends Phaser.State {
+export default class Uiiisdjsdhsdhsdfh extends Phaser.State {
 
     private NEXT = 'Start';
     private nextPrepared = false;
