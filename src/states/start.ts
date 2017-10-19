@@ -20,10 +20,6 @@ export default class Start extends Phaser.State {
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
-    private fg: Phaser.Sprite = null;
-    private titleContainer: Phaser.Group = null;
-    private title: Phaser.Sprite = null;
-    private rush: Phaser.Sprite = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -53,36 +49,19 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
-
-        this.titleContainer = this.game.add.group();
-        this.title = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title,
-            this.titleContainer);
-        this.rush = this.game.add.sprite(38, 170,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Rush,
-            this.titleContainer);
-
-        this.fg = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Fg);
-
-        this.titleContainer.position.setTo(666 + 500, -500);
+        const text = this.game.add.text(
+            this.game.world.centerX,
+            this.game.world.centerY,
+            'Your Game starts here! ;)',
+            {
+                'font': 'bold 50px Arial Black',
+                'fill': '#00f'
+            });
+        text.anchor.setTo(.5);
 
         // GUI Buttons
-        this.gui.addGui(false);
+        this.gui.addGui();
         const playBtn = this.gui.addPlayBtn(this.nextState);
-        const moreBtn = this.gui.addExtraMore(
-            960 - 183, 720 - 132,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE,
-            GuiUtils.addOverHandler,
-            GuiUtils.addOutHandler
-        );
-        EffectUtils.makeLightRotateAnimation(moreBtn);
-        EffectUtils.makeNeonAnimation(this.rush);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
 
@@ -100,17 +79,14 @@ export default class Start extends Phaser.State {
             this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.moveIn(this.titleContainer, 666, 0, Phaser.Timer.SECOND * 1,
-            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 2 : Phaser.Timer.SECOND * 1);
         TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5,
-            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 3 : Phaser.Timer.SECOND * 2);
+            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 2 : Phaser.Timer.SECOND * 1);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             // Loads
-            PreloaderUtils.preloadComixState();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }

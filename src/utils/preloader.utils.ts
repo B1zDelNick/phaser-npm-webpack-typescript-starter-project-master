@@ -181,9 +181,9 @@ export class PreloaderUtils {
     private static startStateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        game.load.image(
+        /*game.load.image(
             ImageUtils.getImageClass('ImagesBg').getName(),
-            ImageUtils.getImageClass('ImagesBg').getJPG());
+            ImageUtils.getImageClass('ImagesBg').getJPG());*/
         /*game.load.spritesheet(
             ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621626').getName(),
             ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621626').getPNG(),
@@ -215,84 +215,36 @@ export class PreloaderUtils {
     private static dress1StateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        game.load.image(
+        /*game.load.image(
             ImageUtils.getImageClass('ImagesBg2').getName(),
             ImageUtils.getImageClass('ImagesBg2').getJPG());
         game.load.atlasJSONArray(
             ImageUtils.getAtlasClass('AtlasesDollAriel').getName(),
             ImageUtils.getAtlasClass('AtlasesDollAriel').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollArielDresses').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollArielDresses').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollArielDresses').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollArielJews').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollArielJews').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollArielJews').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollArielShoes').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollArielShoes').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollArielShoes').getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesDollAriel').getJSONArray());*/
     }
 
     private static dress2StateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        game.load.image(
+        /*game.load.image(
             ImageUtils.getImageClass('ImagesBg3').getName(),
             ImageUtils.getImageClass('ImagesBg3').getJPG());
         game.load.atlasJSONArray(
             ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
             ImageUtils.getAtlasClass('AtlasesDollElza').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollElza').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollElzaDresses').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollElzaDresses').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollElzaDresses').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollElzaJews').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollElzaJews').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollElzaJews').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollElzaJews2').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollElzaJews2').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollElzaJews2').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollElzaShoesHats').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollElzaShoesHats').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollElzaShoesHats').getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesDollElza').getJSONArray());*/
     }
 
     private static dress3StateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        game.load.image(
+        /*game.load.image(
             ImageUtils.getImageClass('ImagesBg4').getName(),
             ImageUtils.getImageClass('ImagesBg4').getJPG());
         game.load.atlasJSONArray(
             ImageUtils.getAtlasClass('AtlasesDollRap').getName(),
             ImageUtils.getAtlasClass('AtlasesDollRap').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollRap').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollRapBagsDressesF').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollRapBagsDressesF').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollRapBagsDressesF').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollRapDresses').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollRapDresses').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollRapDresses').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollRapJews').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollRapJews').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollRapJews').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollRapJewsM').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollRapJewsM').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollRapJewsM').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollRapShoes').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollRapShoes').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollRapShoes').getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesDollRap').getJSONArray());*/
     }
 }
