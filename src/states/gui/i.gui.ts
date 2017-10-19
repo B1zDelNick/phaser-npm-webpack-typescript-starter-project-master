@@ -1,5 +1,5 @@
 export interface IGui {
-    addGui(defaultGui?: boolean): void;
+    addGui(defaultGui?: boolean, reverse?: boolean): void;
     addPlayBtn(callback?: Function, x?: number, y?: number): Phaser.Button;
     addMoreBtn(): Phaser.Button;
     addExtraMore(x: number, y: number, asset: string, frames?: any|any[], overHandler?: Function, outHandler?: Function, callback?: Function): Phaser.Button;

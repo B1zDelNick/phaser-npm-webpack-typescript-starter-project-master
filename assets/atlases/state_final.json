@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "ban1.png",
+	"frame": {"x":0,"y":0,"w":264,"h":315},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":264,"h":315},
+	"sourceSize": {"w":264,"h":315}
+},
+{
+	"filename": "ban_lock.png",
+	"frame": {"x":0,"y":315,"w":261,"h":391},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":261,"h":391},
+	"sourceSize": {"w":261,"h":391}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_final.png",
+	"format": "RGBA8888",
+	"size": {"w":264,"h":706},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6e288341e3b9612daffc136abb92e8e9:a031ce65bb1c32460d10a93a2e4ef6f4:fa7765394e0e389ace335cfa7c993a79$"
+}
+}

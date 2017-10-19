@@ -20,6 +20,7 @@ export class GuiMcg implements IGui {
     private logoButton: Phaser.Button = null;
     private moreButton: Phaser.Button = null;
     private moreButton2: Phaser.Sprite = null;
+    private reverse: boolean;
 
     private extras: Array<Phaser.Button> = [];
 
@@ -29,8 +30,9 @@ export class GuiMcg implements IGui {
         this.type = type;
     }
 
-    addGui(defaultGui: boolean = true): void {
+    addGui(defaultGui: boolean = true, reverse: boolean = false): void {
         this.guiContainer = this.game.add.group();
+        this.reverse = reverse;
 
         if (defaultGui)
             this.addMoreBtn();
@@ -117,7 +119,7 @@ export class GuiMcg implements IGui {
         this.logoButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                -10, -10, 1,
+                this.reverse ? 785 : -10, -10, 1,
                 '', ImageUtils.getAtlasClass('AtlasesGuiMcg').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiMcg').Frames.LogoMcg,
                 true, false, true, GuiUtils.goLinkMainLogo, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
@@ -129,14 +131,14 @@ export class GuiMcg implements IGui {
         this.musonButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                845, 0, .75,
+                this.reverse ? -10 : 845, 0, .75,
                 '', ImageUtils.getSpritesheetClass('SpritesheetsMusicMcg1651322').getName(), [0, 1, 0],
                 true, false, SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
         this.musoffButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                845, 0, .75,
+                this.reverse ? -10 : 845, 0, .75,
                 '', ImageUtils.getSpritesheetClass('SpritesheetsMusicOffMcg1651322').getName(), [0, 1, 0],
                 true, false, !SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 

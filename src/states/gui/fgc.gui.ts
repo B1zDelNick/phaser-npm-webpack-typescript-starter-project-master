@@ -18,6 +18,7 @@ export class GuiFgc implements IGui {
     private logoButton: Phaser.Button = null;
     private moreButton: Phaser.Button = null;
     private moreButton2: Phaser.Sprite = null;
+    private reverse: boolean;
 
     private extras: Array<Phaser.Button> = [];
 
@@ -27,8 +28,9 @@ export class GuiFgc implements IGui {
         this.type = type;
     }
 
-    addGui(defaultGui: boolean = true): void {
+    addGui(defaultGui: boolean = true, reverse: boolean = false): void {
         this.guiContainer = this.game.add.group();
+        this.reverse = reverse;
 
         if (defaultGui)
             this.addMoreBtn();
@@ -125,7 +127,7 @@ export class GuiFgc implements IGui {
         this.logoButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                710, 0, .8,
+                this.reverse ? 0 : 710, 0, .8,
                 '', ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.LogoFgc,
                 true, false, true, GuiUtils.goLinkMainLogo, GuiUtils.addOverHandlerFgc, GuiUtils.addOutHandlerFgc);
@@ -137,7 +139,7 @@ export class GuiFgc implements IGui {
         this.musonButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                -6, -9, 1,
+                this.reverse ? 840 : -6, -9, 1,
                 '', ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.SoundOnFgc,
                 true, false, SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
@@ -145,7 +147,7 @@ export class GuiFgc implements IGui {
         this.musoffButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                -6, -9, 1,
+                this.reverse ? 840 : -6, -9, 1,
                 '', ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.SoundOffFgc,
                 true, false, !SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandler, GuiUtils.addOutHandler);

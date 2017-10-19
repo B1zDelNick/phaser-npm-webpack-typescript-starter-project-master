@@ -1,0 +1,68 @@
+{"frames": [
+
+{
+	"filename": "s_0.png",
+	"frame": {"x":0,"y":0,"w":369,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":369,"h":700},
+	"sourceSize": {"w":369,"h":700}
+},
+{
+	"filename": "s_1.png",
+	"frame": {"x":369,"y":0,"w":369,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":369,"h":700},
+	"sourceSize": {"w":369,"h":700}
+},
+{
+	"filename": "s_2.png",
+	"frame": {"x":738,"y":0,"w":369,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":369,"h":700},
+	"sourceSize": {"w":369,"h":700}
+},
+{
+	"filename": "s_3.png",
+	"frame": {"x":1107,"y":0,"w":369,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":369,"h":700},
+	"sourceSize": {"w":369,"h":700}
+},
+{
+	"filename": "s_4.png",
+	"frame": {"x":0,"y":700,"w":369,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":369,"h":700},
+	"sourceSize": {"w":369,"h":700}
+},
+{
+	"filename": "s_5.png",
+	"frame": {"x":369,"y":700,"w":369,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":369,"h":700},
+	"sourceSize": {"w":369,"h":700}
+},
+{
+	"filename": "s_6.png",
+	"frame": {"x":738,"y":700,"w":369,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":369,"h":700},
+	"sourceSize": {"w":369,"h":700}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_rap_shoes.png",
+	"format": "RGBA8888",
+	"size": {"w":1476,"h":1400},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b71d016328efd77df0136c704f4325db:f0c38b4c6aaef2d45dab722f84f26a92:71d63b0b1646c2d2101088a9002c4647$"
+}
+}

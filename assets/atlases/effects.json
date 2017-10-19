@@ -1,8 +1,40 @@
 {"frames": [
 
 {
+	"filename": "con_1.png",
+	"frame": {"x":0,"y":0,"w":35,"h":35},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
+	"sourceSize": {"w":35,"h":35}
+},
+{
+	"filename": "con_2.png",
+	"frame": {"x":35,"y":0,"w":35,"h":35},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
+	"sourceSize": {"w":35,"h":35}
+},
+{
+	"filename": "con_3.png",
+	"frame": {"x":70,"y":0,"w":35,"h":35},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
+	"sourceSize": {"w":35,"h":35}
+},
+{
+	"filename": "con_4.png",
+	"frame": {"x":105,"y":0,"w":35,"h":35},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
+	"sourceSize": {"w":35,"h":35}
+},
+{
 	"filename": "lep_1.png",
-	"frame": {"x":150,"y":0,"w":75,"h":75},
+	"frame": {"x":140,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
@@ -10,7 +42,7 @@
 },
 {
 	"filename": "lep_2.png",
-	"frame": {"x":0,"y":0,"w":75,"h":75},
+	"frame": {"x":215,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
@@ -18,7 +50,7 @@
 },
 {
 	"filename": "lep_3.png",
-	"frame": {"x":75,"y":0,"w":75,"h":75},
+	"frame": {"x":290,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
@@ -26,7 +58,7 @@
 },
 {
 	"filename": "light.png",
-	"frame": {"x":292,"y":75,"w":169,"h":745},
+	"frame": {"x":0,"y":75,"w":169,"h":745},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":169,"h":745},
@@ -34,7 +66,7 @@
 },
 {
 	"filename": "light_2.png",
-	"frame": {"x":0,"y":75,"w":292,"h":665},
+	"frame": {"x":169,"y":75,"w":292,"h":665},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":292,"h":665},
@@ -47,6 +79,6 @@
 	"format": "RGBA8888",
 	"size": {"w":461,"h":820},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:bbae8243088d64dde35a558ad25d1cf9:255c147ab05912b1b2a00d2764e64cf1:05d3c1256da5d10ff4f36ef2966c3322$"
+	"smartupdate": "$TexturePacker:SmartUpdate:e9777f8907dbaf93d3ae8c761a05ef1a:4bb89f8f8b29a9bbfd5a391b06826170:05d3c1256da5d10ff4f36ef2966c3322$"
 }
 }

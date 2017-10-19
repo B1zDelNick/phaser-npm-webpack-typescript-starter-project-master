@@ -49,7 +49,7 @@ module.exports = {
             path.join(__dirname, 'dist')
         ]),
         new HtmlWebpackPlugin({
-            title: 'Spotlight on Princess - Sister\'s Fashion Tips',
+            title: 'Test',
             imaScript: '', // `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
             template: path.join(__dirname, 'templates/index.ejs')
         })

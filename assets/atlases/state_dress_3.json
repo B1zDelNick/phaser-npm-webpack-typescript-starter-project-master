@@ -1,0 +1,244 @@
+{"frames": [
+
+{
+	"filename": "bag_1.png",
+	"frame": {"x":459,"y":154,"w":124,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":124,"h":110},
+	"sourceSize": {"w":124,"h":110}
+},
+{
+	"filename": "bag_2.png",
+	"frame": {"x":0,"y":0,"w":56,"h":131},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":56,"h":131},
+	"sourceSize": {"w":56,"h":131}
+},
+{
+	"filename": "bag_3.png",
+	"frame": {"x":104,"y":154,"w":110,"h":81},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":81},
+	"sourceSize": {"w":110,"h":81}
+},
+{
+	"filename": "bag_4.png",
+	"frame": {"x":56,"y":0,"w":81,"h":102},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":81,"h":102},
+	"sourceSize": {"w":81,"h":102}
+},
+{
+	"filename": "bag_5.png",
+	"frame": {"x":842,"y":154,"w":140,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":140,"h":100},
+	"sourceSize": {"w":140,"h":100}
+},
+{
+	"filename": "bag_more.png",
+	"frame": {"x":434,"y":282,"w":167,"h":155},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":167,"h":155},
+	"sourceSize": {"w":167,"h":155}
+},
+{
+	"filename": "chest.png",
+	"frame": {"x":0,"y":1323,"w":960,"h":252},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":252},
+	"sourceSize": {"w":960,"h":252}
+},
+{
+	"filename": "dress_1.png",
+	"frame": {"x":601,"y":282,"w":187,"h":479},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":187,"h":479},
+	"sourceSize": {"w":187,"h":479}
+},
+{
+	"filename": "dress_2.png",
+	"frame": {"x":704,"y":776,"w":296,"h":371},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":296,"h":371},
+	"sourceSize": {"w":296,"h":371}
+},
+{
+	"filename": "dress_3.png",
+	"frame": {"x":285,"y":282,"w":149,"h":284},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":149,"h":284},
+	"sourceSize": {"w":149,"h":284}
+},
+{
+	"filename": "dress_4.png",
+	"frame": {"x":0,"y":282,"w":141,"h":494},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":141,"h":494},
+	"sourceSize": {"w":141,"h":494}
+},
+{
+	"filename": "dress_5.png",
+	"frame": {"x":215,"y":776,"w":222,"h":501},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":222,"h":501},
+	"sourceSize": {"w":222,"h":501}
+},
+{
+	"filename": "dress_6.png",
+	"frame": {"x":0,"y":776,"w":215,"h":277},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":215,"h":277},
+	"sourceSize": {"w":215,"h":277}
+},
+{
+	"filename": "dress_7.png",
+	"frame": {"x":437,"y":776,"w":267,"h":547},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":267,"h":547},
+	"sourceSize": {"w":267,"h":547}
+},
+{
+	"filename": "dress_8.png",
+	"frame": {"x":141,"y":282,"w":144,"h":252},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":144,"h":252},
+	"sourceSize": {"w":144,"h":252}
+},
+{
+	"filename": "glass_1.png",
+	"frame": {"x":643,"y":0,"w":97,"h":89},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":97,"h":89},
+	"sourceSize": {"w":97,"h":89}
+},
+{
+	"filename": "hat_1.png",
+	"frame": {"x":711,"y":154,"w":131,"h":67},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":131,"h":67},
+	"sourceSize": {"w":131,"h":67}
+},
+{
+	"filename": "jew_1.png",
+	"frame": {"x":137,"y":0,"w":81,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":81,"h":99},
+	"sourceSize": {"w":81,"h":99}
+},
+{
+	"filename": "jew_2.png",
+	"frame": {"x":299,"y":0,"w":82,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":82,"h":99},
+	"sourceSize": {"w":82,"h":99}
+},
+{
+	"filename": "jew_3.png",
+	"frame": {"x":463,"y":0,"w":87,"h":154},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":87,"h":154},
+	"sourceSize": {"w":87,"h":154}
+},
+{
+	"filename": "jew_4.png",
+	"frame": {"x":381,"y":0,"w":82,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":82,"h":100},
+	"sourceSize": {"w":82,"h":100}
+},
+{
+	"filename": "jew_5.png",
+	"frame": {"x":218,"y":0,"w":81,"h":99},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":81,"h":99},
+	"sourceSize": {"w":81,"h":99}
+},
+{
+	"filename": "neck_1.png",
+	"frame": {"x":740,"y":0,"w":101,"h":109},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":101,"h":109},
+	"sourceSize": {"w":101,"h":109}
+},
+{
+	"filename": "shoe_1.png",
+	"frame": {"x":583,"y":154,"w":128,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":128},
+	"sourceSize": {"w":128,"h":128}
+},
+{
+	"filename": "shoe_2.png",
+	"frame": {"x":214,"y":154,"w":121,"h":117},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":117},
+	"sourceSize": {"w":121,"h":117}
+},
+{
+	"filename": "shoe_3.png",
+	"frame": {"x":841,"y":0,"w":102,"h":117},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":117},
+	"sourceSize": {"w":102,"h":117}
+},
+{
+	"filename": "shoe_4.png",
+	"frame": {"x":335,"y":154,"w":124,"h":100},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":124,"h":100},
+	"sourceSize": {"w":124,"h":100}
+},
+{
+	"filename": "shoe_5.png",
+	"frame": {"x":550,"y":0,"w":93,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":93,"h":110},
+	"sourceSize": {"w":93,"h":110}
+},
+{
+	"filename": "shoe_6.png",
+	"frame": {"x":0,"y":154,"w":104,"h":128},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":104,"h":128},
+	"sourceSize": {"w":104,"h":128}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_dress_3.png",
+	"format": "RGBA8888",
+	"size": {"w":1000,"h":1575},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:d30f81920bb41dfa928536aab68eb0f2:b9d74fdbf8b088926ee4b5b82bc15f03:81b425fa12ba9dadca24fc32f839f626$"
+}
+}

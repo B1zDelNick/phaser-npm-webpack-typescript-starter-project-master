@@ -81,7 +81,7 @@ module.exports = {
             screw_ie8: true
         }),*/
         new HtmlWebpackPlugin({
-            title: 'Dancing Festival at Princess College',
+            title: 'Princess Black Friday Rush',
             imaScript: `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
             template: path.join(__dirname, 'templates/index.ejs')
         })

@@ -1,0 +1,68 @@
+{"frames": [
+
+{
+	"filename": "s_0.png",
+	"frame": {"x":0,"y":0,"w":258,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":700},
+	"sourceSize": {"w":258,"h":700}
+},
+{
+	"filename": "s_1.png",
+	"frame": {"x":258,"y":0,"w":258,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":700},
+	"sourceSize": {"w":258,"h":700}
+},
+{
+	"filename": "s_2.png",
+	"frame": {"x":516,"y":0,"w":258,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":700},
+	"sourceSize": {"w":258,"h":700}
+},
+{
+	"filename": "s_3.png",
+	"frame": {"x":774,"y":0,"w":258,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":700},
+	"sourceSize": {"w":258,"h":700}
+},
+{
+	"filename": "s_4.png",
+	"frame": {"x":1032,"y":0,"w":258,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":700},
+	"sourceSize": {"w":258,"h":700}
+},
+{
+	"filename": "s_5.png",
+	"frame": {"x":1290,"y":0,"w":258,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":700},
+	"sourceSize": {"w":258,"h":700}
+},
+{
+	"filename": "s_6.png",
+	"frame": {"x":1548,"y":0,"w":258,"h":700},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":258,"h":700},
+	"sourceSize": {"w":258,"h":700}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_ariel_shoes.png",
+	"format": "RGBA8888",
+	"size": {"w":1806,"h":700},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:3927fc20b9f1b3595ceeff6120356c58:53e6359e566dbb22f40eec41080f5f78:4cadde8ab67bf62146bb9bbb3f6f8c40$"
+}
+}
