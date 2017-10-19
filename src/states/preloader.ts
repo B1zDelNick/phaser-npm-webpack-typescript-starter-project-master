@@ -14,12 +14,12 @@ export default class Preloader extends Phaser.State {
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {
-                this.preloader = new MyCuteGamesPreloader(this, 'Start');
+                this.preloader = new MyCuteGamesPreloader(this);
                 break;
             }
             case Sites.DRESSUP_MIX:
             {
-                this.preloader = new DressupMixPreloader(this);
+                this.preloader = new DressupMixPreloader(this, 'Start');
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:

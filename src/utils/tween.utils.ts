@@ -97,6 +97,54 @@ export class TweenUtils {
         return tween;
     }
 
+    public static moveInOut(target: any, x: number, y: number, duration: number = 500, delay: number = 0, callBack?: Function, context?: any): Phaser.Tween {
+        const game = GameConfig.GAME;
+
+        if (target.inputEnabled) {
+            target.inputEnabled = false;
+            TweenUtils.delayedCall(duration + delay + 5, () => {
+                target.inputEnabled = true;
+            }, this);
+        }
+
+        const tween = game.add.tween(target).to({ x: x, y: y }, duration, Phaser.Easing.Circular.InOut, true, delay);
+        if (!isNull(callBack) && !isUndefined(callBack))
+            tween.onComplete.addOnce(callBack, context);
+        return tween;
+    }
+
+    public static move(target: any, x: number, y: number, duration: number = 500, delay: number = 0, callBack?: Function, context?: any): Phaser.Tween {
+        const game = GameConfig.GAME;
+
+        if (target.inputEnabled) {
+            target.inputEnabled = false;
+            TweenUtils.delayedCall(duration + delay + 5, () => {
+                target.inputEnabled = true;
+            }, this);
+        }
+
+        const tween = game.add.tween(target).to({ x: x, y: y }, duration, Phaser.Easing.Linear.None, true, delay);
+        if (!isNull(callBack) && !isUndefined(callBack))
+            tween.onComplete.addOnce(callBack, context);
+        return tween;
+    }
+
+    public static bounceIn(target: any, x: number, y: number, duration: number = 500, delay: number = 0, callBack?: Function, context?: any): Phaser.Tween {
+        const game = GameConfig.GAME;
+
+        if (target.inputEnabled) {
+            target.inputEnabled = false;
+            TweenUtils.delayedCall(duration + delay + 5, () => {
+                target.inputEnabled = true;
+            }, this);
+        }
+
+        const tween = game.add.tween(target).to({ x: x, y: y }, duration, Phaser.Easing.Bounce.Out, true, delay);
+        if (!isNull(callBack) && !isUndefined(callBack))
+            tween.onComplete.addOnce(callBack, context);
+        return tween;
+    }
+
     public static scaleOut(target: any, duration: number = 500, delay: number = 0, callBack?: Function, context?: any): Phaser.Tween {
         const game = GameConfig.GAME;
 

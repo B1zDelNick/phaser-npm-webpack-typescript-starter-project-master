@@ -15,7 +15,7 @@ import {CrossBlock} from './template/final/cross.block';
 import {ImageUtils} from '../utils/images/image.utils';
 import {CrossDollButton} from './template/final/cross.doll.button';
 
-export default class Final extends Phaser.State {
+export default class Nbfffghfghfghfg extends Phaser.State {
 
     private NEXT = 'Start';
     private nextPrepared = false;

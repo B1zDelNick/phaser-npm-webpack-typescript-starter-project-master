@@ -26,8 +26,8 @@ export class Doll {
         TweenUtils.fadeIn(this.container, force ? 1 : 500);
     }
 
-    layer(x: number, y: number, name: string, asset: string, frameClass: any, prefix?: string, defaultFrame?: string, removable: boolean = false): Doll {
-        this.layers[name] = new DollLayer(this.container, x, y, asset, frameClass, prefix, defaultFrame, removable);
+    layer(x: number, y: number, name: string, asset: string, frameClass: any, prefix?: string, defaultFrame?: string, removable: boolean = false, strictIndexes?: number[]): Doll {
+        this.layers[name] = new DollLayer(this.container, x, y, asset, frameClass, prefix, defaultFrame, removable, strictIndexes);
         return this;
     }
 

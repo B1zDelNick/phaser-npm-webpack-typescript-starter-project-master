@@ -14,7 +14,7 @@ import {Animation} from '../utils/animation/anim';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 
-export default class Comix extends Phaser.State {
+export default class Tyyutyutyuhrtyrtrt extends Phaser.State {
 
     private NEXT = 'Dress1';
     private nextPrepared = false;

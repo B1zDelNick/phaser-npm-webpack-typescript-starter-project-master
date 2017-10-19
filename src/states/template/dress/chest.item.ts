@@ -1,6 +1,6 @@
 import {GuiUtils} from '../../../utils/gui.utils';
 import {isString} from 'util';
-import {GameConfig} from '../../../config/game.config';
+import {GameConfig, PublishMode} from '../../../config/game.config';
 
 export class ChestItem {
 
@@ -23,12 +23,18 @@ export class ChestItem {
             frames = [frames, frames, frames];
         }
 
+        let visible = true;
+        if  ((name.indexOf('mmmm') !== -1) || (name.indexOf('cross') !== -1)) {
+            if (GameConfig.PUB_MODE !== PublishMode.NORMAL)
+                visible = false;
+        }
+
         this.button =
             GuiUtils.makeButton(
                 this.state, container,
                 x, y, 1,
                 name, asset, frames,
-                true, true, true, callback, overHandler, outHandler);
+                true, true, visible, callback, overHandler, outHandler);
     }
 
     disable(): void {

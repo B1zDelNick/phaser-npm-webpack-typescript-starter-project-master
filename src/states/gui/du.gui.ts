@@ -83,7 +83,7 @@ export class GuiDu implements IGui {
         return this.moreButton;
     }
 
-    addExtraMoreAnimated(x: number, y: number, asset: string,
+    addExtraMoreAnimated(x: number, y: number, asset: string, frameRate: number = 10, loop: boolean = true,
                  overHandler: Function = GuiUtils.addOverHandler,
                  outHandler: Function = GuiUtils.addOutHandler,
                  callback: Function = GuiUtils.goLinkMainMoreGames): Phaser.Sprite {
@@ -91,9 +91,9 @@ export class GuiDu implements IGui {
         this.moreButton2 =
             GuiUtils.makeSpritesheetButton(
                 this.state, this.guiContainer,
-                x, y, 1,
+                x, y, 1, frameRate, loop,
                 '', asset,
-                true, false, true, callback, overHandler, outHandler);
+                true, true, true, callback, overHandler, outHandler);
 
         return this.moreButton2;
     }
@@ -129,7 +129,7 @@ export class GuiDu implements IGui {
                 852, -15, 1,
                 '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.SoundOnDu,
-                true, false, true, null, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+                true, false, SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         this.musoffButton =
             GuiUtils.makeButton(
@@ -137,7 +137,12 @@ export class GuiDu implements IGui {
                 852, -15, 1,
                 '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.SoundOffDu,
-                true, false, true, null, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+                true, false, !SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+
+        SoundUtils.onSwitchAudio.add(() => {
+            this.musonButton.visible = !this.musonButton.visible;
+            this.musoffButton.visible = !this.musoffButton.visible;
+        }, this);
 
         return [this.musonButton, this.musoffButton];
     }

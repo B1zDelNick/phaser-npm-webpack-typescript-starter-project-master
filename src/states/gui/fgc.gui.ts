@@ -94,7 +94,7 @@ export class GuiFgc implements IGui {
         return this.moreButton;
     }
 
-    addExtraMoreAnimated(x: number, y: number, asset: string,
+    addExtraMoreAnimated(x: number, y: number, asset: string, frameRate: number = 10, loop: boolean = true,
                          overHandler: Function = GuiUtils.addOverHandler,
                          outHandler: Function = GuiUtils.addOutHandler,
                          callback: Function = GuiUtils.goLinkMainMoreGames): Phaser.Sprite {
@@ -102,7 +102,7 @@ export class GuiFgc implements IGui {
         this.moreButton2 =
             GuiUtils.makeSpritesheetButton(
                 this.state, this.guiContainer,
-                x, y, 1,
+                x, y, 1, frameRate, loop,
                 '', asset,
                 true, false, true, callback, overHandler, outHandler);
 

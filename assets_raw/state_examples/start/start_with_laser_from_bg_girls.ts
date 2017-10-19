@@ -15,7 +15,7 @@ import {LaserType} from './spec-effects/laser/enum.laser';
 import {EffectUtils} from '../utils/effect.utils';
 import {SoundUtils} from '../utils/sound/sound.utils';
 
-export default class Start extends Phaser.State {
+export default class Ghjghjghjghjgh extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;

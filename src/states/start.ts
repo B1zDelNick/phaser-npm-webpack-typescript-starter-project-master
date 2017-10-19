@@ -8,16 +8,20 @@ import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
+import {EffectUtils} from '../utils/effect.utils';
+import {PreloaderUtils} from '../utils/preloader.utils';
 
 export default class Start extends Phaser.State {
 
-    private NEXT = 'Select';
+    private NEXT = 'Dress1';
     private nextPrepared = false;
 
     private gui: IGui = null;
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
+    private people: Phaser.Sprite = null;
+    private title: Phaser.Sprite = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -47,19 +51,27 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        const text = this.game.add.text(
-            this.game.world.centerX,
-            this.game.world.centerY,
-            'Your Game starts here! ;)',
-            {
-                'font': 'bold 50px Arial Black',
-                'fill': '#00f'
-            });
-        text.anchor.setTo(.5);
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+
+        this.people = this.game.add.sprite(204, 0,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.People);
+
+        this.title = this.game.add.sprite(144, 390,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        this.title.anchor.setTo(.5);
+        this.title.position.setTo(this.title.x + this.title.width / 2, this.title.y + this.title.height / 2);
 
         // GUI Buttons
-        this.gui.addGui();
+        this.gui.addGui(false);
         const playBtn = this.gui.addPlayBtn(this.nextState);
+        this.gui.addExtraMoreAnimated(
+            960 - 155, 720 - 155,
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621626').getName(), 1, false,
+            GuiUtils.addOverHandler,
+            GuiUtils.addOutHandler
+        );
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
 
@@ -69,18 +81,24 @@ export default class Start extends Phaser.State {
         if (this.saver) {
             this.saver.init(this);
             this.saver.fadeIn();
+        } else {
+            this.game.camera.flash(0x000000, 1000);
         }
         // ONLY FOR START STATE !!!!!!!!!!!!!!!!!
-        this.game.camera.flash(0x000000, 1000);
+        if (!GameConfig.GAME_COMPLETED)
+            this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1);
+        EffectUtils.makeScaleAnimation(this.title, 1.03);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5,
+            GameConfig.IS_ASSETS_LOADED ? Phaser.Timer.SECOND * 2 : Phaser.Timer.SECOND * 1);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             // Loads
+            PreloaderUtils.preloadDress1State();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }
@@ -94,9 +112,11 @@ export default class Start extends Phaser.State {
         this.game.tweens.removeAll();
 
         if (this.bg) this.bg.destroy(true);
+        if (this.title) this.title.destroy(true);
+        if (this.people) this.people.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
-        this.blocker.destroy(true);
+        if (this.blocker) this.blocker.destroy(true);
 
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();

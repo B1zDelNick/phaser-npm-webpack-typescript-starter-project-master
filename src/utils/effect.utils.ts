@@ -50,4 +50,14 @@ export class EffectUtils {
             period, Phaser.Easing.Linear.None, true, 0, 99999)
             .yoyo(loop);
     }
+
+    public static makeLightRotateAnimation(sprite: any): void {
+        const game = GameConfig.GAME;
+        const _tween1 = game.add.tween(sprite).to({ angle: 10 }, 400, Phaser.Easing.Linear.None, true);
+        const _tween2 = game.add.tween(sprite).to({ angle: -10 }, 800, Phaser.Easing.Linear.None, false);
+        const _tween3 = game.add.tween(sprite).to({ angle: 0 }, 400, Phaser.Easing.Linear.None, false);
+        _tween1.chain(_tween2);
+        _tween2.chain(_tween3);
+        _tween3.chain(_tween1);
+    }
 }

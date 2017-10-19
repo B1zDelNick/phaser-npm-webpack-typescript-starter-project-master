@@ -14,7 +14,7 @@ import {Doll} from './template/dress/doll';
 import {CrossBlock} from './template/final/cross.block';
 import {ImageUtils} from '../utils/images/image.utils';
 
-export default class Final extends Phaser.State {
+export default class Bddfgdfgdfgdfgdfgdfgdfgdf extends Phaser.State {
 
     private NEXT = 'Start';
     private nextPrepared = false;

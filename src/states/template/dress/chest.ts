@@ -1,7 +1,7 @@
 import {GameConfig, PublishMode} from '../../../config/game.config';
 import {ChestPage} from './chest.page';
 import {GuiUtils} from '../../../utils/gui.utils';
-import {isNull, isString} from 'util';
+import {isNull, isString, isUndefined} from 'util';
 import {TweenUtils} from '../../../utils/tween.utils';
 import {ChestCategory} from './chest.category';
 import {EffectUtils} from '../../../utils/effect.utils';
@@ -21,6 +21,8 @@ export class Chest {
     private btns: Array<Phaser.Button> = [];
     private catLb: Phaser.Button = null;
     private catRb: Phaser.Button = null;
+    private lb: Phaser.Button = null;
+    private rb: Phaser.Button = null;
     private staticPage: ChestPage = null;
     private hiddenX: number;
 
@@ -71,7 +73,7 @@ export class Chest {
         TweenUtils.slideOut(this.container, this.hiddenX);
     }
 
-    nextPage(): void {
+    private nextPage(): void {
         this.currentPage++;
         if (this.currentPage > this.pages.length - 1) this.currentPage = 0;
         for (let i = 0; i < this.pages.length; i++) {
@@ -80,7 +82,7 @@ export class Chest {
         this.pages[this.currentPage].show();
     }
 
-    prevPage(): void {
+    private prevPage(): void {
         this.currentPage--;
         if (this.currentPage < 0) this.currentPage = this.pages.length - 1;
         for (let i = 0; i < this.pages.length; i++) {
@@ -106,9 +108,8 @@ export class Chest {
     }
 
     static(): ChestPage {
-        const page = new ChestPage(this, this.state, this.container);
-        this.pages.push(page);
-        return page;
+        this.staticPage = new ChestPage(this, this.state, this.container);
+        return this.staticPage;
     }
 
     category(name: string, arrows: boolean, startPage: number, endPage: number, x: number, y: number, asset: string, frames?: any|any[],
@@ -174,6 +175,44 @@ export class Chest {
         return this;
     }
 
+    leftArrow(x: number, y: number, asset: string, frames?: any|any[],
+                      overHandler: Function = GuiUtils.addOverHandler, outHandler: Function = GuiUtils.addOutHandler): Chest {
+
+        if (frames == null) {
+            frames = [0, 0, 0];
+        }
+        else if (isString(frames)) {
+            frames = [frames, frames, frames];
+        }
+
+        this.lb =
+            GuiUtils.makeButton(
+                this, this.container,
+                x, y, 1,
+                'left', asset, frames,
+                true, true, true, this.prevPage, overHandler, outHandler);
+        return this;
+    }
+
+    rightArrow(x: number, y: number, asset: string, frames?: any|any[],
+                       overHandler: Function = GuiUtils.addOverHandler, outHandler: Function = GuiUtils.addOutHandler): Chest {
+
+        if (frames == null) {
+            frames = [0, 0, 0];
+        }
+        else if (isString(frames)) {
+            frames = [frames, frames, frames];
+        }
+
+        this.rb =
+            GuiUtils.makeButton(
+                this, this.container,
+                x, y, 1,
+                'right', asset, frames,
+                true, true, true, this.nextPage, overHandler, outHandler);
+        return this;
+    }
+
     button(x: number, y: number, name: string, asset: string, frames?: any|any[],
         callback?: Function, overHandler: Function = GuiUtils.addOverHandler, outHandler: Function = GuiUtils.addOutHandler): Chest {
 
@@ -184,9 +223,11 @@ export class Chest {
             frames = [frames, frames, frames];
         }
 
-        const visible =
-            GameConfig.PUB_MODE === PublishMode.NORMAL &&
-            ((name.indexOf('mmmm') !== -1) || (name.indexOf('cross') !== -1));
+        let visible = true;
+        if  ((name.indexOf('mmmm') !== -1) || (name.indexOf('cross') !== -1)) {
+            if (GameConfig.PUB_MODE !== PublishMode.NORMAL)
+                visible = false;
+        }
 
         this.btns.push(
             GuiUtils.makeButton(
@@ -201,7 +242,7 @@ export class Chest {
         this.currentPage = 0;
         this.currentCat = defaultCat;
         const curCat: ChestCategory = this.categories[this.currentCat];
-        if (curCat !== null) {
+        if (!isUndefined(curCat)) {
             if (curCat.withArrows) {
                 this.catLb.inputEnabled = true;
                 this.catRb.inputEnabled = true;
@@ -209,6 +250,9 @@ export class Chest {
                 TweenUtils.fadeAndScaleIn(this.catRb, Phaser.Timer.SECOND * .5, 0);
             }
             this.currentPage = curCat.startPage;
+            const curBtn = this.findBtnByName(this.currentCat);
+            curBtn.inputEnabled = false;
+            curBtn.filters = [EffectUtils.makeLightGlowAnimation(0xffff66, 600)];
         }
         if (this.pages.length > 0) {
             for (let i = 0; i < this.pages.length; i++) {
@@ -217,16 +261,16 @@ export class Chest {
             this.pages[this.currentPage].show();
         }
 
-        const curBtn = this.findBtnByName(this.currentCat);
-        curBtn.inputEnabled = false;
-        curBtn.filters = [EffectUtils.makeLightGlowAnimation(0xffff66, 600)];
-
         return this;
     }
 
     dispose(): void {
         if (!isNull(this.staticPage)) this.staticPage.dispose();
         if (!isNull(this.bg)) this.bg.destroy(true);
+        if (!isNull(this.catLb)) this.catLb.destroy(true);
+        if (!isNull(this.catRb)) this.catRb.destroy(true);
+        if (!isNull(this.lb)) this.lb.destroy(true);
+        if (!isNull(this.rb)) this.rb.destroy(true);
         for (let page of this.pages) {
             page.dispose();
         }

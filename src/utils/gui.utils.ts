@@ -5,6 +5,7 @@ import {DefaultSaver} from '../states/saver/default.saver';
 import {SaverTemplates} from '../states/saver/enum.saver';
 import {VerticalSaver} from '../states/saver/vertical.saver';
 import {isString} from 'util';
+import {HorizontalSaver} from '../states/saver/horizontal.saver';
 
 export class GuiUtils {
     public static getSaver(): ISaver {
@@ -13,6 +14,10 @@ export class GuiUtils {
         switch (GameConfig.SAVER_MODE) {
             case SaverTemplates.V_FADE_SLIDER_TEMPLATE: {
                 saver = new VerticalSaver();
+                break;
+            }
+            case SaverTemplates.H_FADE_SLIDER_TEMPLATE: {
+                saver = new HorizontalSaver();
                 break;
             }
             case SaverTemplates.CUSTOM: {
@@ -82,14 +87,14 @@ export class GuiUtils {
 
     public static makeSpritesheetButton(
         parent: any, container: Phaser.Group,
-        x: number, y: number, scale: number = 1,
+        x: number, y: number, scale: number = 1, frameRate: number = 10, loop: boolean = true,
         name: string = '', sheet: string = '',
         enabled: boolean = true, perfect: boolean = false, visible: boolean = true,
         clickHandler: Function = null, overHandler: Function = null, outHandler: Function = null, downHandler: Function = null, upHandler: Function = null): Phaser.Sprite {
 
         let tempItem: Phaser.Sprite = parent.game.add.sprite(0, 0, sheet);
         tempItem.animations.add('butAnim');
-        tempItem.animations.play('butAnim', 10, true);
+        tempItem.animations.play('butAnim', frameRate, loop);
 
         tempItem.name = name;
         tempItem.anchor.set(0.5);
