@@ -35,8 +35,8 @@ export class MyCuteGamesPreloader implements IPreloader {
         /** BG */
         this.game.add.sprite(0, 0,
             GameConfig.PUB_MODE === PublishMode.GAME_DISTRIBUTIONS ?
-                ImageUtils.getImageClass('ImagesPreroll2Mcg') :
-                ImageUtils.getImageClass('ImagesPrerollMcg'));
+                ImageUtils.getImageClass('ImagesPrerollMcg').getName() :
+                ImageUtils.getImageClass('ImagesPreroll2Mcg').getName());
 
         /**
          * Crown Particle Emmiter
@@ -128,10 +128,8 @@ export class MyCuteGamesPreloader implements IPreloader {
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
                 660, 280, 1,
-                '', Assets.Atlases.AtlasesPreloaderAtlasMcg.getName(),
-                [Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg,
-                    Assets.Atlases.AtlasesPreloaderAtlasMcg.Frames.MakeupMcg],
+                '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.MakeupMcg,
                 true, true, GameConfig.PUB_MODE !== PublishMode.GAME_DISTRIBUTIONS,
                 GuiUtils.goLinkPreloaderCategory, hoverHandler, unhoverHandler);
 

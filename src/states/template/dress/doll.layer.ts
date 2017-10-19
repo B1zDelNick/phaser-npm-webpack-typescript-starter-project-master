@@ -14,13 +14,18 @@ export class DollLayer {
     private prefix: string;
     private isEmpty: boolean;
     private removable: boolean;
+    private strictIndexes: number[];
 
-    constructor(container: Phaser.Group, x: number, y: number, asset: string, frameClass: any, prefix?: string, defaultFrame?: string, removable: boolean = false) {
+    constructor(container: Phaser.Group, x: number, y: number,
+                asset: string, frameClass: any, prefix?: string, defaultFrame?: string,
+                removable: boolean = false, strictIndexes: number[] = []) {
+
         this.game = GameConfig.GAME;
         this.asset = asset;
         this.frameClass = frameClass;
         this.prefix = prefix;
         this.removable = removable;
+        this.strictIndexes = strictIndexes;
         this.isEmpty = isUndefined(defaultFrame) || isNull(defaultFrame);
 
         switch (GameConfig.SITE) {
@@ -47,15 +52,29 @@ export class DollLayer {
             container);
     }
 
-    operate(index: number) {
+    operate(index: number): boolean {
         // console.log(this.sprite.frameName, this.sprite.key, this.prefix + index);
         // console.log(this.sprite.frameName === this.frameClass[this.prefix + index], this.removable);
         if (this.sprite.frameName === this.frameClass[this.prefix + index] && this.removable || index === -1) {
             this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
         }
         else {
-            this.sprite.loadTexture(this.asset, this.frameClass[(this.prefix + index)]);
+            if (this.isStricted(index)) {
+                this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+            }
+            else {
+                this.sprite.loadTexture(this.asset, this.frameClass[(this.prefix + index)]);
+            }
+            return !this.removable;
         }
+        return false;
+    }
+
+    private isStricted(ind): boolean {
+        for (let i of this.strictIndexes) {
+            if (i === ind) return true;
+        }
+        return false;
     }
 
     dispose(): void {

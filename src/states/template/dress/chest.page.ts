@@ -1,8 +1,10 @@
-import {GameConfig} from '../../../config/game.config';
+import {GameConfig, PublishMode} from '../../../config/game.config';
 import {ChestItem} from './chest.item';
 import {Chest} from './chest';
 import {GuiUtils} from '../../../utils/gui.utils';
 import {isNull} from 'util';
+import {TweenUtils} from '../../../utils/tween.utils';
+import {ChestCompoundItem} from './chest.compound.item';
 export class ChestPage {
 
     private instance: ChestPage = null;
@@ -13,6 +15,7 @@ export class ChestPage {
     private container: Phaser.Group = null;
     private shelf: Phaser.Sprite = null;
     private items: Array<ChestItem> = [];
+    private compoundItems: Array<ChestCompoundItem> = [];
 
     constructor(owner: Chest, state: Phaser.State, container: Phaser.Group) {
         this.instance = this;
@@ -21,6 +24,38 @@ export class ChestPage {
         this.state = state;
         this.container = this.game.add.group();
         container.add(this.container);
+    }
+
+    tryToSetVisibility(name: string): boolean {
+        for (let item of this.items) {
+            if (item.name === name) {
+                /*if (visible) {
+                    item.button.inputEnabled = false;
+                    item.button.filters = null;
+                    TweenUtils.fadeOut(item.button, Phaser.Timer.SECOND * .3);
+                }
+                else {
+                    item.button.inputEnabled = true;
+                    item.button.filters = null;
+                    TweenUtils.fadeIn(item.button, Phaser.Timer.SECOND * .3);
+                }*/
+                item.button.inputEnabled = false;
+                item.button.filters = null;
+                TweenUtils.fadeOut(item.button, Phaser.Timer.SECOND * .3);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    tryToSetLikeVisibility(name: string): void {
+        for (let item of this.items) {
+            if (item.name.indexOf(name) !== -1) {
+                item.button.inputEnabled = true;
+                item.button.filters = null;
+                TweenUtils.fadeIn(item.button, Phaser.Timer.SECOND * .3);
+            }
+        }
     }
 
     disable(): void {
@@ -43,8 +78,25 @@ export class ChestPage {
     }
 
     item(x: number, y: number, name: string, asset: string, frames?: any|any[],
-         callback?: Function, overHandler: Function = GuiUtils.addOverGlowHandler, outHandler: Function = GuiUtils.addOutGlowHandler): ChestPage {
-        this.items[name] = new ChestItem(this.state, this.container, x, y, name, asset, frames, callback, overHandler, outHandler);
+                callback?: Function,
+                overHandler: Function = GuiUtils.addOverGlowHandler,
+                outHandler: Function = GuiUtils.addOutGlowHandler): ChestPage {
+
+        this.items.push(new ChestItem(this.state, this.container, x, y, name, asset, frames, callback, overHandler, outHandler));
+        return this.instance;
+    }
+
+    compoundItem(length: number, showFrom: number, emptyState: number,
+                 x: number, y: number, name: string, asset: string, frameClass: any, prefix: string,
+                 callback?: Function,
+                 overHandler: Function = GuiUtils.addOverGlowHandler,
+                 outHandler: Function = GuiUtils.addOutGlowHandler): ChestPage {
+
+        this.compoundItems.push(
+            new ChestCompoundItem(this.state, this.container,
+                length, showFrom, emptyState, x, y,
+                name, asset, frameClass, prefix,
+                callback, overHandler, outHandler));
         return this.instance;
     }
 
@@ -54,6 +106,9 @@ export class ChestPage {
 
     dispose(): void {
         for (let item of this.items) {
+            item.dispose();
+        }
+        for (let item of this.compoundItems) {
             item.dispose();
         }
         if (!isNull(this.shelf)) this.shelf.destroy(true);

@@ -1,8 +1,9 @@
 import {IGui, StateType} from './i.gui';
 import {GameConfig} from '../../config/game.config';
 import {GuiUtils} from '../../utils/gui.utils';
-import {isString} from 'util';
+import {isNull, isString} from 'util';
 import {ImageUtils} from '../../utils/images/image.utils';
+import {SoundUtils} from '../../utils/sound/sound.utils';
 
 export class GuiDu implements IGui {
 
@@ -16,6 +17,8 @@ export class GuiDu implements IGui {
     private musoffButton: Phaser.Button = null;
     private logoButton: Phaser.Button = null;
     private moreButton: Phaser.Button = null;
+    private moreButton2: Phaser.Sprite = null;
+    private reverse: boolean;
 
     private extras: Array<Phaser.Button> = [];
 
@@ -25,8 +28,9 @@ export class GuiDu implements IGui {
         this.type = type;
     }
 
-    addGui(defaultGui: boolean = true): void {
+    addGui(defaultGui: boolean = true, reverse: boolean = false): void {
         this.guiContainer = this.game.add.group();
+        this.reverse = reverse;
 
         if (defaultGui)
             this.addMoreBtn();
@@ -81,6 +85,21 @@ export class GuiDu implements IGui {
         return this.moreButton;
     }
 
+    addExtraMoreAnimated(x: number, y: number, asset: string, frameRate: number = 10, loop: boolean = true,
+                 overHandler: Function = GuiUtils.addOverHandler,
+                 outHandler: Function = GuiUtils.addOutHandler,
+                 callback: Function = GuiUtils.goLinkMainMoreGames): Phaser.Sprite {
+
+        this.moreButton2 =
+            GuiUtils.makeSpritesheetButton(
+                this.state, this.guiContainer,
+                x, y, 1, frameRate, loop,
+                '', asset,
+                true, true, true, callback, overHandler, outHandler);
+
+        return this.moreButton2;
+    }
+
     addMoreBtn(): Phaser.Button {
         this.moreButton =
             GuiUtils.makeButton(
@@ -97,7 +116,7 @@ export class GuiDu implements IGui {
         this.logoButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                -13, -5, 1,
+                this.reverse ? 715 : -13, -5, 1,
                 '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.LogoDu,
                 true, false, true, GuiUtils.goLinkMainLogo, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
@@ -109,18 +128,23 @@ export class GuiDu implements IGui {
         this.musonButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                852, -15, 1,
+                this.reverse ? -10 : 852, -15, 1,
                 '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.SoundOnDu,
-                true, false, true, null, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+                true, false, SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
 
         this.musoffButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                852, -15, 1,
+                this.reverse ? -10 : 852, -15, 1,
                 '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.SoundOffDu,
-                true, false, true, null, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+                true, false, !SoundUtils.isSoundEnabled(), SoundUtils.mainThemeSwitch, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+
+        SoundUtils.onSwitchAudio.add(() => {
+            this.musonButton.visible = !this.musonButton.visible;
+            this.musoffButton.visible = !this.musoffButton.visible;
+        }, this);
 
         return [this.musonButton, this.musoffButton];
     }
@@ -151,8 +175,28 @@ export class GuiDu implements IGui {
     }
 
     disable(): void {
+        for (let btn of this.extras) {
+            btn.inputEnabled = false;
+            btn.filters = null;
+        }
+        if (!isNull(this.playButton)) this.playButton.inputEnabled = false;
+        if (!isNull(this.playButton)) this.playButton.filters = null;
+        this.musonButton.inputEnabled = false;
+        this.musonButton.filters = null;
+        this.musoffButton.inputEnabled = false;
+        this.musoffButton.filters = null;
     }
 
     dispose(): void {
+        SoundUtils.onSwitchAudio.removeAll(this);
+        if (!isNull(this.playButton)) this.playButton.destroy(true);
+        this.musonButton.destroy(true);
+        this.musoffButton.destroy(true);
+        if (!isNull(this.moreButton)) this.moreButton.destroy(true);
+        if (!isNull(this.moreButton2)) this.moreButton2.destroy(true);
+        for (let btn of this.extras) {
+            btn.destroy(true);
+        }
+        this.guiContainer.destroy(true);
     }
 }

@@ -9,79 +9,79 @@ export class BootUtils {
         // Load any assets you need for your preloader state here.
         if (GameConfig.PUB_MODE === PublishMode.GAME_DISTRIBUTIONS) {
             game.load.image(
-                Assets.Images['ImagesPreroll2Mcg' + GameConfig.ASSET_SIZE].getName(),
-                Assets.Images['ImagesPreroll2Mcg' + GameConfig.ASSET_SIZE].getPNG());
+                ImageUtils.getImageClass('ImagesPrerollMcg').getName(),
+                ImageUtils.getImageClass('ImagesPrerollMcg').getJPG());
         } else {
             game.load.image(
-                Assets.Images['ImagesPrerollMcg' + GameConfig.ASSET_SIZE].getName(),
-                Assets.Images['ImagesPrerollMcg' + GameConfig.ASSET_SIZE].getJPG());
+                ImageUtils.getImageClass('ImagesPreroll2Mcg').getName(),
+                ImageUtils.getImageClass('ImagesPreroll2Mcg').getPNG());
         }
         game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesPreloaderAtlasMcg' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesPreloaderAtlasMcg'].getPNG(),
-            Assets.Atlases['AtlasesPreloaderAtlasMcg' + GameConfig.ASSET_SIZE].getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getJSONArray());
         game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesGuiMcg' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesGuiMcg' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesGuiMcg' + GameConfig.ASSET_SIZE].getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesGuiMcg').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiMcg').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesGuiMcg').getJSONArray());
         game.load.json(
             Assets.JSON.JsonDoll.getName(),
             Assets.JSON.JsonDoll.getJSON());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsPlayMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsPlayMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsPlayMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsPlayMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsPlayMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsPlayMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsPlayMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsPlayMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsReplayMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsReplayMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsReplayMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsReplayMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsLArrMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsLArrMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsLArrMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsLArrMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsLArrMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsLArrMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsLArrMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsLArrMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsDoneMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsDoneMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsDoneMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsDoneMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsDoneMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsDoneMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsDoneMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsDoneMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsMoreMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsMoreMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsMoreMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsMoreMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsMusicMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsMusicMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsMusicMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsMusicMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsMusicMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMusicMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMusicMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMusicMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsMusicOffMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsMusicOffMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsMusicOffMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsMusicOffMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsMusicOffMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMusicOffMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMusicOffMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMusicOffMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsNextMcg1731322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsNextMcg1731322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsNextMcg1731322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsNextMcg1731322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsNextMcg1731322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsNextMcg1731322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsNextMcg1731322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsNextMcg1731322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsPhotoMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsPhotoMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsPhotoMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsPhotoMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsPhotoMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsPhotoMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsPhotoMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsPhotoMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsRArrMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsRArrMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsRArrMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsRArrMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsRArrMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsRArrMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsRArrMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsRArrMcg1651322').getFrameHeight());
         game.load.spritesheet(
-            Assets.Spritesheets['SpritesheetsReplayMcg1651322' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Spritesheets['SpritesheetsReplayMcg1651322' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Spritesheets['SpritesheetsReplayMcg1651322' + GameConfig.ASSET_SIZE].getFrameWidth(),
-            Assets.Spritesheets['SpritesheetsReplayMcg1651322' + GameConfig.ASSET_SIZE].getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsReplayMcg1651322').getFrameHeight());
         /*game.load.script(
             Assets.Scripts.ScriptsGlowFilter.getName(),
             Assets.Scripts.ScriptsGlowFilter.getJS());*/
@@ -95,16 +95,16 @@ export class BootUtils {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
         game.load.image(
-            Assets.Images['ImagesPrerollDu' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Images['ImagesPrerollDu' + GameConfig.ASSET_SIZE].getJPG());
+            ImageUtils.getImageClass('ImagesPrerollDu').getName(),
+            ImageUtils.getImageClass('ImagesPrerollDu').getJPG());
         game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesPreloaderAtlasDu' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesPreloaderAtlasDu' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesPreloaderAtlasDu' + GameConfig.ASSET_SIZE].getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasDu').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasDu').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasDu').getJSONArray());
         game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesGuiDu' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesGuiDu' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesGuiDu' + GameConfig.ASSET_SIZE].getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiDu').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesGuiDu').getJSONArray());
         /*game.load.script(
             Assets.Scripts.ScriptsGlowFilter.getName(),
             Assets.Scripts.ScriptsGlowFilter.getJS());*/
@@ -115,16 +115,16 @@ export class BootUtils {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
         game.load.image(
-            Assets.Images['ImagesPrerollFgc' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Images['ImagesPrerollFgc' + GameConfig.ASSET_SIZE].getJPG());
+            ImageUtils.getImageClass('ImagesPrerollFgc').getName(),
+            ImageUtils.getImageClass('ImagesPrerollFgc').getJPG());
         game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesPreloaderAtlasFgc' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesPreloaderAtlasFgc' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesPreloaderAtlasFgc' + GameConfig.ASSET_SIZE].getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesPreloaderAtlasFgc').getJSONArray());
         game.load.atlasJSONArray(
-            Assets.Atlases['AtlasesGuiFgc' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Atlases['AtlasesGuiFgc' + GameConfig.ASSET_SIZE].getPNG(),
-            Assets.Atlases['AtlasesGuiFgc' + GameConfig.ASSET_SIZE].getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesGuiFgc').getJSONArray());
         /*game.load.script(
             Assets.Scripts.ScriptsGlowFilter.getName(),
             Assets.Scripts.ScriptsGlowFilter.getJS());*/
@@ -135,8 +135,8 @@ export class BootUtils {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
         game.load.image(
-            Assets.Images['ImagesSpin' + GameConfig.ASSET_SIZE].getName(),
-            Assets.Images['ImagesSpin' + GameConfig.ASSET_SIZE].getPNG());
+            ImageUtils.getImageClass('ImagesSpin').getName(),
+            ImageUtils.getImageClass('ImagesSpin').getPNG());
         if (GameConfig.PUB_MODE !== PublishMode.NO_AD) {
             game.load.script(
                 Assets.Scripts.ScriptsPhaserAds.getName(),
