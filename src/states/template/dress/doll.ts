@@ -2,6 +2,7 @@ import {GameConfig} from '../../../config/game.config';
 
 import {DollLayer} from './doll.layer';
 import {TweenUtils} from '../../../utils/tween.utils';
+import {isNull, isUndefined} from 'util';
 
 export class Doll {
 
@@ -36,6 +37,7 @@ export class Doll {
             if (this.layers[toOff])
                 this.layers[toOff].operate(-1);
         }
+        if (!this.layers[item]) return false;
         return this.layers[item].operate(index);
     }
 
@@ -43,8 +45,11 @@ export class Doll {
         this.container.position.setTo(x, y);
     }
 
-    setScale(val: number): void {
-        this.container.scale.setTo(val);
+    setScale(val: number, val2?: number): void {
+        if (isUndefined(val2) || isNull(val2))
+            this.container.scale.setTo(val);
+        else
+            this.container.scale.setTo(val, val2);
     }
 
     getBody(): Phaser.Group {

@@ -13,7 +13,7 @@ import {EffectUtils} from '../utils/effect.utils';
 import {AdUtils} from '../utils/ad/ad.utils';
 import {SoundUtils} from '../utils/sound/sound.utils';
 
-export default class Tyuudfuudfudfugfd extends Phaser.State {
+export default class Select extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;
@@ -26,6 +26,8 @@ export default class Tyuudfuudfudfugfd extends Phaser.State {
     private sel1: Phaser.Button = null;
     private sel2: Phaser.Button = null;
     private sel3: Phaser.Button = null;
+    private mmmm: Phaser.Button = null;
+    private cross: Phaser.Button = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -49,11 +51,9 @@ export default class Tyuudfuudfudfugfd extends Phaser.State {
             }
         }
 
-        if (GameConfig.CURRENT_STATE === 0) this.NEXT = 'Dress1';
-        if (GameConfig.CURRENT_STATE === 1) this.NEXT = 'Dress2';
-        if (GameConfig.CURRENT_STATE === 2) this.NEXT = 'Dress3';
-
-        SoundUtils.play('main_theme');
+        if (GameConfig.CURRENT_STATE === 0) this.NEXT = 'Poster';
+        if (GameConfig.CURRENT_STATE === 1) this.NEXT = 'Dress1';
+        if (GameConfig.CURRENT_STATE === 2) this.NEXT = 'Dress2';
     }
 
     public preload(): void {
@@ -61,32 +61,45 @@ export default class Tyuudfuudfudfugfd extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesSelectState').getName(),
-            ImageUtils.getAtlasClass('AtlasesSelectState').Frames.Bg2);
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg2').getName());
 
         this.container = this.game.add.group();
 
         this.sel1 = GuiUtils.makeButton(
-            this, this.container, 7, 161, 1,
-            'sel1', ImageUtils.getAtlasClass('AtlasesSelectState').getName(),
-            ImageUtils.getAtlasClass('AtlasesSelectState').Frames.Sel1,
+            this, this.container, 425, 46, 1,
+            'sel1', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel1,
             GameConfig.CURRENT_STATE === 0, true, true,
             this.nextState, null, null
         );
         this.sel2 = GuiUtils.makeButton(
-            this, this.container, 329, 298, 1,
-            'sel2', ImageUtils.getAtlasClass('AtlasesSelectState').getName(),
-            ImageUtils.getAtlasClass('AtlasesSelectState').Frames.Sel2,
+            this, this.container, 362, 246, 1,
+            'sel2', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel2,
             GameConfig.CURRENT_STATE === 1, true, true,
             this.nextState, null, null
         );
         this.sel3 = GuiUtils.makeButton(
-            this, this.container, 622, 121, 1,
-            'sel3', ImageUtils.getAtlasClass('AtlasesSelectState').getName(),
-            ImageUtils.getAtlasClass('AtlasesSelectState').Frames.Sel3,
+            this, this.container, 156, 450, 1,
+            'sel3', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel3,
             GameConfig.CURRENT_STATE === 2, true, true,
             this.nextState, null, null
+        );
+        this.mmmm = GuiUtils.makeButton(
+            this, this.container, 166, 175, 1,
+            'mmmm', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Mmmm,
+            true, true, GameConfig.PUB_MODE === PublishMode.NORMAL,
+            GuiUtils.goLinkInMoreGames, GuiUtils.addOverHandler, GuiUtils.addOutHandler
+        );
+        this.cross = GuiUtils.makeButton(
+            this, this.container, 643, 241, 1,
+            'cross', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Cross,
+            true, true, GameConfig.PUB_MODE === PublishMode.NORMAL,
+            GuiUtils.goCross('http://dressupmix.com/Free-Dressup-Games/Princess/Princess-Boyfriends-Wardrobe-Inspired-Look.html'),
+            GuiUtils.addOverHandler, GuiUtils.addOutHandler
         );
         this.sel1.scale.setTo(0);
         this.sel2.scale.setTo(0);
@@ -98,10 +111,10 @@ export default class Tyuudfuudfudfugfd extends Phaser.State {
         // GUI Buttons
         this.gui.addGui(false);
         this.gui.addExtraMoreAnimated(
-            960 - 125, 720 - 199,
-            ImageUtils.getSpritesheetClass('SpritesheetsMoreE11919931').getName(),
-            GuiUtils.addOverHandlerMcg,
-            GuiUtils.addOutHandlerMcg
+            960 - 144, 720 - 144,
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1441447').getName(), 7, true,
+            GuiUtils.addOverHandler,
+            GuiUtils.addOutHandler
         );
 
         // Try to retrieve Saver OR else fade effect will apply
@@ -115,16 +128,16 @@ export default class Tyuudfuudfudfugfd extends Phaser.State {
         }
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(this.sel1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1);
-        TweenUtils.fadeAndScaleIn(this.sel2, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1.5);
-        TweenUtils.fadeAndScaleIn(this.sel3, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2, () => {
+        TweenUtils.fadeAndScaleIn(this.sel1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2);
+        TweenUtils.fadeAndScaleIn(this.sel2, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2.5);
+        TweenUtils.fadeAndScaleIn(this.sel3, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 3, () => {
 
-            if (GameConfig.CURRENT_STATE === 0) this.sel1.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
-            if (GameConfig.CURRENT_STATE === 0) EffectUtils.makeScaleAnimation(this.sel1);
-            if (GameConfig.CURRENT_STATE === 1) this.sel2.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
-            if (GameConfig.CURRENT_STATE === 1) EffectUtils.makeScaleAnimation(this.sel2);
-            if (GameConfig.CURRENT_STATE === 2) this.sel3.filters = [EffectUtils.makeGlowAnimation(0xff33ff)];
-            if (GameConfig.CURRENT_STATE === 2) EffectUtils.makeScaleAnimation(this.sel3);
+            if (GameConfig.CURRENT_STATE === 0) this.sel1.filters = [EffectUtils.makeGlowAnimation(0xffff66)];
+            // if (GameConfig.CURRENT_STATE === 0) EffectUtils.makeScaleAnimation(this.sel1, .97);
+            if (GameConfig.CURRENT_STATE === 1) this.sel2.filters = [EffectUtils.makeGlowAnimation(0xffff66)];
+            // if (GameConfig.CURRENT_STATE === 1) EffectUtils.makeScaleAnimation(this.sel2, .97);
+            if (GameConfig.CURRENT_STATE === 2) this.sel3.filters = [EffectUtils.makeGlowAnimation(0xffff66)];
+            // if (GameConfig.CURRENT_STATE === 2) EffectUtils.makeScaleAnimation(this.sel3, .97);
 
         }, this);
 
@@ -132,9 +145,9 @@ export default class Tyuudfuudfudfugfd extends Phaser.State {
         if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
-            if (GameConfig.CURRENT_STATE === 0) PreloaderUtils.preloadDress1State();
-            if (GameConfig.CURRENT_STATE === 1) PreloaderUtils.preloadDress2State();
-            if (GameConfig.CURRENT_STATE === 2) PreloaderUtils.preloadDress3State();
+            if (GameConfig.CURRENT_STATE === 0) PreloaderUtils.preloadPosterState();
+            if (GameConfig.CURRENT_STATE === 1) PreloaderUtils.preloadDress1State();
+            if (GameConfig.CURRENT_STATE === 2) PreloaderUtils.preloadDress2State();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
 
@@ -159,10 +172,12 @@ export default class Tyuudfuudfudfugfd extends Phaser.State {
         this.sel1.destroy(true);
         this.sel2.destroy(true);
         this.sel3.destroy(true);
+        this.mmmm.destroy(true);
+        this.cross.destroy(true);
         this.container.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
-        this.blocker.destroy(true);
+        if (this.blocker) this.blocker.destroy(true);
 
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();

@@ -7,9 +7,10 @@ export class DecorBackground {
     private sprites: Phaser.Sprite[] = [];
     private layers: DecorLayer[] = [];
 
-    constructor() {
+    constructor(x: number = 0, y: number = 0) {
         this.game = GameConfig.GAME;
         this.container = this.game.add.group();
+        this.container.position.setTo(x, y);
     }
 
     next(layerName: string): void {
@@ -25,13 +26,21 @@ export class DecorBackground {
         this.game.add.existing(this.container);
     }
 
+    setPosition(x: number, y: number): void {
+        this.container.position.setTo(x, y);
+    }
+
+    setScale(val: number): void {
+        this.container.scale.setTo(val);
+    }
+
     sprite(x: number, y: number, asset: string, frame?: any): DecorBackground {
         this.sprites.push(this.game.add.sprite(x, y, asset, frame, this.container));
         return this;
     }
 
-    layer(name: string): DecorLayer {
-        this.layers[name] = new DecorLayer(this, this.container);
+    layer(name: string, allowEmpty: boolean = true): DecorLayer {
+        this.layers[name] = new DecorLayer(this, this.container, allowEmpty);
         return this.layers[name];
     }
 

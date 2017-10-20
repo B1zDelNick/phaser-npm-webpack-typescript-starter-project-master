@@ -37,7 +37,7 @@ export class Chest {
     }
 
     onEquiped(item: string, ...toOn: string[]) {
-        if (this.config.hideSelected !== true) return;
+        if (!this.config || this.config.hideSelected !== true) return;
         for (let cat of toOn) {
             if (this.staticPage)
                 this.staticPage.tryToSetLikeVisibility(cat);
@@ -333,6 +333,10 @@ export class Chest {
                 return btn;
         }
         return null;
+    }
+
+    public getBody(): Phaser.Group {
+        return this.container;
     }
 }
 

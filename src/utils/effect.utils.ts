@@ -51,11 +51,11 @@ export class EffectUtils {
             .yoyo(loop);
     }
 
-    public static makeLightRotateAnimation(sprite: any): void {
+    public static makeLightRotateAnimation(sprite: any, duration: number = 400, angle: number = 10): void {
         const game = GameConfig.GAME;
-        const _tween1 = game.add.tween(sprite).to({ angle: 10 }, 400, Phaser.Easing.Linear.None, true);
-        const _tween2 = game.add.tween(sprite).to({ angle: -10 }, 800, Phaser.Easing.Linear.None, false);
-        const _tween3 = game.add.tween(sprite).to({ angle: 0 }, 400, Phaser.Easing.Linear.None, false);
+        const _tween1 = game.add.tween(sprite).to({ angle: angle }, duration, Phaser.Easing.Linear.None, true);
+        const _tween2 = game.add.tween(sprite).to({ angle: -angle }, duration * 2, Phaser.Easing.Linear.None, false);
+        const _tween3 = game.add.tween(sprite).to({ angle: 0 }, duration, Phaser.Easing.Linear.None, false);
         _tween1.chain(_tween2);
         _tween2.chain(_tween3);
         _tween3.chain(_tween1);

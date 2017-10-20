@@ -6,12 +6,17 @@ import {SaverTemplates} from '../states/saver/enum.saver';
 import {VerticalSaver} from '../states/saver/vertical.saver';
 import {isString} from 'util';
 import {HorizontalSaver} from '../states/saver/horizontal.saver';
+import {VerticalNorthBigSaver} from '../states/saver/vertical.north.big.saver';
 
 export class GuiUtils {
     public static getSaver(): ISaver {
         let saver;
 
         switch (GameConfig.SAVER_MODE) {
+            case SaverTemplates.V_N_FADE_BIG_SLIDER_TEMPLATE: {
+                saver = new VerticalNorthBigSaver();
+                break;
+            }
             case SaverTemplates.V_FADE_SLIDER_TEMPLATE: {
                 saver = new VerticalSaver();
                 break;

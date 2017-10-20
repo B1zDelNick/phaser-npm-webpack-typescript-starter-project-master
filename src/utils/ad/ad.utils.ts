@@ -3,7 +3,7 @@ import {isNull, isUndefined} from 'util';
 
 export class AdUtils {
 
-    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=7365584234&ad_type=video_image&description_url=http%3A%2F%2Ffreegamescasual.com%2FFree-Online-Games%2FPrincesses%2FPrincess-Black-Friday-Rush-play.html&videoad_start_delay=15000';
+    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=1736553527&ad_type=video_image&description_url=http%3A%2F%2Fdressupmix.com%2FFree-Dressup-Games%2FPrincess%2FHip-Hop-House-of-Belle-play.html&videoad_start_delay=15000';
     private static gdGame = 'b44cb531fcbd473d9ccdd2669cf49d9f';
     private static gdUser = '4ED9EE15-CD3B-42DA-AFF4-A2CB65F233D3-s1';
 

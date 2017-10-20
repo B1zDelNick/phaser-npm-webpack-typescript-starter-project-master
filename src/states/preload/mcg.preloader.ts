@@ -147,7 +147,7 @@ export class MyCuteGamesPreloader implements IPreloader {
                 this.state, this.guiContainer,
                 480 - 208, 415 - 137, 1,
                 '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
-                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.LogoGlowMcg,
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.LogoMcg,
                 true, true, true, GuiUtils.goLinkPreloaderLogo, hoverHandler, unhoverHandler);
 
         this.playButton =

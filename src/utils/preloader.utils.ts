@@ -89,6 +89,7 @@ export class PreloaderUtils {
             if (DEBUG)
                 console.log(`\nNo default Select State graphics was found.`);
         }
+        this.selectStateAdditionalLoads();
     }
 
     public static preloadDress1State(): void {
@@ -151,6 +152,21 @@ export class PreloaderUtils {
         this.decorStateAdditionalLoads();
     }
 
+    public static preloadPosterState(): void {
+        const game = GameConfig.GAME;
+        // Load any assets you need for your preloader state here.
+        if (ImageUtils.getAtlasClass('AtlasesStatePoster') != null) {
+            game.load.atlasJSONArray(
+                ImageUtils.getAtlasClass('AtlasesStatePoster').getName(),
+                ImageUtils.getAtlasClass('AtlasesStatePoster').getPNG(),
+                ImageUtils.getAtlasClass('AtlasesStatePoster').getJSONArray());
+        } else {
+            if (DEBUG)
+                console.log(`\nNo default Poster State graphics was found.`);
+        }
+        this.posterStateAdditionalLoads();
+    }
+
     public static preloadResultState(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
@@ -181,14 +197,14 @@ export class PreloaderUtils {
     private static startStateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        /*game.load.image(
+        game.load.image(
             ImageUtils.getImageClass('ImagesBg').getName(),
-            ImageUtils.getImageClass('ImagesBg').getJPG());*/
-        /*game.load.spritesheet(
-            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621626').getName(),
-            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621626').getPNG(),
-            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621626').getFrameWidth(),
-            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621626').getFrameHeight());*/
+            ImageUtils.getImageClass('ImagesBg').getJPG());
+        game.load.spritesheet(
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1441447').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1441447').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1441447').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1441447').getFrameHeight());
     }
 
     private static comixStateAdditionalLoads(): void {
@@ -197,6 +213,14 @@ export class PreloaderUtils {
         /*game.load.image(
             ImageUtils.getImageClass('ImagesBg').getName(),
             ImageUtils.getImageClass('ImagesBg').getJPG());*/
+    }
+
+    private static selectStateAdditionalLoads(): void {
+        const game = GameConfig.GAME;
+        // Additional loading HERE, exp: BlurX script etc
+        game.load.image(
+         ImageUtils.getImageClass('ImagesBg2').getName(),
+         ImageUtils.getImageClass('ImagesBg2').getJPG());
     }
 
     private static soundAdditionalLoads(): void {
@@ -212,28 +236,52 @@ export class PreloaderUtils {
             ImageUtils.getImageClass('ImagesBg4').getJPG());*/
     }
 
+    private static posterStateAdditionalLoads(): void {
+        const game = GameConfig.GAME;
+        // Additional loading HERE, exp: BlurX script etc
+        game.load.image(
+         ImageUtils.getImageClass('ImagesBg3').getName(),
+         ImageUtils.getImageClass('ImagesBg3').getJPG());
+    }
+
     private static dress1StateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        /*game.load.image(
-            ImageUtils.getImageClass('ImagesBg2').getName(),
-            ImageUtils.getImageClass('ImagesBg2').getJPG());
+        game.load.image(
+            ImageUtils.getImageClass('ImagesBg4').getName(),
+            ImageUtils.getImageClass('ImagesBg4').getJPG());
         game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getJSONArray());*/
+            ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollElza').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollElza').getJSONArray());
+        game.load.atlasJSONArray(
+            ImageUtils.getAtlasClass('AtlasesDollAvrora').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollAvrora').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollAvrora').getJSONArray());
     }
 
     private static dress2StateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        /*game.load.image(
-            ImageUtils.getImageClass('ImagesBg3').getName(),
-            ImageUtils.getImageClass('ImagesBg3').getJPG());
+        game.load.image(
+            ImageUtils.getImageClass('ImagesBg5').getName(),
+            ImageUtils.getImageClass('ImagesBg5').getJPG());
         game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollElza').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollElza').getJSONArray());*/
+            ImageUtils.getAtlasClass('AtlasesDollBelle').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollBelle').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollBelle').getJSONArray());
+        game.load.atlasJSONArray(
+            ImageUtils.getAtlasClass('AtlasesDollBelleBody').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollBelleBody').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollBelleBody').getJSONArray());
+        game.load.image(
+            ImageUtils.getImageClass('ImagesChest').getName(),
+            ImageUtils.getImageClass('ImagesChest').getJPG());
+        game.load.spritesheet(
+            ImageUtils.getSpritesheetClass('SpritesheetsMArrow154825').getName(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMArrow154825').getPNG(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMArrow154825').getFrameWidth(),
+            ImageUtils.getSpritesheetClass('SpritesheetsMArrow154825').getFrameHeight());
     }
 
     private static dress3StateAdditionalLoads(): void {

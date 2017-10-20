@@ -1,4 +1,3 @@
-import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
 import {AssetMode, GameConfig, Sites} from '../config/game.config';
 import {GuiMcg} from './gui/mcg.gui';
@@ -8,21 +7,22 @@ import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
+import {IParticle} from './spec-effects/particle/i.particle';
+import {FallParticles} from './spec-effects/particle/fall.particle';
 import {EffectUtils} from '../utils/effect.utils';
-import {PreloaderUtils} from '../utils/preloader.utils';
 
-export default class Start extends Phaser.State {
+export default class Final extends Phaser.State {
 
-    private NEXT = 'Select';
+    private NEXT = 'Start';
     private nextPrepared = false;
 
     private gui: IGui = null;
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
-    private junk: Phaser.Sprite = null;
-    private girls: Phaser.Sprite = null;
-    private title: Phaser.Sprite = null;
+    private cross1: Phaser.Button = null;
+    private cross2: Phaser.Button = null;
+    private btnContainer: Phaser.Group = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -31,17 +31,17 @@ export default class Start extends Phaser.State {
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {
-                this.gui = new GuiMcg(this, StateType.START_STATE);
+                this.gui = new GuiMcg(this, StateType.FINAL_STATE);
                 break;
             }
             case Sites.DRESSUP_MIX:
             {
-                this.gui = new GuiDu(this, StateType.START_STATE);
+                this.gui = new GuiDu(this, StateType.FINAL_STATE);
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.gui = new GuiFgc(this, StateType.START_STATE);
+                this.gui = new GuiFgc(this, StateType.FINAL_STATE);
                 break;
             }
         }
@@ -54,18 +54,55 @@ export default class Start extends Phaser.State {
 
         this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
-        this.junk = this.game.add.sprite(-74, 58,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Junk1);
-        this.girls = this.game.add.sprite(104, 168,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Girls);
-        this.title = this.game.add.sprite(232, 2,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        GameConfig.DOLL_1.insert();
+        GameConfig.DOLL_1.setPosition(571, 60);
+        GameConfig.DOLL_1.setScale(-.93, .93);
+        GameConfig.DOLL_2.insert();
+        GameConfig.DOLL_2.setPosition(598, 64);
+        GameConfig.DOLL_2.setScale(.93);
+        GameConfig.DOLL_3.insert();
+        GameConfig.DOLL_3.setPosition(439, 34);
+        GameConfig.DECOR_1.insert();
+        GameConfig.DECOR_1.setPosition(64, 110);
+        GameConfig.DECOR_1.setScale(.562);
+        GameConfig.DOLL_1.show(true);
+        GameConfig.DOLL_2.show(true);
 
-        this.title.anchor.setTo(.5);
-        this.title.position.setTo(this.title.x + this.title.width / 2, this.title.y + this.title.height / 2);
+        this.btnContainer = this.game.add.group();
+
+        this.cross1 =
+            GuiUtils.makeButton(
+                this, this.btnContainer,
+                3, 335, 1,
+                '', ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
+                ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Ban1,
+                true, true, true,
+                GuiUtils.goCross('http://dressupmix.com/Free-Dressup-Games/Princess/Princess-Boyfriends-Wardrobe-Inspired-Look.html'), GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+        if (!GameConfig.GAME_COMPLETED) {
+            this.cross2 =
+                GuiUtils.makeButton(
+                    this, this.btnContainer,
+                    736, 335, 1,
+                    '', ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.BanLock,
+                    false, true, true,
+                    null, null, null);
+        }
+        else {
+            this.cross2 =
+                GuiUtils.makeButton(
+                    this, this.btnContainer,
+                    736, 335, 1,
+                    '', ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Ban1,
+                    true, true, true,
+                    GuiUtils.goCross('http://dressupmix.com/Free-Dressup-Games/Princess/Princesses-Las-Vegas-Weekend.html'), GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+        }
+
+        this.cross1.scale.setTo(0);
+        this.cross1.alpha = 0;
+        this.cross2.scale.setTo(0);
+        this.cross2.alpha = 0;
 
         // GUI Buttons
         this.gui.addGui(false);
@@ -88,24 +125,17 @@ export default class Start extends Phaser.State {
         } else {
             this.game.camera.flash(0x000000, 1000);
         }
-        // ONLY FOR START STATE !!!!!!!!!!!!!!!!!
-        if (!GameConfig.GAME_COMPLETED)
-            this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        EffectUtils.makeLightRotateAnimation(this.title, Phaser.Timer.SECOND * 1, 2);
-        EffectUtils.makeScaleAnimation(this.title, 1.02);
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5,
-            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 2 : Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeAndScaleIn(this.cross1, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 2);
+        TweenUtils.fadeAndScaleIn(this.cross2, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 2.5);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 3);
 
         // Assets Managment starts here
-        if (GameConfig.IS_ASSETS_LOADED)
-            this.waitForLoading();
-        else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
-            // Loads
-            PreloaderUtils.preloadSelectState();
-            AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
-        }
+        // Nothing to Load Here, just enjoy :)
+        this.nextPrepared = true;
+        if (!GameConfig.IS_ASSETS_LOADED)
+            GameConfig.IS_ASSETS_LOADED = true;
     }
 
     public update(): void {
@@ -117,22 +147,34 @@ export default class Start extends Phaser.State {
         this.game.tweens.removeAll();
 
         if (this.bg) this.bg.destroy(true);
-        if (this.junk) this.junk.destroy(true);
-        if (this.girls) this.girls.destroy(true);
-        if (this.title) this.title.destroy(true);
+        if (this.btnContainer) this.btnContainer.destroy(true);
+        if (this.cross1) this.cross1.destroy(true);
+        if (this.cross2) this.cross2.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);
 
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();
+
+        GameConfig.DOLL_1.dispose();
+        GameConfig.DOLL_2.dispose();
+        GameConfig.DOLL_3.dispose();
+        GameConfig.DECOR_1.dispose();
+
+        GameConfig.DOLL_1 = null;
+        GameConfig.DOLL_2 = null;
+        GameConfig.DOLL_3 = null;
+        GameConfig.DECOR_1 = null;
     }
 
     private waitForLoading(): void {
         this.nextPrepared = true;
     }
 
-    private nextState(): void {
+    private nextState(sprite: Phaser.Button): void {
+        GameConfig.GAME_COMPLETED = true;
+        GameConfig.CURRENT_STATE = 0;
         this.gui.disable();
         if (this.saver) {
             this.saver.setOnOutCallback(() => {

@@ -142,5 +142,11 @@ export class BootUtils {
                 Assets.Scripts.ScriptsPhaserAds.getName(),
                 Assets.Scripts.ScriptsPhaserAds.getJS());
         }
+        game.load.image(
+            ImageUtils.getImageClass('ImagesPart').getName(),
+            ImageUtils.getImageClass('ImagesPart').getJPG());
+        game.load.image(
+            ImageUtils.getImageClass('ImagesVs').getName(),
+            ImageUtils.getImageClass('ImagesVs').getPNG());
     }
 }
