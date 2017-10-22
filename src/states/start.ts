@@ -20,9 +20,6 @@ export default class Start extends Phaser.State {
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
-    private junk: Phaser.Sprite = null;
-    private girls: Phaser.Sprite = null;
-    private title: Phaser.Sprite = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -52,30 +49,19 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
-
-        this.junk = this.game.add.sprite(-74, 58,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Junk1);
-        this.girls = this.game.add.sprite(104, 168,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Girls);
-        this.title = this.game.add.sprite(232, 2,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
-
-        this.title.anchor.setTo(.5);
-        this.title.position.setTo(this.title.x + this.title.width / 2, this.title.y + this.title.height / 2);
+        const text = this.game.add.text(
+            this.game.world.centerX,
+            this.game.world.centerY,
+            'Your Game starts here! ;)',
+            {
+                'font': 'bold 50px Arial Black',
+                'fill': '#00f'
+            });
+        text.anchor.setTo(.5);
 
         // GUI Buttons
-        this.gui.addGui(false);
+        this.gui.addGui();
         const playBtn = this.gui.addPlayBtn(this.nextState);
-        this.gui.addExtraMoreAnimated(
-            960 - 144, 720 - 144,
-            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1441447').getName(), 7, true,
-            GuiUtils.addOverHandler,
-            GuiUtils.addOutHandler
-        );
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
 
@@ -93,8 +79,6 @@ export default class Start extends Phaser.State {
             this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        EffectUtils.makeLightRotateAnimation(this.title, Phaser.Timer.SECOND * 1, 2);
-        EffectUtils.makeScaleAnimation(this.title, 1.02);
         TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5,
             GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 2 : Phaser.Timer.SECOND * 1);
 
@@ -103,7 +87,6 @@ export default class Start extends Phaser.State {
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             // Loads
-            PreloaderUtils.preloadSelectState();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }
@@ -117,9 +100,6 @@ export default class Start extends Phaser.State {
         this.game.tweens.removeAll();
 
         if (this.bg) this.bg.destroy(true);
-        if (this.junk) this.junk.destroy(true);
-        if (this.girls) this.girls.destroy(true);
-        if (this.title) this.title.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);

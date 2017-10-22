@@ -16,9 +16,9 @@ import {AdUtils} from '../utils/ad/ad.utils';
 import {isNull} from 'util';
 import {ImageUtils} from '../utils/images/image.utils';
 
-export default class Dress1 extends Phaser.State {
+export default class Lkjhdjhghdfjjj extends Phaser.State {
 
-    private NEXT = 'Select';
+    private NEXT = 'Final';
     private nextPrepared = false;
     private changing = false;
 

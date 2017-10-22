@@ -16,7 +16,7 @@ import {LaserType} from './spec-effects/laser/enum.laser';
 import {ILaser} from './spec-effects/laser/i.laser';
 import {DecorBackground} from './template/decor/decor.background';
 
-export default class Poster extends Phaser.State {
+export default class Ljdfjhdfhhh extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;
