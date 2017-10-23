@@ -54,7 +54,7 @@ function startApp(): void {
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Hip Hop House of Belle');
+        'Winter Warming Tips for Princesses');
 
     GameConfig.GAME = app;
 }
