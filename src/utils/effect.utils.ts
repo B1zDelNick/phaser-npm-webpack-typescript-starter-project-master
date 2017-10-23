@@ -51,6 +51,20 @@ export class EffectUtils {
             .yoyo(loop);
     }
 
+    public static makeAlphaAnimation(target: any, alpha: number = 1, period: number = 500, loop: boolean = true): Phaser.Tween {
+        const game = GameConfig.GAME;
+        return game.add.tween(target).to({ alpha: alpha },
+            period, Phaser.Easing.Linear.None, true, 0, 99999)
+            .yoyo(loop);
+    }
+
+    public static makeMoveAnimation(target: any, x: number, y: number, period: number = 500, loop: boolean = true): Phaser.Tween {
+        const game = GameConfig.GAME;
+        return game.add.tween(target).to({ x: x, y: y },
+            period, Phaser.Easing.Linear.None, true, 0, 99999)
+            .yoyo(loop);
+    }
+
     public static makeLightRotateAnimation(sprite: any, duration: number = 400, angle: number = 10): void {
         const game = GameConfig.GAME;
         const _tween1 = game.add.tween(sprite).to({ angle: angle }, duration, Phaser.Easing.Linear.None, true);

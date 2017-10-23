@@ -3,9 +3,9 @@ import {isNull, isUndefined} from 'util';
 
 export class TweenUtils {
 
-    public static delayedCall(delay: number, callback: Function, context?: any) {
+    public static delayedCall(delay: number, callback: Function, context?: any, args?: any) {
         const game = GameConfig.GAME;
-        game.time.events.add(delay, callback, context);
+        game.time.events.add(delay, callback, context, args);
     }
 
     public static rotate(
@@ -312,5 +312,24 @@ export class TweenUtils {
         if (!isNull(callBack) && !isUndefined(callBack))
             tween.onComplete.addOnce(callBack, context);
         return tween;
+    }
+
+    public static moveAndScaleAndFade(target: any, x: number, y: number, scale: number = 1, alpha: number = 1, duration: number = 500, delay: number = 0, callBack?: Function, context?: any): Phaser.Tween[] {
+        const game = GameConfig.GAME;
+
+        if (target.inputEnabled) {
+            target.inputEnabled = false;
+            TweenUtils.delayedCall(duration + delay + 5, () => {
+                target.inputEnabled = true;
+            }, this);
+        }
+
+        const tw1 = game.add.tween(target).to({ x: x, y: y, alpha: alpha }, duration, Phaser.Easing.Linear.None, true, delay);
+        const tw2 = game.add.tween(target.scale).to({ x: scale, y: scale }, duration, Phaser.Easing.Linear.None, true, delay);
+        if (!isNull(callBack) && !isUndefined(callBack))
+            tw2.onComplete.addOnce(callBack, context);
+        return [
+            tw1, tw2
+        ];
     }
 }

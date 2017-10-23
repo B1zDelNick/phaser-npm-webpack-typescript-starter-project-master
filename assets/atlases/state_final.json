@@ -1,0 +1,44 @@
+{"frames": [
+
+{
+	"filename": "cross_1.png",
+	"frame": {"x":0,"y":0,"w":307,"h":364},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":307,"h":364},
+	"sourceSize": {"w":307,"h":364}
+},
+{
+	"filename": "cross_2.png",
+	"frame": {"x":0,"y":364,"w":305,"h":364},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":305,"h":364},
+	"sourceSize": {"w":305,"h":364}
+},
+{
+	"filename": "cross_3.png",
+	"frame": {"x":0,"y":728,"w":305,"h":364},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":305,"h":364},
+	"sourceSize": {"w":305,"h":364}
+},
+{
+	"filename": "label.png",
+	"frame": {"x":0,"y":1092,"w":337,"h":260},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":337,"h":260},
+	"sourceSize": {"w":337,"h":260}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_final.png",
+	"format": "RGBA8888",
+	"size": {"w":337,"h":1352},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:99d38c49eecb0c3f0d58edcb4cda8ce3:374f7dd7e3db63b0acb54b6e14d28d09:fa7765394e0e389ace335cfa7c993a79$"
+}
+}

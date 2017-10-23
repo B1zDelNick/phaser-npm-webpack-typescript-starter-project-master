@@ -296,7 +296,7 @@ export default class Hjhdfjdfjhghh extends Phaser.State {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
 
-        this.chest.disable();
+        this.chest.dispose();
 
         this.bg.destroy(true);
 

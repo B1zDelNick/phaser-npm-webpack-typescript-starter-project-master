@@ -5,6 +5,8 @@ import {isNull, isString, isUndefined} from 'util';
 import {TweenUtils} from '../../../utils/tween.utils';
 import {ChestCategory} from './chest.category';
 import {EffectUtils} from '../../../utils/effect.utils';
+import {ChestCompoundItem} from './chest.compound.item';
+import {ChestItem} from './chest.item';
 
 export class Chest {
 
@@ -63,6 +65,40 @@ export class Chest {
         for (let page of this.pages) {
             page.disable();
         }
+        if (this.lb) {
+            this.lb.inputEnabled = false;
+            this.lb.filters = null;
+        }
+        if (this.rb) {
+            this.rb.inputEnabled = false;
+            this.rb.filters = null;
+        }
+    }
+
+    enable(): void {
+        for (let page of this.pages) {
+            page.enable();
+        }
+        if (this.lb) {
+            this.lb.inputEnabled = true;
+        }
+        if (this.rb) {
+            this.rb.inputEnabled = true;
+        }
+    }
+
+    findItem(name: string): Phaser.Button {
+        let item: ChestItem = null;
+        if (this.staticPage !== null)
+            item = this.staticPage.findItem(name);
+        if (this.pages.length > 0) {
+            for (let page of this.pages) {
+                item = page.findItem(name);
+                if (item !== null)
+                    break;
+            }
+        }
+        return isUndefined(item) || isNull(item) ? null : item.button;
     }
 
     show(): void {
@@ -101,9 +137,10 @@ export class Chest {
         return this;
     }
 
-    page(): ChestPage {
+    page(add: boolean = true): ChestPage {
         const page = new ChestPage(this, this.state, this.container);
-        this.pages.push(page);
+        if (add)
+            this.pages.push(page);
         return page;
     }
 

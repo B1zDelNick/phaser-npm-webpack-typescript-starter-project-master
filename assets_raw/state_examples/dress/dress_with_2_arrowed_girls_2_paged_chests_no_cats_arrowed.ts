@@ -586,8 +586,8 @@ export default class Bfghfghfghfghfghfghfg extends Phaser.State {
         this.currentDoll = null;
         this.currentChest = null;
 
-        this.chestAnna.disable();
-        this.chestElza.disable();
+        this.chestAnna.dispose();
+        this.chestElza.dispose();
 
         this.cloud.destroy(true);
 

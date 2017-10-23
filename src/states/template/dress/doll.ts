@@ -10,13 +10,13 @@ export class Doll {
     private container: Phaser.Group = null;
     private layers: Array<DollLayer> = [];
 
-    constructor(state: Phaser.State, x: number, y: number, scale: number = 1, namePrefix: string = '') {
+    constructor(state: Phaser.State, x: number, y: number, scaleX: number = 1, scaleY: number = -1) {
         this.game = GameConfig.GAME;
 
         this.container = this.game.add.group();
         this.container.x = x;
         this.container.y = y;
-        this.container.scale.setTo(scale);
+        this.container.scale.setTo(scaleX, scaleY === -1 ? scaleX : scaleY);
     }
 
     hide(force: boolean = false) {
@@ -39,6 +39,10 @@ export class Doll {
         }
         if (!this.layers[item]) return false;
         return this.layers[item].operate(index);
+    }
+
+    off(item: string): void {
+        this.layers[item].remove();
     }
 
     setPosition(x: number, y: number): void {

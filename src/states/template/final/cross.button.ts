@@ -2,7 +2,7 @@ import {GameConfig} from '../../../config/game.config';
 import {GuiUtils} from '../../../utils/gui.utils';
 import {isString} from 'util';
 
-export class CrossDollButton {
+export class CrossButton {
 
     private state: Phaser.State = null;
     private game: Phaser.Game = null;
@@ -18,22 +18,22 @@ export class CrossDollButton {
         this.container = this.game.add.group();
     }
 
-    link(url: string): CrossDollButton {
+    link(url: string): CrossButton {
         this.url = url;
         return this;
     }
 
-    sprite(): CrossDollButton {
+    sprite(): CrossButton {
         return this;
     }
 
-    animatedSprite(): CrossDollButton {
+    animatedSprite(): CrossButton {
         return this;
     }
 
     button(x: number, y: number, scale: number, asset: string, frames?: any|any[],
         overHandler: Function = GuiUtils.addOverHandler,
-        outHandler: Function = GuiUtils.addOutHandler): CrossDollButton {
+        outHandler: Function = GuiUtils.addOutHandler): CrossButton {
 
         if (frames == null) {
             frames = [0, 0, 0];

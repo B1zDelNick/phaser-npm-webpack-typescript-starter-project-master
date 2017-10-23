@@ -6,26 +6,33 @@ import {GuiDu} from './gui/du.gui';
 import {GuiFgc} from './gui/fgc.gui';
 import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
+import {PreloaderUtils} from '../utils/preloader.utils';
+import {ILaser} from './spec-effects/laser/i.laser';
+import {EffectUtils} from '../utils/effect.utils';
+import {LaserType} from './spec-effects/laser/enum.laser';
+import {Animation} from '../utils/animation/anim';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
-import {EffectUtils} from '../utils/effect.utils';
-import {PreloaderUtils} from '../utils/preloader.utils';
 
-export default class Start extends Phaser.State {
+export default class Comix extends Phaser.State {
 
-    private NEXT = 'Comix';
+    private NEXT = 'Dress1';
     private nextPrepared = false;
 
     private gui: IGui = null;
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
-    private girl1: Phaser.Sprite = null;
-    private girl2: Phaser.Sprite = null;
     private pic1: Phaser.Sprite = null;
     private pic2: Phaser.Sprite = null;
-    private title: Phaser.Sprite = null;
-
+    private pic3: Phaser.Sprite = null;
+    private pic4: Phaser.Sprite = null;
+    private pic5: Phaser.Sprite = null;
+    private pic6: Phaser.Sprite = null;
+    private girl1: Phaser.Sprite = null;
+    private girl2: Phaser.Sprite = null;
+    private cloud1: Phaser.Sprite = null;
+    private cloud2: Phaser.Sprite = null;
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
 
@@ -33,17 +40,17 @@ export default class Start extends Phaser.State {
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {
-                this.gui = new GuiMcg(this, StateType.START_STATE);
+                this.gui = new GuiMcg(this, StateType.COMIX_STATE);
                 break;
             }
             case Sites.DRESSUP_MIX:
             {
-                this.gui = new GuiDu(this, StateType.START_STATE);
+                this.gui = new GuiDu(this, StateType.COMIX_STATE);
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.gui = new GuiFgc(this, StateType.START_STATE);
+                this.gui = new GuiFgc(this, StateType.COMIX_STATE);
                 break;
             }
         }
@@ -54,27 +61,54 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg2').getName());
 
-        this.pic1 = this.game.add.sprite(-69 - 700, 93 - 500,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Pic1);
-        this.pic1.angle = -9;
-        this.pic2 = this.game.add.sprite(657 + 700, 14 - 500,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Pic2);
-        this.pic2.angle = 15;
+        this.pic1 = this.game.add.sprite(356, 6,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Pic1);
+        this.pic2 = this.game.add.sprite(16 - 700, 17 - 300,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Pic4);
+        this.pic3 = this.game.add.sprite(591 + 700, -16 - 300,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Pic5);
+        this.pic4 = this.game.add.sprite(6 - 700, 345 + 300,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Pic6);
+        this.pic5 = this.game.add.sprite(661 + 700, 280 + 300,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Pic2);
+        this.pic6 = this.game.add.sprite(318, 261 + 700,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Pic3);
 
-        this.girl1 = this.game.add.sprite(78 - 700, 67,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr1);
-        this.girl2 = this.game.add.sprite(397 + 700, 69,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr2);
+        this.pic2.scale.setTo(2);
+        this.pic2.alpha = 0;
+        this.pic3.scale.setTo(2);
+        this.pic3.alpha = 0;
+        this.pic4.scale.setTo(2);
+        this.pic4.alpha = 0;
+        this.pic5.scale.setTo(2);
+        this.pic5.alpha = 0;
+        this.pic6.scale.setTo(2);
+        this.pic6.alpha = 0;
 
-        this.title = this.game.add.sprite(123, 365,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        this.girl1 = this.game.add.sprite(94 - 300, 39 + 700,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Gr3);
+        this.girl2 = this.game.add.sprite(461 + 300, 39 + 700,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Gr4);
+
+        this.cloud1 = this.game.add.sprite(38, 202,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Cl1);
+        this.cloud2 = this.game.add.sprite(425, 213,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Cl2);
+
+        this.cloud1.alpha = 0;
+        this.cloud2.alpha = 0;
 
         // GUI Buttons
         this.gui.addGui(false);
@@ -109,23 +143,24 @@ export default class Start extends Phaser.State {
         } else {
             this.game.camera.flash(0x000000, 1000);
         }
-        // ONLY FOR START STATE !!!!!!!!!!!!!!!!!
-        if (!GameConfig.GAME_COMPLETED)
-            this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2);
-        TweenUtils.moveIn(this.pic1, -69, 93, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1);
-        TweenUtils.moveIn(this.pic2, 657, 14, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1.5);
-        TweenUtils.moveIn(this.girl1, 78, 67, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2);
-        TweenUtils.moveIn(this.girl2, 397, 69, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2.5);
+        TweenUtils.moveAndScaleAndFade(this.pic2, 16, 17, 1, 1, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1);
+        TweenUtils.moveAndScaleAndFade(this.pic3, 591, -16, 1, 1, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1.5);
+        TweenUtils.moveAndScaleAndFade(this.pic4, 6, 345, 1, 1, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2);
+        TweenUtils.moveAndScaleAndFade(this.pic5, 661, 280, 1, 1, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2.5);
+        TweenUtils.moveAndScaleAndFade(this.pic6, 318, 261, 1, 1, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 3);
+        TweenUtils.moveIn(this.girl1, 94, 39, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 4);
+        TweenUtils.moveIn(this.girl2, 461, 39, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 4.5);
+        TweenUtils.fadeIn(this.cloud1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 5.5);
+        TweenUtils.fadeIn(this.cloud2, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 6.5);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 7.5);
 
         // Assets Managment starts here
-        if (GameConfig.IS_ASSETS_LOADED)
+        if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
-            // Loads
-            PreloaderUtils.preloadComixState();
+            PreloaderUtils.preloadDress1State();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }
@@ -139,11 +174,16 @@ export default class Start extends Phaser.State {
         this.game.tweens.removeAll();
 
         if (this.bg) this.bg.destroy(true);
-        if (this.title) this.title.destroy(true);
-        if (this.girl1) this.girl1.destroy(true);
-        if (this.girl2) this.girl2.destroy(true);
         if (this.pic1) this.pic1.destroy(true);
         if (this.pic2) this.pic2.destroy(true);
+        if (this.pic3) this.pic3.destroy(true);
+        if (this.pic4) this.pic4.destroy(true);
+        if (this.pic5) this.pic5.destroy(true);
+        if (this.pic6) this.pic6.destroy(true);
+        if (this.girl1) this.girl1.destroy(true);
+        if (this.girl2) this.girl2.destroy(true);
+        if (this.cloud1) this.cloud1.destroy(true);
+        if (this.cloud2) this.cloud2.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);

@@ -26,6 +26,14 @@ export class ChestPage {
         container.add(this.container);
     }
 
+    findItem(name: string): ChestItem {
+        for (let item of this.items) {
+            if (item.name === name)
+                return item;
+        }
+        return null;
+    }
+
     tryToSetVisibility(name: string): boolean {
         for (let item of this.items) {
             if (item.name === name) {
@@ -61,6 +69,12 @@ export class ChestPage {
     disable(): void {
         for (let item of this.items) {
             item.disable();
+        }
+    }
+
+    enable(): void {
+        for (let item of this.items) {
+            item.enable();
         }
     }
 

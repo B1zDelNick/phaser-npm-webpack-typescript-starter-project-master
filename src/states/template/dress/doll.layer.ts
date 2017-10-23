@@ -63,11 +63,15 @@ export class DollLayer {
                 this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
             }
             else {
-                this.sprite.loadTexture(this.asset, this.frameClass[(this.prefix + index)]);
+                this.sprite.loadTexture(this.asset, this.frameClass[(this.prefix + (index !== 0 ? index : ''))]);
             }
             return !this.removable;
         }
         return false;
+    }
+
+    remove() {
+        this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
     }
 
     private isStricted(ind): boolean {

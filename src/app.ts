@@ -13,6 +13,11 @@ import * as Assets from './assets';
 import Start from './states/start';
 import {AssetMode, GameConfig, PublishMode, Sites} from './config/game.config';
 import {SaverTemplates} from './states/saver/enum.saver';
+import Comix from './states/comix';
+import Dress1 from './states/dress1';
+import Dress2 from './states/dress2';
+import Result from './states/result';
+import Final from './states/final';
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
@@ -21,6 +26,11 @@ class App extends Phaser.Game {
         this.state.add('Boot', Boot);
         this.state.add('Preloader', Preloader);
         this.state.add('Start', Start);
+        this.state.add('Comix', Comix);
+        this.state.add('Dress1', Dress1);
+        this.state.add('Dress2', Dress2);
+        this.state.add('Result', Result);
+        this.state.add('Final', Final);
 
         this.state.start('Boot');
     }
@@ -50,9 +60,9 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.DRESSUP_MIX,
+        Sites.MY_CUTE_GAMES,
         PublishMode.NORMAL,
-        AssetMode.LOAD_ALL,
+        AssetMode.LOAD_BACKGROUND,
         SaverTemplates.NONE,
         'Hip Hop House of Belle');
 
