@@ -54,49 +54,19 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
-
-        this.pic1 = this.game.add.sprite(-69 - 700, 93 - 500,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Pic1);
-        this.pic1.angle = -9;
-        this.pic2 = this.game.add.sprite(657 + 700, 14 - 500,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Pic2);
-        this.pic2.angle = 15;
-
-        this.girl1 = this.game.add.sprite(78 - 700, 67,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr1);
-        this.girl2 = this.game.add.sprite(397 + 700, 69,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr2);
-
-        this.title = this.game.add.sprite(123, 365,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        const text = this.game.add.text(
+            this.game.world.centerX,
+            this.game.world.centerY,
+            'Your Game starts here! ;)',
+            {
+                'font': 'bold 50px Arial Black',
+                'fill': '#00f'
+            });
+        text.anchor.setTo(.5);
 
         // GUI Buttons
-        this.gui.addGui(false);
+        this.gui.addGui();
         const playBtn = this.gui.addPlayBtn(this.nextState);
-        const moreBtn = this.gui.addExtraMore(
-            960 - 189, 720 - 199,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreBg,
-            GuiUtils.addOverHandlerMcg,
-            GuiUtils.addOutHandlerMcg
-        );
-        let gl: Phaser.Sprite;
-        moreBtn.addChild(gl =
-            this.game.add.sprite(0, 0,
-                ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-                ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreSt)
-        );
-        moreBtn.anchor.setTo(.5, .70);
-        gl.anchor.setTo(.5, .65);
-        gl.alpha = 0;
-        gl.inputEnabled = false;
-        EffectUtils.makeAlphaAnimation(gl, 1, 1000);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
 
@@ -115,17 +85,12 @@ export default class Start extends Phaser.State {
 
         // Animations goes here
         TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2);
-        TweenUtils.moveIn(this.pic1, -69, 93, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1);
-        TweenUtils.moveIn(this.pic2, 657, 14, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1.5);
-        TweenUtils.moveIn(this.girl1, 78, 67, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2);
-        TweenUtils.moveIn(this.girl2, 397, 69, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2.5);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             // Loads
-            PreloaderUtils.preloadComixState();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }

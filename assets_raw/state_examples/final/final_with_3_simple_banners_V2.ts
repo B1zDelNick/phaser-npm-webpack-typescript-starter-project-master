@@ -11,7 +11,7 @@ import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 import {CrossButton} from './template/final/cross.button';
 
-export default class Final extends Phaser.State {
+export default class Zxcbedfgdfgdfgdf extends Phaser.State {
 
     private NEXT = 'Start';
     private nextPrepared = false;
