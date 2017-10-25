@@ -21,7 +21,7 @@ import {FilterUtils} from '../utils/filter.utils';
 import {SnowBackParticles} from './spec-effects/particle/snow.back.particle';
 import {SnowFrontParticles} from './spec-effects/particle/snow.front.particle';
 
-export default class Dress2 extends Phaser.State {
+export default class Iooosdjsdsdhsdjsdj extends Phaser.State {
 
     private NEXT = 'Final';
     private nextPrepared = false;

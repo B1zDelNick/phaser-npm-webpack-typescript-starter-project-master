@@ -14,7 +14,7 @@ import {IParticle} from './spec-effects/particle/i.particle';
 import {SnowBackParticles} from './spec-effects/particle/snow.back.particle';
 import {SnowMiddleParticles} from './spec-effects/particle/snow.middle.particle';
 
-export default class Start extends Phaser.State {
+export default class Ljdfdfjdjjd extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;
@@ -23,6 +23,12 @@ export default class Start extends Phaser.State {
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
+    private fg: Phaser.Sprite = null;
+    private girls: Phaser.Sprite = null;
+    private title: Phaser.Sprite = null;
+    private snowB: IParticle = null;
+    private snowM: IParticle = null;
+    private snowF: IParticle = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -45,6 +51,9 @@ export default class Start extends Phaser.State {
                 break;
             }
         }
+        this.snowB = null;
+        this.snowM = null;
+        this.snowF = null;
     }
 
     public preload(): void {
@@ -52,21 +61,40 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        // this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
-        const text = this.game.add.text(
-            this.game.world.centerX,
-            this.game.world.centerY,
-            'Your Game starts here! ;)',
-            {
-                'font': 'bold 50px Arial Black',
-                'fill': '#00f'
-            });
-        text.anchor.setTo(.5);
+        this.snowB = new SnowBackParticles();
+        this.snowB.init(null, null);
+        this.snowB.start();
+        this.snowM = new SnowMiddleParticles();
+        this.snowM.init(null, null);
+        this.snowM.start();
+        this.snowF = new SnowMiddleParticles();
+        this.snowF.init(null, null);
+        this.snowF.start();
+
+        this.fg = this.game.add.sprite(0, -4, ImageUtils.getImageClass('ImagesFg').getName());
+
+        this.girls = this.game.add.sprite(392, 120,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Girls);
+
+        this.title = this.game.add.sprite(90, 482,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
 
         // GUI Buttons
-        this.gui.addGui();
+        this.gui.addGui(false);
         const playBtn = this.gui.addPlayBtn(this.nextState);
+        const moreBtn = this.gui.addExtraMore(
+            960 - 148, 720 - 173,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE,
+            GuiUtils.addOverGlowHandler,
+            GuiUtils.addOutGlowHandler
+        );
+        EffectUtils.makeScaleAnimation(moreBtn, 1.05, Phaser.Timer.SECOND * .5);
+        EffectUtils.makeMoveAnimation(this.title, 90, 497, Phaser.Timer.SECOND * 1.1);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
 
@@ -91,19 +119,30 @@ export default class Start extends Phaser.State {
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             // Loads
+            PreloaderUtils.preloadSelectState();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }
 
     public update(): void {
         super.update(this.game);
+        if (this.snowB) this.snowB.update();
+        if (this.snowM) this.snowM.update();
+        if (this.snowF) this.snowF.update();
     }
 
     public shutdown(): void {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
 
+        if (this.snowB) this.snowB.dispose();
+        if (this.snowM) this.snowM.dispose();
+        if (this.snowF) this.snowF.dispose();
+
         if (this.bg) this.bg.destroy(true);
+        if (this.fg) this.fg.destroy(true);
+        if (this.title) this.title.destroy(true);
+        if (this.girls) this.girls.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);

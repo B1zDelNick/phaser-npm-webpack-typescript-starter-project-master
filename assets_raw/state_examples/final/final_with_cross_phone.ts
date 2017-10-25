@@ -10,7 +10,7 @@ import {ImageUtils} from '../utils/images/image.utils';
 import {EffectUtils} from '../utils/effect.utils';
 import {CrossPhone} from './template/final/cross.phone';
 
-export default class Final extends Phaser.State {
+export default class Jhdfjhdfhdfjdfjdfjdf extends Phaser.State {
 
     private NEXT = 'Start';
     private nextPrepared = false;

@@ -227,6 +227,7 @@ export class MyCuteGamesPreloader implements IPreloader {
     }
 
     private nextState(): void {
+        if (!DEBUG) ga('send', 'event', GameConfig.gaData());
         this.playButton.inputEnabled = false;
         this.game.camera.onFadeComplete.addOnce(() => {
             SoundUtils.init();

@@ -19,7 +19,7 @@ import {IParticle} from './spec-effects/particle/i.particle';
 import {SnowMiddleParticles} from './spec-effects/particle/snow.middle.particle';
 import {FilterUtils} from '../utils/filter.utils';
 
-export default class Dress1 extends Phaser.State {
+export default class Jhghdfhdfhfdhhdf extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;

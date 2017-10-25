@@ -50,6 +50,7 @@ module.exports = {
         ]),
         new HtmlWebpackPlugin({
             title: 'Test',
+            gaScript: '',
             imaScript: '', // `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
             template: path.join(__dirname, 'templates/index.ejs')
         })
