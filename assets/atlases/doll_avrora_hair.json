@@ -1,0 +1,60 @@
+{"frames": [
+
+{
+	"filename": "h_1.png",
+	"frame": {"x":0,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "h_2.png",
+	"frame": {"x":363,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "h_3.png",
+	"frame": {"x":726,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "h_4.png",
+	"frame": {"x":0,"y":800,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "h_5.png",
+	"frame": {"x":363,"y":800,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "h_6.png",
+	"frame": {"x":726,"y":800,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_avrora_hair.png",
+	"format": "RGBA8888",
+	"size": {"w":1089,"h":1600},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:7c1961abf0f37a8c0bf64e0aa99577e8:b04c2fb1dde6b08034c0ad7fbd87a16d:2386ad6da22ec4994c00d6c3ef3fbb79$"
+}
+}

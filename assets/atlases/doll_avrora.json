@@ -1,0 +1,84 @@
+{"frames": [
+
+{
+	"filename": "bb_1.png",
+	"frame": {"x":0,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "bb_2.png",
+	"frame": {"x":1,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "bb_b_1.png",
+	"frame": {"x":364,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "bb_b_2.png",
+	"frame": {"x":365,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "bb_f_1.png",
+	"frame": {"x":728,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "bb_f_2.png",
+	"frame": {"x":0,"y":800,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "body.png",
+	"frame": {"x":1,"y":800,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "d_0.png",
+	"frame": {"x":364,"y":800,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "hand.png",
+	"frame": {"x":727,"y":800,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_avrora.png",
+	"format": "RGBA8888",
+	"size": {"w":1091,"h":1600},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2f9e3798ad35c0ef7f9d9fe790fd1414:60085031e5bafe383447f2efdcc8a62c:95996a313574c3ad98e589d3d627b7a6$"
+}
+}

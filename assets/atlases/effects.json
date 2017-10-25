@@ -33,7 +33,7 @@
 	"sourceSize": {"w":35,"h":35}
 },
 {
-	"filename": "lep_1.png",
+	"filename": "g_star_1.png",
 	"frame": {"x":140,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
@@ -41,7 +41,7 @@
 	"sourceSize": {"w":75,"h":75}
 },
 {
-	"filename": "lep_2.png",
+	"filename": "g_star_2.png",
 	"frame": {"x":215,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
@@ -49,7 +49,7 @@
 	"sourceSize": {"w":75,"h":75}
 },
 {
-	"filename": "lep_3.png",
+	"filename": "g_star_3.png",
 	"frame": {"x":290,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
@@ -57,8 +57,32 @@
 	"sourceSize": {"w":75,"h":75}
 },
 {
+	"filename": "lep_1.png",
+	"frame": {"x":0,"y":75,"w":75,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
+	"sourceSize": {"w":75,"h":75}
+},
+{
+	"filename": "lep_2.png",
+	"frame": {"x":75,"y":75,"w":75,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
+	"sourceSize": {"w":75,"h":75}
+},
+{
+	"filename": "lep_3.png",
+	"frame": {"x":150,"y":75,"w":75,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
+	"sourceSize": {"w":75,"h":75}
+},
+{
 	"filename": "light.png",
-	"frame": {"x":0,"y":75,"w":169,"h":745},
+	"frame": {"x":225,"y":75,"w":169,"h":745},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":169,"h":745},
@@ -66,7 +90,7 @@
 },
 {
 	"filename": "light_2.png",
-	"frame": {"x":169,"y":75,"w":292,"h":665},
+	"frame": {"x":0,"y":820,"w":292,"h":665},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":292,"h":665},
@@ -77,8 +101,8 @@
 	"version": "1.0",
 	"image": "effects.png",
 	"format": "RGBA8888",
-	"size": {"w":461,"h":820},
+	"size": {"w":394,"h":1485},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:e9777f8907dbaf93d3ae8c761a05ef1a:4bb89f8f8b29a9bbfd5a391b06826170:05d3c1256da5d10ff4f36ef2966c3322$"
+	"smartupdate": "$TexturePacker:SmartUpdate:b7ceac89d65eb610e5c4befae9bb2bf5:6f1588cd12f2c2480b7d165ed0ff6423:05d3c1256da5d10ff4f36ef2966c3322$"
 }
 }

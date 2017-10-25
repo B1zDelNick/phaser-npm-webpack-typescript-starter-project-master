@@ -1,0 +1,60 @@
+{"frames": [
+
+{
+	"filename": "h_b_1.png",
+	"frame": {"x":0,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "h_b_2.png",
+	"frame": {"x":1,"y":0,"w":322,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":322,"h":800},
+	"sourceSize": {"w":322,"h":800}
+},
+{
+	"filename": "h_b_3.png",
+	"frame": {"x":323,"y":0,"w":322,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":322,"h":800},
+	"sourceSize": {"w":322,"h":800}
+},
+{
+	"filename": "h_b_4.png",
+	"frame": {"x":645,"y":0,"w":322,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":322,"h":800},
+	"sourceSize": {"w":322,"h":800}
+},
+{
+	"filename": "h_b_5.png",
+	"frame": {"x":967,"y":0,"w":322,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":322,"h":800},
+	"sourceSize": {"w":322,"h":800}
+},
+{
+	"filename": "h_b_6.png",
+	"frame": {"x":1289,"y":0,"w":322,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":322,"h":800},
+	"sourceSize": {"w":322,"h":800}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_jas_hair_b.png",
+	"format": "RGBA8888",
+	"size": {"w":1611,"h":800},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1bb7c04baa0b76ce78ddaedcca5dd142:d54da3592abf4103c07b93d5a0dbc8cc:6e2eb1a7c6c210443c49380d43f0e0e5$"
+}
+}

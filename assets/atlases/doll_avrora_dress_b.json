@@ -1,0 +1,92 @@
+{"frames": [
+
+{
+	"filename": "d_b_1.png",
+	"frame": {"x":0,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "d_b_2.png",
+	"frame": {"x":1,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "d_b_3.png",
+	"frame": {"x":2,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "d_b_4.png",
+	"frame": {"x":3,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "d_b_5.png",
+	"frame": {"x":4,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "d_b_6.png",
+	"frame": {"x":5,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+},
+{
+	"filename": "d_b_7.png",
+	"frame": {"x":6,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "d_b_8.png",
+	"frame": {"x":369,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "d_b_9.png",
+	"frame": {"x":732,"y":0,"w":363,"h":800},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":363,"h":800},
+	"sourceSize": {"w":363,"h":800}
+},
+{
+	"filename": "d_b_10.png",
+	"frame": {"x":1095,"y":0,"w":1,"h":1},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":1,"h":1},
+	"sourceSize": {"w":1,"h":1}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_avrora_dress_b.png",
+	"format": "RGBA8888",
+	"size": {"w":1096,"h":800},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2790a59752f6e028d7a92e3c28264027:90f3791ff68fff33c3b9818576a5189a:f1a1d2866ae0e648e279606ee16a5607$"
+}
+}
