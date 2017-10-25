@@ -91,6 +91,7 @@ module.exports = {
         
                 ga('create', 'UA-3795986-7', 'auto');
             </script>`,
+            phaserScript: `<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.0/phaser.min.js"></script>`, //
             imaScript: `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
             template: path.join(__dirname, 'templates/index.ejs')
         })

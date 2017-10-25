@@ -49,7 +49,13 @@ export class ChestCompoundItem {
         if (this.current > this.length) this.current = 1;
 
         this.button.name = this.name + this.current;
-        this.button.loadTexture(this.asset, this.frameClass[this.prefix + this.current]);
+        // this.button.loadTexture(this.asset, this.frameClass[this.prefix + this.current]);
+        this.button.setFrames(
+            this.frameClass[this.prefix + this.current],
+            this.frameClass[this.prefix + this.current],
+            this.frameClass[this.prefix + this.current],
+            this.frameClass[this.prefix + this.current]
+        );
     }
 
     disable(): void {

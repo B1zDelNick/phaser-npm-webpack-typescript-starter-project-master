@@ -26,11 +26,11 @@
 },
 {
 	"filename": "more_e.png",
-	"frame": {"x":0,"y":705,"w":191,"h":202},
+	"frame": {"x":0,"y":706,"w":191,"h":202},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":191,"h":202},
-	"sourceSize": {"w":191,"h":202}
+	"sourceSize": {"w":191,"h":201}
 },
 {
 	"filename": "title.png",
@@ -55,6 +55,6 @@
 	"format": "RGBA8888",
 	"size": {"w":921,"h":1317},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:24b0c89fe4c185820c3620840549f8a1:19ece8351b0c689e141e68a030ca0910:71a2591e904cd80377f4aacc094ff22d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:e7c6dc4fb1629d189261b2b1301ca650:91f9ed9adf722cb029ad51ed7e4a2b19:71a2591e904cd80377f4aacc094ff22d$"
 }
 }

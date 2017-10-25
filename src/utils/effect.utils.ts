@@ -75,12 +75,12 @@ export class EffectUtils {
         _tween3.chain(_tween1);
     }
 
-    public static makeNeonAnimation(sprite: any): void {
+    public static makeNeonAnimation(sprite: any, time: number = 250): void {
         const game = GameConfig.GAME;
-        const _tween1 = game.add.tween(sprite).to({ alpha: .25 }, 750, Phaser.Easing.Linear.None, true);
-        const _tween2 = game.add.tween(sprite).to({ alpha: 1 }, 750, Phaser.Easing.Bounce.InOut, false);
-        const _tween3 = game.add.tween(sprite).to({ alpha: .05 }, 200, Phaser.Easing.Linear.None, false, 500);
-        const _tween4 = game.add.tween(sprite).to({ alpha: 1 }, 1250, Phaser.Easing.Bounce.InOut, false);
+        const _tween1 = game.add.tween(sprite).to({ alpha: .25 }, time * 3, Phaser.Easing.Linear.None, true);
+        const _tween2 = game.add.tween(sprite).to({ alpha: 1 }, time * 3, Phaser.Easing.Bounce.InOut, false);
+        const _tween3 = game.add.tween(sprite).to({ alpha: .05 }, time, Phaser.Easing.Linear.None, false, 500);
+        const _tween4 = game.add.tween(sprite).to({ alpha: 1 }, time * 5, Phaser.Easing.Bounce.InOut, false);
         _tween1.chain(_tween2);
         _tween2.chain(_tween3);
         _tween3.chain(_tween4);
