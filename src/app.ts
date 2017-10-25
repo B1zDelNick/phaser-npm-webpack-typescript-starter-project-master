@@ -54,7 +54,7 @@ function startApp(): void {
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Winter Warming Tips for Princesses');
+        'BFFs Hot Runway Collection');
 
     GameConfig.GAME = app;
 }

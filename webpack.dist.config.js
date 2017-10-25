@@ -81,7 +81,7 @@ module.exports = {
             screw_ie8: true
         }),*/
         new HtmlWebpackPlugin({
-            title: 'Winter Warming Tips for Princesses',
+            title: 'BFFs Hot Runway Collection',
             gaScript:
             `<script>
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
