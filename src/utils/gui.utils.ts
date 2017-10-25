@@ -220,6 +220,20 @@ export class GuiUtils {
         };
     }
 
+    public static addOverGlowParentHandler(sprite) {
+        sprite.parent.filters = [FilterUtils.makeFilter()];
+    }
+
+    public static addOutGlowParentHandler(sprite) {
+        sprite.parent.filters = null;
+    }
+
+    public static addCustomOverGlowParentHandler(color: number = 0xffffff): Function {
+        return (sprite) => {
+            sprite.parent.filters = [FilterUtils.makeFilter(color)];
+        };
+    }
+
     public static addOverHandlerFgc(sprite) {
         sprite.filters = [FilterUtils.makeFilter()];
         GameConfig.GAME.tweens.removeFrom(sprite.scale);

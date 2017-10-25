@@ -23,6 +23,9 @@ export class GameConfig {
     public static DECOR_1: DecorBackground = null;
     public static DECOR_2: DecorBackground = null;
 
+    public static CONT_1: Phaser.Group = null;
+    public static CONT_2: Phaser.Group = null;
+
     private static _inited: boolean = false;
 
     private static _site: string;

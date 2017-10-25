@@ -12,9 +12,11 @@ export class DollLayer {
     private guiAtlas: string = null;
     private dummyFrame: any = null;
     private prefix: string;
-    private isEmpty: boolean;
+    public isEmpty: boolean;
     private removable: boolean;
     private strictIndexes: number[];
+    public isSecondary: boolean = false;
+    private tempIndex: number = -1;
 
     constructor(container: Phaser.Group, x: number, y: number,
                 asset: string, frameClass: any, prefix?: string, defaultFrame?: string,
@@ -50,24 +52,45 @@ export class DollLayer {
             this.isEmpty ? this.guiAtlas : asset,
             this.isEmpty ? this.dummyFrame : frameClass[defaultFrame],
             container);
+        if (this.sprite.inputEnabled) {
+            this.sprite.input.pixelPerfectClick = this.sprite.input.pixelPerfectOver = true;
+        }
     }
 
     operate(index: number): boolean {
         // console.log(this.sprite.frameName, this.sprite.key, this.prefix + index);
         // console.log(this.sprite.frameName === this.frameClass[this.prefix + index], this.removable);
-        if (this.sprite.frameName === this.frameClass[this.prefix + index] && this.removable || index === -1) {
+        this.tempIndex = index;
+        if (this.sprite.frameName === this.frameClass[this.prefix + (this.isSecondary ? 'S' : '') + index] && this.removable || index === -1) {
             this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+            this.isEmpty = true;
+            // console.log(`Remove ${this.prefix}`);
         }
         else {
             if (this.isStricted(index)) {
                 this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+                this.isEmpty = true;
+                // console.log(`Stricted ${this.prefix}${this.tempIndex}`);
             }
             else {
-                this.sprite.loadTexture(this.asset, this.frameClass[(this.prefix + (index !== 0 ? index : ''))]);
+                this.sprite.loadTexture(
+                    this.asset,
+                    this.frameClass[(this.prefix + (this.isSecondary ? 'S' : '') + (index !== 0 ? index : ''))]);
+                this.isEmpty = false;
+                // console.log(`Equip ${this.prefix}${this.tempIndex}`);
             }
             return !this.removable;
         }
         return false;
+    }
+
+    setSecondaryState(val: boolean) {
+        this.isSecondary = val;
+        if (!this.isEmpty) {
+            this.sprite.loadTexture(
+                this.asset,
+                this.frameClass[(this.prefix + (this.isSecondary ? 'S' : '') + (this.tempIndex !== 0 ? this.tempIndex : ''))]);
+        }
     }
 
     remove() {

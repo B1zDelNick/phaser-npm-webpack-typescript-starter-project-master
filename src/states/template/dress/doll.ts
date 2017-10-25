@@ -9,6 +9,7 @@ export class Doll {
     private game: Phaser.Game = null;
     private container: Phaser.Group = null;
     private layers: Array<DollLayer> = [];
+    private dependencies: Map<string, string> = new Map();
 
     constructor(state: Phaser.State, x: number, y: number, scaleX: number = 1, scaleY: number = -1) {
         this.game = GameConfig.GAME;
@@ -27,8 +28,13 @@ export class Doll {
         TweenUtils.fadeIn(this.container, force ? 1 : 500);
     }
 
-    layer(x: number, y: number, name: string, asset: string, frameClass: any, prefix?: string, defaultFrame?: string, removable: boolean = false, strictIndexes?: number[]): Doll {
+    layer(x: number, y: number, name: string, asset: string, frameClass: any, prefix?: string, defaultFrame?: string, removable: boolean = false, strictIndexes?: number[], dependsOn?: string[]): Doll {
         this.layers[name] = new DollLayer(this.container, x, y, asset, frameClass, prefix, defaultFrame, removable, strictIndexes);
+        if (dependsOn) {
+            for (let dep of dependsOn) {
+                this.dependencies.set(dep, name);
+            }
+        }
         return this;
     }
 
@@ -38,11 +44,48 @@ export class Doll {
                 this.layers[toOff].operate(-1);
         }
         if (!this.layers[item]) return false;
-        return this.layers[item].operate(index);
+        const result = this.layers[item].operate(index);
+        if (this.dependencies.has(item)) {
+            if (this.layers[item].isEmpty) {
+                this.layers[this.dependencies.get(item)].setSecondaryState(false);
+            }
+            else {
+                this.layers[this.dependencies.get(item)].setSecondaryState(true);
+            }
+        }
+        return result;
     }
 
     off(item: string): void {
         this.layers[item].remove();
+    }
+
+    setListeners(context: any, callback: Function, overHandler?: Function, outHandler?: Function): Doll {
+        this.container.inputEnableChildren = true;
+        this.container.onChildInputDown.add(callback, context);
+        if (overHandler) this.container.onChildInputOver.add(overHandler, context);
+        if (outHandler) this.container.onChildInputOut.add(outHandler, context);
+        return this;
+    }
+
+    disableListeners(): Doll {
+        this.container.inputEnableChildren = false;
+        for (let sp of this.container.children) {
+            if (sp instanceof Phaser.Sprite) {
+                (sp as Phaser.Sprite).inputEnabled = false;
+            }
+        }
+        return this;
+    }
+
+    enableListeners(): Doll {
+        this.container.inputEnableChildren = true;
+        for (let sp of this.container.children) {
+            if (sp instanceof Phaser.Sprite) {
+                (sp as Phaser.Sprite).inputEnabled = true;
+            }
+        }
+        return this;
     }
 
     setPosition(x: number, y: number): void {

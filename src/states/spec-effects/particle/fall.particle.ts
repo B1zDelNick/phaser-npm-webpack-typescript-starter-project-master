@@ -21,6 +21,10 @@ export class FallParticles implements IParticle {
         this.emitter.gravity = new Phaser.Point(0, 70);
     }
 
+    addToContainer(cont: Phaser.Group): void {
+        cont.add(this.emitter);
+    }
+
     start(): void {
         this.emitter.flow(7000, 500, 3, -1);
     }

@@ -102,11 +102,15 @@ export class Chest {
     }
 
     show(): void {
+        this.disable();
         TweenUtils.slideIn(this.container, 0);
+        TweenUtils.delayedCall(1010, this.enable, this);
     }
 
     hide(): void {
+        this.disable();
         TweenUtils.slideOut(this.container, this.hiddenX);
+        TweenUtils.delayedCall(1010, this.enable, this);
     }
 
     private nextPage(): void {
@@ -141,6 +145,8 @@ export class Chest {
         const page = new ChestPage(this, this.state, this.container);
         if (add)
             this.pages.push(page);
+        else
+            page.hide();
         return page;
     }
 

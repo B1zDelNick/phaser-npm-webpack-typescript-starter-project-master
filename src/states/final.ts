@@ -1,4 +1,3 @@
-import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
 import {AssetMode, GameConfig, Sites} from '../config/game.config';
 import {GuiMcg} from './gui/mcg.gui';
@@ -9,26 +8,19 @@ import {GuiUtils} from '../utils/gui.utils';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 import {EffectUtils} from '../utils/effect.utils';
-import {PreloaderUtils} from '../utils/preloader.utils';
-import {IParticle} from './spec-effects/particle/i.particle';
-import {SnowBackParticles} from './spec-effects/particle/snow.back.particle';
-import {SnowMiddleParticles} from './spec-effects/particle/snow.middle.particle';
+import {CrossPhone} from './template/final/cross.phone';
 
-export default class Start extends Phaser.State {
+export default class Final extends Phaser.State {
 
-    private NEXT = 'Select';
+    private NEXT = 'Start';
     private nextPrepared = false;
 
     private gui: IGui = null;
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
-    private fg: Phaser.Sprite = null;
-    private girls: Phaser.Sprite = null;
-    private title: Phaser.Sprite = null;
-    private snowB: IParticle = null;
-    private snowM: IParticle = null;
-    private snowF: IParticle = null;
+    private _mask: Phaser.Graphics = null;
+    private crossPhone: CrossPhone = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -37,23 +29,20 @@ export default class Start extends Phaser.State {
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {
-                this.gui = new GuiMcg(this, StateType.START_STATE);
+                this.gui = new GuiMcg(this, StateType.FINAL_STATE);
                 break;
             }
             case Sites.DRESSUP_MIX:
             {
-                this.gui = new GuiDu(this, StateType.START_STATE);
+                this.gui = new GuiDu(this, StateType.FINAL_STATE);
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.gui = new GuiFgc(this, StateType.START_STATE);
+                this.gui = new GuiFgc(this, StateType.FINAL_STATE);
                 break;
             }
         }
-        this.snowB = null;
-        this.snowM = null;
-        this.snowF = null;
     }
 
     public preload(): void {
@@ -61,27 +50,49 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg6').getName());
 
-        this.snowB = new SnowBackParticles();
-        this.snowB.init(null, null);
-        this.snowB.start();
-        this.snowM = new SnowMiddleParticles();
-        this.snowM.init(null, null);
-        this.snowM.start();
-        this.snowF = new SnowMiddleParticles();
-        this.snowF.init(null, null);
-        this.snowF.start();
+        this.crossPhone = new CrossPhone(this)
+            .mask(275, 121, 361, 580, -10.5)
+            .page()
+                .existing(GameConfig.DECOR_1.getBody(), 160, 195, .55, 1, -10)
+                .sprite(189, -70,
+                    ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Phone1)
+                .build()
+            .page()
+                .existing(GameConfig.CONT_1, 50, 90, .85, 1, -10)
+                .sprite(189, -70,
+                    ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Phone2)
+                .build()
+            .page()
+                .banner(275, 108,
+                    ImageUtils.getAtlasClass('AtlasesStateFinal2').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateFinal2').Frames.Cross,
+                    GuiUtils.goCross(''))
+                .sprite(189, -70,
+                    ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Phone3)
+                .button(455, 447, 1, -11.5,
+                    ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+                    ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.PlayFgc,
+                    GuiUtils.goCross(''))
+                .build()
+            .page()
+                .existing(GameConfig.CONT_2, 70, 200, .85, 1, -10)
+                .sprite(189, -70,
+                    ImageUtils.getAtlasClass('AtlasesStateFinal2').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateFinal2').Frames.Phone4)
+                .build()
+            .rightArrow(630, 220, 1.13, -5,
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').getName(),
+                ImageUtils.getAtlasClass('AtlasesGuiFgc').Frames.RArrFgc)
+            .build();
 
-        this.fg = this.game.add.sprite(0, -4, ImageUtils.getImageClass('ImagesFg').getName());
-
-        this.girls = this.game.add.sprite(392, 120,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Girls);
-
-        this.title = this.game.add.sprite(90, 482,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        /*this.phone = this.game.add.sprite(189, -70,
+            ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Phone1);*/
 
         // GUI Buttons
         this.gui.addGui(false);
@@ -94,10 +105,8 @@ export default class Start extends Phaser.State {
             GuiUtils.addOutGlowHandler
         );
         EffectUtils.makeScaleAnimation(moreBtn, 1.05, Phaser.Timer.SECOND * .5);
-        EffectUtils.makeMoveAnimation(this.title, 90, 497, Phaser.Timer.SECOND * 1.1);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
-
         // Try to retrieve Saver OR else fade effect will apply
         this.saver = GuiUtils.getSaver();
 
@@ -107,55 +116,45 @@ export default class Start extends Phaser.State {
         } else {
             this.game.camera.flash(0x000000, 1000);
         }
-        // ONLY FOR START STATE !!!!!!!!!!!!!!!!!
-        if (!GameConfig.GAME_COMPLETED)
-            this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1);
 
         // Assets Managment starts here
-        if (GameConfig.IS_ASSETS_LOADED)
-            this.waitForLoading();
-        else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
-            // Loads
-            PreloaderUtils.preloadSelectState();
-            AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
-        }
+        // Nothing to Load Here, just enjoy :)
+        this.nextPrepared = true;
+        if (!GameConfig.IS_ASSETS_LOADED)
+            GameConfig.IS_ASSETS_LOADED = true;
     }
 
     public update(): void {
         super.update(this.game);
-        if (this.snowB) this.snowB.update();
-        if (this.snowM) this.snowM.update();
-        if (this.snowF) this.snowF.update();
     }
 
     public shutdown(): void {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
 
-        if (this.snowB) this.snowB.dispose();
-        if (this.snowM) this.snowM.dispose();
-        if (this.snowF) this.snowF.dispose();
-
         if (this.bg) this.bg.destroy(true);
-        if (this.fg) this.fg.destroy(true);
-        if (this.title) this.title.destroy(true);
-        if (this.girls) this.girls.destroy(true);
+        if (this.crossPhone) this.crossPhone.dispose();
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);
 
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();
+
+        GameConfig.DECOR_1.dispose();
+        GameConfig.DECOR_1 = null;
     }
 
     private waitForLoading(): void {
         this.nextPrepared = true;
     }
 
-    private nextState(): void {
+    private nextState(sprite: Phaser.Button): void {
+        GameConfig.GAME_COMPLETED = true;
+        GameConfig.CURRENT_STATE = 0;
         this.gui.disable();
         if (this.saver) {
             this.saver.setOnOutCallback(() => {

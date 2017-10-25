@@ -53,4 +53,8 @@ export class DecorBackground {
         }
         this.container.destroy(true);
     }
+
+    getBody(): Phaser.Group {
+        return this.container;
+    }
 }
