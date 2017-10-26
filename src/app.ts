@@ -54,7 +54,7 @@ function startApp(): void {
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'BFFs Hot Runway Collection');
+        '100 Trendy Crop Top Looks for Princess');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
