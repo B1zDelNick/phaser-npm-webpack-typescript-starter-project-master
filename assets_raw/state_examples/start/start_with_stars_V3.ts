@@ -15,7 +15,7 @@ import {SnowBackParticles} from './spec-effects/particle/snow.back.particle';
 import {SnowMiddleParticles} from './spec-effects/particle/snow.middle.particle';
 import {GoldStarParticles} from './spec-effects/particle/gold.star.particle';
 
-export default class Start extends Phaser.State {
+export default class Kjhjfjfjfjfjfj extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;
@@ -59,9 +59,13 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        // this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
-        const text = this.game.add.text(
+        this.stars = new GoldStarParticles();
+        this.stars.init(null, null);
+        this.stars.start();
+
+        /*const text = this.game.add.text(
             this.game.world.centerX,
             this.game.world.centerY,
             'Your Game starts here! ;)',
@@ -69,11 +73,46 @@ export default class Start extends Phaser.State {
                 'font': 'bold 50px Arial Black',
                 'fill': '#00f'
             });
-        text.anchor.setTo(.5);
+        text.anchor.setTo(.5);*/
+
+        this.girl1 = this.game.add.sprite(404, 15,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr1);
+        this.girl2 = this.game.add.sprite(128, 74,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr2);
+        this.girl3 = this.game.add.sprite(473, 52,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr3);
+        this.titleB = this.game.add.sprite(136, 282,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.TitleB);
+        this.title = this.game.add.sprite(136, 282,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+
+        this.girl1.alpha = 0;
+        this.girl2.alpha = 0;
+        this.girl3.alpha = 0;
+        this.titleB.alpha = 0;
+        this.title.alpha = 0;
+        this.titleB.scale.setTo(0);
+        this.title.scale.setTo(0);
+        this.title.x = 480;
+        this.titleB.x = 480;
 
         // GUI Buttons
-        this.gui.addGui();
+        this.gui.addGui(false);
         const playBtn = this.gui.addPlayBtn(this.nextState);
+        const moreBtn = this.gui.addExtraMore(
+            960 - 191, 720 - 202,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE,
+            GuiUtils.addOverGlowHandler,
+            GuiUtils.addOutGlowHandler
+        );
+        EffectUtils.makeScaleAnimation(moreBtn, 1.05, Phaser.Timer.SECOND * .5);
+        // EffectUtils.makeLightRotateAnimation(moreBtn, Phaser.Timer.SECOND * .8);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
 
@@ -91,7 +130,14 @@ export default class Start extends Phaser.State {
             this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeIn(this.girl1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeIn(this.girl2, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1.5);
+        TweenUtils.fadeIn(this.girl3, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2);
+        TweenUtils.moveAndScaleAndFade(this.titleB, 136, 282, 1, 1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2.5);
+        TweenUtils.moveAndScaleAndFade(this.title, 136, 282, 1, 1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2.5, () => {
+            EffectUtils.makeAlphaAnimation(this.title, .55, Phaser.Timer.SECOND * 1);
+        }), this;
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 3);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)

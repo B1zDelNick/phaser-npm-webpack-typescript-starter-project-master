@@ -49,7 +49,9 @@ export class ChestPage {
                 }*/
                 item.button.inputEnabled = false;
                 item.button.filters = null;
-                TweenUtils.fadeOut(item.button, Phaser.Timer.SECOND * .3);
+                TweenUtils.fadeOut(item.button, Phaser.Timer.SECOND * .3, 0, () => {
+                    item.button.visible = false;
+                }, this);
                 return true;
             }
         }
@@ -59,6 +61,7 @@ export class ChestPage {
     tryToSetLikeVisibility(name: string): void {
         for (let item of this.items) {
             if (item.name.indexOf(name) !== -1) {
+                item.button.visible = true;
                 item.button.inputEnabled = true;
                 item.button.filters = null;
                 TweenUtils.fadeIn(item.button, Phaser.Timer.SECOND * .3);
