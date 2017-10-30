@@ -11,23 +11,28 @@ export class ChestPage {
     private owner: Chest = null;
     private game: Phaser.Game = null;
     private state: Phaser.State = null;
-
+    public hideStatic: boolean;
     private container: Phaser.Group = null;
     private shelf: Phaser.Sprite = null;
     private items: Array<ChestItem> = [];
     private compoundItems: Array<ChestCompoundItem> = [];
 
-    constructor(owner: Chest, state: Phaser.State, container: Phaser.Group) {
+    constructor(owner: Chest, state: Phaser.State, container: Phaser.Group, hideStatic: boolean) {
         this.instance = this;
         this.owner = owner;
         this.game = GameConfig.GAME;
         this.state = state;
         this.container = this.game.add.group();
+        this.hideStatic = hideStatic;
         container.add(this.container);
     }
 
-    findItem(name: string): ChestItem {
+    findItem(name: string): ChestItem|ChestCompoundItem {
         for (let item of this.items) {
+            if (item.name === name)
+                return item;
+        }
+        for (let item of this.compoundItems) {
             if (item.name === name)
                 return item;
         }

@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "d_10.png",
+	"frame": {"x":0,"y":0,"w":559,"h":569},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":559,"h":569},
+	"sourceSize": {"w":559,"h":569}
+},
+{
+	"filename": "d_11.png",
+	"frame": {"x":559,"y":0,"w":559,"h":569},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":559,"h":569},
+	"sourceSize": {"w":559,"h":569}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_avrora_two_dress_2.png",
+	"format": "RGBA8888",
+	"size": {"w":1118,"h":569},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e89628ac25724cae78de9641addf1755:7eeeacb638351109e1e072590c445f93:88ecf618be3e74c486c8aaba9ae711d6$"
+}
+}

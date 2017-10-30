@@ -7,8 +7,9 @@ export class DollLayer {
 
     private game: Phaser.Game = null;
     private sprite: Phaser.Sprite = null;
-    private asset: string;
-    private frameClass: any = null;
+    // private asset: string;
+    // private frameClass: any = null;
+    private assetClass: string = null;
     private guiAtlas: string = null;
     private dummyFrame: any = null;
     private prefix: string;
@@ -19,16 +20,24 @@ export class DollLayer {
     private tempIndex: number = -1;
 
     constructor(container: Phaser.Group, x: number, y: number,
-                asset: string, frameClass: any, prefix?: string, defaultFrame?: string,
+                assetClass: string, prefix?: string, defaultFrame?: string,
                 removable: boolean = false, strictIndexes: number[] = []) {
 
         this.game = GameConfig.GAME;
-        this.asset = asset;
-        this.frameClass = frameClass;
+        // this.asset = asset;
+        // this.frameClass = frameClass;
+        this.assetClass = assetClass;
         this.prefix = prefix;
         this.removable = removable;
         this.strictIndexes = strictIndexes;
         this.isEmpty = isUndefined(defaultFrame) || isNull(defaultFrame);
+        if (!this.isEmpty) {
+            if (!isNaN(parseInt(defaultFrame.substr(defaultFrame.length - 1))))
+                this.tempIndex = parseInt(defaultFrame.substr(defaultFrame.length - 1));
+            else {
+                this.tempIndex = 0;
+            }
+        }
 
         switch (GameConfig.SITE) {
             case Sites.FREE_GAMES_CASUAL: {
@@ -49,8 +58,8 @@ export class DollLayer {
         }
 
         this.sprite = this.game.add.sprite(x, y,
-            this.isEmpty ? this.guiAtlas : asset,
-            this.isEmpty ? this.dummyFrame : frameClass[defaultFrame],
+            this.isEmpty ? this.guiAtlas : this.getClassForIndex(this.tempIndex).getName(),
+            this.isEmpty ? this.dummyFrame : this.getClassForIndex(this.tempIndex).Frames[defaultFrame],
             container);
         if (this.sprite.inputEnabled) {
             this.sprite.input.pixelPerfectClick = this.sprite.input.pixelPerfectOver = true;
@@ -61,7 +70,7 @@ export class DollLayer {
         // console.log(this.sprite.frameName, this.sprite.key, this.prefix + index);
         // console.log(this.sprite.frameName === this.frameClass[this.prefix + index], this.removable);
         this.tempIndex = index;
-        if (this.sprite.frameName === this.frameClass[this.prefix + (this.isSecondary ? 'S' : '') + index] && this.removable || index === -1) {
+        if (this.sprite.frameName === this.getClassForIndex(index).Frames[this.prefix + (this.isSecondary ? 'S' : '') + index] && this.removable || index === -1) {
             this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
             this.isEmpty = true;
             // console.log(`Remove ${this.prefix}`);
@@ -74,8 +83,8 @@ export class DollLayer {
             }
             else {
                 this.sprite.loadTexture(
-                    this.asset,
-                    this.frameClass[(this.prefix + (this.isSecondary ? 'S' : '') + (index !== 0 ? index : ''))]);
+                    this.getClassForIndex(index).getName(),
+                    this.getClassForIndex(index).Frames[(this.prefix + (this.isSecondary ? 'S' : '') + (index !== 0 ? index : ''))]);
                 this.isEmpty = false;
                 // console.log(`Equip ${this.prefix}${this.tempIndex}`);
             }
@@ -88,9 +97,28 @@ export class DollLayer {
         this.isSecondary = val;
         if (!this.isEmpty) {
             this.sprite.loadTexture(
-                this.asset,
-                this.frameClass[(this.prefix + (this.isSecondary ? 'S' : '') + (this.tempIndex !== 0 ? this.tempIndex : ''))]);
+                this.getClassForIndex(this.tempIndex).getName(),
+                this.getClassForIndex(this.tempIndex).Frames[(this.prefix + (this.isSecondary ? this.tempIndex !== 0 ? 'S' : '' : '') + (this.tempIndex !== 0 ? this.tempIndex : ''))]);
         }
+    }
+
+    getClassForIndex(index: number): any {
+        if (index === 0 && ImageUtils.getAtlasClass(this.assetClass).Frames[this.prefix]) {
+            return ImageUtils.getAtlasClass(this.assetClass);
+        }
+        else if (ImageUtils.getAtlasClass(this.assetClass).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(this.assetClass);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}2`) && ImageUtils.getAtlasClass(`${this.assetClass}2`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}2`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}3`) && ImageUtils.getAtlasClass(`${this.assetClass}3`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}3`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}4`) && ImageUtils.getAtlasClass(`${this.assetClass}4`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}4`);
+        }
+        return ImageUtils.getAtlasClass(this.assetClass);
     }
 
     remove() {

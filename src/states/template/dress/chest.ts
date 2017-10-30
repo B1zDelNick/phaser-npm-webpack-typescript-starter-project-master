@@ -88,10 +88,11 @@ export class Chest {
     }
 
     findItem(name: string): Phaser.Button {
-        let item: ChestItem = null;
-        if (this.staticPage !== null)
+        let item: ChestItem|ChestCompoundItem = null;
+        if (this.staticPage !== null) {
             item = this.staticPage.findItem(name);
-        if (this.pages.length > 0) {
+        }
+        if (item == null && this.pages.length > 0) {
             for (let page of this.pages) {
                 item = page.findItem(name);
                 if (item !== null)
@@ -120,6 +121,12 @@ export class Chest {
             this.pages[i].hide();
         }
         this.pages[this.currentPage].show();
+        if (this.pages[this.currentPage].hideStatic) {
+            this.staticPage.hide();
+        }
+        else {
+            this.staticPage.show();
+        }
     }
 
     private prevPage(): void {
@@ -129,6 +136,12 @@ export class Chest {
             this.pages[i].hide();
         }
         this.pages[this.currentPage].show();
+        if (this.pages[this.currentPage].hideStatic) {
+            this.staticPage.hide();
+        }
+        else {
+            this.staticPage.show();
+        }
     }
 
     configure(params: IChestConfig): Chest {
@@ -141,8 +154,8 @@ export class Chest {
         return this;
     }
 
-    page(add: boolean = true): ChestPage {
-        const page = new ChestPage(this, this.state, this.container);
+    page(add: boolean = true, hideStatic: boolean = false): ChestPage {
+        const page = new ChestPage(this, this.state, this.container, hideStatic);
         if (add)
             this.pages.push(page);
         else
@@ -151,7 +164,7 @@ export class Chest {
     }
 
     static(): ChestPage {
-        this.staticPage = new ChestPage(this, this.state, this.container);
+        this.staticPage = new ChestPage(this, this.state, this.container, false);
         return this.staticPage;
     }
 

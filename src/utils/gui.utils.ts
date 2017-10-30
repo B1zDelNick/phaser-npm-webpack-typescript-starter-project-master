@@ -38,6 +38,12 @@ export class GuiUtils {
         return saver;
     }
 
+    public static centrize(target: any): void {
+        target.anchor.set(0.5);
+        target.x = target.x + target.width / 2;
+        target.y = target.y + target.height / 2;
+    }
+
     public static makeButton(
         parent: any, container: Phaser.Group,
         x: number, y: number, scale: number = 1,

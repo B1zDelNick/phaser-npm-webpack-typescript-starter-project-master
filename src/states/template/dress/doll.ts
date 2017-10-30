@@ -28,8 +28,8 @@ export class Doll {
         TweenUtils.fadeIn(this.container, force ? 1 : 500);
     }
 
-    layer(x: number, y: number, name: string, asset: string, frameClass: any, prefix?: string, defaultFrame?: string, removable: boolean = false, strictIndexes?: number[], dependsOn?: string[]): Doll {
-        this.layers[name] = new DollLayer(this.container, x, y, asset, frameClass, prefix, defaultFrame, removable, strictIndexes);
+    layer(x: number, y: number, name: string, assetClass: string, prefix?: string, defaultFrame?: string, removable: boolean = false, strictIndexes?: number[], dependsOn?: string[]): Doll {
+        this.layers[name] = new DollLayer(this.container, x, y, assetClass, prefix, defaultFrame, removable, strictIndexes);
         if (dependsOn) {
             for (let dep of dependsOn) {
                 this.dependencies.set(dep, name);
@@ -45,6 +45,16 @@ export class Doll {
         }
         if (!this.layers[item]) return false;
         const result = this.layers[item].operate(index);
+        /*let dep: string;
+        let depIndex: number = -1;
+        if (this.dependencies.get(item).indexOf('_') !== -1) {
+            dep = this.dependencies.get(item).split('_')[0];
+            depIndex = parseInt(this.dependencies.get(item).split('_')[1]);
+        }
+        else {
+            dep = this.dependencies.get(item);
+        }
+        console.log(dep);*/
         if (this.dependencies.has(item)) {
             if (this.layers[item].isEmpty) {
                 this.layers[this.dependencies.get(item)].setSecondaryState(false);
@@ -53,7 +63,35 @@ export class Doll {
                 this.layers[this.dependencies.get(item)].setSecondaryState(true);
             }
         }
+        else if (this.dependencies.has(`${item}_${index}`)) {
+            if (this.layers[item].isEmpty) {
+                this.layers[this.dependencies.get(`${item}_${index}`)].setSecondaryState(false);
+            }
+            else {
+                this.layers[this.dependencies.get(`${item}_${index}`)].setSecondaryState(true);
+            }
+        }
+        else if (this.hasLike(item, index)) {
+            this.clearLayerByDependency(item);
+        }
         return result;
+    }
+
+    clearLayerByDependency(name: string) {
+        for (let key of this.dependencies.keys()) {
+            if (key.indexOf(name) !== -1) {
+                this.layers[this.dependencies.get(key)].setSecondaryState(false);
+            }
+        }
+    }
+
+    hasLike(name: string, index: number): boolean {
+        for (let key of this.dependencies.keys()) {
+            if ((key.indexOf(name) !== -1) && (key !== `${name}_${index}`)) {
+                return true;
+            }
+        }
+        return false;
     }
 
     off(item: string): void {
@@ -99,11 +137,21 @@ export class Doll {
             this.container.scale.setTo(val, val2);
     }
 
+    setAlpha(val: number): void {
+        this.container.alpha = val;
+    }
+
+    setAngle(val: number): void {
+        this.container.angle = val;
+    }
+
     getBody(): Phaser.Group {
         return this.container;
     }
 
     extract(): Doll {
+        this.container.parent.removeChild(this.container);
+        this.game.add.existing(this.container);
         this.game.world.remove(this.container);
         return this;
     }

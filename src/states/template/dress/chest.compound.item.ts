@@ -6,8 +6,8 @@ export class ChestCompoundItem {
 
     private game: Phaser.Game = null;
     private state: Phaser.State = null;
-    private button: Phaser.Button = null;
-    private name: string = null;
+    public button: Phaser.Button = null;
+    public name: string = null;
     private asset: string = null;
     private prefix: string = null;
     private frameClass: any = null;

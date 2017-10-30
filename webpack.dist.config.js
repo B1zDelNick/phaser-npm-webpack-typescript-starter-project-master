@@ -81,7 +81,7 @@ module.exports = {
             screw_ie8: true
         }),*/
         new HtmlWebpackPlugin({
-            title: '100 Trendy Crop Top Looks for Princess',
+            title: 'Princesses Fashion Designers Battle',
             gaScript:
             `<script>
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

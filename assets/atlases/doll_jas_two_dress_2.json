@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "d_10.png",
+	"frame": {"x":0,"y":0,"w":559,"h":569},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":559,"h":569},
+	"sourceSize": {"w":559,"h":569}
+},
+{
+	"filename": "d_11.png",
+	"frame": {"x":559,"y":0,"w":559,"h":569},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":559,"h":569},
+	"sourceSize": {"w":559,"h":569}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_jas_two_dress_2.png",
+	"format": "RGBA8888",
+	"size": {"w":1118,"h":569},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:29e38a31a58857e1ea96b9caffc1ba95:e3785467c7871a86ca9fd8a99efbd721:7ecd801fbf84bee1d2db56f730b1b010$"
+}
+}

@@ -1,5 +1,6 @@
 import {GameConfig} from '../../../config/game.config';
 import {DecorLayer} from './decor.layer';
+import {TweenUtils} from '../../../utils/tween.utils';
 export class DecorBackground {
 
     private game: Phaser.Game = null;
@@ -11,6 +12,14 @@ export class DecorBackground {
         this.game = GameConfig.GAME;
         this.container = this.game.add.group();
         this.container.position.setTo(x, y);
+    }
+
+    hide(force: boolean = false) {
+        TweenUtils.fadeOut(this.container, force ? 1 : 500);
+    }
+
+    show(force: boolean = false) {
+        TweenUtils.fadeIn(this.container, force ? 1 : 500);
     }
 
     next(layerName: string): void {
