@@ -15,7 +15,7 @@ import {IParticle} from './spec-effects/particle/i.particle';
 import {WinnerParticles} from './spec-effects/particle/winner.particle';
 import {Photo} from './template/result/photo.card';
 
-export default class Final extends Phaser.State {
+export default class Hjfjfjfhfjfjjfjfjf extends Phaser.State {
 
     private NEXT = 'Start';
     private nextPrepared = false;

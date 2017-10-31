@@ -24,11 +24,6 @@ export default class Start extends Phaser.State {
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
-    private girl1: Phaser.Sprite = null;
-    private girl2: Phaser.Sprite = null;
-    private girl3: Phaser.Sprite = null;
-    private girl4: Phaser.Sprite = null;
-    private title: Phaser.Sprite = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -58,40 +53,13 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
-
-        this.girl1 = this.game.add.sprite(388, 89,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr1);
-        this.girl2 = this.game.add.sprite(467, 93,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr2);
-        this.girl3 = this.game.add.sprite(20 - 700, 182,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr3);
-        this.girl4 = this.game.add.sprite(586 + 700, 171,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr4);
-        this.title = this.game.add.sprite(197, 324,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
-
-        this.girl1.scale.setTo(.365);
-        this.girl2.scale.setTo(.365);
+        // this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
         // GUI Buttons
-        this.gui.addGui(false);
+        this.gui.addGui();
         const playBtn = this.gui.addPlayBtn(this.nextState);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
-        const moreBtn = this.gui.addExtraMore(
-            960 - 148, 720 - 173,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE,
-            GuiUtils.addOverGlowHandler,
-            GuiUtils.addOutGlowHandler
-        );
-        EffectUtils.makeScaleAnimation(moreBtn, 1.05, Phaser.Timer.SECOND * .5);
 
         // Try to retrieve Saver OR else fade effect will apply
         this.saver = GuiUtils.getSaver();
@@ -107,11 +75,7 @@ export default class Start extends Phaser.State {
             this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.moveIn(this.girl3, 20, 182, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1);
-        TweenUtils.moveIn(this.girl4, 586, 171, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1);
-        TweenUtils.moveAndScaleIn(this.girl1, 236, 2, 1, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2);
-        TweenUtils.moveAndScaleIn(this.girl2, 455, 13, 1, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2);
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 3);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)

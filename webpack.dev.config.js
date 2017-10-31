@@ -13,10 +13,10 @@ module.exports = {
     resolve: {
         extensions: ['.ts', '.js'],
         alias: {
-            pixi: path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
-            phaser: path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js'),
+            // pixi: path.join(__dirname, 'node_modules/phaser-ce/build/custom/pixi.js'),
+            // phaser: path.join(__dirname, 'node_modules/phaser-ce/build/custom/phaser-split.js'),
             // phaser: path.join(__dirname, 'node_modules/phaser-ce/build/phaser.js'),
-            p2: path.join(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
+            // p2: path.join(__dirname, 'node_modules/phaser-ce/build/custom/p2.js'),
             // ads: path.join(__dirname, 'node_modules/@orange-games/phaser-ads/build/phaser-ads.js'),
             // ads: path.join(__dirname, 'vendor/phaser-ads/phaser-ads.js'),
             // spriter: path.join(__dirname, 'vendor/spriter/spriter.js'),
@@ -51,7 +51,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'Test',
             gaScript: '',
-            phaserScript: '',
+            phaserScript: `<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.0/phaser.min.js"></script>`, //
             imaScript: '', // `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
             template: path.join(__dirname, 'templates/index.ejs')
         })
@@ -71,10 +71,10 @@ module.exports = {
         rules: [
             { test: /\.ts$/, enforce: 'pre', loader: 'tslint-loader' },
             { test: /assets(\/|\\)/, loader: 'file-loader?name=assets/[hash].[ext]' },
-            { test: /pixi\.js$/, loader: 'expose-loader?PIXI' },
-            { test: /phaser-split\.js$/, loader: 'expose-loader?Phaser' },
+            // { test: /pixi\.js$/, loader: 'expose-loader?PIXI' },
+            // { test: /phaser-split\.js$/, loader: 'expose-loader?Phaser' },
             // { test: /phaser\.js$/, loader: 'expose-loader?Phaser' },
-            { test: /p2\.js$/, loader: 'expose-loader?p2' },
+            // { test: /p2\.js$/, loader: 'expose-loader?p2' },
             // { test: /phaser-ads\.js$/, loader: 'expose-loader?PhaserAds' },
             // { test: /spriter\.js$/, loader: 'expose-loader?Spriter' },
             { test: /\.ts$/, loader: 'ts-loader', exclude: '/node_modules/' }
