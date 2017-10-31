@@ -8,12 +8,6 @@ import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
-import {EffectUtils} from '../utils/effect.utils';
-import {PreloaderUtils} from '../utils/preloader.utils';
-import {IParticle} from './spec-effects/particle/i.particle';
-import {SnowBackParticles} from './spec-effects/particle/snow.back.particle';
-import {SnowMiddleParticles} from './spec-effects/particle/snow.middle.particle';
-import {GoldStarParticles} from './spec-effects/particle/gold.star.particle';
 
 export default class Start extends Phaser.State {
 
