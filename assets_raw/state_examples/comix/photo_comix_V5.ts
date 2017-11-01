@@ -1,4 +1,4 @@
-import * as Assets from '../assets';
+import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
 import {AssetMode, GameConfig, Sites} from '../config/game.config';
 import {GuiMcg} from './gui/mcg.gui';
@@ -6,24 +6,29 @@ import {GuiDu} from './gui/du.gui';
 import {GuiFgc} from './gui/fgc.gui';
 import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
+import {PreloaderUtils} from '../utils/preloader.utils';
+import {ILaser} from './spec-effects/laser/i.laser';
 import {EffectUtils} from '../utils/effect.utils';
+import {LaserType} from './spec-effects/laser/enum.laser';
+import {Animation} from '../utils/animation/anim';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
-import {CrossButton} from './template/final/cross.button';
 
-export default class Final extends Phaser.State {
+export default class Jjdfhdfghdfjjkjjdf extends Phaser.State {
 
-    private NEXT = 'Start';
+    private NEXT = 'Result';
     private nextPrepared = false;
 
     private gui: IGui = null;
     private saver: ISaver = null;
 
-    private cross1: CrossButton = null;
-    private cross2: CrossButton = null;
-    private cross3: CrossButton = null;
+    private container: Phaser.Group = null;
+    private btnContainer: Phaser.Group = null;
+    private phone: Phaser.Sprite = null;
+    private flash: Phaser.Sprite = null;
+    private finger: Phaser.Sprite = null;
+    private btn: Phaser.Button = null;
 
-    private bg: Phaser.Sprite = null;
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
 
@@ -31,17 +36,17 @@ export default class Final extends Phaser.State {
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {
-                this.gui = new GuiMcg(this, StateType.FINAL_STATE);
+                this.gui = new GuiMcg(this, StateType.COMIX_STATE);
                 break;
             }
             case Sites.DRESSUP_MIX:
             {
-                this.gui = new GuiDu(this, StateType.FINAL_STATE);
+                this.gui = new GuiDu(this, StateType.COMIX_STATE);
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.gui = new GuiFgc(this, StateType.FINAL_STATE);
+                this.gui = new GuiFgc(this, StateType.COMIX_STATE);
                 break;
             }
         }
@@ -52,44 +57,43 @@ export default class Final extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg5').getName());
+        this.container = this.game.add.group();
+        this.container.add(this.game.add.sprite(0, 0,
+            ImageUtils.getImageClass(`ImagesFon${GameConfig.SELECTED_BG}`).getName()));
 
-        this.cross1 = new CrossButton(this, 'http://dressupmix.com/Free-Dressup-Games/Princess/Princesses-Double-Boho-Wedding-play.html');
-        this.cross2 = new CrossButton(this, 'http://dressupmix.com/Free-Dressup-Games/Princess/Princesses-BFFs-Fall-Party-play.html');
-        this.cross3 = new CrossButton(this, 'http://dressupmix.com/Free-Dressup-Games/Princess/Princesses-Movie-Rehearsal-play.html');
+        this.container.add(GameConfig.DOLL_2.getBody());
+        this.container.add(GameConfig.DOLL_1.getBody());
 
-        const doll1 = this.cross1
-            .buttonAndReturn(55, 275, 1,
-                ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
-                ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Cross1, null, null);
-        const doll2 = this.cross2
-            .buttonAndReturn(347, 275, 1,
-                ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
-                ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Cross2, null, null);
-        const doll3 = this.cross3
-            .buttonAndReturn(636, 275, 1,
-                ImageUtils.getAtlasClass('AtlasesStateFinal').getName(),
-                ImageUtils.getAtlasClass('AtlasesStateFinal').Frames.Cross3, null, null);
+        GameConfig.DOLL_1.setPosition(410, 55);
+        GameConfig.DOLL_2.setPosition(220, 50);
+        GameConfig.DOLL_1.setAlpha(0);
+        GameConfig.DOLL_2.setAlpha(0);
 
-        const btn1 = this.cross1
-            .buttonAndReturn(138, 405, 1.1,
-                ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
-                ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.PlayDu,
-                GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
-        const btn2 = this.cross2
-            .buttonAndReturn(431, 405, 1.1,
-                ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
-                ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.PlayDu,
-                GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
-        const btn3 = this.cross3
-            .buttonAndReturn(724, 405, 1.1,
-                ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
-                ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.PlayDu,
-                GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
+        this.phone = this.game.add.sprite(0, -720,
+            ImageUtils.getAtlasClass('AtlasesStatePhoto').getName(),
+            ImageUtils.getAtlasClass('AtlasesStatePhoto').Frames.Phone);
+        this.flash = this.game.add.sprite(0, 0,
+            ImageUtils.getAtlasClass('AtlasesStatePhoto').getName(),
+            ImageUtils.getAtlasClass('AtlasesStatePhoto').Frames.Flash);
+        this.flash.alpha = 0;
+
+        this.btnContainer = this.game.add.group();
+        this.btn = GuiUtils.makeButton(
+            this, this.btnContainer, 423, 220, 1,
+            'btn', ImageUtils.getAtlasClass('AtlasesStatePhoto').getName(),
+            ImageUtils.getAtlasClass('AtlasesStatePhoto').Frames.PhotoBtn,
+            true, true, true,
+            this.shoot, GuiUtils.addOverHandler, GuiUtils.addOutHandler
+        );
+        this.btn.scale.setTo(0);
+        this.btn.alpha = 0;
+
+        this.finger = this.game.add.sprite(960, 720,
+            ImageUtils.getAtlasClass('AtlasesStatePhoto').getName(),
+            ImageUtils.getAtlasClass('AtlasesStatePhoto').Frames.Finger);
 
         // GUI Buttons
         this.gui.addGui(false);
-        this.gui.addPlayBtn(this.nextState);
         const moreBtn = this.gui.addExtraMore(
             960 - 124, 720 - 200,
             ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
@@ -110,18 +114,34 @@ export default class Final extends Phaser.State {
         }
 
         // Animations goes here
-        doll1.filters = [EffectUtils.makeGlowAnimation()];
-        doll2.filters = [EffectUtils.makeGlowAnimation()];
-        doll3.filters = [EffectUtils.makeGlowAnimation()];
-        EffectUtils.makeScaleAnimation(btn1, 1.15, Phaser.Timer.SECOND * .6);
-        EffectUtils.makeScaleAnimation(btn2, 1.15, Phaser.Timer.SECOND * .6);
-        EffectUtils.makeScaleAnimation(btn3, 1.15, Phaser.Timer.SECOND * .6);
+        TweenUtils.delayedCall(Phaser.Timer.SECOND * 2, () => {
+            GameConfig.DOLL_1.show();
+            GameConfig.DOLL_2.show();
+        }, this);
+        TweenUtils.moveIn(this.phone, 0, 0, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 3);
+        TweenUtils.fadeAndScaleIn(this.btn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 4, () => {
+            this.btn.filters = [EffectUtils.makeGlowAnimation(0xff00ee, 1000, true, 99999, 250)];
+            EffectUtils.makeScaleAnimation(this.btn);
+        }, this);
 
         // Assets Managment starts here
-        // Nothing to Load Here, just enjoy :)
-        this.nextPrepared = true;
-        if (!GameConfig.IS_ASSETS_LOADED)
-            GameConfig.IS_ASSETS_LOADED = true;
+        if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
+            this.waitForLoading();
+        else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
+            PreloaderUtils.preloadDress1State();
+            AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
+        }
+    }
+
+    private shoot() {
+        this.btn.inputEnabled = false;
+        TweenUtils.moveIn(this.finger, 215, 217, Phaser.Timer.SECOND * 1.5, 0, () => {
+            TweenUtils.moveAndScaleIn(this.finger, 230, 240, 0.955,
+                Phaser.Timer.SECOND * .5, 0, () => {
+                EffectUtils.makeShootAnimation(this.flash);
+                TweenUtils.delayedCall(Phaser.Timer.SECOND * 1, this.nextState, this);
+            }, this);
+        }, this);
     }
 
     public update(): void {
@@ -132,10 +152,9 @@ export default class Final extends Phaser.State {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
 
-        this.bg.destroy(true);
-        this.cross1.dispose();
-        this.cross2.dispose();
-        this.cross3.dispose();
+        this.phone.destroy(true);
+        this.flash.destroy(true);
+        this.finger.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);
@@ -143,12 +162,8 @@ export default class Final extends Phaser.State {
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();
 
-        GameConfig.DOLL_1.dispose();
-        GameConfig.DOLL_2.dispose();
-
-        GameConfig.DOLL_1 = null;
-        GameConfig.DOLL_2 = null;
-        GameConfig.CONT_1 = null;
+        this.game.world.remove(this.container);
+        GameConfig.CONT_1 = this.container;
     }
 
     private waitForLoading(): void {
@@ -156,8 +171,6 @@ export default class Final extends Phaser.State {
     }
 
     private nextState(): void {
-        GameConfig.GAME_COMPLETED = true;
-        GameConfig.CURRENT_STATE = 0;
         this.gui.disable();
         if (this.saver) {
             this.saver.setOnOutCallback(() => {

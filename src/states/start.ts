@@ -50,29 +50,13 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
-
-        this.phone = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Phone);
-        this.title = this.game.add.sprite(0, 78,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
-        EffectUtils.makeMoveAnimation(this.title, 0, 93, Phaser.Timer.SECOND * 1.1);
+        // this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
         // GUI Buttons
-        this.gui.addGui(false);
+        this.gui.addGui();
         const playBtn = this.gui.addPlayBtn(this.nextState);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
-        const moreBtn = this.gui.addExtraMore(
-            960 - 124, 720 - 200,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE,
-            GuiUtils.addOverGlowHandler,
-            GuiUtils.addOutGlowHandler
-        );
-        EffectUtils.makeLightRotateAnimation(moreBtn, Phaser.Timer.SECOND * .8);
 
         // Try to retrieve Saver OR else fade effect will apply
         this.saver = GuiUtils.getSaver();

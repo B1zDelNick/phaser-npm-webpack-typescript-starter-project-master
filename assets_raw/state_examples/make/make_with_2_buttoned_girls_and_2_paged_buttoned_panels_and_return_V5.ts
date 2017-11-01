@@ -18,7 +18,7 @@ import {DecorBackground} from './template/decor/decor.background';
 import {Doll} from './template/dress/doll';
 import {Chest} from './template/dress/chest';
 
-export default class Make extends Phaser.State {
+export default class Jjfjdfjfjjkjdfj extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;

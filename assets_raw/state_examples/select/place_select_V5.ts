@@ -13,7 +13,7 @@ import {EffectUtils} from '../utils/effect.utils';
 import {AdUtils} from '../utils/ad/ad.utils';
 import {SoundUtils} from '../utils/sound/sound.utils';
 
-export default class Place extends Phaser.State {
+export default class Nbndfjjjjdfj extends Phaser.State {
 
     private NEXT = 'Photo';
     private nextPrepared = false;
