@@ -54,7 +54,7 @@ function startApp(): void {
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        '100 Trendy Crop Top Looks for Princess');
+        'Disney Style Vlog Tips for Blondes');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
