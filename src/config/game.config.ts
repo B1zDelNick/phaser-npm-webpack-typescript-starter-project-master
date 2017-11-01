@@ -26,6 +26,12 @@ export class GameConfig {
     public static CONT_1: Phaser.Group = null;
     public static CONT_2: Phaser.Group = null;
 
+    public static AD1_SHOWED: boolean = false;
+    public static AD2_SHOWED: boolean = false;
+    public static AD3_SHOWED: boolean = false;
+
+    public static SELECTED_BG: number = 0;
+
     private static _inited: boolean = false;
 
     private static _site: string;

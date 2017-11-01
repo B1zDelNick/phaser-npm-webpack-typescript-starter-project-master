@@ -114,6 +114,20 @@ export class Chest {
         TweenUtils.delayedCall(1010, this.enable, this);
     }
 
+    public showPage(index: number) {
+        this.currentPage = index;
+        for (let i = 0; i < this.pages.length; i++) {
+            this.pages[i].hide();
+        }
+        this.pages[this.currentPage].show();
+        if (this.pages[this.currentPage].hideStatic) {
+            if (this.staticPage) this.staticPage.hide();
+        }
+        else {
+            if (this.staticPage) this.staticPage.show();
+        }
+    }
+
     private nextPage(): void {
         this.currentPage++;
         if (this.currentPage > this.pages.length - 1) this.currentPage = 0;
@@ -122,10 +136,10 @@ export class Chest {
         }
         this.pages[this.currentPage].show();
         if (this.pages[this.currentPage].hideStatic) {
-            this.staticPage.hide();
+            if (this.staticPage) this.staticPage.hide();
         }
         else {
-            this.staticPage.show();
+            if (this.staticPage) this.staticPage.show();
         }
     }
 
@@ -137,10 +151,10 @@ export class Chest {
         }
         this.pages[this.currentPage].show();
         if (this.pages[this.currentPage].hideStatic) {
-            this.staticPage.hide();
+            if (this.staticPage) this.staticPage.hide();
         }
         else {
-            this.staticPage.show();
+            if (this.staticPage) this.staticPage.show();
         }
     }
 

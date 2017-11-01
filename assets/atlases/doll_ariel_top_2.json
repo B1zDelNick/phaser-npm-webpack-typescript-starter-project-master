@@ -1,0 +1,100 @@
+{"frames": [
+
+{
+	"filename": "t_15.png",
+	"frame": {"x":0,"y":0,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_16.png",
+	"frame": {"x":358,"y":0,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_17.png",
+	"frame": {"x":716,"y":0,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_18.png",
+	"frame": {"x":1074,"y":0,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_19.png",
+	"frame": {"x":0,"y":665,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_20.png",
+	"frame": {"x":358,"y":665,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_21.png",
+	"frame": {"x":716,"y":665,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_22.png",
+	"frame": {"x":1074,"y":665,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_23.png",
+	"frame": {"x":0,"y":1330,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_24.png",
+	"frame": {"x":358,"y":1330,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "t_b_18.png",
+	"frame": {"x":716,"y":1330,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_ariel_top_2.png",
+	"format": "RGBA8888",
+	"size": {"w":1432,"h":1995},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1b266f7449275efd668adb5a536adb42:66712a7c71f62c41a9cf8bcde1a61b63:baf2623d39a008db61d8f1c7c3e1e7da$"
+}
+}

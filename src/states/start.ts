@@ -8,6 +8,7 @@ import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
+import {EffectUtils} from '../utils/effect.utils';
 
 export default class Start extends Phaser.State {
 
@@ -18,6 +19,8 @@ export default class Start extends Phaser.State {
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
+    private phone: Phaser.Sprite = null;
+    private title: Phaser.Sprite = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -47,13 +50,29 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        // this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+
+        this.phone = this.game.add.sprite(0, 0,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Phone);
+        this.title = this.game.add.sprite(0, 78,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        EffectUtils.makeMoveAnimation(this.title, 0, 93, Phaser.Timer.SECOND * 1.1);
 
         // GUI Buttons
-        this.gui.addGui();
+        this.gui.addGui(false);
         const playBtn = this.gui.addPlayBtn(this.nextState);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
+        const moreBtn = this.gui.addExtraMore(
+            960 - 124, 720 - 200,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE,
+            GuiUtils.addOverGlowHandler,
+            GuiUtils.addOutGlowHandler
+        );
+        EffectUtils.makeLightRotateAnimation(moreBtn, Phaser.Timer.SECOND * .8);
 
         // Try to retrieve Saver OR else fade effect will apply
         this.saver = GuiUtils.getSaver();
@@ -69,7 +88,8 @@ export default class Start extends Phaser.State {
             this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75,
+            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 2 : Phaser.Timer.SECOND * 1);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)
@@ -89,6 +109,8 @@ export default class Start extends Phaser.State {
         this.game.tweens.removeAll();
 
         if (this.bg) this.bg.destroy(true);
+        if (this.phone) this.phone.destroy(true);
+        if (this.title) this.title.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);

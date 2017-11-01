@@ -70,7 +70,8 @@ export class DollLayer {
         // console.log(this.sprite.frameName, this.sprite.key, this.prefix + index);
         // console.log(this.sprite.frameName === this.frameClass[this.prefix + index], this.removable);
         this.tempIndex = index;
-        if (this.sprite.frameName === this.getClassForIndex(index).Frames[this.prefix + (this.isSecondary ? 'S' : '') + index] && this.removable || index === -1) {
+        const clazz = this.getClassForIndex(index);
+        if (this.sprite.frameName === clazz.Frames[this.prefix + (this.isSecondary ? 'S' : '') + index] && this.removable || index === -1) {
             this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
             this.isEmpty = true;
             // console.log(`Remove ${this.prefix}`);
@@ -81,10 +82,14 @@ export class DollLayer {
                 this.isEmpty = true;
                 // console.log(`Stricted ${this.prefix}${this.tempIndex}`);
             }
+            else if (isUndefined(clazz.Frames[this.prefix + (this.isSecondary ? 'S' : '') + index])) {
+                this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+                this.isEmpty = true;
+            }
             else {
                 this.sprite.loadTexture(
-                    this.getClassForIndex(index).getName(),
-                    this.getClassForIndex(index).Frames[(this.prefix + (this.isSecondary ? 'S' : '') + (index !== 0 ? index : ''))]);
+                    clazz.getName(),
+                    clazz.Frames[(this.prefix + (this.isSecondary ? 'S' : '') + (index !== 0 ? index : ''))]);
                 this.isEmpty = false;
                 // console.log(`Equip ${this.prefix}${this.tempIndex}`);
             }

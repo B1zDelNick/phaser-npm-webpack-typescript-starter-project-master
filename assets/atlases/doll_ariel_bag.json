@@ -1,0 +1,60 @@
+{"frames": [
+
+{
+	"filename": "bb_2.png",
+	"frame": {"x":0,"y":0,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "bb_3.png",
+	"frame": {"x":358,"y":0,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "bb_4.png",
+	"frame": {"x":0,"y":665,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "bb_5.png",
+	"frame": {"x":358,"y":665,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "bb_6.png",
+	"frame": {"x":0,"y":1330,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+},
+{
+	"filename": "bb_b_6.png",
+	"frame": {"x":358,"y":1330,"w":358,"h":665},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":358,"h":665},
+	"sourceSize": {"w":358,"h":665}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_ariel_bag.png",
+	"format": "RGBA8888",
+	"size": {"w":716,"h":1995},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5a045c269fcfbaf7ca4469783813e21f:7c9b378e907cc40331bb1e6deeaa9685:2f73f7bfddb4c767c0d8161856b90e97$"
+}
+}

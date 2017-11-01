@@ -1,0 +1,36 @@
+{"frames": [
+
+{
+	"filename": "more_e.png",
+	"frame": {"x":0,"y":0,"w":123,"h":204},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":123,"h":204},
+	"sourceSize": {"w":123,"h":204}
+},
+{
+	"filename": "phone.png",
+	"frame": {"x":124,"y":0,"w":960,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":720},
+	"sourceSize": {"w":960,"h":720}
+},
+{
+	"filename": "title.png",
+	"frame": {"x":1084,"y":0,"w":450,"h":505},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":450,"h":505},
+	"sourceSize": {"w":450,"h":505}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_start.png",
+	"format": "RGBA8888",
+	"size": {"w":1534,"h":720},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:dd47130bc26d2228dc4753828fbecfa4:60ef3519ccd0f9671dc10b8e65d988ef:71a2591e904cd80377f4aacc094ff22d$"
+}
+}

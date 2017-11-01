@@ -51,6 +51,14 @@ export class EffectUtils {
             .yoyo(loop);
     }
 
+    public static makeShootAnimation(target: any, period: number = 300): Phaser.Tween {
+        const game = GameConfig.GAME;
+        if (target.alpha !== 0) target.alpha = 0;
+        return game.add.tween(target).to({ alpha: 1 },
+            period, Phaser.Easing.Linear.None, true, 0, 0)
+            .yoyo(true);
+    }
+
     public static makeAlphaAnimation(target: any, alpha: number = 1, period: number = 500, loop: boolean = true): Phaser.Tween {
         const game = GameConfig.GAME;
         return game.add.tween(target).to({ alpha: alpha },

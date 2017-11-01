@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "galka.png",
+	"frame": {"x":0,"y":0,"w":138,"h":145},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":138,"h":145},
+	"sourceSize": {"w":138,"h":145}
+},
+{
+	"filename": "sel_1.png",
+	"frame": {"x":138,"y":0,"w":251,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":251,"h":720},
+	"sourceSize": {"w":251,"h":720}
+},
+{
+	"filename": "sel_2.png",
+	"frame": {"x":389,"y":0,"w":241,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":241,"h":720},
+	"sourceSize": {"w":241,"h":720}
+},
+{
+	"filename": "sel_3.png",
+	"frame": {"x":630,"y":0,"w":241,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":241,"h":720},
+	"sourceSize": {"w":241,"h":720}
+},
+{
+	"filename": "sel_4.png",
+	"frame": {"x":871,"y":0,"w":241,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":241,"h":720},
+	"sourceSize": {"w":241,"h":720}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_place.png",
+	"format": "RGBA8888",
+	"size": {"w":1112,"h":720},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:afb50d25351056aedf2487813c1dbf25:445e519c52ea536dca469fb6ccc80a22:08f189d86b98a41bdbfaaf0ade0ccb0b$"
+}
+}

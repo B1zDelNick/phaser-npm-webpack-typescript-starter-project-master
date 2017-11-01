@@ -156,8 +156,9 @@ export class Doll {
         return this;
     }
 
-    insert(): void {
+    insert(): Doll {
         this.game.add.existing(this.container);
+        return this;
     }
 
     dispose(): void {
