@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "shads.png",
+	"frame": {"x":0,"y":0,"w":512,"h":230},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":512,"h":230},
+	"sourceSize": {"w":512,"h":230}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_result.png",
+	"format": "RGBA8888",
+	"size": {"w":512,"h":230},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c4f50b923f6e5650491ab1ed64df5c25:7d3e23a6e5d554b1aa301a269c503d80:fa820aee1650d4b00a854738dbd273b4$"
+}
+}

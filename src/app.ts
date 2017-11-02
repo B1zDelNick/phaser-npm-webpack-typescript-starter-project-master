@@ -13,6 +13,12 @@ import * as Assets from './assets';
 import Start from './states/start';
 import {AssetMode, GameConfig, PublishMode, Sites} from './config/game.config';
 import {SaverTemplates} from './states/saver/enum.saver';
+import Comix from './states/comix';
+import Pread from './states/pread';
+import Make from './states/make';
+import Dress from './states/dress';
+import Result from './states/result';
+import Final from './states/final';
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
@@ -21,6 +27,12 @@ class App extends Phaser.Game {
         this.state.add('Boot', Boot);
         this.state.add('Preloader', Preloader);
         this.state.add('Start', Start);
+        this.state.add('Comix', Comix);
+        this.state.add('Pread', Pread);
+        this.state.add('Make', Make);
+        this.state.add('Dress', Dress);
+        this.state.add('Result', Result);
+        this.state.add('Final', Final);
 
         this.state.start('Boot');
     }
@@ -50,7 +62,7 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.DRESSUP_MIX,
+        Sites.MY_CUTE_GAMES,
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,

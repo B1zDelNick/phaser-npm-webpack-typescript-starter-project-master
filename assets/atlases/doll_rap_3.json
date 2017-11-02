@@ -1,0 +1,92 @@
+{"frames": [
+
+{
+	"filename": "hand.png",
+	"frame": {"x":0,"y":0,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "head.png",
+	"frame": {"x":389,"y":0,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "ht_1.png",
+	"frame": {"x":778,"y":0,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "ht_b_1.png",
+	"frame": {"x":1167,"y":0,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "j_1.png",
+	"frame": {"x":1556,"y":0,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "j_b_1.png",
+	"frame": {"x":0,"y":686,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "jk_1.png",
+	"frame": {"x":389,"y":686,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "jk_2.png",
+	"frame": {"x":778,"y":686,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "lp_1.png",
+	"frame": {"x":1167,"y":686,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "lp_2.png",
+	"frame": {"x":1556,"y":686,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_rap_3.png",
+	"format": "RGBA8888",
+	"size": {"w":1945,"h":1372},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6e6d441c490e0db7a9ba0755c7fff574:8d374badeb6598f53331fd273010e758:9086cf39f08fabe1976e56a1e1ac25ec$"
+}
+}

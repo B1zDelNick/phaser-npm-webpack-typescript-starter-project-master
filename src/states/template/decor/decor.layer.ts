@@ -17,6 +17,7 @@ export class DecorLayer {
         this.game = GameConfig.GAME;
         this.container = container;
         this.emptySlotModifier = allowEmpty ? 0 : 1;
+        // this.current = startFromFirst ? 0 : -1;
     }
 
     item(x: number, y: number, asset: string, frame?: any): DecorLayer {
@@ -38,6 +39,10 @@ export class DecorLayer {
         }
     }
 
+    getCurrent(): number {
+        return this.current;
+    }
+
     build(): DecorBackground {
         for (let sp of this.sprites) {
             sp.alpha = 0;
@@ -45,9 +50,12 @@ export class DecorLayer {
         if (this.emptySlotModifier === 1) {
             this.next();
         }
+        /*if (this.emptySlotModifier === 1) {
+            this.next();
+        }
         else {
             this.current = this.sprites.length;
-        }
+        }*/
         return this.owner;
     }
 

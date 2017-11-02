@@ -26,6 +26,10 @@ export class DecorBackground {
         this.layers[layerName].next();
     }
 
+    getIndex(layerName: string): number {
+        return this.layers[layerName].getCurrent();
+    }
+
     extract(): DecorBackground {
         this.game.world.remove(this.container);
         return this;
@@ -44,7 +48,7 @@ export class DecorBackground {
     }
 
     sprite(x: number, y: number, asset: string, frame?: any): DecorBackground {
-        this.sprites.push(this.game.add.sprite(x, y, asset, frame, this.container));
+        this.sprites.push(this.container.add(this.game.add.sprite(x, y, asset, frame)));
         return this;
     }
 

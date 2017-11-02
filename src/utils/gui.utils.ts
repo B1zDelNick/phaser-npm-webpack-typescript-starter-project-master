@@ -274,7 +274,7 @@ export class GuiUtils {
 
     public static goCross(game: string): Function {
         return () => {
-            window.open(GameConfig.crossUrl(game));
+            window.open(GameConfig.crossUrl(game), '_blank');
         };
     }
 }

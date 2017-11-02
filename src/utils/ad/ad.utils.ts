@@ -3,7 +3,7 @@ import {isNull, isUndefined} from 'util';
 
 export class AdUtils {
 
-    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=4682780325&ad_type=video_image&description_url=http%3A%2F%2Ffreegamescasual.com%2FFree-Online-Games%2FPrincesses%2FBFFs-Hot-Runway-Collection-play.html&videoad_start_delay=15000';
+    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=2971041849&ad_type=video_image&description_url=http%3A%2F%2Fmycutegames.com%2FGames%2FPrincess%2FDisney-Style-Vlog-Tips-for-Blondes-play.html&videoad_start_delay=15000';
     private static gdGame = 'b44cb531fcbd473d9ccdd2669cf49d9f';
     private static gdUser = '4ED9EE15-CD3B-42DA-AFF4-A2CB65F233D3-s1';
 
@@ -63,7 +63,7 @@ export class AdUtils {
         });
     }
 
-    public static playAds() {
+    public static playAds(callback?: Function, context?: any) {
         const game = GameConfig.GAME;
         // Set the ad provider, we use google Ima3 (ima 3 sdk)
         (game as any).ads.setAdProvider(new PhaserAds.AdProvider.Ima3(
@@ -79,6 +79,9 @@ export class AdUtils {
             // (game as any).ads.unMuteAfterAd();
             AdUtils.removeAdContainer();
         }, this);
+        if (callback) {
+            (game as any).ads.onContentResumed.addOnce(callback, context);
+        }
         // This is fired when the ad was clicked by the user
         (game as any).ads.onAdClicked.addOnce(function () {
             console.error('Clicked the ad!');
@@ -137,8 +140,7 @@ export class AdUtils {
         test.className = 'adsbox';
         document.body.appendChild(test);
         let adsEnabled;
-        const isEnabled = function ()
-        {
+        const isEnabled = function () {
             let enabled = true;
             if (test.offsetHeight === 0) {
                 enabled = false;

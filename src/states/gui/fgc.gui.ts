@@ -203,6 +203,18 @@ export class GuiFgc implements IGui {
         return btn;
     }
 
+    hideStandart(): void {
+        this.musonButton.visible = false;
+        this.musonButton.visible = false;
+        this.logoButton.visible = false;
+        if (this.moreButton) this.moreButton.visible = false;
+        if (this.moreButton2) this.moreButton2.visible = false;
+        if (this.playButton) this.playButton.visible = false;
+    }
+
+    hideAll(): void {
+    }
+
     disable(): void {
         for (let btn of this.extras) {
             btn.inputEnabled = false;

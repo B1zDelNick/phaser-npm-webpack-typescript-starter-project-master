@@ -38,7 +38,6 @@ export class DollLayer {
                 this.tempIndex = 0;
             }
         }
-
         switch (GameConfig.SITE) {
             case Sites.FREE_GAMES_CASUAL: {
                 this.guiAtlas = ImageUtils.getAtlasClass('AtlasesGuiFgc').getName();
@@ -56,10 +55,10 @@ export class DollLayer {
                 break;
             }
         }
-
+        const clazz = this.getClassForIndex(this.tempIndex);
         this.sprite = this.game.add.sprite(x, y,
-            this.isEmpty ? this.guiAtlas : this.getClassForIndex(this.tempIndex).getName(),
-            this.isEmpty ? this.dummyFrame : this.getClassForIndex(this.tempIndex).Frames[defaultFrame],
+            this.isEmpty || isNull(clazz) ? this.guiAtlas : clazz.getName(),
+            this.isEmpty || isNull(clazz) ? this.dummyFrame : clazz.Frames[defaultFrame],
             container);
         if (this.sprite.inputEnabled) {
             this.sprite.input.pixelPerfectClick = this.sprite.input.pixelPerfectOver = true;
@@ -71,7 +70,11 @@ export class DollLayer {
         // console.log(this.sprite.frameName === this.frameClass[this.prefix + index], this.removable);
         this.tempIndex = index;
         const clazz = this.getClassForIndex(index);
-        if (this.sprite.frameName === clazz.Frames[this.prefix + (this.isSecondary ? 'S' : '') + index] && this.removable || index === -1) {
+        if (isNull(clazz)) {
+            this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+            this.isEmpty = true;
+        }
+        else if (this.sprite.frameName === clazz.Frames[this.prefix + (this.isSecondary ? 'S' : '') + index] && this.removable || index === -1) {
             this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
             this.isEmpty = true;
             // console.log(`Remove ${this.prefix}`);
@@ -82,7 +85,7 @@ export class DollLayer {
                 this.isEmpty = true;
                 // console.log(`Stricted ${this.prefix}${this.tempIndex}`);
             }
-            else if (isUndefined(clazz.Frames[this.prefix + (this.isSecondary ? 'S' : '') + index])) {
+            else if (isNull(clazz.Frames[this.prefix + (this.isSecondary ? 'S' : '') + index])) {
                 this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
                 this.isEmpty = true;
             }
@@ -107,11 +110,12 @@ export class DollLayer {
         }
     }
 
-    getClassForIndex(index: number): any {
-        if (index === 0 && ImageUtils.getAtlasClass(this.assetClass).Frames[this.prefix]) {
+    getClassForIndex(ind: number): any {
+        let index: string = ind === 0 ? '' : ind + '';
+        /*if (index === 0 && ImageUtils.getAtlasClass(this.assetClass).Frames[this.prefix]) {
             return ImageUtils.getAtlasClass(this.assetClass);
-        }
-        else if (ImageUtils.getAtlasClass(this.assetClass).Frames[this.prefix + index]) {
+        }*/
+        if (ImageUtils.getAtlasClass(this.assetClass).Frames[this.prefix + index]) {
             return ImageUtils.getAtlasClass(this.assetClass);
         }
         else if (ImageUtils.getAtlasClass(`${this.assetClass}2`) && ImageUtils.getAtlasClass(`${this.assetClass}2`).Frames[this.prefix + index]) {
@@ -123,7 +127,22 @@ export class DollLayer {
         else if (ImageUtils.getAtlasClass(`${this.assetClass}4`) && ImageUtils.getAtlasClass(`${this.assetClass}4`).Frames[this.prefix + index]) {
             return ImageUtils.getAtlasClass(`${this.assetClass}4`);
         }
-        return ImageUtils.getAtlasClass(this.assetClass);
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}5`) && ImageUtils.getAtlasClass(`${this.assetClass}5`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}5`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}6`) && ImageUtils.getAtlasClass(`${this.assetClass}6`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}6`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}7`) && ImageUtils.getAtlasClass(`${this.assetClass}7`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}7`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}8`) && ImageUtils.getAtlasClass(`${this.assetClass}8`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}8`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}9`) && ImageUtils.getAtlasClass(`${this.assetClass}9`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}9`);
+        }
+        return null;
     }
 
     remove() {

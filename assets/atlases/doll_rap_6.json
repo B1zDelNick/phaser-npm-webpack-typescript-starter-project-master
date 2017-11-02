@@ -1,0 +1,28 @@
+{"frames": [
+
+{
+	"filename": "t_2.png",
+	"frame": {"x":0,"y":0,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+},
+{
+	"filename": "t_3.png",
+	"frame": {"x":0,"y":686,"w":389,"h":686},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":389,"h":686},
+	"sourceSize": {"w":389,"h":686}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_rap_6.png",
+	"format": "RGBA8888",
+	"size": {"w":389,"h":1372},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:5387363ae7e619f6360dee54493991e4:2cc0b2a10422a284d2bc3fe2c6eb8b3a:bfdbf501971c89d39c60db29b4ca2885$"
+}
+}

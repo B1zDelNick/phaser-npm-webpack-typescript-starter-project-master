@@ -1,0 +1,36 @@
+{"frames": [
+
+{
+	"filename": "cl_5.png",
+	"frame": {"x":185,"y":0,"w":378,"h":254},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":378,"h":254},
+	"sourceSize": {"w":378,"h":254}
+},
+{
+	"filename": "gr_5.png",
+	"frame": {"x":0,"y":254,"w":499,"h":642},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":499,"h":642},
+	"sourceSize": {"w":499,"h":642}
+},
+{
+	"filename": "ok_btn.png",
+	"frame": {"x":0,"y":0,"w":185,"h":147},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":185,"h":147},
+	"sourceSize": {"w":185,"h":147}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_pread.png",
+	"format": "RGBA8888",
+	"size": {"w":563,"h":896},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:2209605cef1578c731065dfd4513b0fa:165090fbc3174895a0f85b164fdad1e6:aea3134de696635f8a58693a5c049f5e$"
+}
+}
