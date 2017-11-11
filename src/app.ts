@@ -1,4 +1,4 @@
-// import 'p2';
+// mport 'p2';
 // import 'pixi';
 // import 'phaser';
 // import 'ads';
@@ -50,13 +50,14 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.DRESSUP_MIX,
+        Sites.MY_CUTE_GAMES,
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princess Black Friday Rush');
+        'Disney Style Vlog Tips for Blondes');
 
     GameConfig.GAME = app;
+    // app.stage.disableVisibilityChange = true;
 }
 
 window.onload = () => {

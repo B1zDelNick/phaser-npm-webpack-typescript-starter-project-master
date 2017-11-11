@@ -23,6 +23,17 @@ export class GameConfig {
     public static DECOR_1: DecorBackground = null;
     public static DECOR_2: DecorBackground = null;
 
+    public static CONT_1: Phaser.Group = null;
+    public static CONT_2: Phaser.Group = null;
+
+    public static FREE_RESULT: any = null;
+
+    public static AD1_SHOWED: boolean = false;
+    public static AD2_SHOWED: boolean = false;
+    public static AD3_SHOWED: boolean = false;
+
+    public static SELECTED_BG: number = 0;
+
     private static _inited: boolean = false;
 
     private static _site: string;
@@ -129,7 +140,9 @@ export enum PublishMode {
     NO_BUTTONS,
     NO_BUTTONS_ONE_AD,
     NO_AD,
-    GAME_DISTRIBUTIONS
+    GAME_DISTRIBUTIONS,
+    GGG,
+    DUW
 }
 
 export enum AssetMode {

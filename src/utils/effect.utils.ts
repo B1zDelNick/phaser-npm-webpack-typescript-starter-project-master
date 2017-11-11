@@ -22,24 +22,24 @@ export class EffectUtils {
         return laser;
     }
 
-    public static makeGlowAnimation(color: number = 0xffffff, period: number = 1000, loop: boolean = true, dist: number = 350): Phaser.Filter {
+    public static makeGlowAnimation(color: number = 0xffffff, period: number = 1000, loop: boolean = true, repeat: number = 99999, dist: number = 350): Phaser.Filter {
         const f = FilterUtils.makeFilter(color, dist, dist);
         (f as any).outerStrength = 0;
         (f as any).innerStrength = 0;
         const game = GameConfig.GAME;
         game.add.tween(f).to({ outerStrength: 3, innerStrength: 2 },
-            period, Phaser.Easing.Linear.None, true, 0, 99990)
+            period, Phaser.Easing.Linear.None, true, 0, repeat)
             .yoyo(loop);
         return f;
     }
 
-    public static makeLightGlowAnimation(color: number = 0xffffff, period: number = 1000, loop: boolean = true, dist: number = 350): Phaser.Filter {
+    public static makeLightGlowAnimation(color: number = 0xffffff, period: number = 1000, loop: boolean = true, repeat: number = 99999, dist: number = 350): Phaser.Filter {
         const f = FilterUtils.makeFilter(color, dist, dist);
         (f as any).outerStrength = 0;
         (f as any).innerStrength = 0;
         const game = GameConfig.GAME;
         game.add.tween(f).to({ outerStrength: 2, innerStrength: 1 },
-            period, Phaser.Easing.Linear.None, true, 0, 99990)
+            period, Phaser.Easing.Linear.None, true, 0, repeat)
             .yoyo(loop);
         return f;
     }
@@ -51,22 +51,44 @@ export class EffectUtils {
             .yoyo(loop);
     }
 
-    public static makeLightRotateAnimation(sprite: any): void {
+    public static makeShootAnimation(target: any, period: number = 300): Phaser.Tween {
         const game = GameConfig.GAME;
-        const _tween1 = game.add.tween(sprite).to({ angle: 10 }, 400, Phaser.Easing.Linear.None, true);
-        const _tween2 = game.add.tween(sprite).to({ angle: -10 }, 800, Phaser.Easing.Linear.None, false);
-        const _tween3 = game.add.tween(sprite).to({ angle: 0 }, 400, Phaser.Easing.Linear.None, false);
+        if (target.alpha !== 0) target.alpha = 0;
+        return game.add.tween(target).to({ alpha: 1 },
+            period, Phaser.Easing.Linear.None, true, 0, 0)
+            .yoyo(true);
+    }
+
+    public static makeAlphaAnimation(target: any, alpha: number = 1, period: number = 500, loop: boolean = true): Phaser.Tween {
+        const game = GameConfig.GAME;
+        return game.add.tween(target).to({ alpha: alpha },
+            period, Phaser.Easing.Linear.None, true, 0, 99999)
+            .yoyo(loop);
+    }
+
+    public static makeMoveAnimation(target: any, x: number, y: number, period: number = 500, loop: boolean = true): Phaser.Tween {
+        const game = GameConfig.GAME;
+        return game.add.tween(target).to({ x: x, y: y },
+            period, Phaser.Easing.Linear.None, true, 0, 99999)
+            .yoyo(loop);
+    }
+
+    public static makeLightRotateAnimation(sprite: any, duration: number = 400, angle: number = 10): void {
+        const game = GameConfig.GAME;
+        const _tween1 = game.add.tween(sprite).to({ angle: angle }, duration, Phaser.Easing.Linear.None, true);
+        const _tween2 = game.add.tween(sprite).to({ angle: -angle }, duration * 2, Phaser.Easing.Linear.None, false);
+        const _tween3 = game.add.tween(sprite).to({ angle: 0 }, duration, Phaser.Easing.Linear.None, false);
         _tween1.chain(_tween2);
         _tween2.chain(_tween3);
         _tween3.chain(_tween1);
     }
 
-    public static makeNeonAnimation(sprite: any): void {
+    public static makeNeonAnimation(sprite: any, time: number = 250): void {
         const game = GameConfig.GAME;
-        const _tween1 = game.add.tween(sprite).to({ alpha: .25 }, 750, Phaser.Easing.Linear.None, true);
-        const _tween2 = game.add.tween(sprite).to({ alpha: 1 }, 750, Phaser.Easing.Bounce.InOut, false);
-        const _tween3 = game.add.tween(sprite).to({ alpha: .05 }, 200, Phaser.Easing.Linear.None, false, 500);
-        const _tween4 = game.add.tween(sprite).to({ alpha: 1 }, 1250, Phaser.Easing.Bounce.InOut, false);
+        const _tween1 = game.add.tween(sprite).to({ alpha: .25 }, time * 3, Phaser.Easing.Linear.None, true);
+        const _tween2 = game.add.tween(sprite).to({ alpha: 1 }, time * 3, Phaser.Easing.Bounce.InOut, false);
+        const _tween3 = game.add.tween(sprite).to({ alpha: .05 }, time, Phaser.Easing.Linear.None, false, 500);
+        const _tween4 = game.add.tween(sprite).to({ alpha: 1 }, time * 5, Phaser.Easing.Bounce.InOut, false);
         _tween1.chain(_tween2);
         _tween2.chain(_tween3);
         _tween3.chain(_tween4);

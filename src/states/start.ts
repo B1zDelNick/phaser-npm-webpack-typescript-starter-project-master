@@ -9,7 +9,6 @@ import {GuiUtils} from '../utils/gui.utils';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 import {EffectUtils} from '../utils/effect.utils';
-import {PreloaderUtils} from '../utils/preloader.utils';
 
 export default class Start extends Phaser.State {
 
@@ -20,6 +19,8 @@ export default class Start extends Phaser.State {
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
+    private fg: Phaser.Sprite = null;
+    private title: Phaser.Sprite = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -49,15 +50,7 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        const text = this.game.add.text(
-            this.game.world.centerX,
-            this.game.world.centerY,
-            'Your Game starts here! ;)',
-            {
-                'font': 'bold 50px Arial Black',
-                'fill': '#00f'
-            });
-        text.anchor.setTo(.5);
+        // this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
         // GUI Buttons
         this.gui.addGui();
@@ -79,8 +72,8 @@ export default class Start extends Phaser.State {
             this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .5,
-            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 2 : Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75,
+            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 1 : Phaser.Timer.SECOND * 1);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)
@@ -100,6 +93,8 @@ export default class Start extends Phaser.State {
         this.game.tweens.removeAll();
 
         if (this.bg) this.bg.destroy(true);
+        if (this.fg) this.fg.destroy(true);
+        if (this.title) this.title.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);

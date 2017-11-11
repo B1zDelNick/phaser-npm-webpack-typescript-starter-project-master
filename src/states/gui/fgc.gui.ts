@@ -4,6 +4,7 @@ import {GuiUtils} from '../../utils/gui.utils';
 import {isNull, isString} from 'util';
 import {SoundUtils} from '../../utils/sound/sound.utils';
 import {ImageUtils} from '../../utils/images/image.utils';
+import {TweenUtils} from '../../utils/tween.utils';
 
 export class GuiFgc implements IGui {
 
@@ -21,6 +22,7 @@ export class GuiFgc implements IGui {
     private reverse: boolean;
 
     private extras: Array<Phaser.Button> = [];
+    private extras2: Array<Phaser.Sprite> = [];
 
     constructor(state: Phaser.State, type: StateType) {
         this.game = GameConfig.GAME;
@@ -184,13 +186,49 @@ export class GuiFgc implements IGui {
         return btn;
     }
 
+    addExtraBtnAnimated(x: number, y: number, asset: string, frameRate: number = 10, loop: boolean = true,
+                callback?: Function,
+                overHandler: Function = GuiUtils.addOverHandler,
+                outHandler: Function = GuiUtils.addOutHandler): Phaser.Sprite {
+
+        const btn =
+            GuiUtils.makeSpritesheetButton(
+                this.state, this.guiContainer,
+                x, y, 1, frameRate, loop,
+                '', asset,
+                true, false, true, callback, overHandler, outHandler);
+
+        this.extras2.push(btn);
+
+        return btn;
+    }
+
+    hideStandart(): void {
+        this.musonButton.visible = false;
+        this.musonButton.visible = false;
+        this.logoButton.visible = false;
+        if (this.moreButton) this.moreButton.visible = false;
+        if (this.moreButton2) this.moreButton2.visible = false;
+        if (this.playButton) this.playButton.visible = false;
+    }
+
+    hideAll(): void {
+    }
+
     disable(): void {
         for (let btn of this.extras) {
             btn.inputEnabled = false;
             btn.filters = null;
         }
-        if (!isNull(this.playButton)) this.playButton.inputEnabled = false;
-        if (!isNull(this.playButton)) this.playButton.filters = null;
+        for (let btn of this.extras2) {
+            btn.inputEnabled = false;
+            btn.filters = null;
+        }
+        if (!isNull(this.playButton)) {
+            this.playButton.inputEnabled = false;
+            this.playButton.filters = null;
+            TweenUtils.fadeAndScaleOut(this.playButton);
+        }
         this.musonButton.inputEnabled = false;
         this.musonButton.filters = null;
         this.musoffButton.inputEnabled = false;
@@ -205,6 +243,9 @@ export class GuiFgc implements IGui {
         if (!isNull(this.moreButton)) this.moreButton.destroy(true);
         if (!isNull(this.moreButton2)) this.moreButton2.destroy(true);
         for (let btn of this.extras) {
+            btn.destroy(true);
+        }
+        for (let btn of this.extras2) {
             btn.destroy(true);
         }
         this.guiContainer.destroy(true);

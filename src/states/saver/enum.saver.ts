@@ -28,6 +28,10 @@ export enum SaverAnimations {
 export enum SaverTemplates {
     NONE,
     CUSTOM,
+    V_N_FADE_BIG_SLIDER_TEMPLATE,
+    V_S_FADE_BIG_SLIDER_TEMPLATE,
+    H_W_FADE_BIG_SLIDER_TEMPLATE,
+    H_E_FADE_BIG_SLIDER_TEMPLATE,
     H_FADE_SLIDER_TEMPLATE,
     V_FADE_SLIDER_TEMPLATE
 }

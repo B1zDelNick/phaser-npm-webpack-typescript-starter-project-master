@@ -3,8 +3,8 @@ import {isNull, isUndefined} from 'util';
 
 export class AdUtils {
 
-    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=7365584234&ad_type=video_image&description_url=http%3A%2F%2Ffreegamescasual.com%2FFree-Online-Games%2FPrincesses%2FPrincess-Black-Friday-Rush-play.html&videoad_start_delay=15000';
-    private static gdGame = 'b44cb531fcbd473d9ccdd2669cf49d9f';
+    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=5777768361&ad_type=video_image&description_url=http%3A%2F%2Fdressupmix.com%2FFree-Dressup-Games%2FPrincess%2FPrincess-Boho-Wedding-Rivals-play.html&videoad_start_delay=15000';
+    private static gdGame = '0e3ae31289cc45719e6d538cd9e909da';
     private static gdUser = '4ED9EE15-CD3B-42DA-AFF4-A2CB65F233D3-s1';
 
     public static init() {
@@ -12,8 +12,45 @@ export class AdUtils {
         Phaser.Device.whenReady(function () {
             if (GameConfig.PUB_MODE === PublishMode.NORMAL ||
                 GameConfig.PUB_MODE === PublishMode.NO_BUTTONS ||
-                GameConfig.PUB_MODE === PublishMode.NO_BUTTONS_ONE_AD) {
+                GameConfig.PUB_MODE === PublishMode.NO_BUTTONS_ONE_AD ||
+                GameConfig.PUB_MODE === PublishMode.DUW) {
                 game.plugins.add(PhaserAds.AdManager);
+            }
+            else if (GameConfig.PUB_MODE === PublishMode.GAME_DISTRIBUTIONS) {
+                game.plugins.add(PhaserAds.AdManager);
+                // Set the ad provider, we use google Ima3 (ima 3 sdk)
+                /*(game as any).ads.setAdProvider(new PhaserAds.AdProvider.GameDistributionAds(
+                    game,
+                    AdUtils.gdGame, // Your game id goes here
+                    AdUtils.gdUser // Your user id goes here
+                ));*/
+            }
+            else if (GameConfig.PUB_MODE === PublishMode.NO_AD || GameConfig.PUB_MODE === PublishMode.GGG) {
+                // Nothing
+            }
+        });
+    }
+
+    public static initGd() {
+        const game = GameConfig.GAME;
+        (game as any).ads.setAdProvider(new PhaserAds.AdProvider.GameDistributionAds(
+            game,
+            AdUtils.gdGame, // Your game id goes here
+            AdUtils.gdUser // Your user id goes here
+        ));
+    }
+
+    public static setProvider() {
+
+        const game = GameConfig.GAME;
+        Phaser.Device.whenReady(function () {
+            // Set the ad provider, we use google Ima3 (ima 3 sdk)
+            if (GameConfig.PUB_MODE === PublishMode.NORMAL ||
+                GameConfig.PUB_MODE === PublishMode.NO_BUTTONS ||
+                GameConfig.PUB_MODE === PublishMode.NO_BUTTONS_ONE_AD) {
+                (game as any).ads.setAdProvider(new PhaserAds.AdProvider.Ima3(
+                    game, AdUtils.adTag
+                ));
             }
             else if (GameConfig.PUB_MODE === PublishMode.GAME_DISTRIBUTIONS) {
                 game.plugins.add(PhaserAds.AdManager);
@@ -24,20 +61,6 @@ export class AdUtils {
                     AdUtils.gdUser // Your user id goes here
                 ));
             }
-            else if (GameConfig.PUB_MODE === PublishMode.NO_AD) {
-                // Nothing
-            }
-        });
-    }
-
-    public static setProvider() {
-
-        const game = GameConfig.GAME;
-        Phaser.Device.whenReady(function () {
-            // Set the ad provider, we use google Ima3 (ima 3 sdk)
-            (game as any).ads.setAdProvider(new PhaserAds.AdProvider.Ima3(
-                game, AdUtils.adTag
-            ));
 
             // Content paused event is fired when the content (game) should be paused, and the ad will be played
             (game as any).ads.onContentPaused.addO(function () {
@@ -137,8 +160,7 @@ export class AdUtils {
         test.className = 'adsbox';
         document.body.appendChild(test);
         let adsEnabled;
-        const isEnabled = function ()
-        {
+        const isEnabled = function () {
             let enabled = true;
             if (test.offsetHeight === 0) {
                 enabled = false;

@@ -98,5 +98,10 @@ export class HorizontalSaver implements ISaver {
     }
 
     dispose(): void {
+        if (this.part1) this.part1.destroy(true);
+        if (this.part2) this.part2.destroy(true);
+        if (this.vs) this.vs.destroy(true);
+        if (this.blocker) this.blocker.destroy(true);
+        if (this.container) this.container.destroy(true);
     }
 }

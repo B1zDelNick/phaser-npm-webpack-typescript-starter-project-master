@@ -2,7 +2,7 @@
 
 {
 	"filename": "con_1.png",
-	"frame": {"x":0,"y":0,"w":35,"h":35},
+	"frame": {"x":31,"y":0,"w":35,"h":35},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
@@ -10,7 +10,7 @@
 },
 {
 	"filename": "con_2.png",
-	"frame": {"x":35,"y":0,"w":35,"h":35},
+	"frame": {"x":101,"y":0,"w":35,"h":35},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
@@ -18,7 +18,7 @@
 },
 {
 	"filename": "con_3.png",
-	"frame": {"x":70,"y":0,"w":35,"h":35},
+	"frame": {"x":66,"y":0,"w":35,"h":35},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
@@ -26,15 +26,39 @@
 },
 {
 	"filename": "con_4.png",
-	"frame": {"x":105,"y":0,"w":35,"h":35},
+	"frame": {"x":136,"y":0,"w":35,"h":35},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":35,"h":35},
 	"sourceSize": {"w":35,"h":35}
 },
 {
+	"filename": "g_star_1.png",
+	"frame": {"x":0,"y":75,"w":75,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
+	"sourceSize": {"w":75,"h":75}
+},
+{
+	"filename": "g_star_2.png",
+	"frame": {"x":321,"y":0,"w":75,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
+	"sourceSize": {"w":75,"h":75}
+},
+{
+	"filename": "g_star_3.png",
+	"frame": {"x":75,"y":75,"w":75,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
+	"sourceSize": {"w":75,"h":75}
+},
+{
 	"filename": "lep_1.png",
-	"frame": {"x":140,"y":0,"w":75,"h":75},
+	"frame": {"x":246,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
@@ -42,7 +66,7 @@
 },
 {
 	"filename": "lep_2.png",
-	"frame": {"x":215,"y":0,"w":75,"h":75},
+	"frame": {"x":150,"y":75,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
@@ -50,15 +74,39 @@
 },
 {
 	"filename": "lep_3.png",
-	"frame": {"x":290,"y":0,"w":75,"h":75},
+	"frame": {"x":171,"y":0,"w":75,"h":75},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":75,"h":75},
 	"sourceSize": {"w":75,"h":75}
 },
 {
+	"filename": "lep_4.png",
+	"frame": {"x":9,"y":0,"w":9,"h":12},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":9,"h":12},
+	"sourceSize": {"w":9,"h":12}
+},
+{
+	"filename": "lep_5.png",
+	"frame": {"x":0,"y":0,"w":9,"h":14},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":9,"h":14},
+	"sourceSize": {"w":9,"h":14}
+},
+{
+	"filename": "lep_6.png",
+	"frame": {"x":18,"y":0,"w":13,"h":11},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":13,"h":11},
+	"sourceSize": {"w":13,"h":11}
+},
+{
 	"filename": "light.png",
-	"frame": {"x":0,"y":75,"w":169,"h":745},
+	"frame": {"x":225,"y":75,"w":169,"h":745},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":169,"h":745},
@@ -66,7 +114,7 @@
 },
 {
 	"filename": "light_2.png",
-	"frame": {"x":169,"y":75,"w":292,"h":665},
+	"frame": {"x":0,"y":820,"w":292,"h":665},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":292,"h":665},
@@ -77,8 +125,8 @@
 	"version": "1.0",
 	"image": "effects.png",
 	"format": "RGBA8888",
-	"size": {"w":461,"h":820},
+	"size": {"w":396,"h":1485},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:e9777f8907dbaf93d3ae8c761a05ef1a:4bb89f8f8b29a9bbfd5a391b06826170:05d3c1256da5d10ff4f36ef2966c3322$"
+	"smartupdate": "$TexturePacker:SmartUpdate:9e012070f20db49ff0649dbc5cec338f:87d776afbf545b0a22f4eadfb57a593a:05d3c1256da5d10ff4f36ef2966c3322$"
 }
 }

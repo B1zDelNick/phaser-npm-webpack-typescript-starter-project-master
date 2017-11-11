@@ -6,12 +6,17 @@ import {SaverTemplates} from '../states/saver/enum.saver';
 import {VerticalSaver} from '../states/saver/vertical.saver';
 import {isString} from 'util';
 import {HorizontalSaver} from '../states/saver/horizontal.saver';
+import {VerticalNorthBigSaver} from '../states/saver/vertical.north.big.saver';
 
 export class GuiUtils {
     public static getSaver(): ISaver {
         let saver;
 
         switch (GameConfig.SAVER_MODE) {
+            case SaverTemplates.V_N_FADE_BIG_SLIDER_TEMPLATE: {
+                saver = new VerticalNorthBigSaver();
+                break;
+            }
             case SaverTemplates.V_FADE_SLIDER_TEMPLATE: {
                 saver = new VerticalSaver();
                 break;
@@ -31,6 +36,12 @@ export class GuiUtils {
         }
 
         return saver;
+    }
+
+    public static centrize(target: any): void {
+        target.anchor.set(0.5);
+        target.x = target.x + target.width / 2;
+        target.y = target.y + target.height / 2;
     }
 
     public static makeButton(
@@ -215,6 +226,20 @@ export class GuiUtils {
         };
     }
 
+    public static addOverGlowParentHandler(sprite) {
+        sprite.parent.filters = [FilterUtils.makeFilter()];
+    }
+
+    public static addOutGlowParentHandler(sprite) {
+        sprite.parent.filters = null;
+    }
+
+    public static addCustomOverGlowParentHandler(color: number = 0xffffff): Function {
+        return (sprite) => {
+            sprite.parent.filters = [FilterUtils.makeFilter(color)];
+        };
+    }
+
     public static addOverHandlerFgc(sprite) {
         sprite.filters = [FilterUtils.makeFilter()];
         GameConfig.GAME.tweens.removeFrom(sprite.scale);
@@ -249,7 +274,7 @@ export class GuiUtils {
 
     public static goCross(game: string): Function {
         return () => {
-            window.open(GameConfig.crossUrl(game));
+            window.open(GameConfig.crossUrl(game), '_blank');
         };
     }
 }

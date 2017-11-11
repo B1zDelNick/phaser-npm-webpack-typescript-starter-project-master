@@ -6,9 +6,12 @@ export interface IGui {
     addExtraMoreAnimated(x: number, y: number, asset: string, frameRate: number, loop: boolean, overHandler?: Function, outHandler?: Function, callback?: Function): Phaser.Sprite;
     addLogoBtn(): Phaser.Button;
     addMusicBtns(): Array<Phaser.Button>;
+    hideStandart(): void;
+    hideAll(): void;
     disable(): void;
     dispose(): void;
     addExtraBtn(x: number, y: number, asset: string, frames?: any|any[], callback?: Function, overHandler?: Function, outHandler?: Function): Phaser.Button;
+    addExtraBtnAnimated(x: number, y: number, asset: string, frameRate: number, loop: boolean, overHandler?: Function, outHandler?: Function, callback?: Function): Phaser.Sprite;
 }
 
 export enum StateType {

@@ -6,8 +6,8 @@ export class ChestCompoundItem {
 
     private game: Phaser.Game = null;
     private state: Phaser.State = null;
-    private button: Phaser.Button = null;
-    private name: string = null;
+    public button: Phaser.Button = null;
+    public name: string = null;
     private asset: string = null;
     private prefix: string = null;
     private frameClass: any = null;
@@ -49,7 +49,13 @@ export class ChestCompoundItem {
         if (this.current > this.length) this.current = 1;
 
         this.button.name = this.name + this.current;
-        this.button.loadTexture(this.asset, this.frameClass[this.prefix + this.current]);
+        // this.button.loadTexture(this.asset, this.frameClass[this.prefix + this.current]);
+        this.button.setFrames(
+            this.frameClass[this.prefix + this.current],
+            this.frameClass[this.prefix + this.current],
+            this.frameClass[this.prefix + this.current],
+            this.frameClass[this.prefix + this.current]
+        );
     }
 
     disable(): void {

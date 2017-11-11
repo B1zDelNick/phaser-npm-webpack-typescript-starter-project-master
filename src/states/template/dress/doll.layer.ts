@@ -7,27 +7,37 @@ export class DollLayer {
 
     private game: Phaser.Game = null;
     private sprite: Phaser.Sprite = null;
-    private asset: string;
-    private frameClass: any = null;
+    // private asset: string;
+    // private frameClass: any = null;
+    private assetClass: string = null;
     private guiAtlas: string = null;
     private dummyFrame: any = null;
     private prefix: string;
-    private isEmpty: boolean;
+    public isEmpty: boolean;
     private removable: boolean;
     private strictIndexes: number[];
+    public isSecondary: boolean = false;
+    private tempIndex: number = -1;
 
     constructor(container: Phaser.Group, x: number, y: number,
-                asset: string, frameClass: any, prefix?: string, defaultFrame?: string,
+                assetClass: string, prefix?: string, defaultFrame?: string,
                 removable: boolean = false, strictIndexes: number[] = []) {
 
         this.game = GameConfig.GAME;
-        this.asset = asset;
-        this.frameClass = frameClass;
+        // this.asset = asset;
+        // this.frameClass = frameClass;
+        this.assetClass = assetClass;
         this.prefix = prefix;
         this.removable = removable;
         this.strictIndexes = strictIndexes;
         this.isEmpty = isUndefined(defaultFrame) || isNull(defaultFrame);
-
+        if (!this.isEmpty) {
+            if (!isNaN(parseInt(defaultFrame.substr(defaultFrame.length - 1))))
+                this.tempIndex = parseInt(defaultFrame.substr(defaultFrame.length - 1));
+            else {
+                this.tempIndex = 0;
+            }
+        }
         switch (GameConfig.SITE) {
             case Sites.FREE_GAMES_CASUAL: {
                 this.guiAtlas = ImageUtils.getAtlasClass('AtlasesGuiFgc').getName();
@@ -45,29 +55,98 @@ export class DollLayer {
                 break;
             }
         }
-
+        const clazz = this.getClassForIndex(this.tempIndex);
         this.sprite = this.game.add.sprite(x, y,
-            this.isEmpty ? this.guiAtlas : asset,
-            this.isEmpty ? this.dummyFrame : frameClass[defaultFrame],
+            this.isEmpty || isNull(clazz) ? this.guiAtlas : clazz.getName(),
+            this.isEmpty || isNull(clazz) ? this.dummyFrame : clazz.Frames[defaultFrame],
             container);
+        if (this.sprite.inputEnabled) {
+            this.sprite.input.pixelPerfectClick = this.sprite.input.pixelPerfectOver = true;
+        }
     }
 
     operate(index: number): boolean {
         // console.log(this.sprite.frameName, this.sprite.key, this.prefix + index);
         // console.log(this.sprite.frameName === this.frameClass[this.prefix + index], this.removable);
-        if (this.sprite.frameName === this.frameClass[this.prefix + index] && this.removable || index === -1) {
+        this.tempIndex = index;
+        const clazz = this.getClassForIndex(index);
+        if (isNull(clazz)) {
             this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+            this.isEmpty = true;
+        }
+        else if (this.sprite.frameName === clazz.Frames[this.prefix + (this.isSecondary ? 'S' : '') + index] && this.removable || index === -1) {
+            this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+            this.isEmpty = true;
+            // console.log(`Remove ${this.prefix}`);
         }
         else {
             if (this.isStricted(index)) {
                 this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+                this.isEmpty = true;
+                // console.log(`Stricted ${this.prefix}${this.tempIndex}`);
+            }
+            else if (isNull(clazz.Frames[this.prefix + (this.isSecondary ? 'S' : '') + index])) {
+                this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
+                this.isEmpty = true;
             }
             else {
-                this.sprite.loadTexture(this.asset, this.frameClass[(this.prefix + index)]);
+                this.sprite.loadTexture(
+                    clazz.getName(),
+                    clazz.Frames[(this.prefix + (this.isSecondary ? 'S' : '') + (index !== 0 ? index : ''))]);
+                this.isEmpty = false;
+                // console.log(`Equip ${this.prefix}${this.tempIndex}`);
             }
             return !this.removable;
         }
         return false;
+    }
+
+    setSecondaryState(val: boolean) {
+        this.isSecondary = val;
+        if (!this.isEmpty) {
+            this.sprite.loadTexture(
+                this.getClassForIndex(this.tempIndex).getName(),
+                this.getClassForIndex(this.tempIndex).Frames[(this.prefix + (this.isSecondary ? this.tempIndex !== 0 ? 'S' : '' : '') + (this.tempIndex !== 0 ? this.tempIndex : ''))]);
+        }
+    }
+
+    getClassForIndex(ind: number): any {
+        let index: string = ind === 0 ? '' : ind + '';
+        /*if (index === 0 && ImageUtils.getAtlasClass(this.assetClass).Frames[this.prefix]) {
+            return ImageUtils.getAtlasClass(this.assetClass);
+        }*/
+        if (ImageUtils.getAtlasClass(this.assetClass).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(this.assetClass);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}2`) && ImageUtils.getAtlasClass(`${this.assetClass}2`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}2`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}3`) && ImageUtils.getAtlasClass(`${this.assetClass}3`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}3`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}4`) && ImageUtils.getAtlasClass(`${this.assetClass}4`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}4`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}5`) && ImageUtils.getAtlasClass(`${this.assetClass}5`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}5`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}6`) && ImageUtils.getAtlasClass(`${this.assetClass}6`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}6`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}7`) && ImageUtils.getAtlasClass(`${this.assetClass}7`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}7`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}8`) && ImageUtils.getAtlasClass(`${this.assetClass}8`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}8`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}9`) && ImageUtils.getAtlasClass(`${this.assetClass}9`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}9`);
+        }
+        return null;
+    }
+
+    remove() {
+        this.sprite.loadTexture(this.guiAtlas, this.dummyFrame);
     }
 
     private isStricted(ind): boolean {

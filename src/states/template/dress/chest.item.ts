@@ -42,6 +42,10 @@ export class ChestItem {
         this.button.filters = null;
     }
 
+    enable(): void {
+        this.button.inputEnabled = true;
+    }
+
     dispose(): void {
         this.button.destroy(true);
     }

@@ -38,6 +38,7 @@ module.exports = {
             // The items below most likely the ones you should be modifying
             'GOOGLE_WEB_FONTS': JSON.stringify([ // Add or remove entries in this array to change which fonts are loaded
                 //'Barrio'
+                'Anton'
             ]),
             'SOUND_EXTENSIONS_PREFERENCE': JSON.stringify([ // Re-order the items in this array to change the desired order of checking your audio sources (do not add/remove/modify the entries themselves)
                 'webm', 'ogg', 'm4a', 'mp3', 'aac', 'ac3', 'caf', 'flac', 'mp4', 'wav'
@@ -81,7 +82,17 @@ module.exports = {
             screw_ie8: true
         }),*/
         new HtmlWebpackPlugin({
-            title: 'Princess Black Friday Rush',
+            title: 'Disney Style Vlog Tips for Blondes',
+            gaScript:
+            `<script>
+                (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+                        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+                    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+                })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        
+                ga('create', 'UA-3795986-7', 'auto');
+            </script>`,
+            phaserScript: `<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/phaser-ce/2.9.0/phaser.min.js"></script>`, //
             imaScript: `<script type="text/javascript" src="https://imasdk.googleapis.com/js/sdkloader/ima3.js"></script>`, //
             template: path.join(__dirname, 'templates/index.ejs')
         })

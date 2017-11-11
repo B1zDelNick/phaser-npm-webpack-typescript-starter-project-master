@@ -147,7 +147,7 @@ export class MyCuteGamesPreloader implements IPreloader {
                 this.state, this.guiContainer,
                 480 - 208, 415 - 137, 1,
                 '', ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').getName(),
-                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.LogoGlowMcg,
+                ImageUtils.getAtlasClass('AtlasesPreloaderAtlasMcg').Frames.LogoMcg,
                 true, true, true, GuiUtils.goLinkPreloaderLogo, hoverHandler, unhoverHandler);
 
         this.playButton =
@@ -227,6 +227,7 @@ export class MyCuteGamesPreloader implements IPreloader {
     }
 
     private nextState(): void {
+        if (!DEBUG) ga('send', 'event', GameConfig.gaData());
         this.playButton.inputEnabled = false;
         this.game.camera.onFadeComplete.addOnce(() => {
             SoundUtils.init();

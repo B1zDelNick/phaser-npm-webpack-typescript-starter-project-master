@@ -5,6 +5,8 @@ import {isNull, isString, isUndefined} from 'util';
 import {TweenUtils} from '../../../utils/tween.utils';
 import {ChestCategory} from './chest.category';
 import {EffectUtils} from '../../../utils/effect.utils';
+import {ChestCompoundItem} from './chest.compound.item';
+import {ChestItem} from './chest.item';
 
 export class Chest {
 
@@ -37,7 +39,7 @@ export class Chest {
     }
 
     onEquiped(item: string, ...toOn: string[]) {
-        if (this.config.hideSelected !== true) return;
+        if (!this.config || this.config.hideSelected !== true) return;
         for (let cat of toOn) {
             if (this.staticPage)
                 this.staticPage.tryToSetLikeVisibility(cat);
@@ -63,14 +65,67 @@ export class Chest {
         for (let page of this.pages) {
             page.disable();
         }
+        if (this.lb) {
+            this.lb.inputEnabled = false;
+            this.lb.filters = null;
+        }
+        if (this.rb) {
+            this.rb.inputEnabled = false;
+            this.rb.filters = null;
+        }
+    }
+
+    enable(): void {
+        for (let page of this.pages) {
+            page.enable();
+        }
+        if (this.lb) {
+            this.lb.inputEnabled = true;
+        }
+        if (this.rb) {
+            this.rb.inputEnabled = true;
+        }
+    }
+
+    findItem(name: string): Phaser.Button {
+        let item: ChestItem|ChestCompoundItem = null;
+        if (this.staticPage !== null) {
+            item = this.staticPage.findItem(name);
+        }
+        if (item == null && this.pages.length > 0) {
+            for (let page of this.pages) {
+                item = page.findItem(name);
+                if (item !== null)
+                    break;
+            }
+        }
+        return isUndefined(item) || isNull(item) ? null : item.button;
     }
 
     show(): void {
+        this.disable();
         TweenUtils.slideIn(this.container, 0);
+        TweenUtils.delayedCall(1010, this.enable, this);
     }
 
     hide(): void {
+        this.disable();
         TweenUtils.slideOut(this.container, this.hiddenX);
+        TweenUtils.delayedCall(1010, this.enable, this);
+    }
+
+    public showPage(index: number) {
+        this.currentPage = index;
+        for (let i = 0; i < this.pages.length; i++) {
+            this.pages[i].hide();
+        }
+        this.pages[this.currentPage].show();
+        if (this.pages[this.currentPage].hideStatic) {
+            if (this.staticPage) this.staticPage.hide();
+        }
+        else {
+            if (this.staticPage) this.staticPage.show();
+        }
     }
 
     private nextPage(): void {
@@ -80,6 +135,12 @@ export class Chest {
             this.pages[i].hide();
         }
         this.pages[this.currentPage].show();
+        if (this.pages[this.currentPage].hideStatic) {
+            if (this.staticPage) this.staticPage.hide();
+        }
+        else {
+            if (this.staticPage) this.staticPage.show();
+        }
     }
 
     private prevPage(): void {
@@ -89,6 +150,12 @@ export class Chest {
             this.pages[i].hide();
         }
         this.pages[this.currentPage].show();
+        if (this.pages[this.currentPage].hideStatic) {
+            if (this.staticPage) this.staticPage.hide();
+        }
+        else {
+            if (this.staticPage) this.staticPage.show();
+        }
     }
 
     configure(params: IChestConfig): Chest {
@@ -101,14 +168,17 @@ export class Chest {
         return this;
     }
 
-    page(): ChestPage {
-        const page = new ChestPage(this, this.state, this.container);
-        this.pages.push(page);
+    page(add: boolean = true, hideStatic: boolean = false): ChestPage {
+        const page = new ChestPage(this, this.state, this.container, hideStatic);
+        if (add)
+            this.pages.push(page);
+        else
+            page.hide();
         return page;
     }
 
     static(): ChestPage {
-        this.staticPage = new ChestPage(this, this.state, this.container);
+        this.staticPage = new ChestPage(this, this.state, this.container, false);
         return this.staticPage;
     }
 
@@ -333,6 +403,10 @@ export class Chest {
                 return btn;
         }
         return null;
+    }
+
+    public getBody(): Phaser.Group {
+        return this.container;
     }
 }
 
