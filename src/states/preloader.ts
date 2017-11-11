@@ -1,16 +1,20 @@
 import * as AssetUtils from '../utils/asset.utils';
 import {IPreloader} from './preload/i.preloader';
-import {AssetMode, GameConfig, Sites} from '../config/game.config';
+import {AssetMode, GameConfig, PublishMode, Sites} from '../config/game.config';
 import {MyCuteGamesPreloader} from './preload/mcg.preloader';
 import {DressupMixPreloader} from './preload/du.preloader';
 import {FreeGamesCasualPreloader} from './preload/fgc.preloader';
 import {PreloaderUtils} from '../utils/preloader.utils';
+import {AdUtils} from '../utils/ad/ad.utils';
 
 export default class Preloader extends Phaser.State {
 
     private preloader: IPreloader = null;
 
     public init(...args: any[]): void {
+        if (GameConfig.PUB_MODE === PublishMode.GAME_DISTRIBUTIONS) {
+            AdUtils.initGd();
+        }
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {

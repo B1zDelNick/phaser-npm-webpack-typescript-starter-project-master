@@ -137,7 +137,7 @@ export class BootUtils {
         game.load.image(
             ImageUtils.getImageClass('ImagesSpin').getName(),
             ImageUtils.getImageClass('ImagesSpin').getPNG());
-        if (GameConfig.PUB_MODE !== PublishMode.NO_AD) {
+        if (GameConfig.PUB_MODE !== PublishMode.NO_AD && GameConfig.PUB_MODE !== PublishMode.GGG) {
             game.load.script(
                 Assets.Scripts.ScriptsPhaserAds.getName(),
                 Assets.Scripts.ScriptsPhaserAds.getJS());

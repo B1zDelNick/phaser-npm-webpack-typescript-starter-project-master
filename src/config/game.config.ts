@@ -140,7 +140,9 @@ export enum PublishMode {
     NO_BUTTONS,
     NO_BUTTONS_ONE_AD,
     NO_AD,
-    GAME_DISTRIBUTIONS
+    GAME_DISTRIBUTIONS,
+    GGG,
+    DUW
 }
 
 export enum AssetMode {
