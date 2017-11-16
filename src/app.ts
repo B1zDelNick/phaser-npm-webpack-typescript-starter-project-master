@@ -54,7 +54,7 @@ function startApp(): void {
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Disney Style Vlog Tips for Blondes');
+        'Princesses Animal Prints Obsession');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
