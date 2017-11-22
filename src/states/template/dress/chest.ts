@@ -65,6 +65,9 @@ export class Chest {
         for (let page of this.pages) {
             page.disable();
         }
+        if (this.staticPage) {
+            this.staticPage.disable();
+        }
         if (this.lb) {
             this.lb.inputEnabled = false;
             this.lb.filters = null;
@@ -78,6 +81,9 @@ export class Chest {
     enable(): void {
         for (let page of this.pages) {
             page.enable();
+        }
+        if (this.staticPage) {
+            this.staticPage.enable();
         }
         if (this.lb) {
             this.lb.inputEnabled = true;

@@ -1,6 +1,6 @@
 import * as AssetUtils from '../utils/asset.utils';
 import {IGui, StateType} from './gui/i.gui';
-import {AssetMode, GameConfig, Sites} from '../config/game.config';
+import {AssetMode, GameConfig, PublishMode, Sites} from '../config/game.config';
 import {GuiMcg} from './gui/mcg.gui';
 import {GuiDu} from './gui/du.gui';
 import {GuiFgc} from './gui/fgc.gui';
@@ -12,7 +12,7 @@ import {EffectUtils} from '../utils/effect.utils';
 
 export default class Start extends Phaser.State {
 
-    private NEXT = 'Comix';
+    private NEXT = 'Shop';
     private nextPrepared = false;
 
     private gui: IGui = null;
@@ -21,6 +21,7 @@ export default class Start extends Phaser.State {
     private bg: Phaser.Sprite = null;
     private fg: Phaser.Sprite = null;
     private title: Phaser.Sprite = null;
+    private moreBtn: Phaser.Button = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -50,10 +51,17 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        // this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+
+        this.title = this.game.add.sprite(0, 0,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        this.fg = this.game.add.sprite(342 + 700, 120,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Girls);
 
         // GUI Buttons
-        this.gui.addGui();
+        this.gui.addGui(GameConfig.PUB_MODE === PublishMode.DUW);
         const playBtn = this.gui.addPlayBtn(this.nextState);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
@@ -72,6 +80,7 @@ export default class Start extends Phaser.State {
             this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
+        TweenUtils.moveIn(this.fg, 342, 120,  Phaser.Timer.SECOND * 1);
         TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75,
             GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 1 : Phaser.Timer.SECOND * 1);
 
