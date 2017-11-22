@@ -11,7 +11,7 @@ import {IParticle} from './spec-effects/particle/i.particle';
 import {GoldStarParticles} from './spec-effects/particle/gold.star.particle';
 import {EffectUtils} from '../utils/effect.utils';
 
-export default class Final extends Phaser.State {
+export default class LKkkjdfjdfjkgjdfjgdfjdfjdf extends Phaser.State {
 
     private NEXT = 'Start';
     private nextPrepared = false;

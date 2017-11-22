@@ -62,15 +62,6 @@ export default class Start extends Phaser.State {
 
         // GUI Buttons
         this.gui.addGui(GameConfig.PUB_MODE === PublishMode.DUW);
-        if (GameConfig.PUB_MODE !== PublishMode.DUW) {
-            this.moreBtn = this.gui.addExtraMore(
-                960 - 191, 720 - 148,
-                ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-                ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE2,
-            );
-            this.addAnimation(this.moreBtn);
-            TweenUtils.delayedCall(Phaser.Timer.SECOND * 2, this.nextMore, this);
-        }
         const playBtn = this.gui.addPlayBtn(this.nextState);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
@@ -99,63 +90,6 @@ export default class Start extends Phaser.State {
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
             // Loads
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
-        }
-    }
-
-    private counter: number = 0;
-    private sp1: Phaser.Sprite = null;
-    private sp2: Phaser.Sprite = null;
-    private sp3: Phaser.Sprite = null;
-    private sp4: Phaser.Sprite = null;
-
-    private addAnimation(sprite) {
-        this.sp1 = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp1);
-        this.sp2 = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp2);
-        this.sp3 = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp3);
-        this.sp4 = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp4);
-        this.sp1.alpha = 0;
-        this.sp2.alpha = 0;
-        this.sp3.alpha = 0;
-        this.sp4.alpha = 0;
-        this.sp1.anchor.setTo(.5);
-        this.sp2.anchor.setTo(.5);
-        this.sp3.anchor.setTo(.5);
-        this.sp4.anchor.setTo(.5);
-        sprite.addChild(this.sp1);
-        sprite.addChild(this.sp2);
-        sprite.addChild(this.sp3);
-        sprite.addChild(this.sp4);
-    }
-    private nextMore() {
-        this.counter++;
-        if (this.counter > 1) this.counter = 0;
-        if (this.counter === 1) {
-            this.moreBtn.loadTexture(
-                ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-                ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE);
-
-            const t1 = this.game.add.tween(this.sp1).to({ alpha: 1 }, Phaser.Timer.SECOND * .15, Phaser.Easing.Linear.None, true).yoyo(true);
-            const t2 = this.game.add.tween(this.sp2).to({ alpha: 1 }, Phaser.Timer.SECOND * .15, Phaser.Easing.Linear.None, false).yoyo(true);
-            const t3 = this.game.add.tween(this.sp3).to({ alpha: 1 }, Phaser.Timer.SECOND * .15, Phaser.Easing.Linear.None, false).yoyo(true);
-            const t4 = this.game.add.tween(this.sp4).to({ alpha: 1 }, Phaser.Timer.SECOND * .15, Phaser.Easing.Linear.None, false).yoyo(true);
-            t1.chain(t2);
-            t2.chain(t3);
-            t3.chain(t4);
-            this.game.time.events.add(Phaser.Timer.SECOND *  2, this.nextMore, this);
-        }
-        else if (this.counter === 0) {
-            this.moreBtn.loadTexture(
-                ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-                ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE2);
-            this.game.time.events.add(Phaser.Timer.SECOND *  3, this.nextMore, this);
         }
     }
 

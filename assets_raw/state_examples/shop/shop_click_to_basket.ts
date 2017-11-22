@@ -16,7 +16,7 @@ import {isNull, isUndefined} from 'util';
 import {AdUtils} from '../utils/ad/ad.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 
-export default class Shop extends Phaser.State {
+export default class Kkfdkdkdfkdfkdfkdfkkdfk extends Phaser.State {
 
     private NEXT = 'Dress';
     private nextPrepared = false;
