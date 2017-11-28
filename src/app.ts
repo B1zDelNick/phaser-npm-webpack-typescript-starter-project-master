@@ -52,9 +52,9 @@ function startApp(): void {
     GameConfig.init(
         Sites.FREE_GAMES_CASUAL,
         PublishMode.NORMAL,
-        AssetMode.LOAD_ALL,
+        AssetMode.LOAD_BACKGROUND,
         SaverTemplates.NONE,
-        'Princesses Animal Prints Obsession');
+        'Princess Couples Dance Battle');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;

@@ -4,6 +4,7 @@ import {DoubleLaser} from '../states/spec-effects/laser/double.laser';
 import {FilterUtils} from './filter.utils';
 import {GameConfig} from '../config/game.config';
 import {TripleLaser} from '../states/spec-effects/laser/triple.laser';
+import {PentaLaser} from '../states/spec-effects/laser/penta.laser';
 
 export class EffectUtils {
 
@@ -16,6 +17,10 @@ export class EffectUtils {
             }
             case LaserType.TRIPLE_LASER: {
                 laser = new TripleLaser();
+                break;
+            }
+            case LaserType.PENTA_LASER: {
+                laser = new PentaLaser();
                 break;
             }
         }
