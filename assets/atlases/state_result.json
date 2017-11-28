@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "firework.png",
+	"frame": {"x":0,"y":0,"w":539,"h":539},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":539,"h":539},
+	"sourceSize": {"w":539,"h":539}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_result.png",
+	"format": "RGBA8888",
+	"size": {"w":539,"h":539},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6bcf08c51c18ec3254a49126348eed1d:9332726cf86bd3d6522f18784a112590:fa820aee1650d4b00a854738dbd273b4$"
+}
+}

@@ -1,44 +1,44 @@
 {"frames": [
 
 {
-	"filename": "ban_1.png",
-	"frame": {"x":0,"y":0,"w":210,"h":240},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":240},
-	"sourceSize": {"w":210,"h":240}
-},
-{
-	"filename": "ban_2.png",
-	"frame": {"x":210,"y":0,"w":210,"h":240},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":240},
-	"sourceSize": {"w":210,"h":240}
-},
-{
 	"filename": "cross_1.png",
-	"frame": {"x":0,"y":240,"w":467,"h":521},
+	"frame": {"x":0,"y":0,"w":335,"h":756},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":467,"h":521},
-	"sourceSize": {"w":467,"h":521}
+	"spriteSourceSize": {"x":0,"y":0,"w":335,"h":756},
+	"sourceSize": {"w":335,"h":756}
 },
 {
 	"filename": "cross_2.png",
-	"frame": {"x":0,"y":761,"w":467,"h":524},
+	"frame": {"x":335,"y":0,"w":300,"h":756},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":467,"h":524},
-	"sourceSize": {"w":467,"h":524}
+	"spriteSourceSize": {"x":0,"y":0,"w":300,"h":756},
+	"sourceSize": {"w":300,"h":756}
+},
+{
+	"filename": "cross_3.png",
+	"frame": {"x":635,"y":0,"w":327,"h":756},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":327,"h":756},
+	"sourceSize": {"w":327,"h":756}
+},
+{
+	"filename": "label.png",
+	"frame": {"x":0,"y":756,"w":532,"h":105},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":532,"h":105},
+	"sourceSize": {"w":532,"h":105}
 }],
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
 	"image": "state_final.png",
 	"format": "RGBA8888",
-	"size": {"w":467,"h":1285},
+	"size": {"w":962,"h":861},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:f9dc053ae731e0926e489193af8059f5:d4accc0c9721b4246737f932665eee75:fa7765394e0e389ace335cfa7c993a79$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c870bd4f904a1a339c244c33ebd26baa:a14d2740737ffdeb6f3081640228fa0d:fa7765394e0e389ace335cfa7c993a79$"
 }
 }

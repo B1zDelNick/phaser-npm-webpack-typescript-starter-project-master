@@ -9,9 +9,9 @@ export class FallParticles implements IParticle {
     constructor(private min: number = .35, private max: number = .65) {
     }
 
-    init( asset: string, frames?: any|any[], w: number = 960, c: number = 480): void {
+    init( asset: string, frames?: any|any[], rate: number = 100, w: number = 960, c: number = 480): void {
         this.game = GameConfig.GAME;
-        this.emitter = this.game.add.emitter(c, -50, 100);
+        this.emitter = this.game.add.emitter(c, -50, rate);
         this.emitter.width = w;
         this.emitter.makeParticles(asset, frames);
         this.emitter.minParticleSpeed.setTo(-100, 30);

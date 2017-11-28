@@ -13,6 +13,13 @@ import * as Assets from './assets';
 import Start from './states/start';
 import {AssetMode, GameConfig, PublishMode, Sites} from './config/game.config';
 import {SaverTemplates} from './states/saver/enum.saver';
+import Comix from './states/comix';
+import Dress1 from './states/dress1';
+import Dress2 from './states/dress2';
+import Place from './states/place';
+import Show from './states/show';
+import Result from './states/result';
+import Final from './states/final';
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
@@ -21,6 +28,13 @@ class App extends Phaser.Game {
         this.state.add('Boot', Boot);
         this.state.add('Preloader', Preloader);
         this.state.add('Start', Start);
+        this.state.add('Comix', Comix);
+        this.state.add('Dress1', Dress1);
+        this.state.add('Dress2', Dress2);
+        this.state.add('Place', Place);
+        this.state.add('Show', Show);
+        this.state.add('Result', Result);
+        this.state.add('Final', Final);
 
         this.state.start('Boot');
     }
@@ -52,9 +66,9 @@ function startApp(): void {
     GameConfig.init(
         Sites.FREE_GAMES_CASUAL,
         PublishMode.NORMAL,
-        AssetMode.LOAD_ALL,
+        AssetMode.LOAD_BACKGROUND,
         SaverTemplates.NONE,
-        'Princesses Animal Prints Obsession');
+        'Princess Couples Dance Battle');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
