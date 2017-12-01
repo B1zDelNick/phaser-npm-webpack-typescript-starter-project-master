@@ -13,7 +13,7 @@ import {EffectUtils} from '../utils/effect.utils';
 import {AdUtils} from '../utils/ad/ad.utils';
 import {SoundUtils} from '../utils/sound/sound.utils';
 
-export default class Eerrterfghfghfg extends Phaser.State {
+export default class Select extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;
@@ -25,7 +25,8 @@ export default class Eerrterfghfghfg extends Phaser.State {
     private glow1: Phaser.Sprite = null;
     private glow2: Phaser.Sprite = null;
     private glow3: Phaser.Sprite = null;
-    private cloud: Phaser.Sprite = null;
+    private cloud1: Phaser.Sprite = null;
+    private cloud2: Phaser.Sprite = null;
     private container: Phaser.Group = null;
     private sel1: Phaser.Button = null;
     private sel2: Phaser.Button = null;
@@ -33,6 +34,7 @@ export default class Eerrterfghfghfg extends Phaser.State {
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
+    private phase: number = 0;
 
     public init(...args: any[]): void {
         switch (GameConfig.SITE) {
@@ -52,10 +54,10 @@ export default class Eerrterfghfghfg extends Phaser.State {
                 break;
             }
         }
-
         if (GameConfig.CURRENT_STATE === 0) this.NEXT = 'Dress1';
-        if (GameConfig.CURRENT_STATE === 1) this.NEXT = 'Dress2';
-        if (GameConfig.CURRENT_STATE === 2) this.NEXT = 'Dress3';
+        if (GameConfig.CURRENT_STATE === 1) this.NEXT = 'Dress3';
+        if (GameConfig.CURRENT_STATE === 2) this.NEXT = 'Dress2';
+        this.phase = 0;
     }
 
     public preload(): void {
@@ -63,69 +65,94 @@ export default class Eerrterfghfghfg extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg2').getName());
 
-        this.glow2 = this.game.add.sprite(377, 10,
+        this.glow1 = this.game.add.sprite(173, 25,
             ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel2Glow);
-        this.glow1 = this.game.add.sprite(94, 34,
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr12);
+        this.glow2 = this.game.add.sprite(361, 16,
             ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel1Glow);
-        this.glow3 = this.game.add.sprite(459, 34,
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr22);
+        this.glow3 = this.game.add.sprite(559, 26,
             ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel3Glow);
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr32);
 
         this.container = this.game.add.group();
 
-        this.sel2 = GuiUtils.makeButton(
-            this, this.container, 388, 17, 1,
-            'sel2', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel2,
-            GameConfig.CURRENT_STATE === 1, true, true,
-            this.nextState, null, null
-        );
         this.sel1 = GuiUtils.makeButton(
-            this, this.container, 101, 42, 1,
+            this, this.container, 173 + 700, 25, 1,
             'sel1', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel1,
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr11,
             GameConfig.CURRENT_STATE === 0, true, true,
             this.nextState, null, null
         );
+        this.sel2 = GuiUtils.makeButton(
+            this, this.container, 361 + 700, 16, 1,
+            'sel2', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr21,
+            GameConfig.CURRENT_STATE === 1, true, true,
+            this.nextState, null, null
+        );
         this.sel3 = GuiUtils.makeButton(
-            this, this.container, 468, 41, 1,
+            this, this.container, 559 + 700, 26, 1,
             'sel3', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel3,
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr31,
             GameConfig.CURRENT_STATE === 2, true, true,
             this.nextState, null, null
         );
 
-        this.cloud = this.game.add.sprite(209, 215,
+        this.cloud1 = this.game.add.sprite(329, 163,
             ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
             ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Cl1);
+        this.cloud2 = this.game.add.sprite(329, 163,
+            ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Cl2);
 
-        this.cloud.alpha = 0;
+        this.cloud1.alpha = 0;
+        this.cloud2.alpha = 0;
         this.glow1.alpha = 0;
         this.glow2.alpha = 0;
         this.glow3.alpha = 0;
 
         // GUI Buttons
-        this.gui.addGui(false);
+        this.gui.addGui(GameConfig.PUB_MODE === PublishMode.DUW, true);
+        if (GameConfig.PUB_MODE !== PublishMode.DUW) {
+            this.gui.addExtraMoreAnimated(770, 535,
+                ImageUtils.getSpritesheetClass('SpritesheetsMoreE21720925').getName(),
+                null, 8, true);
+        }
         const playBtn = this.gui.addPlayBtn(() => {
-            TweenUtils.fadeAndScaleOut(playBtn);
-            TweenUtils.fadeOut(this.cloud, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * .5, () => {
-                if (GameConfig.CURRENT_STATE === 0) EffectUtils.makeAlphaAnimation(this.glow1, 1, Phaser.Timer.SECOND * 1);
-                if (GameConfig.CURRENT_STATE === 1) EffectUtils.makeAlphaAnimation(this.glow2, 1, Phaser.Timer.SECOND * 1);
-                if (GameConfig.CURRENT_STATE === 2) EffectUtils.makeAlphaAnimation(this.glow3, 1, Phaser.Timer.SECOND * 1);
-            }, this);
+            if (this.phase === 0) {
+                TweenUtils.fadeAndScaleOut(playBtn);
+                TweenUtils.fadeOut(this.cloud1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * .5);
+                TweenUtils.fadeIn(this.cloud2, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1.5);
+                TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 2);
+                this.phase++;
+            }
+            else if (this.phase === 1) {
+                TweenUtils.fadeAndScaleOut(playBtn);
+                TweenUtils.fadeOut(this.cloud2, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * .5, () => {
+                    if (GameConfig.CURRENT_STATE === 0) EffectUtils.makeAlphaAnimation(this.glow1, 1, Phaser.Timer.SECOND * 1);
+                    if (GameConfig.CURRENT_STATE === 1) EffectUtils.makeAlphaAnimation(this.glow2, 1, Phaser.Timer.SECOND * 1);
+                    if (GameConfig.CURRENT_STATE === 2) EffectUtils.makeAlphaAnimation(this.glow3, 1, Phaser.Timer.SECOND * 1);
+                    if (GameConfig.CURRENT_STATE !== 0) {
+                        this.sel1.loadTexture(
+                            ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+                            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr13);
+                    }
+                    if (GameConfig.CURRENT_STATE !== 1) {
+                        this.sel2.loadTexture(
+                            ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+                            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr23);
+                    }
+                    if (GameConfig.CURRENT_STATE !== 2) {
+                        this.sel3.loadTexture(
+                            ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+                            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr33);
+                    }
+                }, this);
+            }
         });
-        const moreBtn = this.gui.addExtraMore(
-            960 - 191, 720 - 202,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE,
-            GuiUtils.addOverGlowHandler,
-            GuiUtils.addOutGlowHandler
-        );
-        EffectUtils.makeScaleAnimation(moreBtn, 1.05, Phaser.Timer.SECOND * .5);
         playBtn.scale.setTo(0);
         playBtn.alpha = 0;
 
@@ -141,13 +168,34 @@ export default class Eerrterfghfghfg extends Phaser.State {
 
         // Animations goes here
         if (GameConfig.CURRENT_STATE === 0) {
-            TweenUtils.fadeIn(this.cloud, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1.5);
-            TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 2.5);
+            TweenUtils.slideIn(this.sel1, 304, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1);
+            TweenUtils.slideIn(this.sel2, 495, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1.5);
+            TweenUtils.slideIn(this.sel3, 693, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2);
+            TweenUtils.fadeIn(this.cloud1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 3);
+            TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 3.5);
         }
         else {
+            this.sel1.position.x = 304;
+            this.sel2.position.x = 495;
+            this.sel3.position.x = 693;
             if (GameConfig.CURRENT_STATE === 0) EffectUtils.makeAlphaAnimation(this.glow1, 1, Phaser.Timer.SECOND * 1);
             if (GameConfig.CURRENT_STATE === 1) EffectUtils.makeAlphaAnimation(this.glow2, 1, Phaser.Timer.SECOND * 1);
             if (GameConfig.CURRENT_STATE === 2) EffectUtils.makeAlphaAnimation(this.glow3, 1, Phaser.Timer.SECOND * 1);
+            if (GameConfig.CURRENT_STATE !== 0) {
+                this.sel1.loadTexture(
+                    ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr13);
+            }
+            if (GameConfig.CURRENT_STATE !== 1) {
+                this.sel2.loadTexture(
+                    ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr23);
+            }
+            if (GameConfig.CURRENT_STATE !== 2) {
+                this.sel3.loadTexture(
+                    ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Gr33);
+            }
         }
 
         // Assets Managment starts here
@@ -167,6 +215,9 @@ export default class Eerrterfghfghfg extends Phaser.State {
         else if (GameConfig.PUB_MODE === PublishMode.NO_BUTTONS_ONE_AD && GameConfig.CURRENT_STATE === 1) {
             AdUtils.playAds();
         }
+        else if (GameConfig.PUB_MODE === PublishMode.DUW && GameConfig.CURRENT_STATE === 1) {
+            AdUtils.playAds();
+        }
     }
 
     public update(): void {
@@ -182,6 +233,8 @@ export default class Eerrterfghfghfg extends Phaser.State {
         this.sel2.destroy(true);
         this.sel3.destroy(true);
         this.container.destroy(true);
+        this.cloud1.destroy(true);
+        this.cloud2.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);

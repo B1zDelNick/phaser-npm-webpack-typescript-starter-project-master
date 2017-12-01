@@ -69,23 +69,23 @@ export namespace Images {
 }
 
 export namespace Spritesheets {
-    export class SpritesheetsCross121529937 {
-        static getName(): string { return 'cross_1.[215,299,37,0,0]'; }
+    export class SpritesheetsCross123031021 {
+        static getName(): string { return 'cross_1.[230,310,21,0,0]'; }
 
-        static getPNG(): string { return require('assets/spritesheets/cross_1.[215,299,37,0,0].png'); }
-        static getFrameWidth(): number { return 215; }
-        static getFrameHeight(): number { return 299; }
-        static getFrameMax(): number { return 37; }
+        static getPNG(): string { return require('assets/spritesheets/cross_1.[230,310,21,0,0].png'); }
+        static getFrameWidth(): number { return 230; }
+        static getFrameHeight(): number { return 310; }
+        static getFrameMax(): number { return 21; }
         static getMargin(): number { return 0; }
         static getSpacing(): number { return 0; }
     }
-    export class SpritesheetsCross221529937 {
-        static getName(): string { return 'cross_2.[215,299,37,0,0]'; }
+    export class SpritesheetsCross221529921 {
+        static getName(): string { return 'cross_2.[215,299,21,0,0]'; }
 
-        static getPNG(): string { return require('assets/spritesheets/cross_2.[215,299,37,0,0].png'); }
+        static getPNG(): string { return require('assets/spritesheets/cross_2.[215,299,21,0,0].png'); }
         static getFrameWidth(): number { return 215; }
         static getFrameHeight(): number { return 299; }
-        static getFrameMax(): number { return 37; }
+        static getFrameMax(): number { return 21; }
         static getMargin(): number { return 0; }
         static getSpacing(): number { return 0; }
     }
@@ -1036,7 +1036,11 @@ export namespace Atlases {
 }
 
 export namespace Audio {
-    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
+    export class AudioMainTheme {
+        static getName(): string { return 'main_theme'; }
+
+        static getMP3(): string { return require('assets/audio/main_theme.mp3'); }
+    }
 }
 
 export namespace Audiosprites {

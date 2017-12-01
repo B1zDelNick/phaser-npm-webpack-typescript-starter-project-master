@@ -1,16 +1,20 @@
 import {GuiUtils} from '../../../utils/gui.utils';
 import {isString} from 'util';
 import {GameConfig, PublishMode} from '../../../config/game.config';
+import {ChestItem} from './chest.item';
 import {ChestItemBase} from './chest.item.base';
 
-export class ChestItem extends ChestItemBase {
+export class AnimatedChestItem extends ChestItemBase {
 
     private game: Phaser.Game = null;
     private state: Phaser.State = null;
-    public button: Phaser.Button = null;
+    public button: Phaser.Sprite = null;
     public name: string = null;
 
-    constructor(state: Phaser.State, container: Phaser.Group, x: number, y: number, name: string, asset: string, frames?: any|any[],
+    constructor(state: Phaser.State, container: Phaser.Group,
+                x: number, y: number, name: string,
+                asset: string, frames?: any|any[],
+                frameRate: number = 10, loop: boolean = true,
                 callback?: Function, overHandler?: Function, outHandler?: Function) {
 
         super();
@@ -19,13 +23,6 @@ export class ChestItem extends ChestItemBase {
         this.state = state;
         this.name = name;
 
-        if (frames == null) {
-            frames = [0, 0, 0];
-        }
-        else if (isString(frames)) {
-            frames = [frames, frames, frames];
-        }
-
         let visible = true;
         if  ((name.indexOf('mmmm') !== -1) || (name.indexOf('cross') !== -1)) {
             if (GameConfig.PUB_MODE !== PublishMode.NORMAL)
@@ -33,9 +30,9 @@ export class ChestItem extends ChestItemBase {
         }
 
         this.button =
-            GuiUtils.makeButton(
+            GuiUtils.makeSpritesheetButton(
                 this.state, container,
-                x, y, 1,
+                x, y, 1, frameRate, loop,
                 name, asset, frames,
                 true, true, visible, callback, overHandler, outHandler);
     }
