@@ -54,7 +54,7 @@ function startApp(): void {
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princess Vintage Prom Gowns');
+        'Princess Fashion FlashMob');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
