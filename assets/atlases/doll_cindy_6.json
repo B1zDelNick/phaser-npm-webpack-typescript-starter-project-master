@@ -1,0 +1,60 @@
+{"frames": [
+
+{
+	"filename": "d_5.png",
+	"frame": {"x":0,"y":0,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "d_6.png",
+	"frame": {"x":646,"y":0,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "d_7.png",
+	"frame": {"x":1292,"y":0,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "d_8.png",
+	"frame": {"x":0,"y":830,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "d_9.png",
+	"frame": {"x":646,"y":830,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "d_b_12.png",
+	"frame": {"x":1292,"y":830,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_cindy_6.png",
+	"format": "RGBA8888",
+	"size": {"w":1938,"h":1660},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:f7615ab3771e4ae3bfc800fcca5ea01b:94a0665b81464b4137c2e64faa26be0a:1894bf08e66d47e757bc465f0bfa26c8$"
+}
+}

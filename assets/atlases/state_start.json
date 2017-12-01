@@ -1,0 +1,52 @@
+{"frames": [
+
+{
+	"filename": "girls.png",
+	"frame": {"x":886,"y":0,"w":742,"h":706},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":742,"h":706},
+	"sourceSize": {"w":742,"h":706}
+},
+{
+	"filename": "star_1.png",
+	"frame": {"x":910,"y":706,"w":947,"h":406},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":947,"h":406},
+	"sourceSize": {"w":947,"h":406}
+},
+{
+	"filename": "star_2.png",
+	"frame": {"x":0,"y":706,"w":910,"h":555},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":910,"h":555},
+	"sourceSize": {"w":910,"h":555}
+},
+{
+	"filename": "star_3.png",
+	"frame": {"x":0,"y":0,"w":412,"h":145},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":412,"h":145},
+	"sourceSize": {"w":412,"h":145}
+},
+{
+	"filename": "title.png",
+	"frame": {"x":412,"y":0,"w":474,"h":635},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":474,"h":635},
+	"sourceSize": {"w":474,"h":635}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_start.png",
+	"format": "RGBA8888",
+	"size": {"w":1857,"h":1261},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:4afa567d44b146d447b0f072c1a3dd6f:f6175404245ac59c6b5ee97fb8607b16:71a2591e904cd80377f4aacc094ff22d$"
+}
+}

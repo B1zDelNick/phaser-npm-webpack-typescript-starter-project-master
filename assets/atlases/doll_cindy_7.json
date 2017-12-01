@@ -1,0 +1,60 @@
+{"frames": [
+
+{
+	"filename": "d_b_3.png",
+	"frame": {"x":0,"y":0,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "d_b_8.png",
+	"frame": {"x":646,"y":0,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "eyes.png",
+	"frame": {"x":1292,"y":0,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "gl_1.png",
+	"frame": {"x":0,"y":830,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "gl_f_1.png",
+	"frame": {"x":646,"y":830,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+},
+{
+	"filename": "gl_f_2.png",
+	"frame": {"x":1292,"y":830,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_cindy_7.png",
+	"format": "RGBA8888",
+	"size": {"w":1938,"h":1660},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a753ba5cdc797eed32e46aae49a31f84:c7fa28fff67b7954da87e70d82090575:3ba21329c2fb563d8fb7a17624d13a0f$"
+}
+}

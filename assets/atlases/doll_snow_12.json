@@ -1,0 +1,60 @@
+{"frames": [
+
+{
+	"filename": "j_3.png",
+	"frame": {"x":0,"y":0,"w":640,"h":835},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":835},
+	"sourceSize": {"w":640,"h":835}
+},
+{
+	"filename": "j_4.png",
+	"frame": {"x":640,"y":0,"w":640,"h":835},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":835},
+	"sourceSize": {"w":640,"h":835}
+},
+{
+	"filename": "j_7.png",
+	"frame": {"x":1280,"y":0,"w":640,"h":835},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":835},
+	"sourceSize": {"w":640,"h":835}
+},
+{
+	"filename": "j_b_1.png",
+	"frame": {"x":0,"y":835,"w":640,"h":835},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":835},
+	"sourceSize": {"w":640,"h":835}
+},
+{
+	"filename": "j_b_2.png",
+	"frame": {"x":640,"y":835,"w":640,"h":835},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":835},
+	"sourceSize": {"w":640,"h":835}
+},
+{
+	"filename": "j_b_5.png",
+	"frame": {"x":1280,"y":835,"w":640,"h":835},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":835},
+	"sourceSize": {"w":640,"h":835}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_snow_12.png",
+	"format": "RGBA8888",
+	"size": {"w":1920,"h":1670},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b2dde6edf6a9580933c32fc6a8724e74:32265c3793145c762259fc7a201a69c8:1c06e2a396f8ac943767df755cff91f6$"
+}
+}

@@ -13,6 +13,13 @@ import * as Assets from './assets';
 import Start from './states/start';
 import {AssetMode, GameConfig, PublishMode, Sites} from './config/game.config';
 import {SaverTemplates} from './states/saver/enum.saver';
+import Select from './states/select';
+import Make from './states/make';
+import Hair from './states/hair';
+import Dress from './states/dress';
+import Acsess from './states/acsess';
+import Place from './states/place';
+import Final from './states/final';
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
@@ -21,6 +28,13 @@ class App extends Phaser.Game {
         this.state.add('Boot', Boot);
         this.state.add('Preloader', Preloader);
         this.state.add('Start', Start);
+        this.state.add('Select', Select);
+        this.state.add('Make', Make);
+        this.state.add('Hair', Hair);
+        this.state.add('Dress', Dress);
+        this.state.add('Acsess', Acsess);
+        this.state.add('Place', Place);
+        this.state.add('Final', Final);
 
         this.state.start('Boot');
     }
@@ -50,11 +64,11 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.FREE_GAMES_CASUAL,
+        Sites.DRESSUP_MIX,
         PublishMode.NORMAL,
-        AssetMode.LOAD_BACKGROUND,
+        AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princess Couples Dance Battle');
+        'Princess Vintage Prom Gowns');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;

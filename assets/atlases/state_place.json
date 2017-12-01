@@ -1,0 +1,44 @@
+{"frames": [
+
+{
+	"filename": "sel_1.png",
+	"frame": {"x":0,"y":0,"w":268,"h":309},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":268,"h":309},
+	"sourceSize": {"w":268,"h":309}
+},
+{
+	"filename": "sel_2.png",
+	"frame": {"x":268,"y":0,"w":267,"h":308},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":267,"h":308},
+	"sourceSize": {"w":267,"h":308}
+},
+{
+	"filename": "sel_3.png",
+	"frame": {"x":535,"y":0,"w":270,"h":308},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":270,"h":308},
+	"sourceSize": {"w":270,"h":308}
+},
+{
+	"filename": "sel_4.png",
+	"frame": {"x":805,"y":0,"w":268,"h":309},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":268,"h":309},
+	"sourceSize": {"w":268,"h":309}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_place.png",
+	"format": "RGBA8888",
+	"size": {"w":1073,"h":309},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:358d8228e232f9b931aea25fd1e44814:639cf5327f8ea382122ecf323cce0154:08f189d86b98a41bdbfaaf0ade0ccb0b$"
+}
+}

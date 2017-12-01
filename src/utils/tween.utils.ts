@@ -58,6 +58,22 @@ export class TweenUtils {
         return tween;
     }
 
+    public static fade(target: any, alpha: number, duration: number = 500, delay: number = 0, callBack?: Function, context?: any): Phaser.Tween {
+        const game = GameConfig.GAME;
+        this.kill(target);
+        if (target.inputEnabled) {
+            target.inputEnabled = false;
+            TweenUtils.delayedCall(duration + delay + 5, () => {
+                target.inputEnabled = true;
+            }, this);
+        }
+
+        const tween = game.add.tween(target).to({ alpha: alpha }, duration, Phaser.Easing.Linear.None, true, delay);
+        if (!isNull(callBack) && !isUndefined(callBack))
+            tween.onComplete.addOnce(callBack, context);
+        return tween;
+    }
+
     public static scale(target: any, scale: number, duration: number = 500, delay: number = 0, callBack?: Function, context?: any): Phaser.Tween {
         const game = GameConfig.GAME;
         this.kill(target);

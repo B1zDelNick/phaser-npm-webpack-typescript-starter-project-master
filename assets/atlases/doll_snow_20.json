@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "ht_1.png",
+	"frame": {"x":0,"y":0,"w":640,"h":835},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":640,"h":835},
+	"sourceSize": {"w":640,"h":835}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_snow_20.png",
+	"format": "RGBA8888",
+	"size": {"w":640,"h":835},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:6437ba7b37ab6264a840febdded43581:eecaf19ba5a7e8114f8e33e49ac9dd6f:224d5e4d08d80c7523f62160db57d39c$"
+}
+}

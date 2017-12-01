@@ -87,7 +87,7 @@ export class GuiDu implements IGui {
         return this.moreButton;
     }
 
-    addExtraMoreAnimated(x: number, y: number, asset: string, frameRate: number = 10, loop: boolean = true,
+    addExtraMoreAnimated(x: number, y: number, asset: string, frames: any[], frameRate: number = 10, loop: boolean = true,
                  overHandler: Function = GuiUtils.addOverHandler,
                  outHandler: Function = GuiUtils.addOutHandler,
                  callback: Function = GuiUtils.goLinkMainMoreGames): Phaser.Sprite {
@@ -96,7 +96,7 @@ export class GuiDu implements IGui {
             GuiUtils.makeSpritesheetButton(
                 this.state, this.guiContainer,
                 x, y, 1, frameRate, loop,
-                '', asset,
+                '', asset, frames,
                 true, true, true, callback, overHandler, outHandler);
 
         return this.moreButton2;
@@ -176,7 +176,7 @@ export class GuiDu implements IGui {
         return btn;
     }
 
-    addExtraBtnAnimated(x: number, y: number, asset: string, frameRate: number = 10, loop: boolean = true,
+    addExtraBtnAnimated(x: number, y: number, asset: string, frames: any[], frameRate: number = 10, loop: boolean = true,
                         callback?: Function,
                         overHandler: Function = GuiUtils.addOverHandler,
                         outHandler: Function = GuiUtils.addOutHandler): Phaser.Sprite {
@@ -185,7 +185,7 @@ export class GuiDu implements IGui {
             GuiUtils.makeSpritesheetButton(
                 this.state, this.guiContainer,
                 x, y, 1, frameRate, loop,
-                '', asset,
+                '', asset, frames,
                 true, false, true, callback, overHandler, outHandler);
 
         this.extras2.push(btn);

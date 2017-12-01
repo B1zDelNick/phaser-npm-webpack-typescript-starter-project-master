@@ -1,0 +1,20 @@
+{"frames": [
+
+{
+	"filename": "und.png",
+	"frame": {"x":0,"y":0,"w":646,"h":830},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":646,"h":830},
+	"sourceSize": {"w":646,"h":830}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_cindy_19.png",
+	"format": "RGBA8888",
+	"size": {"w":646,"h":830},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:1654d8e59e704e169f1eb3b5445a1e23:3bfb6f2b3289e77f7fe6fefcef0397bd:ca71402a9bedb943d16e550f15aea17c$"
+}
+}

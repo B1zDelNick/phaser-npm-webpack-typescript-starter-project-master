@@ -163,6 +163,21 @@ export class PreloaderUtils {
         this.dress3StateAdditionalLoads();
     }
 
+    public static preloadDress4State(): void {
+        const game = GameConfig.GAME;
+        // Load any assets you need for your preloader state here.
+        if (ImageUtils.getAtlasClass('AtlasesStateDress4') != null) {
+            game.load.atlasJSONArray(
+                ImageUtils.getAtlasClass('AtlasesStateDress4').getName(),
+                ImageUtils.getAtlasClass('AtlasesStateDress4').getPNG(),
+                ImageUtils.getAtlasClass('AtlasesStateDress4').getJSONArray());
+        } else {
+            if (DEBUG)
+                console.log(`\nNo default Dress4 State graphics was found.`);
+        }
+        this.dress4StateAdditionalLoads();
+    }
+
     public static preloadPlaceState(): void {
         const game = GameConfig.GAME;
         // Load any assets you need for your preloader state here.
@@ -392,6 +407,18 @@ export class PreloaderUtils {
             ImageUtils.getAtlasClass('AtlasesDollRap').getName(),
             ImageUtils.getAtlasClass('AtlasesDollRap').getPNG(),
             ImageUtils.getAtlasClass('AtlasesDollRap').getJSONArray());*/
+    }
+
+    private static dress4StateAdditionalLoads(): void {
+        const game = GameConfig.GAME;
+        // Additional loading HERE, exp: BlurX script etc
+        /*game.load.image(
+         ImageUtils.getImageClass('ImagesBg4').getName(),
+         ImageUtils.getImageClass('ImagesBg4').getJPG());
+         game.load.atlasJSONArray(
+         ImageUtils.getAtlasClass('AtlasesDollRap').getName(),
+         ImageUtils.getAtlasClass('AtlasesDollRap').getPNG(),
+         ImageUtils.getAtlasClass('AtlasesDollRap').getJSONArray());*/
     }
 
     private static placeStateAdditionalLoads(): void {

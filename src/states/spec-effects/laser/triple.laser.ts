@@ -35,6 +35,10 @@ export class TripleLaser implements ILaser {
         this.laser3.angle = 17;
     }
 
+    getContainer(): Phaser.Group {
+        return this.container;
+    }
+
     start(): void {
         this.game.add.tween(this.laser1).to({ angle: 27 }, Phaser.Timer.SECOND * 2, Phaser.Easing.Linear.None, true, 0, 99999)
             .yoyo(true);
