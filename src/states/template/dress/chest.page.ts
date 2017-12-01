@@ -5,6 +5,8 @@ import {GuiUtils} from '../../../utils/gui.utils';
 import {isNull} from 'util';
 import {TweenUtils} from '../../../utils/tween.utils';
 import {ChestCompoundItem} from './chest.compound.item';
+import {AnimatedChestItem} from './chest.item.animated';
+import {ChestItemBase} from './chest.item.base';
 export class ChestPage {
 
     private instance: ChestPage = null;
@@ -14,7 +16,7 @@ export class ChestPage {
     public hideStatic: boolean;
     private container: Phaser.Group = null;
     private shelf: Phaser.Sprite = null;
-    private items: Array<ChestItem> = [];
+    private items: Array<ChestItemBase> = [];
     private compoundItems: Array<ChestCompoundItem> = [];
 
     constructor(owner: Chest, state: Phaser.State, container: Phaser.Group, hideStatic: boolean) {
@@ -27,7 +29,7 @@ export class ChestPage {
         container.add(this.container);
     }
 
-    findItem(name: string): ChestItem|ChestCompoundItem {
+    findItem(name: string): ChestItemBase {
         for (let item of this.items) {
             if (item.name === name)
                 return item;
@@ -105,6 +107,17 @@ export class ChestPage {
                 outHandler: Function = GuiUtils.addOutGlowHandler): ChestPage {
 
         this.items.push(new ChestItem(this.state, this.container, x, y, name, asset, frames, callback, overHandler, outHandler));
+        return this.instance;
+    }
+
+    animatedItem(x: number, y: number, name: string, asset: string, frames?: any|any[], frameRate: number = 10, loop: boolean = true,
+         callback?: Function,
+         overHandler: Function = GuiUtils.addOverGlowHandler,
+         outHandler: Function = GuiUtils.addOutGlowHandler): ChestPage {
+
+        this.items.push(new AnimatedChestItem(this.state, this.container,
+            x, y, name, asset, frames, frameRate, loop,
+            callback, overHandler, outHandler));
         return this.instance;
     }
 

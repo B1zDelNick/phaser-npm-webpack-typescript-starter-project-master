@@ -1,8 +1,9 @@
 import {GuiUtils} from '../../../utils/gui.utils';
 import {isString} from 'util';
 import {GameConfig} from '../../../config/game.config';
+import {ChestItemBase} from './chest.item.base';
 
-export class ChestCompoundItem {
+export class ChestCompoundItem extends ChestItemBase {
 
     private game: Phaser.Game = null;
     private state: Phaser.State = null;
@@ -20,6 +21,8 @@ export class ChestCompoundItem {
                 x: number, y: number, name: string,
                 asset: string, frameClass: any, prefix: string,
                 callback?: Function, overHandler?: Function, outHandler?: Function) {
+
+        super();
 
         this.game = GameConfig.GAME;
         this.state = state;
@@ -61,6 +64,10 @@ export class ChestCompoundItem {
     disable(): void {
         this.button.inputEnabled = false;
         this.button.filters = null;
+    }
+
+    enable(): void {
+        this.button.inputEnabled = true;
     }
 
     dispose(): void {

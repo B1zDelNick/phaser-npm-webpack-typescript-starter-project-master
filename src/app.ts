@@ -50,11 +50,11 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.FREE_GAMES_CASUAL,
+        Sites.DRESSUP_MIX,
         PublishMode.NORMAL,
-        AssetMode.LOAD_BACKGROUND,
+        AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princess Couples Dance Battle');
+        'Princess Fashion FlashMob');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;

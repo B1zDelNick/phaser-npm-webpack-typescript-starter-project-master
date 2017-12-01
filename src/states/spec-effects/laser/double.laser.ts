@@ -29,6 +29,10 @@ export class DoubleLaser implements ILaser {
         this.laser2.angle = 29;
     }
 
+    getContainer(): Phaser.Group {
+        return this.container;
+    }
+
     start(): void {
         this.game.add.tween(this.laser1).to({ angle: 25 }, Phaser.Timer.SECOND * 2, Phaser.Easing.Linear.None, true, 0, 99999)
             .yoyo(true);

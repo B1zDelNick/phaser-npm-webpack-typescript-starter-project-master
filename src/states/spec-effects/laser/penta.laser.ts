@@ -56,6 +56,10 @@ export class PentaLaser implements ILaser {
         this.laser5.angle = 21;
     }
 
+    getContainer(): Phaser.Group {
+        return this.container;
+    }
+
     start(): void {
         this.game.add.tween(this.laser1).to({ angle: 5 }, Phaser.Timer.SECOND * 1, Phaser.Easing.Linear.None, true, 0, 99999)
             .yoyo(true);

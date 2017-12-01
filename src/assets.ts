@@ -283,7 +283,8 @@ export namespace Atlases {
         Con3 = <any>'con_3.png',
         Con4 = <any>'con_4.png',
         Con5 = <any>'con_5.png',
-        Con6 = <any>'con_6.png',
+        Dot1 = <any>'dot_1.png',
+        Dot2 = <any>'dot_2.png',
         GStar1 = <any>'g_star_1.png',
         GStar2 = <any>'g_star_2.png',
         GStar3 = <any>'g_star_3.png',
@@ -301,6 +302,9 @@ export namespace Atlases {
         Light6 = <any>'light_6.png',
         Light7 = <any>'light_7.png',
         Light8 = <any>'light_8.png',
+        Projector = <any>'projector.png',
+        Sn1 = <any>'sn_1.png',
+        Sn2 = <any>'sn_2.png',
     }
     export class AtlasesEffects {
         static getName(): string { return 'effects'; }

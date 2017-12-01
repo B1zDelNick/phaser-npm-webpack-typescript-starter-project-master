@@ -49,6 +49,16 @@ export class EffectUtils {
         return f;
     }
 
+    public static makeVeryLightGlowAnimation(color: number = 0xffffff, period: number = 1000, loop: boolean = true, repeat: number = 99999, dist: number = 350): Phaser.Filter {
+        const f = FilterUtils.makeFilter(color, dist, dist);
+        (f as any).outerStrength = 0;
+        (f as any).innerStrength = 0;
+        const game = GameConfig.GAME;
+        game.add.tween(f).to({ outerStrength: 1, innerStrength: .5 },
+            period, Phaser.Easing.Linear.None, true, 0, repeat).yoyo(loop);
+        return f;
+    }
+
     public static makeScaleAnimation(target: any, scale: number = 1.05, period: number = 1000, loop: boolean = true, dist: number = 350): Phaser.Tween {
         const game = GameConfig.GAME;
         return game.add.tween(target.scale).to({ x: scale, y: scale },

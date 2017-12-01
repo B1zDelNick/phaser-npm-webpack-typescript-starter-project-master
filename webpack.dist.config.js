@@ -23,7 +23,7 @@ module.exports = {
     },
     plugins: [
         new WebpackShellPlugin({
-            onBuildStart: ['npm run assets:dev']
+            onBuildStart: []
         }),
         new webpack.DefinePlugin({
             'DEBUG': false,
@@ -82,7 +82,7 @@ module.exports = {
             screw_ie8: true
         }),*/
         new HtmlWebpackPlugin({
-            title: 'Princess Couples Dance Battle',
+            title: 'Princess Fashion FlashMob',
             gaScript:
             `<script>
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

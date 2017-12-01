@@ -7,6 +7,7 @@ import {ChestCategory} from './chest.category';
 import {EffectUtils} from '../../../utils/effect.utils';
 import {ChestCompoundItem} from './chest.compound.item';
 import {ChestItem} from './chest.item';
+import {ChestItemBase} from './chest.item.base';
 
 export class Chest {
 
@@ -93,8 +94,8 @@ export class Chest {
         }
     }
 
-    findItem(name: string): Phaser.Button {
-        let item: ChestItem|ChestCompoundItem = null;
+    findItem(name: string): Phaser.Button|Phaser.Sprite {
+        let item: ChestItemBase = null;
         if (this.staticPage !== null) {
             item = this.staticPage.findItem(name);
         }

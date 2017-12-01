@@ -142,6 +142,45 @@ export class DollLayer {
         else if (ImageUtils.getAtlasClass(`${this.assetClass}9`) && ImageUtils.getAtlasClass(`${this.assetClass}9`).Frames[this.prefix + index]) {
             return ImageUtils.getAtlasClass(`${this.assetClass}9`);
         }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}10`) && ImageUtils.getAtlasClass(`${this.assetClass}10`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}10`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}11`) && ImageUtils.getAtlasClass(`${this.assetClass}11`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}11`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}12`) && ImageUtils.getAtlasClass(`${this.assetClass}12`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}12`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}13`) && ImageUtils.getAtlasClass(`${this.assetClass}13`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}13`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}14`) && ImageUtils.getAtlasClass(`${this.assetClass}14`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}14`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}15`) && ImageUtils.getAtlasClass(`${this.assetClass}15`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}15`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}16`) && ImageUtils.getAtlasClass(`${this.assetClass}16`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}16`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}17`) && ImageUtils.getAtlasClass(`${this.assetClass}17`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}17`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}18`) && ImageUtils.getAtlasClass(`${this.assetClass}18`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}18`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}19`) && ImageUtils.getAtlasClass(`${this.assetClass}19`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}19`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}20`) && ImageUtils.getAtlasClass(`${this.assetClass}20`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}20`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}21`) && ImageUtils.getAtlasClass(`${this.assetClass}21`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}21`);
+        }
+        else if (ImageUtils.getAtlasClass(`${this.assetClass}22`) && ImageUtils.getAtlasClass(`${this.assetClass}22`).Frames[this.prefix + index]) {
+            return ImageUtils.getAtlasClass(`${this.assetClass}22`);
+        }
         return null;
     }
 

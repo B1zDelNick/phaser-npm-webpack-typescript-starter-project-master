@@ -99,12 +99,12 @@ export class GuiUtils {
     public static makeSpritesheetButton(
         parent: any, container: Phaser.Group,
         x: number, y: number, scale: number = 1, frameRate: number = 10, loop: boolean = true,
-        name: string = '', sheet: string = '',
+        name: string = '', sheet: string = '', frames: any[] = null,
         enabled: boolean = true, perfect: boolean = false, visible: boolean = true,
         clickHandler: Function = null, overHandler: Function = null, outHandler: Function = null, downHandler: Function = null, upHandler: Function = null): Phaser.Sprite {
 
         let tempItem: Phaser.Sprite = parent.game.add.sprite(0, 0, sheet);
-        tempItem.animations.add('butAnim');
+        tempItem.animations.add('butAnim', frames);
         tempItem.animations.play('butAnim', frameRate, loop);
 
         tempItem.name = name;
