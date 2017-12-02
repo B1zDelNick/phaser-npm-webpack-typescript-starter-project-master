@@ -1,0 +1,237 @@
+{"frames": [
+
+{
+	"filename": "acs_1.png",
+	"frame": {"x":0,"y":0,"w":62,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":62,"h":45},
+	"sourceSize": {"w":62,"h":45},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "acs_2.png",
+	"frame": {"x":362,"y":0,"w":83,"h":86},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":83,"h":86},
+	"sourceSize": {"w":83,"h":86},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "bag_1.png",
+	"frame": {"x":701,"y":0,"w":162,"h":113},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":162,"h":113},
+	"sourceSize": {"w":162,"h":113},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "chest.png",
+	"frame": {"x":314,"y":657,"w":615,"h":711},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":615,"h":711},
+	"sourceSize": {"w":615,"h":711},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "dress_1.png",
+	"frame": {"x":354,"y":267,"w":153,"h":380},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":153,"h":380},
+	"sourceSize": {"w":153,"h":380},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "dress_2.png",
+	"frame": {"x":212,"y":267,"w":142,"h":271},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":142,"h":271},
+	"sourceSize": {"w":142,"h":271},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "dress_3.png",
+	"frame": {"x":152,"y":657,"w":162,"h":398},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":162,"h":398},
+	"sourceSize": {"w":162,"h":398},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "dress_4.png",
+	"frame": {"x":0,"y":657,"w":152,"h":393},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":152,"h":393},
+	"sourceSize": {"w":152,"h":393},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "dress_5.png",
+	"frame": {"x":507,"y":267,"w":148,"h":389},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":148,"h":389},
+	"sourceSize": {"w":148,"h":389},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "dress_6.png",
+	"frame": {"x":655,"y":267,"w":137,"h":390},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":137,"h":390},
+	"sourceSize": {"w":137,"h":390},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "glass_1.png",
+	"frame": {"x":62,"y":0,"w":112,"h":56},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":112,"h":56},
+	"sourceSize": {"w":112,"h":56},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "hair_1.png",
+	"frame": {"x":170,"y":113,"w":100,"h":146},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":146},
+	"sourceSize": {"w":100,"h":146},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "hair_2.png",
+	"frame": {"x":670,"y":113,"w":100,"h":154},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":100,"h":154},
+	"sourceSize": {"w":100,"h":154},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "hair_3.png",
+	"frame": {"x":564,"y":113,"w":106,"h":152},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":106,"h":152},
+	"sourceSize": {"w":106,"h":152},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "hair_4.png",
+	"frame": {"x":270,"y":113,"w":94,"h":147},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":94,"h":147},
+	"sourceSize": {"w":94,"h":147},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "hair_5.png",
+	"frame": {"x":459,"y":113,"w":105,"h":150},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":105,"h":150},
+	"sourceSize": {"w":105,"h":150},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "hair_6.png",
+	"frame": {"x":364,"y":113,"w":95,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":95,"h":148},
+	"sourceSize": {"w":95,"h":148},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "lb.png",
+	"frame": {"x":174,"y":0,"w":94,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":94,"h":80},
+	"sourceSize": {"w":94,"h":80},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "mmmm.png",
+	"frame": {"x":0,"y":267,"w":212,"h":265},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":212,"h":265},
+	"sourceSize": {"w":212,"h":265},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rb.png",
+	"frame": {"x":268,"y":0,"w":94,"h":80},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":94,"h":80},
+	"sourceSize": {"w":94,"h":80},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "shoe_1.png",
+	"frame": {"x":620,"y":0,"w":81,"h":110},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":81,"h":110},
+	"sourceSize": {"w":81,"h":110},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "shoe_2.png",
+	"frame": {"x":86,"y":113,"w":84,"h":139},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":84,"h":139},
+	"sourceSize": {"w":84,"h":139},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "shoe_3.png",
+	"frame": {"x":0,"y":113,"w":86,"h":121},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":86,"h":121},
+	"sourceSize": {"w":86,"h":121},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "shoe_4.png",
+	"frame": {"x":445,"y":0,"w":86,"h":106},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":86,"h":106},
+	"sourceSize": {"w":86,"h":106},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "shoe_5.png",
+	"frame": {"x":531,"y":0,"w":89,"h":106},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":89,"h":106},
+	"sourceSize": {"w":89,"h":106},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_dress_2.png",
+	"format": "RGBA8888",
+	"size": {"w":929,"h":1368},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ed647b82bbb384b7e8609cb075472116:3e3dd8cc14ed872b3d8998ba47f1878a:33e5b73b701eca8b82d9ddaac018d345$"
+}
+}

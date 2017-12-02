@@ -54,7 +54,7 @@ function startApp(): void {
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princess Fashion FlashMob');
+        'Princess Housewarming Party');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
