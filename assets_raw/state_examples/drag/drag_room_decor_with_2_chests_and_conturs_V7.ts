@@ -15,7 +15,7 @@ import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 import {Chest} from './template/dress/chest';
 
-export default class Drag extends Phaser.State {
+export default class Ghgjghjghjghjgh extends Phaser.State {
 
     private NEXT = 'Dress1';
     private nextPrepared = false;

@@ -17,7 +17,7 @@ import {AdUtils} from '../utils/ad/ad.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 import {SoundUtils} from '../utils/sound/sound.utils';
 
-export default class Dress1 extends Phaser.State {
+export default class Bfgdfgdfdfgdfgdfg extends Phaser.State {
 
     private NEXT = 'Final';
     private nextPrepared = false;
