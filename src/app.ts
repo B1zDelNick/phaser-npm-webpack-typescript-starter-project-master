@@ -50,11 +50,11 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.DRESSUP_MIX,
+        Sites.MY_CUTE_GAMES,
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
-        SaverTemplates.H_FADE_SLIDER_TEMPLATE,
-        'Princess Housewarming Party');
+        SaverTemplates.NONE,
+        'Princesses Welcome Winter Ball');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
