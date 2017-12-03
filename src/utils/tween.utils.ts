@@ -17,6 +17,11 @@ export class TweenUtils {
         game.time.events.add(delay, callback, context, args);
     }
 
+    public static callEvery(period: number, callback: Function, context?: any, args?: any) {
+        const game = GameConfig.GAME;
+        game.time.events.loop(period, callback, context, args);
+    }
+
     public static rotate(
         target: any, amount: number, duration: number = 1000, delay: number = 0, repeat: number = 0, loop: boolean = false,
         easing: Function = Phaser.Easing.Linear.None, callBack?: Function, context?: any): Phaser.Tween {

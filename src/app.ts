@@ -53,8 +53,8 @@ function startApp(): void {
         Sites.DRESSUP_MIX,
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
-        SaverTemplates.NONE,
-        'Princess Fashion FlashMob');
+        SaverTemplates.H_FADE_SLIDER_TEMPLATE,
+        'Princess Housewarming Party');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
