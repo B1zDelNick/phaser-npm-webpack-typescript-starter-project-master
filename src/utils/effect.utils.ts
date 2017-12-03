@@ -98,6 +98,11 @@ export class EffectUtils {
         _tween3.chain(_tween1);
     }
 
+    public static makeRotateAnimation(sprite: any, duration: number = 400, angle: number = 10, times: number = 4): void {
+        const game = GameConfig.GAME;
+        const _tween1 = game.add.tween(sprite).to({ angle: angle }, duration, Phaser.Easing.Linear.None, true, 0, times, true);
+    }
+
     public static makeNeonAnimation(sprite: any, time: number = 250): void {
         const game = GameConfig.GAME;
         const _tween1 = game.add.tween(sprite).to({ alpha: .25 }, time * 3, Phaser.Easing.Linear.None, true);

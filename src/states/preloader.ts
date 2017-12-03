@@ -23,7 +23,7 @@ export default class Preloader extends Phaser.State {
             }
             case Sites.DRESSUP_MIX:
             {
-                this.preloader = new DressupMixPreloader(this, 'Start');
+                this.preloader = new DressupMixPreloader(this, 'Dress2');
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:

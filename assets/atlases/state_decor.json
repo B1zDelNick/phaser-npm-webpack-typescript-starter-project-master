@@ -263,11 +263,11 @@
 },
 {
 	"filename": "er_item_2.png",
-	"frame": {"x":1799,"y":117,"w":87,"h":204},
+	"frame": {"x":1800,"y":117,"w":86,"h":204},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":87,"h":204},
-	"sourceSize": {"w":87,"h":204},
+	"spriteSourceSize": {"x":0,"y":0,"w":86,"h":204},
+	"sourceSize": {"w":86,"h":204},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
