@@ -2,16 +2,16 @@
 
 {
 	"filename": "belt_1.png",
-	"frame": {"x":1787,"y":0,"w":189,"h":194},
+	"frame": {"x":0,"y":0,"w":175,"h":179},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":189,"h":194},
-	"sourceSize": {"w":189,"h":194},
+	"spriteSourceSize": {"x":0,"y":0,"w":175,"h":179},
+	"sourceSize": {"w":175,"h":179},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "chest.png",
-	"frame": {"x":1435,"y":558,"w":516,"h":781},
+	"frame": {"x":175,"y":0,"w":516,"h":781},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":516,"h":781},
@@ -20,7 +20,7 @@
 },
 {
 	"filename": "cross.png",
-	"frame": {"x":1094,"y":558,"w":341,"h":421},
+	"frame": {"x":691,"y":0,"w":341,"h":421},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":341,"h":421},
@@ -29,7 +29,7 @@
 },
 {
 	"filename": "dress_1.png",
-	"frame": {"x":1616,"y":194,"w":308,"h":364},
+	"frame": {"x":1032,"y":0,"w":308,"h":364},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":308,"h":364},
@@ -38,7 +38,7 @@
 },
 {
 	"filename": "dress_2.png",
-	"frame": {"x":0,"y":558,"w":280,"h":380},
+	"frame": {"x":1340,"y":0,"w":280,"h":380},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":280,"h":380},
@@ -47,7 +47,7 @@
 },
 {
 	"filename": "dress_3.png",
-	"frame": {"x":826,"y":558,"w":268,"h":406},
+	"frame": {"x":1620,"y":0,"w":268,"h":406},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":268,"h":406},
@@ -56,7 +56,7 @@
 },
 {
 	"filename": "dress_4.png",
-	"frame": {"x":280,"y":558,"w":219,"h":403},
+	"frame": {"x":0,"y":781,"w":219,"h":403},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":219,"h":403},
@@ -65,7 +65,7 @@
 },
 {
 	"filename": "dress_5.png",
-	"frame": {"x":455,"y":194,"w":121,"h":281},
+	"frame": {"x":219,"y":781,"w":121,"h":281},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":281},
@@ -74,7 +74,7 @@
 },
 {
 	"filename": "dress_6.png",
-	"frame": {"x":499,"y":558,"w":327,"h":405},
+	"frame": {"x":340,"y":781,"w":327,"h":405},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":327,"h":405},
@@ -83,25 +83,25 @@
 },
 {
 	"filename": "glove_1.png",
-	"frame": {"x":628,"y":0,"w":76,"h":84},
+	"frame": {"x":667,"y":781,"w":98,"h":109},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":84},
-	"sourceSize": {"w":76,"h":84},
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":109},
+	"sourceSize": {"w":98,"h":109},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "glove_2.png",
-	"frame": {"x":896,"y":0,"w":67,"h":95},
+	"frame": {"x":765,"y":781,"w":81,"h":114},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":67,"h":95},
-	"sourceSize": {"w":67,"h":95},
+	"spriteSourceSize": {"x":0,"y":0,"w":81,"h":114},
+	"sourceSize": {"w":81,"h":114},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "hair_1.png",
-	"frame": {"x":784,"y":194,"w":208,"h":305},
+	"frame": {"x":846,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -110,7 +110,7 @@
 },
 {
 	"filename": "hair_2.png",
-	"frame": {"x":576,"y":194,"w":208,"h":305},
+	"frame": {"x":1054,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -119,7 +119,7 @@
 },
 {
 	"filename": "hair_3.png",
-	"frame": {"x":992,"y":194,"w":208,"h":305},
+	"frame": {"x":1262,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -128,7 +128,7 @@
 },
 {
 	"filename": "hair_4.png",
-	"frame": {"x":1408,"y":194,"w":208,"h":305},
+	"frame": {"x":1470,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -137,7 +137,7 @@
 },
 {
 	"filename": "hair_5.png",
-	"frame": {"x":1200,"y":194,"w":208,"h":305},
+	"frame": {"x":1678,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -146,16 +146,16 @@
 },
 {
 	"filename": "hat_1.png",
-	"frame": {"x":429,"y":0,"w":102,"h":81},
+	"frame": {"x":1886,"y":781,"w":128,"h":101},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":102,"h":81},
-	"sourceSize": {"w":102,"h":81},
+	"spriteSourceSize": {"x":0,"y":0,"w":128,"h":101},
+	"sourceSize": {"w":128,"h":101},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "jack_1.png",
-	"frame": {"x":0,"y":194,"w":245,"h":244},
+	"frame": {"x":0,"y":1186,"w":245,"h":244},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":245,"h":244},
@@ -164,7 +164,7 @@
 },
 {
 	"filename": "jack_2.png",
-	"frame": {"x":245,"y":194,"w":210,"h":255},
+	"frame": {"x":245,"y":1186,"w":210,"h":255},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":210,"h":255},
@@ -173,34 +173,34 @@
 },
 {
 	"filename": "jew_1.png",
-	"frame": {"x":1377,"y":0,"w":90,"h":145},
+	"frame": {"x":455,"y":1186,"w":120,"h":195},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":145},
-	"sourceSize": {"w":90,"h":145},
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":195},
+	"sourceSize": {"w":120,"h":195},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "jew_2.png",
-	"frame": {"x":1467,"y":0,"w":90,"h":145},
+	"frame": {"x":575,"y":1186,"w":121,"h":195},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":145},
-	"sourceSize": {"w":90,"h":145},
+	"spriteSourceSize": {"x":0,"y":0,"w":121,"h":195},
+	"sourceSize": {"w":121,"h":195},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "jew_3.png",
-	"frame": {"x":1557,"y":0,"w":90,"h":145},
+	"frame": {"x":696,"y":1186,"w":120,"h":195},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":145},
-	"sourceSize": {"w":90,"h":145},
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":195},
+	"sourceSize": {"w":120,"h":195},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "lb.png",
-	"frame": {"x":1647,"y":0,"w":70,"h":165},
+	"frame": {"x":816,"y":1186,"w":70,"h":165},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":165},
@@ -209,16 +209,25 @@
 },
 {
 	"filename": "neck_1.png",
-	"frame": {"x":1238,"y":0,"w":139,"h":118},
+	"frame": {"x":886,"y":1186,"w":138,"h":118},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":139,"h":118},
-	"sourceSize": {"w":139,"h":118},
+	"spriteSourceSize": {"x":0,"y":0,"w":138,"h":118},
+	"sourceSize": {"w":138,"h":118},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "pl_btn.png",
+	"frame": {"x":1024,"y":1186,"w":137,"h":102},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":137,"h":102},
+	"sourceSize": {"w":137,"h":102},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "rb.png",
-	"frame": {"x":1717,"y":0,"w":70,"h":165},
+	"frame": {"x":1161,"y":1186,"w":70,"h":165},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":70,"h":165},
@@ -227,7 +236,7 @@
 },
 {
 	"filename": "shelf.png",
-	"frame": {"x":0,"y":0,"w":429,"h":40},
+	"frame": {"x":1231,"y":1186,"w":429,"h":40},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":429,"h":40},
@@ -236,7 +245,7 @@
 },
 {
 	"filename": "shoe_1.png",
-	"frame": {"x":800,"y":0,"w":96,"h":91},
+	"frame": {"x":1660,"y":1186,"w":96,"h":91},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":91},
@@ -245,7 +254,7 @@
 },
 {
 	"filename": "shoe_2.png",
-	"frame": {"x":531,"y":0,"w":97,"h":81},
+	"frame": {"x":1756,"y":1186,"w":97,"h":81},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":97,"h":81},
@@ -254,7 +263,7 @@
 },
 {
 	"filename": "shoe_3.png",
-	"frame": {"x":1055,"y":0,"w":91,"h":98},
+	"frame": {"x":1853,"y":1186,"w":91,"h":98},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":91,"h":98},
@@ -263,7 +272,7 @@
 },
 {
 	"filename": "shoe_4.png",
-	"frame": {"x":1146,"y":0,"w":92,"h":100},
+	"frame": {"x":1944,"y":1186,"w":92,"h":100},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":100},
@@ -272,7 +281,7 @@
 },
 {
 	"filename": "shoe_5.png",
-	"frame": {"x":704,"y":0,"w":96,"h":84},
+	"frame": {"x":0,"y":1441,"w":96,"h":84},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":96,"h":84},
@@ -281,7 +290,7 @@
 },
 {
 	"filename": "shoe_6.png",
-	"frame": {"x":963,"y":0,"w":92,"h":95},
+	"frame": {"x":96,"y":1441,"w":92,"h":95},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":92,"h":95},
@@ -293,8 +302,8 @@
 	"version": "1.0",
 	"image": "state_dress_1.png",
 	"format": "RGBA8888",
-	"size": {"w":1976,"h":1339},
+	"size": {"w":2036,"h":1536},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d62a9e3a254b5a1e27d01342dd70ab56:0e5d5a2a6f5fe4a299f598fc3c4ec9b2:ef2f81a6d03f6c4d104d79ac672dc23d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:ab15aafe5e2eb922d8fef68825b6e697:23b6e08d8b1b2ecbd90e79fd92b0681a:ef2f81a6d03f6c4d104d79ac672dc23d$"
 }
 }

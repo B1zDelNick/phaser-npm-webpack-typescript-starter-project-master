@@ -74,16 +74,16 @@
 },
 {
 	"filename": "glove_1.png",
-	"frame": {"x":244,"y":781,"w":113,"h":127},
+	"frame": {"x":244,"y":781,"w":129,"h":146},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":113,"h":127},
-	"sourceSize": {"w":113,"h":127},
+	"spriteSourceSize": {"x":0,"y":0,"w":129,"h":146},
+	"sourceSize": {"w":129,"h":146},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "hair_1.png",
-	"frame": {"x":357,"y":781,"w":208,"h":305},
+	"frame": {"x":373,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -92,7 +92,7 @@
 },
 {
 	"filename": "hair_2.png",
-	"frame": {"x":565,"y":781,"w":208,"h":305},
+	"frame": {"x":581,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -101,7 +101,7 @@
 },
 {
 	"filename": "hair_3.png",
-	"frame": {"x":773,"y":781,"w":208,"h":305},
+	"frame": {"x":789,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -110,7 +110,7 @@
 },
 {
 	"filename": "hair_4.png",
-	"frame": {"x":981,"y":781,"w":208,"h":305},
+	"frame": {"x":997,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -119,7 +119,7 @@
 },
 {
 	"filename": "hair_5.png",
-	"frame": {"x":1189,"y":781,"w":208,"h":305},
+	"frame": {"x":1205,"y":781,"w":208,"h":305},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":305},
@@ -128,16 +128,16 @@
 },
 {
 	"filename": "hat_1.png",
-	"frame": {"x":1397,"y":781,"w":134,"h":81},
+	"frame": {"x":1413,"y":781,"w":134,"h":80},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":134,"h":81},
-	"sourceSize": {"w":134,"h":81},
+	"spriteSourceSize": {"x":0,"y":0,"w":134,"h":80},
+	"sourceSize": {"w":134,"h":80},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "jack_1.png",
-	"frame": {"x":1531,"y":781,"w":208,"h":307},
+	"frame": {"x":1547,"y":781,"w":208,"h":307},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":208,"h":307},
@@ -146,7 +146,7 @@
 },
 {
 	"filename": "jack_2.png",
-	"frame": {"x":1739,"y":781,"w":188,"h":202},
+	"frame": {"x":1755,"y":781,"w":188,"h":202},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":188,"h":202},
@@ -155,34 +155,34 @@
 },
 {
 	"filename": "jew_1.png",
-	"frame": {"x":0,"y":1138,"w":90,"h":142},
+	"frame": {"x":0,"y":1138,"w":116,"h":184},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":142},
-	"sourceSize": {"w":90,"h":142},
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":184},
+	"sourceSize": {"w":116,"h":184},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "jew_2.png",
-	"frame": {"x":90,"y":1138,"w":90,"h":142},
+	"frame": {"x":116,"y":1138,"w":116,"h":184},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":142},
-	"sourceSize": {"w":90,"h":142},
+	"spriteSourceSize": {"x":0,"y":0,"w":116,"h":184},
+	"sourceSize": {"w":116,"h":184},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "jew_3.png",
-	"frame": {"x":180,"y":1138,"w":90,"h":142},
+	"frame": {"x":232,"y":1138,"w":117,"h":183},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":90,"h":142},
-	"sourceSize": {"w":90,"h":142},
+	"spriteSourceSize": {"x":0,"y":0,"w":117,"h":183},
+	"sourceSize": {"w":117,"h":183},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "neck_1.png",
-	"frame": {"x":270,"y":1138,"w":131,"h":195},
+	"frame": {"x":349,"y":1138,"w":131,"h":195},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":131,"h":195},
@@ -191,25 +191,25 @@
 },
 {
 	"filename": "neck_2.png",
-	"frame": {"x":401,"y":1138,"w":154,"h":102},
+	"frame": {"x":480,"y":1138,"w":176,"h":117},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":154,"h":102},
-	"sourceSize": {"w":154,"h":102},
+	"spriteSourceSize": {"x":0,"y":0,"w":176,"h":117},
+	"sourceSize": {"w":176,"h":117},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "neck_3.png",
-	"frame": {"x":555,"y":1138,"w":122,"h":99},
+	"frame": {"x":656,"y":1138,"w":162,"h":131},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":122,"h":99},
-	"sourceSize": {"w":122,"h":99},
+	"spriteSourceSize": {"x":0,"y":0,"w":162,"h":131},
+	"sourceSize": {"w":162,"h":131},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "shoe_1.png",
-	"frame": {"x":677,"y":1138,"w":88,"h":84},
+	"frame": {"x":818,"y":1138,"w":88,"h":84},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":84},
@@ -218,7 +218,7 @@
 },
 {
 	"filename": "shoe_2.png",
-	"frame": {"x":765,"y":1138,"w":97,"h":94},
+	"frame": {"x":906,"y":1138,"w":97,"h":94},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":97,"h":94},
@@ -227,7 +227,7 @@
 },
 {
 	"filename": "shoe_3.png",
-	"frame": {"x":862,"y":1138,"w":88,"h":96},
+	"frame": {"x":1003,"y":1138,"w":88,"h":96},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":88,"h":96},
@@ -236,7 +236,7 @@
 },
 {
 	"filename": "shoe_4.png",
-	"frame": {"x":950,"y":1138,"w":99,"h":87},
+	"frame": {"x":1091,"y":1138,"w":99,"h":87},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":99,"h":87},
@@ -245,7 +245,7 @@
 },
 {
 	"filename": "shoe_5.png",
-	"frame": {"x":1049,"y":1138,"w":101,"h":88},
+	"frame": {"x":1190,"y":1138,"w":101,"h":88},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":101,"h":88},
@@ -254,7 +254,7 @@
 },
 {
 	"filename": "shoe_6.png",
-	"frame": {"x":1150,"y":1138,"w":101,"h":77},
+	"frame": {"x":1291,"y":1138,"w":101,"h":77},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":101,"h":77},
@@ -266,8 +266,8 @@
 	"version": "1.0",
 	"image": "state_dress_3.png",
 	"format": "RGBA8888",
-	"size": {"w":1929,"h":1333},
+	"size": {"w":1943,"h":1333},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:398ec214dbd0a5c7d9e0874b1f5f550f:9340ac4fece5b6956eff5061eca07b03:81b425fa12ba9dadca24fc32f839f626$"
+	"smartupdate": "$TexturePacker:SmartUpdate:350c5446a2d57d98ff80633dc35e9296:a3af4bbf573a61484a4ff275a0bf2b0d:81b425fa12ba9dadca24fc32f839f626$"
 }
 }

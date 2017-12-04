@@ -848,6 +848,7 @@ export namespace Atlases {
         Jew3 = <any>'jew_3.png',
         Lb = <any>'lb.png',
         Neck1 = <any>'neck_1.png',
+        PlBtn = <any>'pl_btn.png',
         Rb = <any>'rb.png',
         Shelf = <any>'shelf.png',
         Shoe1 = <any>'shoe_1.png',
