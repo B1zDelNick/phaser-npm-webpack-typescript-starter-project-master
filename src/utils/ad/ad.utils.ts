@@ -3,9 +3,9 @@ import {isNull, isUndefined} from 'util';
 
 export class AdUtils {
 
-    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=8015177426&ad_type=video_image&description_url=http%3A%2F%2Fdressupmix.com%2FFree-Dressup-Games%2FPrincess%2FPrincesses-Fashion-FlashMob-play.html&videoad_start_delay=15000';
-    private static gdGame = '44ddb9f394ad4f119ab61e00cad3262f';
-    private static gdUser = '4ED9EE15-CD3B-42DA-AFF4-A2CB65F233D3-s1';
+    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=2971041849&ad_type=video_image&description_url=http%3A%2F%2Fmycutegames.com%2FGames%2FPrincess%2FDisney-Style-Vlog-Tips-for-Blondes-play.html&videoad_start_delay=15000';
+    private static gdGame = 'f22598a490b94c6c9bdef815bafdd660';
+    private static gdUser = '0FE7FCFB-C070-4624-9263-122C7F42ADA2-s1';
 
     public static init() {
         const game = GameConfig.GAME;
@@ -86,7 +86,7 @@ export class AdUtils {
         });
     }
 
-    public static playAds() {
+    public static playAds(callback: Function, context?: any) {
         const game = GameConfig.GAME;
         // Set the ad provider, we use google Ima3 (ima 3 sdk)
         (game as any).ads.setAdProvider(new PhaserAds.AdProvider.Ima3(
@@ -101,6 +101,9 @@ export class AdUtils {
             console.error('Finished playing ad.');
             // (game as any).ads.unMuteAfterAd();
             AdUtils.removeAdContainer();
+            if (callback) {
+                callback.call(context);
+            }
         }, this);
         // This is fired when the ad was clicked by the user
         (game as any).ads.onAdClicked.addOnce(function () {

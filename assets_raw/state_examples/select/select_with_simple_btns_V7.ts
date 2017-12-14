@@ -13,7 +13,7 @@ import {EffectUtils} from '../utils/effect.utils';
 import {AdUtils} from '../utils/ad/ad.utils';
 import {SoundUtils} from '../utils/sound/sound.utils';
 
-export default class Select extends Phaser.State {
+export default class Jjdfhdfjjdfjdfjg extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;
@@ -52,6 +52,7 @@ export default class Select extends Phaser.State {
         if (GameConfig.CURRENT_STATE === 0) this.NEXT = 'Dress1';
         if (GameConfig.CURRENT_STATE === 1) this.NEXT = 'Dress2';
         if (GameConfig.CURRENT_STATE === 2) this.NEXT = 'Dress3';
+        this.nextPrepared = false;
     }
 
     public preload(): void {

@@ -18,7 +18,7 @@ import {IParticle} from './spec-effects/particle/i.particle';
 import {FallParticles} from './spec-effects/particle/fall.particle';
 import {WinnerParticles} from './spec-effects/particle/winner.particle';
 
-export default class Result extends Phaser.State {
+export default class Jjdfjjdgjdfjjdgdfjj extends Phaser.State {
 
     private NEXT = 'Final';
     private nextPrepared = false;
