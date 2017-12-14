@@ -15,7 +15,7 @@ import {PreloaderUtils} from '../utils/preloader.utils';
 import {IParticle} from './spec-effects/particle/i.particle';
 import {FallParticles} from './spec-effects/particle/fall.particle';
 
-export default class Start extends Phaser.State {
+export default class Jjdfjdjjdgj extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;

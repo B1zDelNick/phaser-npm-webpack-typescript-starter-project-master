@@ -6,16 +6,14 @@ import {GuiDu} from './gui/du.gui';
 import {GuiFgc} from './gui/fgc.gui';
 import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
+import {PreloaderUtils} from '../utils/preloader.utils';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 import {EffectUtils} from '../utils/effect.utils';
-import {LaserType} from './spec-effects/laser/enum.laser';
-import {ILaser} from './spec-effects/laser/i.laser';
-import {PreloaderUtils} from '../utils/preloader.utils';
-import {IParticle} from './spec-effects/particle/i.particle';
-import {FallParticles} from './spec-effects/particle/fall.particle';
+import {AdUtils} from '../utils/ad/ad.utils';
+import {SoundUtils} from '../utils/sound/sound.utils';
 
-export default class Start extends Phaser.State {
+export default class Jjdfhdfjjdfjdfjg extends Phaser.State {
 
     private NEXT = 'Select';
     private nextPrepared = false;
@@ -24,37 +22,37 @@ export default class Start extends Phaser.State {
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
-    private particle: IParticle = null;
-    private lights: Phaser.Sprite = null;
-    private title: Phaser.Sprite = null;
-    private girl1: Phaser.Sprite = null;
-    private girl2: Phaser.Sprite = null;
-    private girl3: Phaser.Sprite = null;
+    private container: Phaser.Group = null;
+    private sel1: Phaser.Button = null;
+    private sel2: Phaser.Button = null;
+    private sel3: Phaser.Button = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
-
-    private phase: number = 0;
 
     public init(...args: any[]): void {
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {
-                this.gui = new GuiMcg(this, StateType.START_STATE);
+                this.gui = new GuiMcg(this, StateType.SELECT_STATE);
                 break;
             }
             case Sites.DRESSUP_MIX:
             {
-                this.gui = new GuiDu(this, StateType.START_STATE);
+                this.gui = new GuiDu(this, StateType.SELECT_STATE);
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.gui = new GuiFgc(this, StateType.START_STATE);
+                this.gui = new GuiFgc(this, StateType.SELECT_STATE);
                 break;
             }
         }
-        this.phase = 0;
+
+        if (GameConfig.CURRENT_STATE === 0) this.NEXT = 'Dress1';
+        if (GameConfig.CURRENT_STATE === 1) this.NEXT = 'Dress2';
+        if (GameConfig.CURRENT_STATE === 2) this.NEXT = 'Dress3';
+        this.nextPrepared = false;
     }
 
     public preload(): void {
@@ -62,34 +60,36 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg2').getName());
 
-        this.particle = new FallParticles(.9, 1.1);
-        this.particle.init(
-            ImageUtils.getAtlasClass('AtlasesEffects').getName(),
-            [
-                ImageUtils.getAtlasClass('AtlasesEffects').Frames.Sn1,
-                ImageUtils.getAtlasClass('AtlasesEffects').Frames.Sn2,
-            ]);
-        this.particle.start();
-
-        this.lights = this.game.add.sprite(0, 0,
-            ImageUtils.getSpritesheetClass('SpritesheetsLights9613214').getName());
-        this.lights.animations.add('neon');
-        this.lights.animations.play('neon', 6, true);
-
-        this.girl1 = this.game.add.sprite(-137 - 700, 85,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr1);
-        this.girl2 = this.game.add.sprite(456 + 700, 76,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr2);
-        this.girl3 = this.game.add.sprite(230 - 800, -6,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr3);
-        this.title = this.game.add.sprite(142, 372,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        this.container = this.game.add.group();
+        this.sel1 = GuiUtils.makeButton(
+            this, this.container, 65, 81, 1,
+            'sel1', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel1,
+            GameConfig.CURRENT_STATE === 0, true, true,
+            this.nextState, null, null
+        );
+        this.sel2 = GuiUtils.makeButton(
+            this, this.container, 320, 264, 1,
+            'sel2', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel2,
+            GameConfig.CURRENT_STATE === 1, true, true,
+            this.nextState, null, null
+        );
+        this.sel3 = GuiUtils.makeButton(
+            this, this.container, 575, 81, 1,
+            'sel3', ImageUtils.getAtlasClass('AtlasesStateSelect').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateSelect').Frames.Sel3,
+            GameConfig.CURRENT_STATE === 2, true, true,
+            this.nextState, null, null
+        );
+        this.sel1.scale.setTo(0);
+        this.sel2.scale.setTo(0);
+        this.sel3.scale.setTo(0);
+        this.sel1.alpha = 0;
+        this.sel2.alpha = 0;
+        this.sel3.alpha = 0;
 
         // GUI Buttons
         this.gui.addGui(GameConfig.PUB_MODE === PublishMode.DUW);
@@ -98,9 +98,6 @@ export default class Start extends Phaser.State {
                 ImageUtils.getSpritesheetClass('SpritesheetsMoreE11919931').getName(),
                 null, 10, true);
         }
-        const playBtn = this.gui.addPlayBtn(this.nextState);
-        playBtn.scale.setTo(0);
-        playBtn.alpha = 0;
 
         // Try to retrieve Saver OR else fade effect will apply
         this.saver = GuiUtils.getSaver();
@@ -111,24 +108,40 @@ export default class Start extends Phaser.State {
         } else {
             this.game.camera.flash(0x000000, 1000);
         }
-        // ONLY FOR START STATE !!!!!!!!!!!!!!!!!
-        if (!GameConfig.GAME_COMPLETED)
-            this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.slideIn(this.girl3, 230, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1);
-        TweenUtils.slideIn(this.girl2, 456, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 2);
-        TweenUtils.slideIn(this.girl1, -137, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 3);
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75,
-            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 4 : Phaser.Timer.SECOND * 4);
+        TweenUtils.fadeAndScaleIn(this.sel1, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeAndScaleIn(this.sel2, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 1.5);
+        TweenUtils.fadeAndScaleIn(this.sel3, Phaser.Timer.SECOND * .5, Phaser.Timer.SECOND * 2, () => {
+
+            if (GameConfig.CURRENT_STATE === 0) this.sel1.filters = [EffectUtils.makeGlowAnimation(0xffff99)];
+            if (GameConfig.CURRENT_STATE === 0) EffectUtils.makeScaleAnimation(this.sel1);
+            if (GameConfig.CURRENT_STATE === 1) this.sel2.filters = [EffectUtils.makeGlowAnimation(0xffff99)];
+            if (GameConfig.CURRENT_STATE === 1) EffectUtils.makeScaleAnimation(this.sel2);
+            if (GameConfig.CURRENT_STATE === 2) this.sel3.filters = [EffectUtils.makeGlowAnimation(0xffff99)];
+            if (GameConfig.CURRENT_STATE === 2) EffectUtils.makeScaleAnimation(this.sel3);
+
+        }, this);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
-            // Loads
-            PreloaderUtils.preloadComixState();
+            if (GameConfig.CURRENT_STATE === 0) PreloaderUtils.preloadDecorState();
+            if (GameConfig.CURRENT_STATE === 1) PreloaderUtils.preloadDress1State();
+            if (GameConfig.CURRENT_STATE === 2) PreloaderUtils.preloadDress2State();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
+        }
+
+        // Ad Calls
+        if (GameConfig.PUB_MODE === PublishMode.NORMAL || GameConfig.PUB_MODE === PublishMode.NO_BUTTONS) {
+            AdUtils.playAds();
+        }
+        else if (GameConfig.PUB_MODE === PublishMode.NO_BUTTONS_ONE_AD && GameConfig.CURRENT_STATE === 1) {
+            AdUtils.playAds();
+        }
+        else if (GameConfig.PUB_MODE === PublishMode.DUW && GameConfig.CURRENT_STATE === 1) {
+            AdUtils.playAds();
         }
     }
 
@@ -140,13 +153,11 @@ export default class Start extends Phaser.State {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
 
-        if (this.bg) this.bg.destroy(true);
-        if (this.particle) this.particle.dispose();
-        if (this.lights) this.lights.destroy(true);
-        if (this.title) this.title.destroy(true);
-        if (this.girl1) this.girl1.destroy(true);
-        if (this.girl2) this.girl2.destroy(true);
-        if (this.girl3) this.girl3.destroy(true);
+        this.bg.destroy(true);
+        this.sel1.destroy(true);
+        this.sel2.destroy(true);
+        this.sel3.destroy(true);
+        this.container.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);
