@@ -94,9 +94,13 @@ export default class Start extends Phaser.State {
         // GUI Buttons
         this.gui.addGui(GameConfig.PUB_MODE === PublishMode.DUW);
         if (GameConfig.PUB_MODE !== PublishMode.DUW) {
-            this.gui.addExtraMoreAnimated(835, 520,
-                ImageUtils.getSpritesheetClass('SpritesheetsMoreE11919931').getName(),
-                null, 10, true);
+            this.moreBtn = this.gui.addExtraMore(
+                960 - 191, 720 - 148,
+                ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+                ImageUtils.getAtlasClass('AtlasesStateStart').Frames.MoreE2,
+            );
+            this.addAnimation(this.moreBtn);
+            TweenUtils.delayedCall(Phaser.Timer.SECOND * 2, this.nextMore, this);
         }
         const playBtn = this.gui.addPlayBtn(this.nextState);
         playBtn.scale.setTo(0);

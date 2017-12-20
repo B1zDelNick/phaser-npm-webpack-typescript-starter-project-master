@@ -1,0 +1,30 @@
+{"frames": [
+
+{
+	"filename": "cross_1.png",
+	"frame": {"x":0,"y":0,"w":438,"h":461},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":438,"h":461},
+	"sourceSize": {"w":438,"h":461},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "cross_2.png",
+	"frame": {"x":438,"y":0,"w":437,"h":461},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":437,"h":461},
+	"sourceSize": {"w":437,"h":461},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_final.png",
+	"format": "RGBA8888",
+	"size": {"w":875,"h":461},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c7260681ee2560e4ab34bf44e5694820:b5253c312ecc8cb485bf92b1d5a9fe2c:fa7765394e0e389ace335cfa7c993a79$"
+}
+}

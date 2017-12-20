@@ -1,0 +1,39 @@
+{"frames": [
+
+{
+	"filename": "t_5.png",
+	"frame": {"x":0,"y":0,"w":296,"h":660},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":296,"h":660},
+	"sourceSize": {"w":296,"h":660},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "t_6.png",
+	"frame": {"x":0,"y":660,"w":296,"h":660},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":296,"h":660},
+	"sourceSize": {"w":296,"h":660},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "und.png",
+	"frame": {"x":0,"y":1320,"w":296,"h":660},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":296,"h":660},
+	"sourceSize": {"w":296,"h":660},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_jas_2.png",
+	"format": "RGBA8888",
+	"size": {"w":296,"h":1980},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:9158d8808d005fef0d684e9ef29a6af7:941106e8309ded5cafe785c135f88b59:c4ccdf69ec0a21b43a29fa304af956ab$"
+}
+}

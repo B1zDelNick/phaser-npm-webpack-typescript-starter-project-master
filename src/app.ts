@@ -50,11 +50,11 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.MY_CUTE_GAMES,
+        Sites.FREE_GAMES_CASUAL,
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princesses Welcome Winter Ball');
+        'Princess Anti-Fashion Color Blocks');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;

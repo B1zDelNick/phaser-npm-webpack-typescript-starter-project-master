@@ -1,0 +1,30 @@
+{"frames": [
+
+{
+	"filename": "chest.png",
+	"frame": {"x":0,"y":0,"w":405,"h":705},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":405,"h":705},
+	"sourceSize": {"w":405,"h":705},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "gr_1.png",
+	"frame": {"x":405,"y":0,"w":367,"h":705},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":367,"h":705},
+	"sourceSize": {"w":367,"h":705},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_dress_3.png",
+	"format": "RGBA8888",
+	"size": {"w":772,"h":705},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:38765e07bcdfb0438991ebf083a9786f:7bd6df27f569529340baf1d6e9ad40c4:81b425fa12ba9dadca24fc32f839f626$"
+}
+}
