@@ -31,6 +31,7 @@ export class ChestPage {
 
     findItem(name: string): ChestItemBase {
         for (let item of this.items) {
+            // console.log(item.name + ' - ' + name);
             if (item.name === name)
                 return item;
         }

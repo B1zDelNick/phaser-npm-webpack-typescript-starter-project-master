@@ -101,6 +101,11 @@ export class DollLayer {
         return false;
     }
 
+    getEmpty(): boolean {
+        // console.log(this.sprite.frameName === 'dummy.png', this.sprite.frameName);
+        return this.sprite.frameName === 'dummy.png';
+    }
+
     setSecondaryState(val: boolean) {
         this.isSecondary = val;
         if (!this.isEmpty) {

@@ -1,6 +1,11 @@
 /* AUTO GENERATED FILE. DO NOT MODIFY. YOU WILL LOSE YOUR CHANGES ON BUILD. */
 
 export namespace Images {
+    export class ImagesBack {
+        static getName(): string { return 'back'; }
+
+        static getPNG(): string { return require('assets/images/back.png'); }
+    }
     export class ImagesBg {
         static getName(): string { return 'bg'; }
 
@@ -30,6 +35,36 @@ export namespace Images {
         static getName(): string { return 'bg6'; }
 
         static getJPG(): string { return require('assets/images/bg6.jpg'); }
+    }
+    export class ImagesDoor {
+        static getName(): string { return 'door_0'; }
+
+        static getPNG(): string { return require('assets/images/door_0.png'); }
+    }
+    export class ImagesDoor1 {
+        static getName(): string { return 'door_1'; }
+
+        static getPNG(): string { return require('assets/images/door_1.png'); }
+    }
+    export class ImagesDoor2 {
+        static getName(): string { return 'door_2'; }
+
+        static getPNG(): string { return require('assets/images/door_2.png'); }
+    }
+    export class ImagesDoor3 {
+        static getName(): string { return 'door_3'; }
+
+        static getPNG(): string { return require('assets/images/door_3.png'); }
+    }
+    export class ImagesFront {
+        static getName(): string { return 'front'; }
+
+        static getPNG(): string { return require('assets/images/front.png'); }
+    }
+    export class ImagesMmmm {
+        static getName(): string { return 'mmmm'; }
+
+        static getPNG(): string { return require('assets/images/mmmm.png'); }
     }
     export class ImagesPrerollDuMin {
         static getName(): string { return 'preroll_du_min'; }
@@ -897,6 +932,7 @@ export namespace Atlases {
         Lb = <any>'lb.png',
         Rb = <any>'rb.png',
         Shelf1 = <any>'shelf_1.png',
+        Skip = <any>'skip.png',
         Top1Yellow = <any>'top_1_yellow.png',
         Top2Pink = <any>'top_2_pink.png',
         Top3Blue = <any>'top_3_blue.png',
@@ -989,6 +1025,8 @@ export namespace Atlases {
         static Frames = AtlasesStateDress3Frames;
     }
     enum AtlasesStateFinalFrames {
+        Ban1 = <any>'ban_1.png',
+        Ban2 = <any>'ban_2.png',
         Cross1 = <any>'cross_1.png',
         Cross2 = <any>'cross_2.png',
     }
@@ -1044,7 +1082,11 @@ export namespace Atlases {
 }
 
 export namespace Audio {
-    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
+    export class AudioMainTheme {
+        static getName(): string { return 'main_theme'; }
+
+        static getMP3(): string { return require('assets/audio/main_theme.mp3'); }
+    }
 }
 
 export namespace Audiosprites {
