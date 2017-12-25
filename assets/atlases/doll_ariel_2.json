@@ -1,0 +1,30 @@
+{"frames": [
+
+{
+	"filename": "b_2.png",
+	"frame": {"x":0,"y":0,"w":490,"h":456},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":490,"h":456},
+	"sourceSize": {"w":490,"h":456},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "b_4.png",
+	"frame": {"x":490,"y":0,"w":490,"h":456},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":490,"h":456},
+	"sourceSize": {"w":490,"h":456},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_ariel_2.png",
+	"format": "RGBA8888",
+	"size": {"w":980,"h":456},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:b0ab33f6b079be12e3e808b25b448598:71fe56963e10b34fd9280a4c6546cc1b:e0bf0f85d53c3f097f270f65c58168a1$"
+}
+}

@@ -51,10 +51,10 @@ function startApp(): void {
 
     GameConfig.init(
         Sites.FREE_GAMES_CASUAL,
-        PublishMode.NO_BUTTONS,
-        AssetMode.LOAD_BACKGROUND,
+        PublishMode.NORMAL,
+        AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princess Anti-Fashion Color Blocks');
+        'Princess Mermaid Party');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
