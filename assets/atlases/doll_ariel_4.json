@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "d_1.png",
+	"filename": "j_f_3.png",
 	"frame": {"x":0,"y":0,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -10,7 +10,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "d_2.png",
+	"filename": "jk_1.png",
 	"frame": {"x":333,"y":0,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -19,7 +19,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "d_3.png",
+	"filename": "jk_2.png",
 	"frame": {"x":666,"y":0,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -28,7 +28,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "d_4.png",
+	"filename": "jk_3.png",
 	"frame": {"x":999,"y":0,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -37,7 +37,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "d_5.png",
+	"filename": "jk_b_1.png",
 	"frame": {"x":1332,"y":0,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -46,7 +46,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "d_6.png",
+	"filename": "jk_b_2.png",
 	"frame": {"x":1665,"y":0,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -55,7 +55,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "d_b_4.png",
+	"filename": "jk_b_3.png",
 	"frame": {"x":0,"y":700,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -64,7 +64,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "d_b_5.png",
+	"filename": "s_1.png",
 	"frame": {"x":333,"y":700,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -73,7 +73,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "h_0.png",
+	"filename": "s_2.png",
 	"frame": {"x":666,"y":700,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -82,7 +82,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "h_1.png",
+	"filename": "s_3.png",
 	"frame": {"x":999,"y":700,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -91,7 +91,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "h_2.png",
+	"filename": "s_4.png",
 	"frame": {"x":1332,"y":700,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -100,7 +100,7 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "h_3.png",
+	"filename": "s_5.png",
 	"frame": {"x":1665,"y":700,"w":333,"h":700},
 	"rotated": false,
 	"trimmed": false,
@@ -111,10 +111,10 @@
 "meta": {
 	"app": "http://www.codeandweb.com/texturepacker",
 	"version": "1.0",
-	"image": "doll_ariel_2.png",
+	"image": "doll_ariel_4.png",
 	"format": "RGBA8888",
 	"size": {"w":1998,"h":1400},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:b97c687219ee09899eb52120fb642258:7f0b5837e4bfd68ec8880dbf29a1758f:e0bf0f85d53c3f097f270f65c58168a1$"
+	"smartupdate": "$TexturePacker:SmartUpdate:654d8c29992c41ba72aa9676de8774eb:b72d1fd914ba7482c11b7517c75c4554:c67fd08c347b97fc4db648ffcdd7aa91$"
 }
 }
