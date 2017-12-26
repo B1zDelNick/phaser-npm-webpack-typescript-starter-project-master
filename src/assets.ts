@@ -593,6 +593,7 @@ export namespace Atlases {
         static Frames = AtlasesDollJasFrames;
     }
     enum AtlasesEffectsFrames {
+        Bubble1 = <any>'bubble_1.png',
         Con1 = <any>'con_1.png',
         Con2 = <any>'con_2.png',
         Con3 = <any>'con_3.png',
@@ -1088,6 +1089,7 @@ export namespace Atlases {
         ItIc91 = <any>'it_ic_9_1.png',
         ItIc10 = <any>'it_ic_10.png',
         ItIc101 = <any>'it_ic_10_1.png',
+        Skip = <any>'skip.png',
     }
     export class AtlasesStateHidden {
         static getName(): string { return 'state_hidden'; }

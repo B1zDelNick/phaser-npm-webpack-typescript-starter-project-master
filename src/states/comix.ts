@@ -6,55 +6,45 @@ import {GuiDu} from './gui/du.gui';
 import {GuiFgc} from './gui/fgc.gui';
 import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
-import {TweenUtils} from '../utils/tween.utils';
-import {ImageUtils} from '../utils/images/image.utils';
+import {PreloaderUtils} from '../utils/preloader.utils';
+import {ILaser} from './spec-effects/laser/i.laser';
 import {EffectUtils} from '../utils/effect.utils';
 import {LaserType} from './spec-effects/laser/enum.laser';
-import {ILaser} from './spec-effects/laser/i.laser';
-import {PreloaderUtils} from '../utils/preloader.utils';
-import {IParticle} from './spec-effects/particle/i.particle';
-import {FallParticles} from './spec-effects/particle/fall.particle';
-import {BubbleParticles} from './spec-effects/particle/bubble.particle';
+import {Animation} from '../utils/animation/anim';
+import {TweenUtils} from '../utils/tween.utils';
+import {ImageUtils} from '../utils/images/image.utils';
 
-export default class Start extends Phaser.State {
+export default class Comix extends Phaser.State {
 
-    private NEXT = 'Comix';
+    private NEXT = 'Dress1';
     private nextPrepared = false;
 
     private gui: IGui = null;
     private saver: ISaver = null;
 
     private bg: Phaser.Sprite = null;
-    private particle: IParticle = null;
-    private title: Phaser.Sprite = null;
-    private girl1: Phaser.Sprite = null;
-    private girl2: Phaser.Sprite = null;
-    private girl3: Phaser.Sprite = null;
-
+    private cloud: Phaser.Sprite = null;
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
-
-    private phase: number = 0;
 
     public init(...args: any[]): void {
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {
-                this.gui = new GuiMcg(this, StateType.START_STATE);
+                this.gui = new GuiMcg(this, StateType.COMIX_STATE);
                 break;
             }
             case Sites.DRESSUP_MIX:
             {
-                this.gui = new GuiDu(this, StateType.START_STATE);
+                this.gui = new GuiDu(this, StateType.COMIX_STATE);
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.gui = new GuiFgc(this, StateType.START_STATE);
+                this.gui = new GuiFgc(this, StateType.COMIX_STATE);
                 break;
             }
         }
-        this.phase = 0;
     }
 
     public preload(): void {
@@ -62,33 +52,14 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg2').getName());
 
-        this.particle = new BubbleParticles(.5, 1);
-        this.particle.init(ImageUtils.getAtlasClass('AtlasesEffects').getName(),
-            [ImageUtils.getAtlasClass('AtlasesEffects').Frames.Bubble1]
-        );
-        this.particle.start();
-
-        this.girl1 = this.game.add.sprite(-262, 74,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr1);
-        this.girl2 = this.game.add.sprite(41, 3,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr2);
-        this.girl3 = this.game.add.sprite(538, 98,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Gr3);
-        this.title = this.game.add.sprite(199, 322 - 700,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
-        GuiUtils.centrize(this.title);
-        EffectUtils.makeMoveAnimation(this.girl1, -260, 67, 2200);
-        EffectUtils.makeMoveAnimation(this.girl2, 44, 9, 3000);
-        EffectUtils.makeMoveAnimation(this.girl3, 541, 88, 2600);
+        this.cloud = this.game.add.sprite(202 - 800, 31,
+            ImageUtils.getAtlasClass('AtlasesStateComix').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateComix').Frames.Cl1);
 
         // GUI Buttons
-        this.gui.addGui(GameConfig.PUB_MODE === PublishMode.DUW);
+        this.gui.addGui(GameConfig.PUB_MODE === PublishMode.DUW, true);
         if (GameConfig.PUB_MODE !== PublishMode.DUW) {
             this.gui.addExtraMoreAnimated(
                 960 - 154, 720 - 149,
@@ -110,23 +81,17 @@ export default class Start extends Phaser.State {
         } else {
             this.game.camera.flash(0x000000, 1000);
         }
-        // ONLY FOR START STATE !!!!!!!!!!!!!!!!!
-        if (!GameConfig.GAME_COMPLETED)
-            this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.moveIn(this.title, this.title.x, this.title.y + 700, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1, () => {
-            EffectUtils.makeScaleAnimation(this.title, 1.03, 1200);
-        }, this);
-        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75,
-            GameConfig.GAME_COMPLETED ? Phaser.Timer.SECOND * 2 : Phaser.Timer.SECOND * 2);
+        TweenUtils.slideIn(this.cloud, 202, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1);
+        TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 2);
+
 
         // Assets Managment starts here
-        if (GameConfig.IS_ASSETS_LOADED)
+        if (GameConfig.ASSET_MODE === AssetMode.LOAD_ALL)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
-            // Loads
-            PreloaderUtils.preloadComixState();
+            PreloaderUtils.preloadDress1State();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }
@@ -140,10 +105,7 @@ export default class Start extends Phaser.State {
         this.game.tweens.removeAll();
 
         if (this.bg) this.bg.destroy(true);
-        if (this.title) this.title.destroy(true);
-        if (this.girl1) this.girl1.destroy(true);
-        if (this.girl2) this.girl2.destroy(true);
-        if (this.girl3) this.girl3.destroy(true);
+        if (this.cloud) this.cloud.destroy(true);
 
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);
