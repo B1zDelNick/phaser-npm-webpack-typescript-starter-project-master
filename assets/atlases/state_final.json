@@ -10,8 +10,26 @@
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
+	"filename": "ban_1.png",
+	"frame": {"x":172,"y":0,"w":249,"h":284},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":249,"h":284},
+	"sourceSize": {"w":249,"h":284},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "ban_2.png",
+	"frame": {"x":421,"y":0,"w":249,"h":289},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":249,"h":289},
+	"sourceSize": {"w":249,"h":289},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
 	"filename": "check_btn.png",
-	"frame": {"x":172,"y":0,"w":178,"h":117},
+	"frame": {"x":0,"y":289,"w":178,"h":117},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":178,"h":117},
@@ -20,7 +38,7 @@
 },
 {
 	"filename": "phone.png",
-	"frame": {"x":350,"y":0,"w":514,"h":705},
+	"frame": {"x":178,"y":289,"w":514,"h":705},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":514,"h":705},
@@ -29,7 +47,7 @@
 },
 {
 	"filename": "pic_1.png",
-	"frame": {"x":0,"y":705,"w":372,"h":433},
+	"frame": {"x":0,"y":994,"w":372,"h":433},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":372,"h":433},
@@ -38,7 +56,7 @@
 },
 {
 	"filename": "pic_2.png",
-	"frame": {"x":372,"y":705,"w":372,"h":433},
+	"frame": {"x":372,"y":994,"w":372,"h":433},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":372,"h":433},
@@ -50,8 +68,8 @@
 	"version": "1.0",
 	"image": "state_final.png",
 	"format": "RGBA8888",
-	"size": {"w":864,"h":1138},
+	"size": {"w":744,"h":1427},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:ce38285da9034860a0717725d976c016:ca6d875e369e926fd77348d54e726b18:fa7765394e0e389ace335cfa7c993a79$"
+	"smartupdate": "$TexturePacker:SmartUpdate:c99a487ed1079a7a03a12e7e5fe4fd19:7c0c1a8412bdc511de037262a23e00ad:fa7765394e0e389ace335cfa7c993a79$"
 }
 }

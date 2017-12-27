@@ -967,6 +967,8 @@ export namespace Atlases {
     }
     enum AtlasesStateFinalFrames {
         Arrow = <any>'arrow.png',
+        Ban1 = <any>'ban_1.png',
+        Ban2 = <any>'ban_2.png',
         CheckBtn = <any>'check_btn.png',
         Phone = <any>'phone.png',
         Pic1 = <any>'pic_1.png',
@@ -1002,7 +1004,11 @@ export namespace Atlases {
 }
 
 export namespace Audio {
-    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
+    export class AudioMainTheme {
+        static getName(): string { return 'main_theme'; }
+
+        static getMP3(): string { return require('assets/audio/main_theme.mp3'); }
+    }
 }
 
 export namespace Audiosprites {

@@ -13,6 +13,10 @@ import * as Assets from './assets';
 import Start from './states/start';
 import {AssetMode, GameConfig, PublishMode, Sites} from './config/game.config';
 import {SaverTemplates} from './states/saver/enum.saver';
+import Decor from './states/decor';
+import Dress from './states/dress';
+import Drag from './states/drag';
+import Final from './states/final';
 
 class App extends Phaser.Game {
     constructor(config: Phaser.IGameConfig) {
@@ -21,6 +25,10 @@ class App extends Phaser.Game {
         this.state.add('Boot', Boot);
         this.state.add('Preloader', Preloader);
         this.state.add('Start', Start);
+        this.state.add('Decor', Decor);
+        this.state.add('Dress', Dress);
+        this.state.add('Drag', Drag);
+        this.state.add('Final', Final);
 
         this.state.start('Boot');
     }
@@ -51,7 +59,7 @@ function startApp(): void {
 
     GameConfig.init(
         Sites.DRESSUP_MIX,
-        PublishMode.NORMAL,
+        PublishMode.DUW,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
         'Eco-Friendly Lifestyle for Princesses');

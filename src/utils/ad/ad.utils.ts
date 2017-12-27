@@ -3,8 +3,8 @@ import {isNull, isUndefined} from 'util';
 
 export class AdUtils {
 
-    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=4026482869&ad_type=video_image&description_url=http%3A%2F%2Ffreegamescasual.com%2FFree-Online-Games%2FPrincesses%2FPrincess-Anti-Fashion-Color-Blocks-play.html&videoad_start_delay=15000';
-    private static gdGame = '07b02f9d7ca34a398608c7e17ed0c238';
+    private static adTag = 'https://googleads.g.doubleclick.net/pagead/ads?client=ca-games-pub-4405534753933673&slotname=3834906748&ad_type=video_image&description_url=http%3A%2F%2Fdressupmix.com%2FFree-Dressup-Games%2FPrincess%2FEco-Friendly-Lifestyle-for-Princesses-play.html&videoad_start_delay=15000';
+    private static gdGame = '4e2644d63cb84235878f63bb07f844bf';
     private static gdUser = '4ED9EE15-CD3B-42DA-AFF4-A2CB65F233D3-s1';
 
     public static init() {
