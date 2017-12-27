@@ -16,7 +16,7 @@ import {ImageUtils} from '../utils/images/image.utils';
 import {Chest} from './template/dress/chest';
 import {AdUtils} from '../utils/ad/ad.utils';
 
-export default class Drag extends Phaser.State {
+export default class Ggdfgdfgdfgddg extends Phaser.State {
 
     private NEXT = 'Final';
     private nextPrepared = false;
