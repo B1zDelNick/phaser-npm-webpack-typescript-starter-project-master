@@ -51,10 +51,10 @@ function startApp(): void {
 
     GameConfig.init(
         Sites.DRESSUP_MIX,
-        PublishMode.DUW,
+        PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Eco-Friendly Lifestyle for Princesses');
+        'Princess At Modeling Reality - New Stage');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
