@@ -77,6 +77,11 @@ export class Doll {
         return result;
     }
 
+    public isLayerEmpty(name: string): boolean {
+        // if (!this.layers[name]) return true;
+        return this.layers[name].getEmpty();
+    }
+
     clearLayerByDependency(name: string) {
         for (let key of this.dependencies.keys()) {
             if (key.indexOf(name) !== -1) {

@@ -346,10 +346,12 @@ export class TweenUtils {
                 target.inputEnabled = true;
             }, this);
         }
-
+        const tw1 = game.add.tween(target).to({ alpha: alpha }, duration, Phaser.Easing.Linear.None, true, delay);
+        const tw2 = game.add.tween(target.scale).to({ x: scale, y: scale }, duration, Phaser.Easing.Linear.None, true, delay);
+        if (!isNull(callBack) && !isUndefined(callBack))
+            tw2.onComplete.addOnce(callBack, context);
         return [
-            game.add.tween(target).to({ alpha: alpha }, duration, Phaser.Easing.Linear.None, true, delay),
-            game.add.tween(target.scale).to({ x: scale, y: scale }, duration * 2, Phaser.Easing.Elastic.Out, true, delay)
+            tw1, tw2
         ];
     }
 

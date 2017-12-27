@@ -266,7 +266,7 @@ export class PreloaderUtils {
         /*game.load.image(
             ImageUtils.getImageClass('ImagesFg').getName(),
             ImageUtils.getImageClass('ImagesFg').getPNG());*/
-        game.load.atlasJSONArray(
+        /*game.load.atlasJSONArray(
             ImageUtils.getAtlasClass('AtlasesStateStart2').getName(),
             ImageUtils.getAtlasClass('AtlasesStateStart2').getPNG(),
             ImageUtils.getAtlasClass('AtlasesStateStart2').getJSONArray());
@@ -274,7 +274,7 @@ export class PreloaderUtils {
             ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621624').getName(),
             ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621624').getPNG(),
             ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621624').getFrameWidth(),
-            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621624').getFrameHeight());
+            ImageUtils.getSpritesheetClass('SpritesheetsMoreE1621624').getFrameHeight());*/
     }
 
     private static comixStateAdditionalLoads(): void {
@@ -283,9 +283,9 @@ export class PreloaderUtils {
         game.load.image(
             ImageUtils.getImageClass('ImagesBg2').getName(),
             ImageUtils.getImageClass('ImagesBg2').getJPG());
-        game.load.image(
+        /*game.load.image(
             ImageUtils.getImageClass('ImagesFg2').getName(),
-            ImageUtils.getImageClass('ImagesFg2').getPNG());
+            ImageUtils.getImageClass('ImagesFg2').getPNG());*/
     }
 
     private static showStateAdditionalLoads(): void {
@@ -316,9 +316,9 @@ export class PreloaderUtils {
     private static finalStateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        /*game.load.image(
+        game.load.image(
             ImageUtils.getImageClass('ImagesBg6').getName(),
-            ImageUtils.getImageClass('ImagesBg6').getJPG());*/
+            ImageUtils.getImageClass('ImagesBg6').getJPG());
         /*game.load.atlasJSONArray(
             ImageUtils.getAtlasClass('AtlasesStateFinal2').getName(),
             ImageUtils.getAtlasClass('AtlasesStateFinal2').getPNG(),
@@ -329,8 +329,8 @@ export class PreloaderUtils {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
         game.load.image(
-            ImageUtils.getImageClass('ImagesBg2').getName(),
-            ImageUtils.getImageClass('ImagesBg2').getJPG());
+            ImageUtils.getImageClass('ImagesBg3').getName(),
+            ImageUtils.getImageClass('ImagesBg3').getJPG());
     }
 
     private static soundAdditionalLoads(): void {
@@ -358,43 +358,59 @@ export class PreloaderUtils {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
         game.load.image(
-            ImageUtils.getImageClass('ImagesBg3').getName(),
-            ImageUtils.getImageClass('ImagesBg3').getJPG());
-        game.load.image(
+            ImageUtils.getImageClass('ImagesBg4').getName(),
+            ImageUtils.getImageClass('ImagesBg4').getJPG());
+        /*game.load.image(
             ImageUtils.getImageClass('ImagesChest').getName(),
-            ImageUtils.getImageClass('ImagesChest').getPNG());
+            ImageUtils.getImageClass('ImagesChest').getPNG());*/
         game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollCharm').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollCharm').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollCharm').getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesDollJas').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollJas').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollJas').getJSONArray());
         game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollEric').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollEric').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollEric').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollAvrora').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollAvrora').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollAvrora').getJSONArray());
-        game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollAriel').getJSONArray());
+            ImageUtils.getAtlasClass('AtlasesDollJas2').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollJas2').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollJas2').getJSONArray());
     }
 
     private static dress2StateAdditionalLoads(): void {
         const game = GameConfig.GAME;
         // Additional loading HERE, exp: BlurX script etc
-        /*game.load.image(
+        game.load.image(
             ImageUtils.getImageClass('ImagesBg5').getName(),
-            ImageUtils.getImageClass('ImagesBg5').getJPG());*/
-        /*game.load.atlasJSONArray(
+            ImageUtils.getImageClass('ImagesBg5').getJPG());
+        game.load.atlasJSONArray(
             ImageUtils.getAtlasClass('AtlasesDollElza').getName(),
             ImageUtils.getAtlasClass('AtlasesDollElza').getPNG(),
             ImageUtils.getAtlasClass('AtlasesDollElza').getJSONArray());
         game.load.atlasJSONArray(
-            ImageUtils.getAtlasClass('AtlasesDollAnna').getName(),
-            ImageUtils.getAtlasClass('AtlasesDollAnna').getPNG(),
-            ImageUtils.getAtlasClass('AtlasesDollAnna').getJSONArray());*/
+            ImageUtils.getAtlasClass('AtlasesDollElza2').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollElza2').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollElza2').getJSONArray());
+        game.load.atlasJSONArray(
+            ImageUtils.getAtlasClass('AtlasesDollElza3').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollElza3').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollElza3').getJSONArray());
+        game.load.atlasJSONArray(
+            ImageUtils.getAtlasClass('AtlasesDollElza4').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollElza4').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollElza4').getJSONArray());
+        game.load.atlasJSONArray(
+            ImageUtils.getAtlasClass('AtlasesDollMoana').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollMoana').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollMoana').getJSONArray());
+        game.load.atlasJSONArray(
+            ImageUtils.getAtlasClass('AtlasesDollMoana2').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollMoana2').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollMoana2').getJSONArray());
+        game.load.atlasJSONArray(
+            ImageUtils.getAtlasClass('AtlasesDollMoana3').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollMoana3').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollMoana3').getJSONArray());
+        game.load.atlasJSONArray(
+            ImageUtils.getAtlasClass('AtlasesDollMoana4').getName(),
+            ImageUtils.getAtlasClass('AtlasesDollMoana4').getPNG(),
+            ImageUtils.getAtlasClass('AtlasesDollMoana4').getJSONArray());
     }
 
     private static dress3StateAdditionalLoads(): void {
@@ -407,6 +423,21 @@ export class PreloaderUtils {
             ImageUtils.getAtlasClass('AtlasesDollRap').getName(),
             ImageUtils.getAtlasClass('AtlasesDollRap').getPNG(),
             ImageUtils.getAtlasClass('AtlasesDollRap').getJSONArray());*/
+        game.load.image(
+            ImageUtils.getImageClass('ImagesDoor').getName(),
+            ImageUtils.getImageClass('ImagesDoor').getPNG());
+        game.load.image(
+            ImageUtils.getImageClass('ImagesDoor1').getName(),
+            ImageUtils.getImageClass('ImagesDoor1').getPNG());
+        game.load.image(
+            ImageUtils.getImageClass('ImagesBack').getName(),
+            ImageUtils.getImageClass('ImagesBack').getPNG());
+        game.load.image(
+            ImageUtils.getImageClass('ImagesFront').getName(),
+            ImageUtils.getImageClass('ImagesFront').getPNG());
+        game.load.image(
+            ImageUtils.getImageClass('ImagesMmmm').getName(),
+            ImageUtils.getImageClass('ImagesMmmm').getPNG());
     }
 
     private static dress4StateAdditionalLoads(): void {

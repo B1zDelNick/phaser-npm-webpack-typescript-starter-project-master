@@ -16,7 +16,7 @@ export default class Boot extends Phaser.State {
             GameConfig.ASSET_SIZE = '';
         } else {
             // Set image assets to be loaded in minified version
-            GameConfig.ASSET_SIZE = 'Min';
+            GameConfig.ASSET_SIZE = ''; // 'Min';
         }
 
         if (GameConfig.SITE === Sites.MY_CUTE_GAMES)

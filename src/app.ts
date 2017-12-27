@@ -50,11 +50,11 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.MY_CUTE_GAMES,
-        PublishMode.NORMAL,
+        Sites.DRESSUP_MIX,
+        PublishMode.DUW,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princesses Welcome Winter Ball');
+        'Eco-Friendly Lifestyle for Princesses');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;

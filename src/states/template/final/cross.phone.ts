@@ -79,7 +79,7 @@ export class CrossPhone {
     }
 
     mask(x: number, y: number, w: number, h: number, angle: number): CrossPhone {
-        this._mask = this.game.add.graphics(x, y);
+        this._mask = this.game.add.graphics(x, y, this.container);
         this._mask.beginFill(0xfff000);
         this._mask.drawRect(0, 0, w, h);
         this._mask.angle = angle;

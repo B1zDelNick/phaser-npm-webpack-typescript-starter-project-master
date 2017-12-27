@@ -99,7 +99,7 @@ export class Chest {
         if (this.staticPage !== null) {
             item = this.staticPage.findItem(name);
         }
-        if (item == null && this.pages.length > 0) {
+        if (item === null && this.pages.length > 0) {
             for (let page of this.pages) {
                 item = page.findItem(name);
                 if (item !== null)
