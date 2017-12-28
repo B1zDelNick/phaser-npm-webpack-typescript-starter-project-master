@@ -52,8 +52,8 @@ function startApp(): void {
         Sites.DRESSUP_MIX,
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
-        SaverTemplates.H_FADE_SLIDER_TEMPLATE,
-        'Princess At Modeling Reality - New Stage');
+        SaverTemplates.NONE,
+        'BFFS Summer Memories');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
