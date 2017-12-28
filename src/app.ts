@@ -32,7 +32,6 @@ function startApp(): void {
 
     if (SCALE_MODE === 'USER_SCALE') {
         let screenMetrics: Utils.ScreenMetrics = Utils.ScreenUtils.calculateScreenMetrics(gameWidth, gameHeight);
-
         gameWidth = screenMetrics.gameWidth;
         gameHeight = screenMetrics.gameHeight;
     }
@@ -51,10 +50,10 @@ function startApp(): void {
 
     GameConfig.init(
         Sites.DRESSUP_MIX,
-        PublishMode.DUW,
+        PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
-        SaverTemplates.NONE,
-        'Eco-Friendly Lifestyle for Princesses');
+        SaverTemplates.H_FADE_SLIDER_TEMPLATE,
+        'Princess At Modeling Reality - New Stage');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;

@@ -23,7 +23,7 @@ export class HorizontalSaver implements ISaver {
         this.game = GameConfig.GAME;
     }
 
-    init(state: Phaser.State, Function): void {
+    init(state: Phaser.State, vsX: number = 480, vsY: number = 360): void {
         this.state = state;
         this.container = this.game.add.group();
         this.container.add(this.blocker = this.game.add.graphics(0, 0));
@@ -50,7 +50,7 @@ export class HorizontalSaver implements ISaver {
             GameConfig.PUB_MODE === PublishMode.NORMAL ? true : false,
             false, true, GameConfig.PUB_MODE === PublishMode.NORMAL ? GuiUtils.goLinkMainLogo : null);
 
-        this.vs.position.setTo(480, 360);
+        this.vs.position.setTo(vsX, vsY);
         this.part1.position.setTo(0, 0);
         this.part2.position.setTo(960 - this.part2.width, 0);
 
