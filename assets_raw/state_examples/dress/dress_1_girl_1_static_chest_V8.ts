@@ -17,9 +17,9 @@ import {AdUtils} from '../utils/ad/ad.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 import {SoundUtils} from '../utils/sound/sound.utils';
 
-export default class Dress3 extends Phaser.State {
+export default class Jjdfhdfjgjdfjgdjdgjdg extends Phaser.State {
 
-    private NEXT = 'Comix4';
+    private NEXT = 'Comix2';
     private nextPrepared = false;
 
     private gui: IGui = null;
@@ -57,78 +57,86 @@ export default class Dress3 extends Phaser.State {
 
     public create(): void {
 
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg5').getName());
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg3').getName());
 
         // Chests
         this.chest = new Chest(this, 700)
             .configure({hideSelected: true})
-            .background(344, -32,
-                ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Chest)
+            .background(344, -8,
+                ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Chest)
             .static()
-                .item(473, 180, 'dress7',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Dress1,
+                .item(484, 175, 'dress1',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Dress1,
                     this.onItem)
-                .item(553, 175, 'dress8',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Dress2,
+                .item(535, 175, 'dress2',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Dress2,
                     this.onItem)
-                .item(618, 175, 'dress9',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Dress3,
+                .item(654, 177, 'dress3',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Dress3,
                     this.onItem)
-                .item(703, 179, 'dress10',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Dress4,
+                .item(675, 175, 'dress4',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Dress4,
                     this.onItem)
-                .item(803, 176, 'dress11',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Dress5,
+                .item(772, 177, 'dress5',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Dress5,
                     this.onItem)
-                .item(499, 408, 'jew7',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Jew1,
+                .item(800, 169, 'dress6',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Dress6,
                     this.onItem)
-                .item(600, 408, 'jew8',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Jew2,
+                .item(499, 408, 'jew1',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Jew1,
                     this.onItem)
-                .item(698, 408, 'jew9',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Jew3,
+                .item(600, 408, 'jew2',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Jew2,
                     this.onItem)
-                .item(375, 531, 'mmmm',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Mmmm,
+                .item(698, 408, 'jew3',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Jew3,
+                    this.onItem)
+                .item(349, 449, 'mmmm',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Mmmm,
                     GuiUtils.goLinkInMoreGames)
-                .item(482, 574, 'shoe7',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Shoe1,
+                .item(451, 578, 'shoe1',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Shoe1,
                     this.onItem)
-                .item(572, 577, 'shoe8',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Shoe2,
+                .item(549, 568, 'shoe2',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Shoe2,
                     this.onItem)
-                .item(664, 573, 'shoe9',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Shoe3,
+                .item(657, 574, 'shoe3',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Shoe3,
                     this.onItem)
-                .item(501, 89, 'glass3',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Glass1,
+                .item(502, 89, 'glass1',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Glass1,
                     this.onItem)
-                .item(630, 43, 'bag3',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Bag1,
+                .item(630, 63, 'bag1',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Bag1,
                     this.onItem)
-                .item(739, 33, 'glove3',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames.Glove1,
+                .item(722, 68, 'glove1',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Glove1,
                     this.onItem)
-                .compoundItem(4, 1, -1, 803, 413, 'hair',
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').getName(),
-                    ImageUtils.getAtlasClass('AtlasesStateDress3').Frames, 'Hair',
+                .item(786, 68, 'belt1',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames.Belt1,
+                    this.onItem)
+                .compoundItem(4, 1, -1, 798, 410, 'hair',
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').getName(),
+                    ImageUtils.getAtlasClass('AtlasesStateDress1').Frames, 'Hair',
                     this.onItem)
             .build()
             .build();
@@ -285,9 +293,9 @@ export default class Dress3 extends Phaser.State {
         }
         else if (name.indexOf('hair') !== -1) {
             index = parseInt(name.substr(4));
-            if (this.doll.on('hair', index + 8))
+            if (this.doll.on('hair', index))
                 this.chest.onEquiped(name, 'hair');
-            this.doll.on('hair_b', index + 8);
+            this.doll.on('hair_b', index);
         }
     }
 
@@ -309,7 +317,7 @@ export default class Dress3 extends Phaser.State {
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();
 
-        GameConfig.DOLL_3 = this.doll.extract();
+        GameConfig.DOLL_1 = this.doll.extract();
     }
 
     private waitForLoading(): void {
