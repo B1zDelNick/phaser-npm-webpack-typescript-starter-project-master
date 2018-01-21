@@ -1,0 +1,57 @@
+{"frames": [
+
+{
+	"filename": "chest.png",
+	"frame": {"x":0,"y":0,"w":635,"h":697},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":635,"h":697},
+	"sourceSize": {"w":635,"h":697},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "fg.png",
+	"frame": {"x":635,"y":0,"w":960,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":960,"h":720},
+	"sourceSize": {"w":960,"h":720},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "gramm.png",
+	"frame": {"x":1595,"y":0,"w":350,"h":548},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":350,"h":548},
+	"sourceSize": {"w":350,"h":548},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "heart.png",
+	"frame": {"x":0,"y":720,"w":25,"h":22},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":25,"h":22},
+	"sourceSize": {"w":25,"h":22},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "shelf.png",
+	"frame": {"x":25,"y":720,"w":588,"h":45},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":588,"h":45},
+	"sourceSize": {"w":588,"h":45},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "commons.png",
+	"format": "RGBA8888",
+	"size": {"w":1945,"h":765},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:3951afefbcd2461329eeb16768186e3c:08f5e97268c94a608f8094076353b38c:e36bad999c3ddc9311dc24f53976c68e$"
+}
+}

@@ -1,0 +1,39 @@
+{"frames": [
+
+{
+	"filename": "cloud_1.png",
+	"frame": {"x":0,"y":0,"w":395,"h":694},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":395,"h":694},
+	"sourceSize": {"w":395,"h":694},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "cloud_2.png",
+	"frame": {"x":395,"y":0,"w":413,"h":694},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":413,"h":694},
+	"sourceSize": {"w":413,"h":694},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "cloud_3.png",
+	"frame": {"x":808,"y":0,"w":350,"h":694},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":350,"h":694},
+	"sourceSize": {"w":350,"h":694},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_comix.png",
+	"format": "RGBA8888",
+	"size": {"w":1158,"h":694},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8e6cbf28bf6455c3854089c21d078e4d:2a65cd892c8418e1beb9cd84b2c6a622:d98557cd5a7d825ef8c226634f697cf9$"
+}
+}

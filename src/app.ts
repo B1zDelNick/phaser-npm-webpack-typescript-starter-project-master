@@ -49,11 +49,11 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.MY_CUTE_GAMES,
-        PublishMode.DUW,
+        Sites.DRESSUP_MIX,
+        PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'BFFS Summer Memories');
+        'Princess Social Media Model');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
