@@ -417,6 +417,27 @@ export namespace Atlases {
         static Frames = AtlasesDollArielFrames;
     }
     enum AtlasesDollBelle2Frames {
+        H5 = <any>'h_5.png',
+        H6 = <any>'h_6.png',
+        HB = <any>'h_b_0.png',
+        HB1 = <any>'h_b_1.png',
+        HB2 = <any>'h_b_2.png',
+        HB3 = <any>'h_b_3.png',
+        HB4 = <any>'h_b_4.png',
+        HB5 = <any>'h_b_5.png',
+        HB6 = <any>'h_b_6.png',
+        Head = <any>'head.png',
+        Ht1 = <any>'ht_1.png',
+        Ht2 = <any>'ht_2.png',
+        J1 = <any>'j_1.png',
+        J2 = <any>'j_2.png',
+        J3 = <any>'j_3.png',
+        J4 = <any>'j_4.png',
+        J5 = <any>'j_5.png',
+        J6 = <any>'j_6.png',
+        T1 = <any>'t_1.png',
+        T2 = <any>'t_2.png',
+        T3 = <any>'t_3.png',
         T4 = <any>'t_4.png',
         T5 = <any>'t_5.png',
         T6 = <any>'t_6.png',
@@ -443,6 +464,8 @@ export namespace Atlases {
         Bb4 = <any>'bb_4.png',
         Bb5 = <any>'bb_5.png',
         Bb6 = <any>'bb_6.png',
+        Bb7 = <any>'bb_7.png',
+        Bb8 = <any>'bb_8.png',
         Body = <any>'body.png',
         D = <any>'d_0.png',
         D1 = <any>'d_1.png',
@@ -459,27 +482,6 @@ export namespace Atlases {
         H2 = <any>'h_2.png',
         H3 = <any>'h_3.png',
         H4 = <any>'h_4.png',
-        H5 = <any>'h_5.png',
-        H6 = <any>'h_6.png',
-        HB = <any>'h_b_0.png',
-        HB1 = <any>'h_b_1.png',
-        HB2 = <any>'h_b_2.png',
-        HB3 = <any>'h_b_3.png',
-        HB4 = <any>'h_b_4.png',
-        HB5 = <any>'h_b_5.png',
-        HB6 = <any>'h_b_6.png',
-        Head = <any>'head.png',
-        Ht1 = <any>'ht_1.png',
-        Ht2 = <any>'ht_2.png',
-        J1 = <any>'j_1.png',
-        J2 = <any>'j_2.png',
-        J3 = <any>'j_3.png',
-        J4 = <any>'j_4.png',
-        J5 = <any>'j_5.png',
-        J6 = <any>'j_6.png',
-        T1 = <any>'t_1.png',
-        T2 = <any>'t_2.png',
-        T3 = <any>'t_3.png',
     }
     export class AtlasesDollBelle {
         static getName(): string { return 'doll_belle'; }
@@ -521,7 +523,6 @@ export namespace Atlases {
         Bb6 = <any>'bb_6.png',
         Bb7 = <any>'bb_7.png',
         Bb8 = <any>'bb_8.png',
-        Bb9 = <any>'bb_9.png',
         D1 = <any>'d_1.png',
         D5 = <any>'d_5.png',
         D6 = <any>'d_6.png',
@@ -1045,6 +1046,23 @@ export namespace Atlases {
 
         static Frames = AtlasesStateDress3Frames;
     }
+    enum AtlasesStateFinalFrames {
+        Ban1 = <any>'ban_1.png',
+        Ban2 = <any>'ban_2.png',
+        Cross = <any>'cross.png',
+        CrossBtn1 = <any>'cross_btn_1.png',
+        CrossBtn2 = <any>'cross_btn_2.png',
+        Hand = <any>'hand.png',
+    }
+    export class AtlasesStateFinal {
+        static getName(): string { return 'state_final'; }
+
+        static getJSONArray(): string { return require('assets/atlases/state_final.json'); }
+
+        static getPNG(): string { return require('assets/atlases/state_final.png'); }
+
+        static Frames = AtlasesStateFinalFrames;
+    }
     enum AtlasesStateResultFrames {
         PhtBtn = <any>'pht_btn.png',
     }
@@ -1075,7 +1093,11 @@ export namespace Atlases {
 }
 
 export namespace Audio {
-    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
+    export class AudioMainTheme {
+        static getName(): string { return 'main_theme'; }
+
+        static getMP3(): string { return require('assets/audio/main_theme.mp3'); }
+    }
 }
 
 export namespace Audiosprites {
