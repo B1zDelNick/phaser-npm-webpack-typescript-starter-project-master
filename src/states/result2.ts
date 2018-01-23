@@ -6,53 +6,54 @@ import {GuiDu} from './gui/du.gui';
 import {GuiFgc} from './gui/fgc.gui';
 import {ISaver} from './saver/i.saver';
 import {GuiUtils} from '../utils/gui.utils';
+import {PreloaderUtils} from '../utils/preloader.utils';
 import {TweenUtils} from '../utils/tween.utils';
 import {ImageUtils} from '../utils/images/image.utils';
 import {EffectUtils} from '../utils/effect.utils';
+import {AdUtils} from '../utils/ad/ad.utils';
+import {SoundUtils} from '../utils/sound/sound.utils';
 import {LaserType} from './spec-effects/laser/enum.laser';
 import {ILaser} from './spec-effects/laser/i.laser';
-import {PreloaderUtils} from '../utils/preloader.utils';
-import {IParticle} from './spec-effects/particle/i.particle';
-import {FallParticles} from './spec-effects/particle/fall.particle';
-import {BubbleParticles} from './spec-effects/particle/bubble.particle';
 
-export default class Start extends Phaser.State {
+export default class Result2 extends Phaser.State {
 
-    private NEXT = 'Comix';
+    private NEXT = 'Dress3';
     private nextPrepared = false;
 
     private gui: IGui = null;
     private saver: ISaver = null;
-
+    private container: Phaser.Group = null;
+    private txt: Phaser.Text = null;
+    private bg: Phaser.Sprite = null;
     private fg: Phaser.Sprite = null;
-    private bg1: Phaser.Sprite = null;
-    private bg2: Phaser.Sprite = null;
-    private bg3: Phaser.Sprite = null;
-    private like: Phaser.Sprite = null;
-
+    private playBtn: Phaser.Button = null;
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
-    private phase: number = -1;
+    private score: number = 0;
+    private splitter: number = 0;
+    private animate: boolean = false;
 
     public init(...args: any[]): void {
         switch (GameConfig.SITE) {
             case Sites.MY_CUTE_GAMES:
             {
-                this.gui = new GuiMcg(this, StateType.START_STATE);
+                this.gui = new GuiMcg(this, StateType.RESULT_STATE);
                 break;
             }
             case Sites.DRESSUP_MIX:
             {
-                this.gui = new GuiDu(this, StateType.START_STATE);
+                this.gui = new GuiDu(this, StateType.RESULT_STATE);
                 break;
             }
             case Sites.FREE_GAMES_CASUAL:
             {
-                this.gui = new GuiFgc(this, StateType.START_STATE);
+                this.gui = new GuiFgc(this, StateType.RESULT_STATE);
                 break;
             }
         }
-        this.phase = -1;
+        this.score = 0;
+        this.splitter = 0;
+        this.animate = false;
     }
 
     public preload(): void {
@@ -60,18 +61,55 @@ export default class Start extends Phaser.State {
 
     public create(): void {
 
-        this.bg1 = this.game.add.sprite(82, -36, ImageUtils.getImageClass('ImagesBack1').getName());
-        this.bg2 = this.game.add.sprite(82, -36, ImageUtils.getImageClass('ImagesBack2').getName());
-        this.bg3 = this.game.add.sprite(82, -36, ImageUtils.getImageClass('ImagesBack3').getName());
-        this.bg1.alpha = 0;
-        this.bg2.alpha = 0;
+        this.container = this.game.add.group();
+        this.bg = this.game.add.sprite(-4, 26, ImageUtils.getImageClass('ImagesBg5').getName());
+        this.container.add(this.bg);
 
-        this.like = this.game.add.sprite(410, 360,
-            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Like);
-        GuiUtils.centrize(this.like);
-        this.like.alpha = 0;
-        this.like.scale.setTo(0);
+        this.container.add(GameConfig.DOLL_2.getBody());
+        GameConfig.DOLL_2.setPosition(116, 127);
+
+        this.game.add.sprite(493, 86,
+            ImageUtils.getAtlasClass('AtlasesCommons').getName(),
+            ImageUtils.getAtlasClass('AtlasesCommons').Frames.Gramm,
+            this.container
+        );
+        const p1 = this.game.add.sprite(503 + 500, 146,
+            ImageUtils.getAtlasClass('AtlasesStateResult2').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateResult2').Frames.Post1,
+            this.container
+        );
+        const p2 = this.game.add.sprite(503 + 500, 216,
+            ImageUtils.getAtlasClass('AtlasesStateResult2').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateResult2').Frames.Post2,
+            this.container
+        );
+        const p3 = this.game.add.sprite(503 + 500, 286,
+            ImageUtils.getAtlasClass('AtlasesStateResult2').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateResult2').Frames.Post3,
+            this.container
+        );
+        const p4 = this.game.add.sprite(503 + 500, 355,
+            ImageUtils.getAtlasClass('AtlasesStateResult2').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateResult2').Frames.Post4,
+            this.container
+        );
+        const p5 = this.game.add.sprite(503 + 500, 425,
+            ImageUtils.getAtlasClass('AtlasesStateResult2').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateResult2').Frames.Post5,
+            this.container
+        );
+        const p6 = this.game.add.sprite(503 + 500, 495,
+            ImageUtils.getAtlasClass('AtlasesStateResult2').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateResult2').Frames.Post6,
+            this.container
+        );
+        this.game.add.sprite(512, 587,
+            ImageUtils.getAtlasClass('AtlasesCommons').getName(),
+            ImageUtils.getAtlasClass('AtlasesCommons').Frames.Heart,
+            this.container
+        );
+        const style = { font: '35px Arial Black', fill: '#FF205D', align: 'left' };
+        this.txt = this.game.add.text(548, 578, '0', style, this.container);
 
         this.fg = this.game.add.sprite(0, 0,
             ImageUtils.getAtlasClass('AtlasesCommons').getName(),
@@ -84,9 +122,9 @@ export default class Start extends Phaser.State {
                 ImageUtils.getSpritesheetClass('SpritesheetsMoreE1482068').getName(),
                 [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
         }
-        const playBtn = this.gui.addPlayBtn(this.nextState);
-        playBtn.scale.setTo(0);
-        playBtn.alpha = 0;
+        this.playBtn = this.gui.addPlayBtn(this.nextState);
+        this.playBtn.scale.setTo(0);
+        this.playBtn.alpha = 0;
 
         // Try to retrieve Saver OR else fade effect will apply
         this.saver = GuiUtils.getSaver();
@@ -97,68 +135,53 @@ export default class Start extends Phaser.State {
         } else {
             this.game.camera.flash(0x000000, 1000);
         }
-        // ONLY FOR START STATE !!!!!!!!!!!!!!!!!
-        if (!GameConfig.GAME_COMPLETED)
-            this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(this.like, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1, () => {
-            TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1);
-            TweenUtils.delayedCall(Phaser.Timer.SECOND * 0, this.nextGirls, this);
+        TweenUtils.slideIn(p1, 503, 750, 1000);
+        TweenUtils.slideIn(p2, 503, 750, 1250);
+        TweenUtils.slideIn(p3, 503, 750, 1500);
+        TweenUtils.slideIn(p4, 503, 750, 1750);
+        TweenUtils.slideIn(p5, 503, 750, 2000);
+        TweenUtils.slideIn(p6, 503, 750, 2250);
+        TweenUtils.delayedCall(3000, () => {
+            this.animate = true;
         }, this);
 
         // Assets Managment starts here
         if (GameConfig.IS_ASSETS_LOADED)
             this.waitForLoading();
         else if (GameConfig.ASSET_MODE === AssetMode.LOAD_BACKGROUND) {
-            // Loads
-            PreloaderUtils.preloadComixState();
+            PreloaderUtils.preloadFinalState();
             AssetUtils.Loader.loadSelectedAssets(this.game, true, this.waitForLoading, this);
         }
     }
 
-    private nextGirls() {
-        this.phase++;
-        if (this.phase > 2) this.phase = 0;
-        let obj1: any;
-        let obj2: any;
-        if (this.phase === 0) {
-            obj1 = this.bg3;
-            obj2 = this.bg1;
-        }
-        else if (this.phase === 1) {
-            obj1 = this.bg1;
-            obj2 = this.bg2;
-        }
-        else if (this.phase === 2) {
-            obj1 = this.bg2;
-            obj2 = this.bg3;
-        }
-        EffectUtils.makeMoveAnimation(this.like, this.like.x + 6, this.like.y + 6, 200, true, 0);
-        EffectUtils.makeScaleAnimation(this.like, .95, 200, true, 0);
-        TweenUtils.fadeOut(obj1, Phaser.Timer.SECOND * .25, Phaser.Timer.SECOND * .5);
-        TweenUtils.fadeIn(obj2, Phaser.Timer.SECOND * .25, Phaser.Timer.SECOND * .5);
-        TweenUtils.delayedCall(Phaser.Timer.SECOND * 4, this.nextGirls, this);
-    }
-
     public update(): void {
         super.update(this.game);
+        if (this.animate) {
+            this.splitter++;
+            if (this.splitter % 3 === 0) {
+                this.score += this.game.rnd.between(25000, 30000);
+                this.txt.setText(this.score.toString());
+                this.txt.update();
+            }
+            if (this.splitter === 120) {
+                this.animate = false;
+                TweenUtils.fadeAndScaleIn(this.playBtn, 750);
+            }
+        }
     }
 
     public shutdown(): void {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
-
-        if (this.bg1) this.bg1.destroy(true);
-        if (this.bg2) this.bg2.destroy(true);
-        if (this.bg3) this.bg3.destroy(true);
-        if (this.like) this.like.destroy(true);
-
+        this.fg.destroy(true);
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);
-
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();
+        GameConfig.CONT_2 = this.container;
+        this.game.world.remove(this.container);
     }
 
     private waitForLoading(): void {
@@ -166,6 +189,7 @@ export default class Start extends Phaser.State {
     }
 
     private nextState(): void {
+        GameConfig.CURRENT_STATE = 0;
         this.gui.disable();
         if (this.saver) {
             this.saver.setOnOutCallback(() => {

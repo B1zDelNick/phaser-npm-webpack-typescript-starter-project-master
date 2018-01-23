@@ -1,7 +1,7 @@
 {"frames": [
 
 {
-	"filename": "part_1.png",
+	"filename": "part.png",
 	"frame": {"x":0,"y":0,"w":960,"h":720},
 	"rotated": false,
 	"trimmed": false,
@@ -11,11 +11,11 @@
 },
 {
 	"filename": "vs.png",
-	"frame": {"x":0,"y":720,"w":398,"h":201},
+	"frame": {"x":0,"y":721,"w":398,"h":200},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":398,"h":201},
-	"sourceSize": {"w":398,"h":201},
+	"spriteSourceSize": {"x":0,"y":0,"w":398,"h":200},
+	"sourceSize": {"w":398,"h":200},
 	"pivot": {"x":0.5,"y":0.5}
 }],
 "meta": {

@@ -50,6 +50,12 @@ export class GuiDu implements IGui {
         else if (this.type === StateType.FINAL_STATE) {
             frame = ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.ReplayDu.toString();
         }
+        else if (this.type === StateType.COMIX_STATE) {
+            frame = ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.RightDu.toString();
+        }
+        else if (this.type === StateType.RESULT_STATE) {
+            frame = ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.RightDu.toString();
+        }
         else {
             frame = ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.NextDu.toString();
         }

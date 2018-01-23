@@ -817,7 +817,7 @@ export namespace Atlases {
         static Frames = AtlasesPreloaderAtlasMcgFrames;
     }
     enum AtlasesSaverFrames {
-        Part1 = <any>'part_1.png',
+        Part = <any>'part.png',
         Vs = <any>'vs.png',
     }
     export class AtlasesSaver {
@@ -961,6 +961,10 @@ export namespace Atlases {
         static Frames = AtlasesStateDress3Frames;
     }
     enum AtlasesStateFinalFrames {
+        Ban1 = <any>'ban_1.png',
+        Ban2 = <any>'ban_2.png',
+        Bg8 = <any>'bg_8.png',
+        Cross = <any>'cross.png',
         Lb = <any>'lb.png',
         Post1 = <any>'post_1.png',
         Post2 = <any>'post_2.png',
@@ -1043,7 +1047,11 @@ export namespace Atlases {
 }
 
 export namespace Audio {
-    class IExistSoTypeScriptWillNotComplainAboutAnEmptyNamespace {}
+    export class AudioMainTheme {
+        static getName(): string { return 'main_theme'; }
+
+        static getMP3(): string { return require('assets/audio/main_theme.mp3'); }
+    }
 }
 
 export namespace Audiosprites {

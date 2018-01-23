@@ -1,8 +1,44 @@
 {"frames": [
 
 {
+	"filename": "ban_1.png",
+	"frame": {"x":390,"y":62,"w":238,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":238,"h":276},
+	"sourceSize": {"w":238,"h":276},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "ban_2.png",
+	"frame": {"x":152,"y":62,"w":238,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":238,"h":276},
+	"sourceSize": {"w":238,"h":276},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "bg_8.png",
+	"frame": {"x":0,"y":907,"w":845,"h":855},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":845,"h":855},
+	"sourceSize": {"w":845,"h":855},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "cross.png",
+	"frame": {"x":628,"y":62,"w":332,"h":845},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":332,"h":845},
+	"sourceSize": {"w":332,"h":845},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
 	"filename": "lb.png",
-	"frame": {"x":76,"y":0,"w":76,"h":132},
+	"frame": {"x":0,"y":62,"w":76,"h":132},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":132},
@@ -11,7 +47,7 @@
 },
 {
 	"filename": "post_1.png",
-	"frame": {"x":0,"y":194,"w":324,"h":62},
+	"frame": {"x":644,"y":0,"w":324,"h":62},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":324,"h":62},
@@ -20,7 +56,7 @@
 },
 {
 	"filename": "post_2.png",
-	"frame": {"x":0,"y":132,"w":322,"h":62},
+	"frame": {"x":322,"y":0,"w":322,"h":62},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":322,"h":62},
@@ -29,7 +65,7 @@
 },
 {
 	"filename": "post_3.png",
-	"frame": {"x":152,"y":0,"w":322,"h":62},
+	"frame": {"x":0,"y":0,"w":322,"h":62},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":322,"h":62},
@@ -38,7 +74,7 @@
 },
 {
 	"filename": "rb.png",
-	"frame": {"x":0,"y":0,"w":76,"h":132},
+	"frame": {"x":76,"y":62,"w":76,"h":132},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":76,"h":132},
@@ -50,8 +86,8 @@
 	"version": "1.0",
 	"image": "state_final.png",
 	"format": "RGBA8888",
-	"size": {"w":474,"h":256},
+	"size": {"w":968,"h":1762},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:3ccdbd3b9e5a5693787c215d5620d922:075ca0fe4b6a71c36d61ee9b09aab51a:fa7765394e0e389ace335cfa7c993a79$"
+	"smartupdate": "$TexturePacker:SmartUpdate:3fff8bd6b6caed2c57dab929cb4ea44c:3fe6d299eae0be5dbc4d63fd1798ab8f:fa7765394e0e389ace335cfa7c993a79$"
 }
 }

@@ -25,6 +25,7 @@ export class GameConfig {
 
     public static CONT_1: Phaser.Group = null;
     public static CONT_2: Phaser.Group = null;
+    public static CONT_3: Phaser.Group = null;
 
     public static FREE_RESULT: any = null;
 
