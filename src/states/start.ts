@@ -15,6 +15,9 @@ import {PreloaderUtils} from '../utils/preloader.utils';
 import {IParticle} from './spec-effects/particle/i.particle';
 import {FallParticles} from './spec-effects/particle/fall.particle';
 import {BubbleParticles} from './spec-effects/particle/bubble.particle';
+import {SnowBackParticles} from './spec-effects/particle/snow.back.particle';
+import {SnowMiddleParticles} from './spec-effects/particle/snow.middle.particle';
+import {SnowFrontParticles} from './spec-effects/particle/snow.front.particle';
 
 export default class Start extends Phaser.State {
 
@@ -23,12 +26,24 @@ export default class Start extends Phaser.State {
 
     private gui: IGui = null;
     private saver: ISaver = null;
-
-    private fg: Phaser.Sprite = null;
-    private bg1: Phaser.Sprite = null;
-    private bg2: Phaser.Sprite = null;
-    private bg3: Phaser.Sprite = null;
-    private like: Phaser.Sprite = null;
+    private snowB: IParticle = null;
+    private snowM: IParticle = null;
+    private snowF: IParticle = null;
+    private bg: Phaser.Sprite = null;
+    private sp1: Phaser.Sprite = null;
+    private sp2: Phaser.Sprite = null;
+    private sp3: Phaser.Sprite = null;
+    private sp4: Phaser.Sprite = null;
+    private sp5: Phaser.Sprite = null;
+    private sp6: Phaser.Sprite = null;
+    private sp7: Phaser.Sprite = null;
+    private sp8: Phaser.Sprite = null;
+    private sp9: Phaser.Sprite = null;
+    private sp10: Phaser.Sprite = null;
+    private sp11: Phaser.Sprite = null;
+    private sp12: Phaser.Sprite = null;
+    private girl: Phaser.Sprite = null;
+    private title: Phaser.Sprite = null;
 
     private spinner: Phaser.Sprite = null;
     private blocker: Phaser.Graphics = null;
@@ -59,30 +74,98 @@ export default class Start extends Phaser.State {
     }
 
     public create(): void {
+        /*const ct = this.game.add.group();
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg4').getName(), null, ct);
+        const bmdSrc = this.game.add.bitmapData(this.game.width, this.game.height);
+        this.game.stage.updateTransform();
+        bmdSrc.drawGroup(ct); //  this.game.world);
+        const bmd = this.game.make.bitmapData(this.game.width, this.game.height);
+        bmd.alphaMask(bmdSrc, 'mask');
+        this.game.add.image(0, 0, bmd);
+        ct.visible = false;*/
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
-        this.bg1 = this.game.add.sprite(82, -36, ImageUtils.getImageClass('ImagesBack1').getName());
-        this.bg2 = this.game.add.sprite(82, -36, ImageUtils.getImageClass('ImagesBack2').getName());
-        this.bg3 = this.game.add.sprite(82, -36, ImageUtils.getImageClass('ImagesBack3').getName());
-        this.bg1.alpha = 0;
-        this.bg2.alpha = 0;
+        this.snowB = new SnowBackParticles();
+        this.snowB.init(null, null);
+        this.snowB.start();
+        this.snowM = new SnowMiddleParticles();
+        this.snowM.init(null, null);
+        this.snowM.start();
+        this.snowF = new SnowFrontParticles();
+        this.snowF.init(null, null);
+        this.snowF.start();
 
-        this.like = this.game.add.sprite(410, 360,
+        this.sp1 = this.game.add.sprite(25, 237,
             ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
-            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Like);
-        GuiUtils.centrize(this.like);
-        this.like.alpha = 0;
-        this.like.scale.setTo(0);
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp1);
+        this.sp2 = this.game.add.sprite(173, 65,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp2);
+        this.sp3 = this.game.add.sprite(296, 22,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp1);
+        this.sp4 = this.game.add.sprite(386, 30,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp2);
+        this.sp5 = this.game.add.sprite(495, 22,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp1);
+        this.sp6 = this.game.add.sprite(631, 42,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp2);
+        this.sp7 = this.game.add.sprite(594, 217,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp1);
+        this.sp8 = this.game.add.sprite(855, 76,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp2);
+        this.sp9 = this.game.add.sprite(913, 185,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp1);
+        this.sp10 = this.game.add.sprite(578, 643,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp2);
+        this.sp11 = this.game.add.sprite(383, 660,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp1);
+        this.sp12 = this.game.add.sprite(173, 618,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Sp2);
+        this.sp1.alpha = 0;
+        this.sp2.alpha = 0;
+        this.sp3.alpha = 0;
+        this.sp4.alpha = 0;
+        this.sp5.alpha = 0;
+        this.sp6.alpha = 0;
+        this.sp7.alpha = 0;
+        this.sp8.alpha = 0;
+        this.sp9.alpha = 0;
+        this.sp10.alpha = 0;
+        this.sp11.alpha = 0;
+        this.sp12.alpha = 0;
+        for (let i = 0; i < 12; i++) {
+            TweenUtils.delayedCall(this.game.rnd.between(0, 300), () => {
+                this['sp' + (i + 1)].scale.setTo(1.25);
+                EffectUtils.makeAlphaAnimation(this['sp' + (i + 1)], 1, this.game.rnd.between(350, 550));
+            }, this);
+        }
 
-        this.fg = this.game.add.sprite(0, 0,
-            ImageUtils.getAtlasClass('AtlasesCommons').getName(),
-            ImageUtils.getAtlasClass('AtlasesCommons').Frames.Fg);
+        this.girl = this.game.add.sprite(478, 75,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Girl1);
+        this.title = this.game.add.sprite(15, 66,
+            ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
+            ImageUtils.getAtlasClass('AtlasesStateStart').Frames.Title);
+        GuiUtils.centrize(this.title);
+        this.title.alpha = 0;
+        this.title.scale.setTo(0);
 
         // GUI Buttons
         this.gui.addGui(GameConfig.PUB_MODE === PublishMode.DUW);
         if (GameConfig.PUB_MODE !== PublishMode.DUW) {
-            this.gui.addExtraMoreAnimated(812, 514,
-                ImageUtils.getSpritesheetClass('SpritesheetsMoreE1482068').getName(),
-                [0, 1, 2, 3, 4, 5, 6, 7], 8, true);
+            this.gui.addExtraMoreAnimated(759, 570,
+                ImageUtils.getSpritesheetClass('SpritesheetsMoreE2121565').getName(),
+                [0, 1, 2, 3, 4, 5], 8, true);
         }
         const playBtn = this.gui.addPlayBtn(this.nextState);
         playBtn.scale.setTo(0);
@@ -102,9 +185,9 @@ export default class Start extends Phaser.State {
             this.game.camera.flash(0x000000, 1000);
 
         // Animations goes here
-        TweenUtils.fadeAndScaleIn(this.like, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1, () => {
-            TweenUtils.fadeAndScaleIn(playBtn, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1);
-            TweenUtils.delayedCall(Phaser.Timer.SECOND * 0, this.nextGirls, this);
+        TweenUtils.fadeAndScaleIn(this.title, Phaser.Timer.SECOND * 1, Phaser.Timer.SECOND * 1, () => {
+            TweenUtils.customFadeAndScaleIn(playBtn, 1, 1.3, Phaser.Timer.SECOND * .75, Phaser.Timer.SECOND * 1);
+            EffectUtils.makeLightRotateAnimation(this.title, 1100, 4);
         }, this);
 
         // Assets Managment starts here
@@ -117,30 +200,6 @@ export default class Start extends Phaser.State {
         }
     }
 
-    private nextGirls() {
-        this.phase++;
-        if (this.phase > 2) this.phase = 0;
-        let obj1: any;
-        let obj2: any;
-        if (this.phase === 0) {
-            obj1 = this.bg3;
-            obj2 = this.bg1;
-        }
-        else if (this.phase === 1) {
-            obj1 = this.bg1;
-            obj2 = this.bg2;
-        }
-        else if (this.phase === 2) {
-            obj1 = this.bg2;
-            obj2 = this.bg3;
-        }
-        EffectUtils.makeMoveAnimation(this.like, this.like.x + 6, this.like.y + 6, 200, true, 0);
-        EffectUtils.makeScaleAnimation(this.like, .95, 200, true, 0);
-        TweenUtils.fadeOut(obj1, Phaser.Timer.SECOND * .25, Phaser.Timer.SECOND * .5);
-        TweenUtils.fadeIn(obj2, Phaser.Timer.SECOND * .25, Phaser.Timer.SECOND * .5);
-        TweenUtils.delayedCall(Phaser.Timer.SECOND * 4, this.nextGirls, this);
-    }
-
     public update(): void {
         super.update(this.game);
     }
@@ -148,15 +207,9 @@ export default class Start extends Phaser.State {
     public shutdown(): void {
         this.game.time.events.removeAll();
         this.game.tweens.removeAll();
-
-        if (this.bg1) this.bg1.destroy(true);
-        if (this.bg2) this.bg2.destroy(true);
-        if (this.bg3) this.bg3.destroy(true);
-        if (this.like) this.like.destroy(true);
-
+        if (this.bg) this.bg.destroy(true);
         if (this.spinner) this.spinner.destroy(true);
         if (this.blocker) this.blocker.destroy(true);
-
         this.gui.dispose();
         if (this.saver !== null) this.saver.dispose();
     }

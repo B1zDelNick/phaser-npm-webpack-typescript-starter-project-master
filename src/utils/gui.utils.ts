@@ -168,7 +168,7 @@ export class GuiUtils {
     public static addOverHandler(sprite) {
         sprite.filters = [FilterUtils.makeFilter()];
         GameConfig.GAME.tweens.removeFrom(sprite.scale);
-        GameConfig.GAME.add.tween(sprite.scale).to({ x: 1.03, y: 1.03 }, 250, Phaser.Easing.Linear.None, true);
+        GameConfig.GAME.add.tween(sprite.scale).to({ x: 1.05, y: 1.05 }, 250, Phaser.Easing.Linear.None, true);
     }
 
     public static addOutHandler(sprite) {

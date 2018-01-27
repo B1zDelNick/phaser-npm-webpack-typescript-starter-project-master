@@ -1,0 +1,48 @@
+{"frames": [
+
+{
+	"filename": "ban_1.png",
+	"frame": {"x":0,"y":0,"w":238,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":238,"h":276},
+	"sourceSize": {"w":238,"h":276},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "ban_2.png",
+	"frame": {"x":238,"y":0,"w":238,"h":276},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":238,"h":276},
+	"sourceSize": {"w":238,"h":276},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "mask.png",
+	"frame": {"x":0,"y":276,"w":396,"h":348},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":348},
+	"sourceSize": {"w":396,"h":348},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "stroke.png",
+	"frame": {"x":0,"y":624,"w":396,"h":348},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":396,"h":348},
+	"sourceSize": {"w":396,"h":348},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_final.png",
+	"format": "RGBA8888",
+	"size": {"w":476,"h":972},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:48b1e1b6d49dc80c034892fdada96258:70a546d061a46d80a9034c8184098213:fa7765394e0e389ace335cfa7c993a79$"
+}
+}

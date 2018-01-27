@@ -63,10 +63,10 @@ export class GuiDu implements IGui {
         this.playButton =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
-                4, 582, 1,
+                -2, 545, 1.3,
                 '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
                 [frame, frame, frame],
-                true, false, true, callback, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+                true, false, true, callback, GuiUtils.addCustomOverHandler(0xffffff, 1.34), GuiUtils.addCustomOutHandler(1.3));
 
         return this.playButton;
     }
@@ -112,10 +112,11 @@ export class GuiDu implements IGui {
         this.moreButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                817, 582, 1,
+                782, 545, 1.3,
                 '', ImageUtils.getAtlasClass('AtlasesGuiDu').getName(),
                 ImageUtils.getAtlasClass('AtlasesGuiDu').Frames.MoreDu,
-                true, false, true, GuiUtils.goLinkMainMoreGames, GuiUtils.addOverHandler, GuiUtils.addOutHandler);
+                true, false, true, GuiUtils.goLinkMainMoreGames,
+                GuiUtils.addCustomOverHandler(0xffffff, 1.34), GuiUtils.addCustomOutHandler(1.3));
 
         return this.moreButton;
     }
