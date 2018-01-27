@@ -1,0 +1,57 @@
+{"frames": [
+
+{
+	"filename": "cross_1.png",
+	"frame": {"x":0,"y":0,"w":835,"h":557},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":835,"h":557},
+	"sourceSize": {"w":835,"h":557},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "cross_2.png",
+	"frame": {"x":0,"y":557,"w":796,"h":597},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":796,"h":597},
+	"sourceSize": {"w":796,"h":597},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "label.png",
+	"frame": {"x":0,"y":1154,"w":581,"h":54},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":581,"h":54},
+	"sourceSize": {"w":581,"h":54},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "lb.png",
+	"frame": {"x":581,"y":1154,"w":113,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":113,"h":148},
+	"sourceSize": {"w":113,"h":148},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "rb.png",
+	"frame": {"x":694,"y":1154,"w":113,"h":148},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":113,"h":148},
+	"sourceSize": {"w":113,"h":148},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_final.png",
+	"format": "RGBA8888",
+	"size": {"w":835,"h":1302},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:629806fcd7859ecabfd977a9c2bc0707:d23876bf169c3b1bbede5fe72d5b4ef2:fa7765394e0e389ace335cfa7c993a79$"
+}
+}

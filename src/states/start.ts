@@ -26,9 +26,6 @@ export default class Start extends Phaser.State {
 
     private gui: IGui = null;
     private saver: ISaver = null;
-    private snowB: IParticle = null;
-    private snowM: IParticle = null;
-    private snowF: IParticle = null;
     private bg: Phaser.Sprite = null;
     private sp1: Phaser.Sprite = null;
     private sp2: Phaser.Sprite = null;
@@ -74,26 +71,8 @@ export default class Start extends Phaser.State {
     }
 
     public create(): void {
-        /*const ct = this.game.add.group();
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg4').getName(), null, ct);
-        const bmdSrc = this.game.add.bitmapData(this.game.width, this.game.height);
-        this.game.stage.updateTransform();
-        bmdSrc.drawGroup(ct); //  this.game.world);
-        const bmd = this.game.make.bitmapData(this.game.width, this.game.height);
-        bmd.alphaMask(bmdSrc, 'mask');
-        this.game.add.image(0, 0, bmd);
-        ct.visible = false;*/
-        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
-        this.snowB = new SnowBackParticles();
-        this.snowB.init(null, null);
-        this.snowB.start();
-        this.snowM = new SnowMiddleParticles();
-        this.snowM.init(null, null);
-        this.snowM.start();
-        this.snowF = new SnowFrontParticles();
-        this.snowF.init(null, null);
-        this.snowF.start();
+        this.bg = this.game.add.sprite(0, 0, ImageUtils.getImageClass('ImagesBg').getName());
 
         this.sp1 = this.game.add.sprite(25, 237,
             ImageUtils.getAtlasClass('AtlasesStateStart').getName(),
