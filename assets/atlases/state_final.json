@@ -1,30 +1,21 @@
 {"frames": [
 
 {
-	"filename": "cross_1.png",
-	"frame": {"x":0,"y":0,"w":304,"h":301},
+	"filename": "ban_1.png",
+	"frame": {"x":0,"y":0,"w":336,"h":199},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":304,"h":301},
-	"sourceSize": {"w":304,"h":301},
+	"spriteSourceSize": {"x":0,"y":0,"w":336,"h":199},
+	"sourceSize": {"w":336,"h":199},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "cross_2.png",
-	"frame": {"x":304,"y":0,"w":304,"h":301},
+	"filename": "ban_2.png",
+	"frame": {"x":336,"y":0,"w":336,"h":199},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":304,"h":301},
-	"sourceSize": {"w":304,"h":301},
-	"pivot": {"x":0.5,"y":0.5}
-},
-{
-	"filename": "mmmm.png",
-	"frame": {"x":608,"y":0,"w":196,"h":245},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":196,"h":245},
-	"sourceSize": {"w":196,"h":245},
+	"spriteSourceSize": {"x":0,"y":0,"w":336,"h":199},
+	"sourceSize": {"w":336,"h":199},
 	"pivot": {"x":0.5,"y":0.5}
 }],
 "meta": {
@@ -32,8 +23,8 @@
 	"version": "1.0",
 	"image": "state_final.png",
 	"format": "RGBA8888",
-	"size": {"w":804,"h":301},
+	"size": {"w":672,"h":199},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:d12ec9f4d97fe34679e8883efd9b4766:21a06ecb8f74f056bcbec72fb883a494:fa7765394e0e389ace335cfa7c993a79$"
+	"smartupdate": "$TexturePacker:SmartUpdate:8e8445881c06fc4f46133f4501e37f5c:9bf213b78eff075afe23edd664369704:fa7765394e0e389ace335cfa7c993a79$"
 }
 }

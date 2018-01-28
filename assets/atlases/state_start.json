@@ -2,38 +2,29 @@
 
 {
 	"filename": "gr_1.png",
-	"frame": {"x":399,"y":0,"w":436,"h":1139},
+	"frame": {"x":0,"y":0,"w":318,"h":715},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":436,"h":1139},
-	"sourceSize": {"w":436,"h":1139},
+	"spriteSourceSize": {"x":0,"y":0,"w":318,"h":715},
+	"sourceSize": {"w":318,"h":715},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "gr_2.png",
-	"frame": {"x":835,"y":0,"w":607,"h":1159},
+	"frame": {"x":318,"y":0,"w":319,"h":721},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":607,"h":1159},
-	"sourceSize": {"w":607,"h":1159},
+	"spriteSourceSize": {"x":0,"y":0,"w":319,"h":721},
+	"sourceSize": {"w":319,"h":721},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "label.png",
-	"frame": {"x":0,"y":1159,"w":968,"h":164},
+	"filename": "gr_3.png",
+	"frame": {"x":637,"y":0,"w":271,"h":715},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":968,"h":164},
-	"sourceSize": {"w":968,"h":164},
-	"pivot": {"x":0.5,"y":0.5}
-},
-{
-	"filename": "title.png",
-	"frame": {"x":0,"y":0,"w":399,"h":310},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":399,"h":310},
-	"sourceSize": {"w":399,"h":310},
+	"spriteSourceSize": {"x":0,"y":0,"w":271,"h":715},
+	"sourceSize": {"w":271,"h":715},
 	"pivot": {"x":0.5,"y":0.5}
 }],
 "meta": {
@@ -41,8 +32,8 @@
 	"version": "1.0",
 	"image": "state_start.png",
 	"format": "RGBA8888",
-	"size": {"w":1442,"h":1323},
+	"size": {"w":908,"h":721},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:3aebb9d2b97315b6985b190d5a652cf5:dd858fbc9744f64e26dc0e258cf351d6:71a2591e904cd80377f4aacc094ff22d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:fe556a02d620a7bc401faae0468be61f:714a165828a46faddbfa55e67aa43901:71a2591e904cd80377f4aacc094ff22d$"
 }
 }

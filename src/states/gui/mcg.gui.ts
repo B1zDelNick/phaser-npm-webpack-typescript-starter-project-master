@@ -62,7 +62,7 @@ export class GuiMcg implements IGui {
         this.playButton =
             GuiUtils.makeButton(
                 this.state, this.guiContainer,
-                -15, 590, 1,
+                -20, 560, 1.3,
                 '', asset, [0, 1, 0],
                 true, false, true, callback, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
@@ -110,7 +110,7 @@ export class GuiMcg implements IGui {
         this.moreButton =
             GuiUtils.makeButton(
                 this, this.guiContainer,
-                810, 590, 1,
+                765, 560, 1.3,
                 '', ImageUtils.getSpritesheetClass('SpritesheetsMoreMcg1651322').getName(), [0, 1, 0],
                 true, false, true, GuiUtils.goLinkMainMoreGames, GuiUtils.addOverHandlerMcg, GuiUtils.addOutHandlerMcg);
 
@@ -187,7 +187,7 @@ export class GuiMcg implements IGui {
                 this.state, this.guiContainer,
                 x, y, 1, frameRate, loop,
                 '', asset, frames,
-                true, false, true, callback, overHandler, outHandler);
+                true, true, true, callback, overHandler, outHandler);
 
         this.extras2.push(btn);
 

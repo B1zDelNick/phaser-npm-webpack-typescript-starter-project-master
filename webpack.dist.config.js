@@ -82,7 +82,7 @@ module.exports = {
             screw_ie8: true
         }),*/
         new HtmlWebpackPlugin({
-            title: 'Princess Social Media Model',
+            title: 'Princess BFF Fashion Blog',
             gaScript:
             `<script>
                 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

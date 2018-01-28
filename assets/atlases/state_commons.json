@@ -1,0 +1,57 @@
+{"frames": [
+
+{
+	"filename": "chest.png",
+	"frame": {"x":0,"y":0,"w":531,"h":727},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":531,"h":727},
+	"sourceSize": {"w":531,"h":727},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "photo_btn.png",
+	"frame": {"x":531,"y":0,"w":110,"h":113},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":110,"h":113},
+	"sourceSize": {"w":110,"h":113},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "shelf_1.png",
+	"frame": {"x":641,"y":0,"w":421,"h":20},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":421,"h":20},
+	"sourceSize": {"w":421,"h":20},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "shelf_2.png",
+	"frame": {"x":1062,"y":0,"w":424,"h":274},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":424,"h":274},
+	"sourceSize": {"w":424,"h":274},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "tablet.png",
+	"frame": {"x":1486,"y":0,"w":509,"h":720},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":509,"h":720},
+	"sourceSize": {"w":509,"h":720},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "state_commons.png",
+	"format": "RGBA8888",
+	"size": {"w":1995,"h":727},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:eb4324db796aab114a16522fa5e74196:352af471a07d27ec157333ae14b8d5b0:0d3dd93f363aefca6fa0a3e6bf08166e$"
+}
+}

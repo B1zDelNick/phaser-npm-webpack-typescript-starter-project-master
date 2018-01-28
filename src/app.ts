@@ -1,9 +1,3 @@
-// mport 'p2';
-// import 'pixi';
-// import 'phaser';
-// import 'ads';
-// import 'spriter';
-
 import * as WebFontLoader from 'webfontloader';
 
 import Boot from './states/boot';
@@ -49,11 +43,11 @@ function startApp(): void {
     let app = new App(gameConfig);
 
     GameConfig.init(
-        Sites.DRESSUP_MIX,
+        Sites.FREE_GAMES_CASUAL,
         PublishMode.NORMAL,
         AssetMode.LOAD_ALL,
         SaverTemplates.NONE,
-        'Princess Social Media Model');
+        'Princess BFF Fashion Blog');
 
     GameConfig.GAME = app;
     // app.stage.disableVisibilityChange = true;
