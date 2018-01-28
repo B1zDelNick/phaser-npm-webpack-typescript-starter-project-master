@@ -1,0 +1,30 @@
+{"frames": [
+
+{
+	"filename": "body.png",
+	"frame": {"x":0,"y":0,"w":775,"h":1813},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":775,"h":1813},
+	"sourceSize": {"w":775,"h":1813},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "h_6.png",
+	"frame": {"x":775,"y":0,"w":488,"h":821},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":488,"h":821},
+	"sourceSize": {"w":488,"h":821},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_make_avrora_3.png",
+	"format": "RGBA8888",
+	"size": {"w":1813,"h":1813},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:03e5c715eb42f77ec281561e1932be03:17badcf4bdbca7781bfde24fcc0ed4ca:ca63b5035795917e10678b7936f29370$"
+}
+}

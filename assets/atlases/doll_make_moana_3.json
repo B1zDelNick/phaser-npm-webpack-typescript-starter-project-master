@@ -1,0 +1,30 @@
+{"frames": [
+
+{
+	"filename": "body.png",
+	"frame": {"x":0,"y":0,"w":894,"h":1813},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":894,"h":1813},
+	"sourceSize": {"w":894,"h":1813},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "h_0.png",
+	"frame": {"x":894,"y":0,"w":491,"h":795},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":491,"h":795},
+	"sourceSize": {"w":491,"h":795},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_make_moana_3.png",
+	"format": "RGBA8888",
+	"size": {"w":1813,"h":1813},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:e86c888d0ad3fee2cc13db4d7531b72d:e8d610f1a4d0de9352b80c44d42f31d6:8d4038e06b029b78c0214a52543ebd48$"
+}
+}

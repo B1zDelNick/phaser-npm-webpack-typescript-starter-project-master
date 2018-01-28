@@ -1,0 +1,57 @@
+{"frames": [
+
+{
+	"filename": "h_0.png",
+	"frame": {"x":0,"y":0,"w":488,"h":821},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":488,"h":821},
+	"sourceSize": {"w":488,"h":821},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "h_1.png",
+	"frame": {"x":488,"y":0,"w":488,"h":821},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":488,"h":821},
+	"sourceSize": {"w":488,"h":821},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "h_3.png",
+	"frame": {"x":976,"y":0,"w":488,"h":821},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":488,"h":821},
+	"sourceSize": {"w":488,"h":821},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "h_4.png",
+	"frame": {"x":0,"y":821,"w":488,"h":821},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":488,"h":821},
+	"sourceSize": {"w":488,"h":821},
+	"pivot": {"x":0.5,"y":0.5}
+},
+{
+	"filename": "h_5.png",
+	"frame": {"x":488,"y":821,"w":488,"h":821},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":488,"h":821},
+	"sourceSize": {"w":488,"h":821},
+	"pivot": {"x":0.5,"y":0.5}
+}],
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "doll_make_avrora_2.png",
+	"format": "RGBA8888",
+	"size": {"w":1642,"h":1642},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:a2f7efba743f7ca987bb1cb6613eda41:42bceac6c4f7e74d8ff6b003e9367c93:40c5416fa05145c03e81468db28a3521$"
+}
+}

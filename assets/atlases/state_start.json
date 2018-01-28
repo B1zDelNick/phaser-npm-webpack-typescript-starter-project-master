@@ -2,47 +2,38 @@
 
 {
 	"filename": "gr_1.png",
-	"frame": {"x":0,"y":979,"w":381,"h":1047},
+	"frame": {"x":399,"y":0,"w":436,"h":1139},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":381,"h":1047},
-	"sourceSize": {"w":381,"h":1047},
+	"spriteSourceSize": {"x":0,"y":0,"w":436,"h":1139},
+	"sourceSize": {"w":436,"h":1139},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "gr_2.png",
-	"frame": {"x":665,"y":0,"w":292,"h":979},
+	"frame": {"x":835,"y":0,"w":607,"h":1159},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":292,"h":979},
-	"sourceSize": {"w":292,"h":979},
+	"spriteSourceSize": {"x":0,"y":0,"w":607,"h":1159},
+	"sourceSize": {"w":607,"h":1159},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
-	"filename": "gr_3.png",
-	"frame": {"x":381,"y":979,"w":549,"h":1061},
+	"filename": "label.png",
+	"frame": {"x":0,"y":1159,"w":968,"h":164},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":549,"h":1061},
-	"sourceSize": {"w":549,"h":1061},
-	"pivot": {"x":0.5,"y":0.5}
-},
-{
-	"filename": "spark.png",
-	"frame": {"x":0,"y":0,"w":54,"h":54},
-	"rotated": false,
-	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":54,"h":54},
-	"sourceSize": {"w":54,"h":54},
+	"spriteSourceSize": {"x":0,"y":0,"w":968,"h":164},
+	"sourceSize": {"w":968,"h":164},
 	"pivot": {"x":0.5,"y":0.5}
 },
 {
 	"filename": "title.png",
-	"frame": {"x":54,"y":0,"w":611,"h":217},
+	"frame": {"x":0,"y":0,"w":399,"h":310},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":611,"h":217},
-	"sourceSize": {"w":611,"h":217},
+	"spriteSourceSize": {"x":0,"y":0,"w":399,"h":310},
+	"sourceSize": {"w":399,"h":310},
 	"pivot": {"x":0.5,"y":0.5}
 }],
 "meta": {
@@ -50,8 +41,8 @@
 	"version": "1.0",
 	"image": "state_start.png",
 	"format": "RGBA8888",
-	"size": {"w":957,"h":2040},
+	"size": {"w":1442,"h":1323},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:9e1f6af38a488bb77975b42ab175ccfa:b957a060dc6bdaf6de3bf0aeba6c0451:71a2591e904cd80377f4aacc094ff22d$"
+	"smartupdate": "$TexturePacker:SmartUpdate:3aebb9d2b97315b6985b190d5a652cf5:dd858fbc9744f64e26dc0e258cf351d6:71a2591e904cd80377f4aacc094ff22d$"
 }
 }
